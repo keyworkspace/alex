@@ -6,6 +6,7 @@ tailwind.config = {
         'sky-light': '#7897AD',
         'sky-deep': '#4A6B84',
         ivory: '#F0EEDC',
+        cream: '#F5EFE0',
         ink: '#171717',
         vintage: '#C94B43',
         moss: '#8FB0A0'
