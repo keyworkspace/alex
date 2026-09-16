@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calendario — Alexander Hernández</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales-all.global.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { ink:'#0a0a0a', paper:'#fafafa', muted:'#6b7280', line:'#e5e5e5' },
+      fontFamily: { serif:['"Playfair Display"','Georgia','serif'], sans:['Inter','system-ui','sans-serif'] }
+    }}
+  };
+</script>
+<style>
+  ::selection { background:#0a0a0a; color:#fafafa; }
+  .fade-in { opacity:0; transform: translateY(12px); transition: all .7s ease; }
+  .fade-in.visible { opacity:1; transform: translateY(0); }
+
+  .fc { font-family: Inter, sans-serif; font-size: .9rem; }
+  .fc-toolbar-title { font-family: "Playfair Display", serif; font-weight: 500; }
+  .fc-button {
+    background:#fff !important; border-color:#e5e5e5 !important;
+    color:#0a0a0a !important; box-shadow:none !important;
+    text-transform: capitalize !important;
+  }
+  .fc-button-active { background:#0a0a0a !important; color:#fff !important; border-color:#0a0a0a !important; }
+  .fc-daygrid-event { border-radius:4px; padding:2px 4px; border:none; }
+  .fc-list-event:hover td { background:#fafafa; }
+  .filtro-btn.activo { border-color:#0a0a0a; background:#f5f5f5; }
+</style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+
+<header class="border-b border-line sticky top-0 bg-paper/90 backdrop-blur z-40">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-5 text-sm">
+    <a href="index.html" class="font-serif text-lg tracking-tight">Alexander</a>
+    <button id="menu-btn" class="md:hidden text-muted text-xl">☰</button>
+    <ul class="hidden md:flex gap-6 text-muted">
+      <li><a href="sobre-mi.html" class="hover:text-ink">Sobre mí</a></li>
+      <li><a href="trayectoria.html" class="hover:text-ink">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="hover:text-ink">Proyectos</a></li>
+      <li><a href="formacion.html" class="hover:text-ink">Formación</a></li>
+      <li><a href="ideas.html" class="hover:text-ink">Ideas</a></li>
+      <li><a href="archivo.html" class="hover:text-ink">Archivo</a></li>
+      <li><a href="calendario.html" class="text-ink">Calendario</a></li>
+      <li><a href="contacto.html" class="hover:text-ink">Contacto</a></li>
+    </ul>
+  </nav>
+  <ul id="menu-mobile" class="hidden md:hidden flex-col gap-3 px-6 pb-5 text-muted text-sm">
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="trayectoria.html">Trayectoria</a></li>
+    <li><a href="proyectos.html">Proyectos</a></li>
+    <li><a href="formacion.html">Formación</a></li>
+    <li><a href="ideas.html">Ideas</a></li>
+    <li><a href="archivo.html">Archivo</a></li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</header>
+
+<main>
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="font-serif text-5xl mb-3 fade-in">Calendario</h1>
+    <p class="text-muted mb-8 fade-in">Fechas importantes, divididas por categoría.</p>
+
+    <div id="filtros" class="flex flex-wrap gap-2 mb-6 fade-in"></div>
+    <div id="calendario-mount" class="border border-line rounded-lg p-4 bg-white"></div>
+
+    <div class="mt-12 fade-in">
+      <h2 class="font-serif text-2xl mb-4">Próximos eventos</h2>
+      <ul id="proximos" class="divide-y divide-line"></ul>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line mt-24">
+  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-muted flex flex-col md:flex-row justify-between gap-2">
+    <span>© <span id="year"></span> Alexander Hernández</span>
+    <span>El Salvador 🇸🇻</span>
+  </div>
+</footer>
+
+<script>
+  const CATEGORIAS = {
+    academico:   { nombre: 'Académico',   color: '#4A90D9' },
+    personal:    { nombre: 'Personal',    color: '#F4A6C0' },
+    lanzamiento: { nombre: 'Lanzamiento', color: '#D4AF37' },
+    redes:       { nombre: 'Redes',       color: '#B39DDB' },
+    viaje:       { nombre: 'Viaje',       color: '#81C784' }
+  };
+
+  const EVENTOS = [
+    { title: 'Primera entrada del blog', date: '2026-09-20', category: 'lanzamiento', description: 'Publico el primer post de Ideas.' },
+    { title: 'Entrega de proyecto final', date: '2026-10-05', category: 'academico', description: 'Presentación del proyecto de contabilidad.' },
+    { title: 'Inicio de clases — Psicología UGB', date: '2027-01-15', category: 'academico', description: 'Comienzo de la licenciatura.' },
+    { title: 'Cumpleaños', date: '2027-02-03', category: 'personal', description: 'Un año más.' }
+  ];
+
+  document.getElementById('filtros').innerHTML = Object.entries(CATEGORIAS).map(([key, cat]) => `
+    <button data-cat="${key}" class="filtro-btn border border-line rounded-full px-4 py-1.5 text-sm hover:bg-paper transition flex items-center">
+      <span class="inline-block w-2 h-2 rounded-full mr-2" style="background:${cat.color}"></span>${cat.nombre}
+    </button>
+  `).join('');
+
+  const esMovil = window.matchMedia('(max-width: 640px)').matches;
+  const calendar = new FullCalendar.Calendar(document.getElementById('calendario-mount'), {
+    initialView: esMovil ? 'listMonth' : 'dayGridMonth',
+    locale: 'es',
+    firstDay: 1,
+    buttonText: { today: 'Hoy', month: 'Mes', list: 'Lista' },
+    events: EVENTOS.map(e => ({
+      title: e.title,
+      start: e.date,
+      color: CATEGORIAS[e.category]?.color,
+      extendedProps: { category: e.category, description: e.description }
+    })),
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: esMovil ? 'listMonth,dayGridMonth' : 'dayGridMonth,listMonth'
+    },
+    eventClick(info) {
+      const d = info.event.extendedProps.description;
+      if (d) alert(`${info.event.title}\n\n${d}`);
+    }
+  });
+  calendar.render();
+
+  document.querySelectorAll('.filtro-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.cat;
+      const activo = btn.classList.toggle('activo');
+      calendar.getEvents().forEach(ev => {
+        if (ev.extendedProps.category === cat) {
+          ev.setProp('display', activo ? 'auto' : 'none');
+        }
+      });
+    });
+  });
+
+  const hoy = new Date().toISOString().slice(0, 10);
+  const proximos = EVENTOS
+    .filter(e => e.date >= hoy)
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .slice(0, 5);
+
+  document.getElementById('proximos').innerHTML = proximos.length
+    ? proximos.map(e => `
+        <li class="py-3 flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full" style="background:${CATEGORIAS[e.category].color}"></span>
+            ${e.title}
+          </span>
+          <span class="text-sm text-muted">${e.date}</span>
+        </li>`).join('')
+    : '<li class="py-3 text-muted">No hay eventos próximos.</li>';
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('menu-btn')?.addEventListener('click', () => document.getElementById('menu-mobile')?.classList.toggle('hidden'));
+  const obs = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
