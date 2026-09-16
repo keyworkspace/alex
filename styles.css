@@ -466,7 +466,7 @@ main { display: block; }
 .hero__rail-track {
   display: flex; gap: 0.9rem;
   height: 100%;
-  animation: railScroll 40s linear infinite;
+  animation: railScroll 18s linear infinite;
 }
 @keyframes railScroll {
   from { transform: translateX(0); }
