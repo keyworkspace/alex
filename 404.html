@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 — Alex Workspace</title>
+  <title>404 · Alex Workspace</title>
   <meta name="description" content="Página no encontrada." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236789A2'/%3E%3Ctext x='50' y='52' font-family='Georgia, serif' font-size='72' font-style='italic' fill='%23F0EEDC' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -20,50 +21,46 @@
     <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8 py-5">
       <a href="index.html" class="font-display text-2xl md:text-3xl text-ivory tracking-wide">Alex Workspace</a>
       <button id="menu-btn" class="md:hidden text-ivory text-2xl" aria-label="Menú">☰</button>
-      <ul class="hidden md:flex gap-7 text-sm text-ivory/70 font-sans">
-        <li><a href="sobre-mi.html" class="hover:text-ivory transition">Sobre mí</a></li>
-        <li><a href="trayectoria.html" class="hover:text-ivory transition">Trayectoria</a></li>
-        <li><a href="proyectos.html" class="hover:text-ivory transition">Proyectos</a></li>
-        <li><a href="formacion.html" class="hover:text-ivory transition">Formación</a></li>
-        <li><a href="ideas.html" class="hover:text-ivory transition">Ideas</a></li>
-        <li><a href="archivo.html" class="hover:text-ivory transition">Archivo</a></li>
-        <li><a href="calendario.html" class="hover:text-ivory transition">Calendario</a></li>
-        <li><a href="contacto.html" class="hover:text-ivory transition">Contacto</a></li>
+      <ul class="hidden md:flex gap-8 text-sm text-ivory/70 font-sans">
+        <li><a href="index.html" class="nav-link hover:text-ivory">Inicio</a></li>
+        <li><a href="sobre-mi.html" class="nav-link hover:text-ivory">Sobre mí</a></li>
+        <li><a href="calendario.html" class="nav-link hover:text-ivory">Calendario</a></li>
+        <li><a href="contacto.html" class="nav-link hover:text-ivory">Contacto</a></li>
       </ul>
     </nav>
     <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 text-ivory/70 text-sm font-sans">
+      <li><a href="index.html" class="hover:text-ivory">Inicio</a></li>
       <li><a href="sobre-mi.html" class="hover:text-ivory">Sobre mí</a></li>
-      <li><a href="trayectoria.html" class="hover:text-ivory">Trayectoria</a></li>
-      <li><a href="proyectos.html" class="hover:text-ivory">Proyectos</a></li>
-      <li><a href="formacion.html" class="hover:text-ivory">Formación</a></li>
-      <li><a href="ideas.html" class="hover:text-ivory">Ideas</a></li>
-      <li><a href="archivo.html" class="hover:text-ivory">Archivo</a></li>
       <li><a href="calendario.html" class="hover:text-ivory">Calendario</a></li>
       <li><a href="contacto.html" class="hover:text-ivory">Contacto</a></li>
     </ul>
   </header>
 
   <main class="flex-1">
-    <section class="max-w-3xl mx-auto px-5 md:px-8 py-24 md:py-32">
+    <section class="relative max-w-3xl mx-auto px-5 md:px-8 py-24 md:py-32">
+      <svg class="absolute top-16 right-6 md:right-12 w-28 md:w-40 text-ivory" viewBox="0 0 200 60" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true">
+        <path class="bird" d="M10 30 Q20 20 30 30 Q40 20 50 30" />
+        <path class="bird" d="M80 15 Q88 8 96 15 Q104 8 112 15" />
+        <path class="bird" d="M140 35 Q146 30 152 35 Q158 30 164 35" />
+      </svg>
+
       <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-6 fade-in">Error 404</p>
       <h1 class="font-display text-7xl md:text-9xl text-ivory leading-[0.9] mb-6 fade-in">Esta página<br />no existe.</h1>
       <p class="font-display text-2xl md:text-3xl text-ivory/60 mb-14 fade-in">tal vez la moví, tal vez nunca estuvo aquí</p>
 
       <div class="flex flex-wrap gap-3 fade-in mb-16">
-        <a href="index.html" class="font-sans text-sm bg-ivory text-sky px-7 py-3 rounded-full hover:bg-vintage hover:text-ivory transition">Volver al inicio</a>
-        <a href="proyectos.html" class="font-sans text-sm border border-ivory/30 text-ivory px-7 py-3 rounded-full hover:border-ivory transition">Ver proyectos</a>
-        <a href="contacto.html" class="font-sans text-sm border border-ivory/30 text-ivory px-7 py-3 rounded-full hover:border-ivory transition">Contacto</a>
+        <a href="index.html" class="btn-primary font-sans text-sm px-7 py-3 rounded-full">Volver al inicio</a>
+        <a href="calendario.html" class="btn-secondary font-sans text-sm px-7 py-3 rounded-full">Ver calendario</a>
+        <a href="contacto.html" class="btn-secondary font-sans text-sm px-7 py-3 rounded-full">Contacto</a>
       </div>
 
       <div class="pt-10 border-t border-ivory/10 fade-in">
         <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Quizá buscabas</p>
         <ul class="grid md:grid-cols-2 gap-3 text-sm text-ivory/70 font-sans">
-          <li><a href="sobre-mi.html" class="hover:text-ivory transition">→ Sobre mí</a></li>
-          <li><a href="trayectoria.html" class="hover:text-ivory transition">→ Trayectoria</a></li>
-          <li><a href="formacion.html" class="hover:text-ivory transition">→ Formación</a></li>
-          <li><a href="archivo.html" class="hover:text-ivory transition">→ Archivo</a></li>
-          <li><a href="calendario.html" class="hover:text-ivory transition">→ Calendario</a></li>
-          <li><a href="index.html" class="hover:text-ivory transition">→ Inicio</a></li>
+          <li><a href="index.html" class="footer-link">→ Inicio</a></li>
+          <li><a href="sobre-mi.html" class="footer-link">→ Sobre mí</a></li>
+          <li><a href="calendario.html" class="footer-link">→ Calendario</a></li>
+          <li><a href="contacto.html" class="footer-link">→ Contacto</a></li>
         </ul>
       </div>
     </section>
@@ -71,7 +68,7 @@
 
   <footer class="site-footer">
     <div class="max-w-6xl mx-auto px-5 md:px-8 py-14">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-10 mb-12">
         <div class="col-span-2 md:col-span-1">
           <p class="font-display text-2xl text-ivory mb-3">Alex Workspace</p>
           <p class="text-xs text-ivory/50 leading-relaxed font-sans">Nostalgia convertida en libertad.</p>
@@ -79,35 +76,28 @@
         <div>
           <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Navegación</p>
           <ul class="space-y-2 text-sm text-ivory/70 font-sans">
-            <li><a href="index.html" class="hover:text-ivory transition">Inicio</a></li>
-            <li><a href="sobre-mi.html" class="hover:text-ivory transition">Sobre mí</a></li>
-            <li><a href="trayectoria.html" class="hover:text-ivory transition">Trayectoria</a></li>
-            <li><a href="proyectos.html" class="hover:text-ivory transition">Proyectos</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Recursos</p>
-          <ul class="space-y-2 text-sm text-ivory/70 font-sans">
-            <li><a href="formacion.html" class="hover:text-ivory transition">Formación</a></li>
-            <li><a href="ideas.html" class="hover:text-ivory transition">Ideas</a></li>
-            <li><a href="archivo.html" class="hover:text-ivory transition">Archivo</a></li>
-            <li><a href="calendario.html" class="hover:text-ivory transition">Calendario</a></li>
+            <li><a href="index.html" class="footer-link">Inicio</a></li>
+            <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
+            <li><a href="calendario.html" class="footer-link">Calendario</a></li>
+            <li><a href="contacto.html" class="footer-link">Contacto</a></li>
           </ul>
         </div>
         <div>
           <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Contacto</p>
           <ul class="space-y-2 text-sm text-ivory/70 font-sans mb-5">
-            <li><a href="contacto.html" class="hover:text-ivory transition">Hablemos</a></li>
-            <li><a href="cv.pdf" class="hover:text-ivory transition">Currículum</a></li>
+            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a></li>
+            <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link">Instagram</a></li>
+            <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">CV en LinkedIn</a></li>
           </ul>
           <div class="flex gap-3">
-            <a href="https://linkedin.com/in/TUUSUARIO" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-ivory/60 hover:text-vintage transition">
+            <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon text-ivory/60">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
-            <a href="https://instagram.com/TUUSUARIO" target="_blank" rel="noopener" aria-label="Instagram" class="text-ivory/60 hover:text-vintage transition">
+            <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon text-ivory/60">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="mailto:tu@correo.com" aria-label="Email" class="text-ivory/60 hover:text-vintage transition">
+            <a href="mailto:alexhrnndz32@gmail.com" aria-label="Email" class="social-icon text-ivory/60">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </a>
           </div>
@@ -115,7 +105,7 @@
       </div>
       <div class="pt-6 border-t border-ivory/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-ivory/40 font-sans">
         <span>© <span id="year"></span> Alex Workspace</span>
-        <span>El Salvador · 2026</span>
+        <span>El Salvador</span>
       </div>
     </div>
   </footer>
