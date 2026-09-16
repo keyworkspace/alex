@@ -1,8 +1,6 @@
 /* ============================================================
-   ALEX WORKSPACE — inspirado en el sistema visual de UEES
+   ALEX WORKSPACE
    ============================================================ */
-
-/* ---------- DATOS ---------- */
 
 const CATEGORIAS = {
   academico:     { nombre: 'Académico',     color: '#4B2E83' },
@@ -11,22 +9,14 @@ const CATEGORIAS = {
   personal:      { nombre: 'Personal',      color: '#EF3F3F' }
 };
 
-/*
-   EVENTOS — agrega aquí tus fechas importantes
-   Categorías: academico · internacional · nacional · personal
-   Formato: { title, date (YYYY-MM-DD), category, description (opcional) }
-*/
 const EVENTOS = [
   { title: 'Día de la Independencia', date: '2026-09-15', category: 'nacional' },
   { title: 'Día Mundial del Psicólogo', date: '2026-10-13', category: 'internacional' }
 ];
 
-/* ---------- LÓGICA ---------- */
-
 (function () {
   'use strict';
 
-  /* ---------- Loader ---------- */
   const loader = document.getElementById('loader');
   if (loader) {
     const hide = () => setTimeout(() => loader.classList.add('done'), 400);
@@ -34,18 +24,15 @@ const EVENTOS = [
     else window.addEventListener('load', hide);
   }
 
-  /* ---------- Año ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Menú móvil ---------- */
   const menuBtn = document.getElementById('menu-btn');
   const menuMobile = document.getElementById('menu-mobile');
   if (menuBtn && menuMobile) {
     menuBtn.addEventListener('click', () => menuMobile.classList.toggle('hidden'));
   }
 
-  /* ---------- Fade-in ---------- */
   const fadeElements = document.querySelectorAll('.fade-in');
   if ('IntersectionObserver' in window && fadeElements.length) {
     const observer = new IntersectionObserver((entries) => {
@@ -61,7 +48,6 @@ const EVENTOS = [
     fadeElements.forEach((el) => el.classList.add('visible'));
   }
 
-  /* ---------- Scroll progress ---------- */
   const progress = document.getElementById('scroll-progress');
   if (progress) {
     const update = () => {
@@ -72,7 +58,6 @@ const EVENTOS = [
     update();
   }
 
-  /* ---------- Header ---------- */
   const header = document.querySelector('.site-header');
   if (header) {
     const onScroll = () => {
@@ -83,7 +68,6 @@ const EVENTOS = [
     onScroll();
   }
 
-  /* ---------- Cursor ---------- */
   (function initCursor() {
     const isDesktop = window.matchMedia('(hover: hover) and (min-width: 901px)').matches;
     if (!isDesktop) return;
@@ -92,8 +76,8 @@ const EVENTOS = [
     cursor.className = 'cursor';
     document.body.appendChild(cursor);
 
-    const OFFSET_X = 38;
-    const OFFSET_Y = 38;
+    const OFFSET_X = 30;
+    const OFFSET_Y = 30;
 
     let mx = window.innerWidth / 2;
     let my = window.innerHeight / 2;
@@ -124,7 +108,6 @@ const EVENTOS = [
     document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
   })();
 
-  /* ---------- FAQ ---------- */
   document.querySelectorAll('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
@@ -134,7 +117,6 @@ const EVENTOS = [
     });
   });
 
-  /* ---------- Calendario ---------- */
   const calendarMount = document.getElementById('calendario-mount');
   const filtrosEl = document.getElementById('filtros');
   const proximosEl = document.getElementById('proximos');
@@ -144,7 +126,7 @@ const EVENTOS = [
       filtrosEl.innerHTML = Object.keys(CATEGORIAS).map((key) => {
         const cat = CATEGORIAS[key];
         return `
-          <button data-cat="${key}" class="filtro-btn border border-ink/15 text-ink/80 rounded-full px-4 py-2 hover:bg-ink/5 flex items-center text-xs uppercase tracking-wider">
+          <button data-cat="${key}" class="filtro-btn border border-ink/15 text-ink/80 rounded-full hover:bg-ink/5 flex items-center">
             <span class="inline-block w-2 h-2 rounded-full mr-2" style="background:${cat.color}"></span>${cat.nombre}
           </button>`;
       }).join('');
@@ -192,13 +174,13 @@ const EVENTOS = [
       const proximos = EVENTOS.filter((e) => e.date >= hoy).sort((a, b) => a.date.localeCompare(b.date)).slice(0, 5);
       proximosEl.innerHTML = proximos.length
         ? proximos.map((e) => `
-            <li class="py-5 flex items-center justify-between border-b border-ink/10">
-              <span class="flex items-center gap-3 text-ink font-medium">
+            <li class="py-4 flex items-center justify-between border-b border-white/10">
+              <span class="flex items-center gap-3 text-white font-medium text-sm">
                 <span class="w-2 h-2 rounded-full" style="background:${CATEGORIAS[e.category].color}"></span>${e.title}
               </span>
-              <span class="mono text-ink/50">${e.date}</span>
+              <span class="mono text-white/50">${e.date}</span>
             </li>`).join('')
-        : '<li class="py-5 text-ink/50 text-sm">Aún no hay fechas registradas.</li>';
+        : '<li class="py-4 text-white/50 text-sm">Aún no hay fechas registradas.</li>';
     }
   }
 })();
