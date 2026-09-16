@@ -1,14 +1,14 @@
 /* ============================================================
-   ALEX WORKSPACE
+   ALEX WORKSPACE — inspirado en el sistema visual de UEES
    ============================================================ */
 
 /* ---------- DATOS ---------- */
 
 const CATEGORIAS = {
-  academico:     { nombre: 'Académico',     color: '#7897AD' },
-  internacional: { nombre: 'Internacional', color: '#4A6B84' },
-  nacional:      { nombre: 'Nacional',      color: '#8FB0A0' },
-  personal:      { nombre: 'Personal',      color: '#C94B43' }
+  academico:     { nombre: 'Académico',     color: '#4B2E83' },
+  internacional: { nombre: 'Internacional', color: '#2D1147' },
+  nacional:      { nombre: 'Nacional',      color: '#FF9142' },
+  personal:      { nombre: 'Personal',      color: '#EF3F3F' }
 };
 
 /*
@@ -29,7 +29,7 @@ const EVENTOS = [
   /* ---------- Loader ---------- */
   const loader = document.getElementById('loader');
   if (loader) {
-    const hide = () => setTimeout(() => loader.classList.add('done'), 300);
+    const hide = () => setTimeout(() => loader.classList.add('done'), 400);
     if (document.readyState === 'complete') hide();
     else window.addEventListener('load', hide);
   }
@@ -76,7 +76,7 @@ const EVENTOS = [
   const header = document.querySelector('.site-header');
   if (header) {
     const onScroll = () => {
-      if (window.scrollY > 30) header.classList.add('scrolled');
+      if (window.scrollY > 40) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -114,7 +114,7 @@ const EVENTOS = [
     }
     loop();
 
-    const interactive = 'a, button, .btn-circle, .grain-card, .faq-question, .btn-primary, .btn-secondary, .social-icon, .filtro-btn, input, textarea';
+    const interactive = 'a, button, .btn-circle, .card-uees, .faq-question, .btn-primary, .btn-secondary, .btn-nav, .social-icon, .filtro-btn, input, textarea';
     document.querySelectorAll(interactive).forEach((el) => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
@@ -122,47 +122,6 @@ const EVENTOS = [
 
     document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
     document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
-  })();
-
-  /* ---------- Aves ---------- */
-  (function initBirds() {
-    const hero = document.querySelector('[data-birds]');
-    if (!hero) return;
-    const track = document.createElement('div');
-    track.className = 'birds-track';
-    track.setAttribute('aria-hidden', 'true');
-    for (let i = 1; i <= 4; i++) {
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.setAttribute('viewBox', '0 0 200 60');
-      svg.setAttribute('stroke-width', '1.4');
-      svg.setAttribute('stroke-linecap', 'round');
-      svg.classList.add('bird', 'bird-' + i);
-      svg.innerHTML = '<path d="M10 30 Q25 15 40 30 Q55 15 70 30" />';
-      track.appendChild(svg);
-    }
-    hero.appendChild(track);
-  })();
-
-  /* ---------- Letras del hero ---------- */
-  (function initHeroLetters() {
-    const titles = document.querySelectorAll('.hero-title');
-    if (!titles.length) return;
-    titles.forEach((title) => {
-      const lines = title.querySelectorAll('.line');
-      let index = 0;
-      lines.forEach((line) => {
-        const text = line.textContent;
-        line.textContent = '';
-        [...text].forEach((char) => {
-          const span = document.createElement('span');
-          span.className = 'hero-letter';
-          span.textContent = char === ' ' ? '\u00A0' : char;
-          span.style.animationDelay = (index * 0.05) + 's';
-          line.appendChild(span);
-          index++;
-        });
-      });
-    });
   })();
 
   /* ---------- FAQ ---------- */
@@ -185,7 +144,7 @@ const EVENTOS = [
       filtrosEl.innerHTML = Object.keys(CATEGORIAS).map((key) => {
         const cat = CATEGORIAS[key];
         return `
-          <button data-cat="${key}" class="filtro-btn font-sans text-[10px] uppercase tracking-[0.2em] border border-ink/20 text-ink/80 rounded-full px-4 py-2 hover:bg-ink/5 flex items-center">
+          <button data-cat="${key}" class="filtro-btn border border-ink/15 text-ink/80 rounded-full px-4 py-2 hover:bg-ink/5 flex items-center text-xs uppercase tracking-wider">
             <span class="inline-block w-2 h-2 rounded-full mr-2" style="background:${cat.color}"></span>${cat.nombre}
           </button>`;
       }).join('');
@@ -200,8 +159,8 @@ const EVENTOS = [
       events: EVENTOS.map((e) => ({
         title: e.title,
         start: e.date,
-        color: CATEGORIAS[e.category] ? CATEGORIAS[e.category].color : '#7897AD',
-        textColor: '#F0EEDC',
+        color: CATEGORIAS[e.category] ? CATEGORIAS[e.category].color : '#4B2E83',
+        textColor: '#ffffff',
         extendedProps: { category: e.category, description: e.description }
       })),
       headerToolbar: {
@@ -234,12 +193,12 @@ const EVENTOS = [
       proximosEl.innerHTML = proximos.length
         ? proximos.map((e) => `
             <li class="py-5 flex items-center justify-between border-b border-ink/10">
-              <span class="flex items-center gap-3 text-ink">
+              <span class="flex items-center gap-3 text-ink font-medium">
                 <span class="w-2 h-2 rounded-full" style="background:${CATEGORIAS[e.category].color}"></span>${e.title}
               </span>
-              <span class="font-sans text-xs text-ink/50">${e.date}</span>
+              <span class="mono text-ink/50">${e.date}</span>
             </li>`).join('')
-        : '<li class="py-5 text-ink/50 font-sans text-sm">Aún no hay fechas registradas.</li>';
+        : '<li class="py-5 text-ink/50 text-sm">Aún no hay fechas registradas.</li>';
     }
   }
 })();
