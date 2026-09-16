@@ -2,19 +2,20 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        sky: '#6789A2',
-        'sky-light': '#7897AD',
-        'sky-deep': '#4A6B84',
-        ivory: '#F0EEDC',
-        cream: '#F5EFE0',
-        ink: '#171717',
-        vintage: '#C94B43',
-        moss: '#8FB0A0'
+        purple: {
+          DEFAULT: '#4B2E83',
+          dark: '#2D1147'
+        },
+        papaya: '#FF9142',
+        sky: '#C6DEF1',
+        gray: '#F4F4F4',
+        yellow: '#FCD34D',
+        red: '#EF3F3F',
+        ink: '#0E0E0E'
       },
       fontFamily: {
-        display: ['Caveat', 'cursive'],
-        serif: ['Lora', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif']
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace']
       }
     }
   }
