@@ -75,52 +75,45 @@ const EVENTOS = [
     onScroll();
   }
 
-  /* ---------- Cursor personalizado (solo desktop) ---------- */
+  /* ---------- Cursor personalizado (una sola pelotilla) ---------- */
   (function initCursor() {
     const isDesktop = window.matchMedia('(hover: hover) and (min-width: 901px)').matches;
     if (!isDesktop) return;
 
-    const dot = document.createElement('div');
-    dot.className = 'cursor-dot';
-    const ring = document.createElement('div');
-    ring.className = 'cursor-ring';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor';
+    document.body.appendChild(cursor);
 
     let mx = window.innerWidth / 2;
     let my = window.innerHeight / 2;
-    let rx = mx;
-    let ry = my;
+    let cx = mx, cy = my;
 
     window.addEventListener('mousemove', (e) => {
       mx = e.clientX;
       my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
+      cursor.classList.add('visible');
     });
 
     function loop() {
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
+      cx += (mx - cx) * 0.22;
+      cy += (my - cy) * 0.22;
+      cursor.style.left = cx + 'px';
+      cursor.style.top = cy + 'px';
       requestAnimationFrame(loop);
     }
     loop();
 
-    const interactive = 'a, button, .grain-card, .btn-primary, .btn-secondary, .social-icon, input, textarea';
+    const interactive = 'a, button, .grain-card, .btn-primary, .btn-secondary, .social-icon, .filtro-btn, input, textarea';
     document.querySelectorAll(interactive).forEach((el) => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
     });
 
     document.addEventListener('mouseleave', () => {
-      dot.style.opacity = '0';
-      ring.style.opacity = '0';
+      cursor.classList.remove('visible');
     });
     document.addEventListener('mouseenter', () => {
-      dot.style.opacity = '1';
-      ring.style.opacity = '0.6';
+      cursor.classList.add('visible');
     });
   })();
 
