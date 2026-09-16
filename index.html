@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Alex Workspace</title>
-  <meta name="description" content="Nostalgia convertida en libertad. Un espacio personal de Alexander Hernández." />
+  <title>Sobre mí · Alex Workspace</title>
+  <meta name="description" content="Quién soy, mi enfoque y en qué estoy ahora." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236789A2'/%3E%3Ctext x='50' y='52' font-family='Georgia, serif' font-size='72' font-style='italic' fill='%23F0EEDC' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,22 +15,27 @@
 </head>
 <body>
 
+  <div class="loader" id="loader">
+    <div class="loader-monogram">A</div>
+    <div class="loader-bar"></div>
+  </div>
+
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <header class="site-header sticky top-0 z-40 border-b border-ivory/10">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8 py-5">
-      <a href="index.html" class="font-display text-2xl md:text-3xl text-ivory tracking-wide">Alex Workspace</a>
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8">
+      <a href="index.html" class="font-display text-3xl text-ivory tracking-wide">Alex Workspace</a>
       <button id="menu-btn" class="md:hidden text-ivory text-2xl" aria-label="Menú">☰</button>
       <ul class="hidden md:flex gap-8 text-sm text-ivory/70 font-sans">
-        <li><a href="index.html" class="nav-link active text-ivory">Inicio</a></li>
-        <li><a href="sobre-mi.html" class="nav-link hover:text-ivory">Sobre mí</a></li>
+        <li><a href="index.html" class="nav-link hover:text-ivory">Inicio</a></li>
+        <li><a href="sobre-mi.html" class="nav-link active text-ivory">Sobre mí</a></li>
         <li><a href="calendario.html" class="nav-link hover:text-ivory">Calendario</a></li>
         <li><a href="contacto.html" class="nav-link hover:text-ivory">Contacto</a></li>
       </ul>
     </nav>
-    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 text-ivory/70 text-sm font-sans">
+    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 pt-3 text-ivory/70 text-sm font-sans">
       <li><a href="index.html" class="hover:text-ivory">Inicio</a></li>
-      <li><a href="sobre-mi.html" class="hover:text-ivory">Sobre mí</a></li>
+      <li><a href="sobre-mi.html" class="text-ivory">Sobre mí</a></li>
       <li><a href="calendario.html" class="hover:text-ivory">Calendario</a></li>
       <li><a href="contacto.html" class="hover:text-ivory">Contacto</a></li>
     </ul>
@@ -38,57 +43,113 @@
 
   <main class="flex-1">
 
-    <section data-birds class="relative max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-24 overflow-hidden">
-
-      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-8 fade-in">El Salvador · MMXXVI</p>
-
-      <h1 class="hero-title font-display text-[5.5rem] leading-[0.9] md:text-[9rem] md:leading-[0.85] text-ivory mb-6">
-        <span class="line">Alexander</span>
-        <span class="line">Hernández</span>
+    <!-- HERO -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-16">
+      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-8 fade-in">Sobre mí</p>
+      <h1 class="font-display text-6xl md:text-[9rem] text-ivory leading-[0.9] mb-6 fade-in">
+        Quién soy
       </h1>
-
-      <p class="font-display text-2xl md:text-3xl text-ivory/70 mb-14 fade-in">
-        somewhere between memory and movement
+      <p class="font-display text-2xl md:text-3xl text-ivory/70 fade-in max-w-2xl">
+        a collection of moments
       </p>
+    </section>
 
-      <div class="flex flex-wrap gap-3 fade-in">
-        <a href="sobre-mi.html" class="btn-primary font-sans text-sm px-7 py-3 rounded-full">Conocerme</a>
-        <a href="calendario.html" class="btn-secondary font-sans text-sm px-7 py-3 rounded-full">Ver calendario</a>
-        <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="btn-secondary font-sans text-sm px-7 py-3 rounded-full">LinkedIn</a>
+    <!-- BLOQUE QUIÉN SOY -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 py-10 fade-in">
+      <div class="block-rounded bg-cream text-ink p-8 md:p-16">
+        <div class="grid md:grid-cols-3 gap-10">
+          <div>
+            <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ink/50 mb-4">01</p>
+            <h2 class="font-display text-4xl text-ink leading-tight">Quién soy</h2>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-lg md:text-xl text-ink/80 leading-relaxed">
+              Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos, Psicología, desarrollo organizacional y proyectos con impacto social.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-5 md:px-8 pb-24">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="grain-card fade-in rounded-2xl border border-ivory/15 bg-ivory/5 p-7">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-4">Ahora</p>
-          <p class="font-display text-3xl text-ivory mb-2">Estudiante</p>
-          <p class="text-sm text-ivory/70 leading-relaxed">Bachillerato Técnico Vocacional Administrativo Contable y Programa Oportunidades.</p>
-        </div>
-        <div class="grain-card fade-in rounded-2xl border border-ivory/15 bg-ivory/5 p-7">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-4">Intereses</p>
-          <p class="font-display text-3xl text-ivory mb-2">Personas</p>
-          <p class="text-sm text-ivory/70 leading-relaxed">Psicología, Recursos Humanos y desarrollo organizacional.</p>
-        </div>
-        <div class="grain-card fade-in rounded-2xl border border-ivory/15 bg-ivory/5 p-7">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-4">Construyendo</p>
-          <p class="font-display text-3xl text-ivory mb-2">Proyectos</p>
-          <p class="text-sm text-ivory/70 leading-relaxed">Iniciativas personales y colaborativas en marcha.</p>
+    <!-- BLOQUE ACTUALMENTE -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 py-10 fade-in">
+      <div class="block-rounded bg-cream text-ink p-8 md:p-16">
+        <div class="grid md:grid-cols-3 gap-10">
+          <div>
+            <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ink/50 mb-4">02</p>
+            <h2 class="font-display text-4xl text-ink leading-tight">Actualmente</h2>
+          </div>
+          <div class="md:col-span-2">
+            <ul class="space-y-4 text-lg text-ink/80">
+              <li class="pb-4 border-b border-ink/10">· Bachillerato Técnico Vocacional Administrativo Contable</li>
+              <li class="pb-4 border-b border-ink/10">· Instituto Nacional de Yamabal</li>
+              <li class="pb-4 border-b border-ink/10">· Programa Oportunidades · Fundación Gloria Kriete</li>
+              <li>· Fundador de proyectos digitales y organizacionales</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- BLOQUE ENFOQUE -->
+    <section class="max-w-6xl mx-auto px-5 md:px-8 py-10 fade-in">
+      <div class="block-rounded bg-ink text-ivory p-8 md:p-16">
+        <div class="grid md:grid-cols-3 gap-10 mb-10">
+          <div>
+            <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/40 mb-4">03</p>
+            <h2 class="font-display text-4xl text-ivory leading-tight">Mi enfoque</h2>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-lg text-ivory/80 leading-relaxed">
+              Cuatro ideas que guían cómo pienso las cosas.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-ivory/5 border border-ivory/15 rounded-[32px] p-8">
+            <h3 class="font-display text-3xl text-ivory mb-3">Personas</h3>
+            <p class="text-sm text-ivory/70 leading-relaxed">Comprender cómo las personas se desarrollan, trabajan y toman decisiones.</p>
+          </div>
+          <div class="bg-ivory/5 border border-ivory/15 rounded-[32px] p-8">
+            <h3 class="font-display text-3xl text-ivory mb-3">Organizaciones</h3>
+            <p class="text-sm text-ivory/70 leading-relaxed">Cómo las estructuras, culturas y procesos afectan a las personas.</p>
+          </div>
+          <div class="bg-ivory/5 border border-ivory/15 rounded-[32px] p-8">
+            <h3 class="font-display text-3xl text-ivory mb-3">Estrategia</h3>
+            <p class="text-sm text-ivory/70 leading-relaxed">Convertir ideas en proyectos concretos y sostenibles.</p>
+          </div>
+          <div class="bg-ivory/5 border border-ivory/15 rounded-[32px] p-8">
+            <h3 class="font-display text-3xl text-ivory mb-3">Aprendizaje</h3>
+            <p class="text-sm text-ivory/70 leading-relaxed">Construir continuamente mi formación académica y personal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIG SCROLLING TEXT -->
+    <section class="py-16 overflow-hidden fade-in">
+      <div class="big-scroll">
+        <div class="big-scroll-track">
+          <span class="font-display text-[5rem] md:text-[9rem] text-ivory/20 leading-none">Somewhere between memory and movement</span>
+          <span class="font-display text-[5rem] md:text-[9rem] text-vintage/50 leading-none">·</span>
+          <span class="font-display text-[5rem] md:text-[9rem] text-ivory/20 leading-none">Somewhere between memory and movement</span>
+          <span class="font-display text-[5rem] md:text-[9rem] text-vintage/50 leading-none">·</span>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="max-w-6xl mx-auto px-5 md:px-8 py-14">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-10 mb-12">
+  <footer class="border-t border-ivory/10 mt-8">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-10 mb-14">
         <div class="col-span-2 md:col-span-1">
-          <p class="font-display text-2xl text-ivory mb-3">Alex Workspace</p>
-          <p class="text-xs text-ivory/50 leading-relaxed font-sans">Nostalgia convertida en libertad. Un espacio personal entre las personas, las organizaciones y las ideas.</p>
+          <p class="font-display text-4xl text-ivory mb-4">Alex Workspace</p>
+          <p class="text-xs text-ivory/50 leading-relaxed font-sans max-w-xs">Nostalgia convertida en libertad.</p>
         </div>
         <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Navegación</p>
-          <ul class="space-y-2 text-sm text-ivory/70 font-sans">
+          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Navegación</p>
+          <ul class="space-y-3 text-sm text-ivory/70 font-sans">
             <li><a href="index.html" class="footer-link">Inicio</a></li>
             <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
             <li><a href="calendario.html" class="footer-link">Calendario</a></li>
@@ -96,12 +157,11 @@
           </ul>
         </div>
         <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Contacto</p>
-          <ul class="space-y-2 text-sm text-ivory/70 font-sans mb-5">
+          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Contacto</p>
+          <ul class="space-y-3 text-sm text-ivory/70 font-sans mb-6">
             <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a></li>
             <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link">Instagram</a></li>
             <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">CV en LinkedIn</a></li>
           </ul>
           <div class="flex gap-3">
             <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon text-ivory/60">
