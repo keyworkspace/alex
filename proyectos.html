@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proyectos — Alexander Hernández</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { ink:'#0a0a0a', paper:'#fafafa', muted:'#6b7280', line:'#e5e5e5' },
+      fontFamily: { serif:['"Playfair Display"','Georgia','serif'], sans:['Inter','system-ui','sans-serif'] }
+    }}
+  };
+</script>
+<style>
+  ::selection { background:#0a0a0a; color:#fafafa; }
+  .fade-in { opacity:0; transform: translateY(12px); transition: all .7s ease; }
+  .fade-in.visible { opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+
+<header class="border-b border-line sticky top-0 bg-paper/90 backdrop-blur z-40">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-5 text-sm">
+    <a href="index.html" class="font-serif text-lg tracking-tight">Alexander</a>
+    <button id="menu-btn" class="md:hidden text-muted text-xl">☰</button>
+    <ul class="hidden md:flex gap-6 text-muted">
+      <li><a href="sobre-mi.html" class="hover:text-ink">Sobre mí</a></li>
+      <li><a href="trayectoria.html" class="hover:text-ink">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="text-ink">Proyectos</a></li>
+      <li><a href="formacion.html" class="hover:text-ink">Formación</a></li>
+      <li><a href="ideas.html" class="hover:text-ink">Ideas</a></li>
+      <li><a href="archivo.html" class="hover:text-ink">Archivo</a></li>
+      <li><a href="calendario.html" class="hover:text-ink">Calendario</a></li>
+      <li><a href="contacto.html" class="hover:text-ink">Contacto</a></li>
+    </ul>
+  </nav>
+  <ul id="menu-mobile" class="hidden md:hidden flex-col gap-3 px-6 pb-5 text-muted text-sm">
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="trayectoria.html">Trayectoria</a></li>
+    <li><a href="proyectos.html">Proyectos</a></li>
+    <li><a href="formacion.html">Formación</a></li>
+    <li><a href="ideas.html">Ideas</a></li>
+    <li><a href="archivo.html">Archivo</a></li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</header>
+
+<main>
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="font-serif text-5xl mb-3 fade-in">Proyectos</h1>
+    <p class="text-muted mb-12 fade-in max-w-xl">Cosas que he construido, estoy construyendo o estoy aprendiendo a construir.</p>
+    <div id="proyectos-grid" class="grid md:grid-cols-2 gap-6"></div>
+  </section>
+</main>
+
+<footer class="border-t border-line mt-24">
+  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-muted flex flex-col md:flex-row justify-between gap-2">
+    <span>© <span id="year"></span> Alexander Hernández</span>
+    <span>El Salvador 🇸🇻</span>
+  </div>
+</footer>
+
+<script>
+  const PROYECTOS = [
+    {
+      title: 'Key',
+      subtitle: 'Fundación Hernández',
+      year: '2024–2026',
+      role: 'Fundador',
+      status: 'activo',
+      desc: 'Proyecto social orientado al desarrollo educativo, empleabilidad y bienestar psicológico de jóvenes. +30 jóvenes alcanzados.'
+    },
+    {
+      title: 'Heliot Media',
+      subtitle: 'Producción audiovisual y comunicación',
+      year: '2025–',
+      role: 'Cofundador',
+      status: 'activo',
+      desc: 'Producción audiovisual, comunicación y desarrollo de proyectos.'
+    },
+    {
+      title: 'Windsor One',
+      subtitle: 'Estrategia y consultoría digital',
+      year: '2025–',
+      role: 'Fundador',
+      status: 'activo',
+      desc: 'Evaluación de proyectos, arquitectura de marca, auditorías digitales y desarrollo web/app.'
+    }
+  ];
+
+  document.getElementById('proyectos-grid').innerHTML = PROYECTOS.map(p => `
+    <article class="border border-line rounded-lg p-6 hover:border-ink transition fade-in">
+      <div class="flex justify-between items-center mb-3">
+        <p class="text-xs uppercase tracking-widest text-muted">${p.year}</p>
+        <p class="text-xs text-muted">${p.status}</p>
+      </div>
+      <h3 class="font-serif text-2xl mb-1">${p.title}</h3>
+      ${p.subtitle ? `<p class="text-muted text-sm mb-3">${p.subtitle}</p>` : ''}
+      ${p.role ? `<p class="text-xs text-muted mb-4">${p.role}</p>` : ''}
+      <p class="text-sm leading-relaxed">${p.desc}</p>
+    </article>
+  `).join('');
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('menu-btn')?.addEventListener('click', () => document.getElementById('menu-mobile')?.classList.toggle('hidden'));
+  const obs = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
