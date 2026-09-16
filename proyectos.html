@@ -1,81 +1,324 @@
-<!-- PROYECTOS -->
-<section class="dif-section">
-  <header class="dif-head reveal">
-    <h2 class="dif-title">Proyectos que <span class="circled">administro</span></h2>
-  </header>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Proyectos · Alex Workspace</title>
+<meta name="description" content="Los proyectos que administro: Heliot Media, Key Workspace, Windsor, The New Key, Key Arts & Culture." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-  <div class="dif-grid">
-    <div class="dif-row dif-row--2">
-      <a class="dif-card dif-card--papaya reveal" href="proyectos.html" style="text-decoration:none;">
-        <div class="dif-card__head">
-          <span class="dif-card__eyebrow">01 · Servicio</span>
-          <h3 class="dif-card__title">Heliot Media</h3>
-          <p class="dif-card__desc">Producción audiovisual para clientes reales. Equipo activo.</p>
-        </div>
-        <div class="dif-card__bottom">
-          <span class="dif-cta">
-            <span class="dif-cta__label">Ver proyecto</span>
-            <span class="dif-cta__arrow" aria-hidden="true">→</span>
-          </span>
-          <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
-        </div>
-      </a>
-
-      <a class="dif-card dif-card--lightblue reveal" href="proyectos.html" style="text-decoration:none;">
-        <div class="dif-card__head">
-          <span class="dif-card__eyebrow">02 · Espacio digital</span>
-          <h3 class="dif-card__title">Key Workspace</h3>
-          <p class="dif-card__desc">Educación, empleabilidad y cultura en línea.</p>
-        </div>
-        <div class="dif-card__bottom">
-          <span class="dif-cta">
-            <span class="dif-cta__label">Ver proyecto</span>
-            <span class="dif-cta__arrow" aria-hidden="true">→</span>
-          </span>
-          <div class="dif-card__icon"><svg><use href="#ic-people"/></svg></div>
-        </div>
-      </a>
-    </div>
-
-    <div class="dif-row dif-row--2">
-      <a class="dif-card dif-card--cream reveal" href="proyectos.html" style="text-decoration:none;">
-        <div class="dif-card__head">
-          <span class="dif-card__eyebrow">03 · Servicios</span>
-          <h3 class="dif-card__title">Windsor</h3>
-          <p class="dif-card__desc">Estrategia, diseño y tecnología con propósito.</p>
-        </div>
-        <div class="dif-card__bottom">
-          <span class="dif-cta">
-            <span class="dif-cta__label">Ver proyecto</span>
-            <span class="dif-cta__arrow" aria-hidden="true">→</span>
-          </span>
-          <div class="dif-card__icon"><svg><use href="#ic-globe"/></svg></div>
-        </div>
-      </a>
-
-      <a class="dif-card dif-card--deep reveal" href="proyectos.html" style="text-decoration:none;">
-        <div class="dif-card__head">
-          <span class="dif-card__eyebrow">04 · Prototipo</span>
-          <h3 class="dif-card__title">Claudia Lars</h3>
-          <p class="dif-card__desc">Universidad explorada para el oriente. En pausa.</p>
-        </div>
-        <div class="dif-card__bottom">
-          <span class="dif-cta">
-            <span class="dif-cta__label">Ver proyecto</span>
-            <span class="dif-cta__arrow" aria-hidden="true">→</span>
-          </span>
-          <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
-        </div>
-      </a>
-    </div>
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
   </div>
+</div>
 
-  <div style="text-align:center;margin-top:2.5rem;">
-    <a class="btn-big" href="proyectos.html">
-      <span class="btn-big__label">
-        Ver todos los proyectos
-        <span class="btn-big__arrow" aria-hidden="true">→</span>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="al-mark" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+  </symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"/><circle cx="17" cy="9" r="2"/><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></symbol>
+  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></symbol>
+  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
+      <span class="brand__text">
+        <span class="brand__name">Alex Workspace</span>
+        <span class="brand__sub">El Salvador · MMXXVI</span>
       </span>
     </a>
+    <div class="nav__links">
+      <a class="nav__link" href="index.html">Inicio</a>
+      <a class="nav__link" href="sobre-mi.html">Sobre mí</a>
+      <a class="nav__link" href="proyectos.html" aria-current="page">Proyectos</a>
+      <a class="nav__link" href="calendario.html">Calendario</a>
+      <a class="nav__link" href="contacto.html">Contacto</a>
+    </div>
+    <div class="nav__actions">
+      <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+        <span class="nav__official__label">LinkedIn</span>
+        <span class="nav__official__arrow" aria-hidden="true">↗</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+        Menú
+      </button>
+    </div>
   </div>
-</section>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" data-open="false"></div>
+<aside class="mobile-nav" id="mobileNav" data-open="false">
+  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
+  <a class="mobile-nav__item" href="index.html">Inicio</a>
+  <a class="mobile-nav__item" href="sobre-mi.html">Sobre mí</a>
+  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
+  <a class="mobile-nav__item" href="calendario.html">Calendario</a>
+  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
+  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
+</aside>
+
+<main>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="page-hero__inner page-hero__inner--purple reveal">
+        <div class="page-hero__content">
+          <span class="page-hero__tag">Proyectos</span>
+          <h1 class="page-hero__title">Lo que <em>administro</em></h1>
+          <p class="page-hero__lead">
+            Seis proyectos en distintos estados. Algunos operan, otros construyen, otros son herramientas internas o prototipos. Los presento con honestidad: qué es cada uno, en qué punto está y para qué sirve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">En <span class="circled">operación</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.7;max-width:60ch;margin-left:auto;margin-right:auto;">
+        Los que están activos hoy, con trabajo real.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Servicio</span>
+            <h3 class="dif-card__title">Heliot Media</h3>
+            <p class="dif-card__desc">Producción audiovisual para clientes reales. Equipo activo, trabajo en marcha, ingresos por servicios.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Solo interno</span>
+            <h3 class="dif-card__title">SIGES</h3>
+            <p class="dif-card__desc">Plataforma interna de gestión estratégica. El equipo de Heliot la usa a diario para reservas, clientes, pagos y tareas.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">03 · Espacio digital</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Key <em>Workspace</em></h2>
+          <p class="rblock__text">
+            Espacio digital independiente que trabaja educación, empleabilidad y cultura en línea.
+            No es una fundación ni una persona jurídica. Es una marca operativa con tres proyectos.
+          </p>
+          <a class="btn-big" href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">
+            <span class="btn-big__label">
+              Visitar Key Workspace
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="100" cy="100" r="80" opacity="0.15"/>
+            <circle cx="100" cy="100" r="55" opacity="0.35"/>
+            <circle cx="100" cy="100" r="30"/>
+            <circle cx="100" cy="100" r="6" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section" style="padding-top:2rem;">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Dentro de <span class="circled">Key</span></h2>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row" style="grid-template-columns:repeat(3,1fr);">
+        <article class="dif-card dif-card--cream reveal" style="min-height:280px;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Windsor</span>
+            <h3 class="dif-card__title" style="font-size:1.2rem;">Servicios digitales</h3>
+            <p class="dif-card__desc">Estrategia, diseño y tecnología para emprendedores que quieren construir con propósito.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--purple reveal" style="min-height:280px;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">The New Key</span>
+            <h3 class="dif-card__title" style="font-size:1.2rem;">Blog editorial</h3>
+            <p class="dif-card__desc">El blog de Key Workspace. Publicamos lo que hacemos y lo que aprendemos. En reposo, pero activo.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--lightblue reveal" style="min-height:280px;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Key Arts &amp; Culture</span>
+            <h3 class="dif-card__title" style="font-size:1.2rem;">Museo digital</h3>
+            <p class="dif-card__desc">Archivo cultural con 50 piezas emblemáticas del arte y la cultura universal.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-heart"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dif-section" style="padding-top:1rem;">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Herramientas y <span class="circled">prototipos</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.7;max-width:60ch;margin-left:auto;margin-right:auto;">
+        Lo que exploré y quedó pausado. Se muestra como archivo, no como proyecto activo.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row">
+        <article class="dif-card dif-card--deep reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Prototipo · En pausa</span>
+            <h3 class="dif-card__title">Claudia Lars</h3>
+            <p class="dif-card__desc">
+              Exploración de una universidad en el oriente de El Salvador. El prototipo web está armado, pero el proyecto quedó archivado tras evaluar la complejidad institucional que implicaba.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/claudialars.edu.sv/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Ver prototipo</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">¿Te interesa alguno de <em>estos proyectos</em>?</h2>
+        <p class="final-cta__text">Disponible para colaboración, aprendizaje o conversación sobre cualquiera de ellos.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>
+          <div class="footer__brand-text">
+            <span class="footer__brand-name">Alex Workspace</span>
+            <span class="footer__brand-sub">El Salvador · MMXXVI</span>
+          </div>
+        </div>
+        <p class="footer__desc">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+          <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
+          <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
+          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
+          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
+          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
+          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
+          <li><a href="https://keyworkspace.github.io/claudialars.edu.sv/" target="_blank" rel="noopener">Claudia Lars</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Ubicación</h4>
+        <ul>
+          <li><span style="color:rgba(250,247,240,0.75);font-size:0.88rem;">El Salvador</span></li>
+          <li><span style="color:rgba(250,247,240,0.75);font-size:0.88rem;">Centroamérica</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Alex Workspace · El Salvador</span>
+      <span>© <span id="year"></span> · Nostalgia convertida en libertad</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
