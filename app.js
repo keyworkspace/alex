@@ -18,6 +18,7 @@ const CATEGORIAS = {
 */
 const EVENTOS = [
   { title: 'Dia de la Independencia', date: '2026-09-15', category: 'academico' },
+   { title: 'Dia Mundial del Psicólogo', date: '2026-10-13', category: 'internacional' },
 ];
 
 /* ---------- LÓGICA ---------- */
