@@ -1,5 +1,5 @@
 /* ============================================================
-   ALEX WORKSPACE — Datos y lógica del sitio
+   ALEX WORKSPACE
    ============================================================ */
 
 /* ---------- DATOS ---------- */
@@ -8,12 +8,12 @@ const CATEGORIAS = {
   academico:     { nombre: 'Académico',     color: '#7897AD' },
   internacional: { nombre: 'Internacional', color: '#4A6B84' },
   nacional:      { nombre: 'Nacional',      color: '#8FB0A0' },
-  personal:      { nombre: 'Personal',      color: '#F0EEDC' }
+  personal:      { nombre: 'Personal',      color: '#C94B43' }
 };
 
 /*
    EVENTOS — agrega aquí tus fechas importantes
-   Categorías válidas: academico · internacional · nacional · personal
+   Categorías: academico · internacional · nacional · personal
    Formato: { title, date (YYYY-MM-DD), category, description (opcional) }
 */
 const EVENTOS = [
@@ -26,7 +26,15 @@ const EVENTOS = [
 (function () {
   'use strict';
 
-  /* ---------- Año del footer ---------- */
+  /* ---------- Loader ---------- */
+  const loader = document.getElementById('loader');
+  if (loader) {
+    const hide = () => setTimeout(() => loader.classList.add('done'), 300);
+    if (document.readyState === 'complete') hide();
+    else window.addEventListener('load', hide);
+  }
+
+  /* ---------- Año ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -37,7 +45,7 @@ const EVENTOS = [
     menuBtn.addEventListener('click', () => menuMobile.classList.toggle('hidden'));
   }
 
-  /* ---------- Fade-in con IntersectionObserver ---------- */
+  /* ---------- Fade-in ---------- */
   const fadeElements = document.querySelectorAll('.fade-in');
   if ('IntersectionObserver' in window && fadeElements.length) {
     const observer = new IntersectionObserver((entries) => {
@@ -47,13 +55,13 @@ const EVENTOS = [
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
     fadeElements.forEach((el) => observer.observe(el));
   } else {
     fadeElements.forEach((el) => el.classList.add('visible'));
   }
 
-  /* ---------- Barra de progreso de scroll ---------- */
+  /* ---------- Scroll progress ---------- */
   const progress = document.getElementById('scroll-progress');
   if (progress) {
     const update = () => {
@@ -64,18 +72,18 @@ const EVENTOS = [
     update();
   }
 
-  /* ---------- Header con blur al hacer scroll ---------- */
+  /* ---------- Header ---------- */
   const header = document.querySelector('.site-header');
   if (header) {
     const onScroll = () => {
-      if (window.scrollY > 20) header.classList.add('scrolled');
+      if (window.scrollY > 30) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
 
-  /* ---------- Cursor personalizado (una sola pelotilla) ---------- */
+  /* ---------- Cursor ---------- */
   (function initCursor() {
     const isDesktop = window.matchMedia('(hover: hover) and (min-width: 901px)').matches;
     if (!isDesktop) return;
@@ -84,8 +92,6 @@ const EVENTOS = [
     cursor.className = 'cursor';
     document.body.appendChild(cursor);
 
-    // Offset desde el puntero (1cm ≈ 38px)
-    // Positivo X → derecha · Positivo Y → abajo
     const OFFSET_X = 38;
     const OFFSET_Y = 38;
 
@@ -100,40 +106,31 @@ const EVENTOS = [
     });
 
     function loop() {
-      // Lerp: 0.22 suave · más alto = más pegado, más bajo = más lag
       cx += (mx - cx) * 0.22;
       cy += (my - cy) * 0.22;
-
       cursor.style.left = (cx + OFFSET_X) + 'px';
-      cursor.style.top  = (cy + OFFSET_Y) + 'px';
-
+      cursor.style.top = (cy + OFFSET_Y) + 'px';
       requestAnimationFrame(loop);
     }
     loop();
 
-    const interactive = 'a, button, .grain-card, .btn-primary, .btn-secondary, .social-icon, .filtro-btn, input, textarea';
+    const interactive = 'a, button, .btn-circle, .grain-card, .faq-question, .btn-primary, .btn-secondary, .social-icon, .filtro-btn, input, textarea';
     document.querySelectorAll(interactive).forEach((el) => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
     });
 
-    document.addEventListener('mouseleave', () => {
-      cursor.classList.remove('visible');
-    });
-    document.addEventListener('mouseenter', () => {
-      cursor.classList.add('visible');
-    });
+    document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
+    document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
   })();
 
-  /* ---------- Aves cruzando la pantalla ---------- */
+  /* ---------- Aves ---------- */
   (function initBirds() {
     const hero = document.querySelector('[data-birds]');
     if (!hero) return;
-
     const track = document.createElement('div');
     track.className = 'birds-track';
     track.setAttribute('aria-hidden', 'true');
-
     for (let i = 1; i <= 4; i++) {
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute('viewBox', '0 0 200 60');
@@ -143,34 +140,40 @@ const EVENTOS = [
       svg.innerHTML = '<path d="M10 30 Q25 15 40 30 Q55 15 70 30" />';
       track.appendChild(svg);
     }
-
     hero.appendChild(track);
   })();
 
-  /* ---------- Animación letra por letra del hero ---------- */
+  /* ---------- Letras del hero ---------- */
   (function initHeroLetters() {
     const titles = document.querySelectorAll('.hero-title');
     if (!titles.length) return;
-
     titles.forEach((title) => {
       const lines = title.querySelectorAll('.line');
       let index = 0;
-
       lines.forEach((line) => {
         const text = line.textContent;
         line.textContent = '';
-
         [...text].forEach((char) => {
           const span = document.createElement('span');
           span.className = 'hero-letter';
           span.textContent = char === ' ' ? '\u00A0' : char;
-          span.style.animationDelay = (index * 0.055) + 's';
+          span.style.animationDelay = (index * 0.05) + 's';
           line.appendChild(span);
           index++;
         });
       });
     });
   })();
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach((i) => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
 
   /* ---------- Calendario ---------- */
   const calendarMount = document.getElementById('calendario-mount');
@@ -182,7 +185,7 @@ const EVENTOS = [
       filtrosEl.innerHTML = Object.keys(CATEGORIAS).map((key) => {
         const cat = CATEGORIAS[key];
         return `
-          <button data-cat="${key}" class="filtro-btn font-sans text-[10px] uppercase tracking-[0.2em] border border-ivory/20 text-ivory/80 rounded-full px-4 py-1.5 hover:bg-ivory/5 flex items-center">
+          <button data-cat="${key}" class="filtro-btn font-sans text-[10px] uppercase tracking-[0.2em] border border-ink/20 text-ink/80 rounded-full px-4 py-2 hover:bg-ink/5 flex items-center">
             <span class="inline-block w-2 h-2 rounded-full mr-2" style="background:${cat.color}"></span>${cat.nombre}
           </button>`;
       }).join('');
@@ -198,7 +201,7 @@ const EVENTOS = [
         title: e.title,
         start: e.date,
         color: CATEGORIAS[e.category] ? CATEGORIAS[e.category].color : '#7897AD',
-        textColor: e.category === 'personal' ? '#171717' : '#F0EEDC',
+        textColor: '#F0EEDC',
         extendedProps: { category: e.category, description: e.description }
       })),
       headerToolbar: {
@@ -230,13 +233,13 @@ const EVENTOS = [
       const proximos = EVENTOS.filter((e) => e.date >= hoy).sort((a, b) => a.date.localeCompare(b.date)).slice(0, 5);
       proximosEl.innerHTML = proximos.length
         ? proximos.map((e) => `
-            <li class="py-4 flex items-center justify-between">
-              <span class="flex items-center gap-3 text-ivory/90">
+            <li class="py-5 flex items-center justify-between border-b border-ink/10">
+              <span class="flex items-center gap-3 text-ink">
                 <span class="w-2 h-2 rounded-full" style="background:${CATEGORIAS[e.category].color}"></span>${e.title}
               </span>
-              <span class="font-sans text-xs text-ivory/50">${e.date}</span>
+              <span class="font-sans text-xs text-ink/50">${e.date}</span>
             </li>`).join('')
-        : '<li class="py-4 text-ivory/50 font-sans text-sm">Aún no hay fechas registradas.</li>';
+        : '<li class="py-5 text-ink/50 font-sans text-sm">Aún no hay fechas registradas.</li>';
     }
   }
 })();
