@@ -3,122 +3,169 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sobre mí — Alexander Hernández</title>
+<title>Alex Workspace</title>
+<meta name="description" content="Nostalgia convertida en libertad. Construyendo una trayectoria entre las personas, las organizaciones y las ideas." />
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <script>
-  tailwind.config = {
-    theme: { extend: {
-      colors: { ink:'#0a0a0a', paper:'#fafafa', muted:'#6b7280', line:'#e5e5e5' },
-      fontFamily: { serif:['"Playfair Display"','Georgia','serif'], sans:['Inter','system-ui','sans-serif'] }
-    }}
-  };
+tailwind.config = { theme: { extend: {
+  colors: { sky:'#6789A2','sky-light':'#7897AD', ivory:'#F0EEDC', ink:'#171717', vintage:'#C94B43' },
+  fontFamily: {
+    display: ['Caveat','cursive'],
+    serif: ['Lora','Georgia','serif'],
+    sans: ['Inter','system-ui','sans-serif']
+  }
+}}};
 </script>
 <style>
   html { scroll-behavior: smooth; }
-  ::selection { background:#0a0a0a; color:#fafafa; }
-  .fade-in { opacity:0; transform: translateY(12px); transition: all .7s ease; }
+  body { background:#6789A2; color:#F0EEDC; }
+  body::before {
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:100;
+    opacity:0.09; mix-blend-mode:overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection { background:#C94B43; color:#F0EEDC; }
+  .fade-in { opacity:0; transform: translateY(16px); transition: all 1s cubic-bezier(.2,.7,.2,1); }
   .fade-in.visible { opacity:1; transform: translateY(0); }
+  .grain-card { position:relative; overflow:hidden; }
+  .grain-card::after {
+    content:''; position:absolute; inset:0; pointer-events:none; opacity:0.15;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 </style>
 </head>
-<body class="bg-paper text-ink font-sans antialiased">
+<body class="font-serif antialiased min-h-screen flex flex-col">
 
-<header class="border-b border-line sticky top-0 bg-paper/90 backdrop-blur z-40">
-  <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-5 text-sm">
-    <a href="index.html" class="font-serif text-lg tracking-tight">Alexander</a>
-    <button id="menu-btn" class="md:hidden text-muted text-xl" aria-label="Menú">☰</button>
-    <ul class="hidden md:flex gap-6 text-muted">
-      <li><a href="sobre-mi.html" class="text-ink">Sobre mí</a></li>
-      <li><a href="trayectoria.html" class="hover:text-ink transition">Trayectoria</a></li>
-      <li><a href="proyectos.html" class="hover:text-ink transition">Proyectos</a></li>
-      <li><a href="formacion.html" class="hover:text-ink transition">Formación</a></li>
-      <li><a href="ideas.html" class="hover:text-ink transition">Ideas</a></li>
-      <li><a href="archivo.html" class="hover:text-ink transition">Archivo</a></li>
-      <li><a href="calendario.html" class="hover:text-ink transition">Calendario</a></li>
-      <li><a href="contacto.html" class="hover:text-ink transition">Contacto</a></li>
+<header class="sticky top-0 z-40 bg-sky/70 backdrop-blur-md border-b border-ivory/10">
+  <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8 py-5">
+    <a href="index.html" class="font-display text-2xl md:text-3xl text-ivory tracking-wide">Alex Workspace</a>
+    <button id="menu-btn" class="md:hidden text-ivory text-2xl" aria-label="Menú">☰</button>
+    <ul class="hidden md:flex gap-7 text-sm text-ivory/70 font-sans">
+      <li><a href="sobre-mi.html" class="hover:text-ivory transition">Sobre mí</a></li>
+      <li><a href="trayectoria.html" class="hover:text-ivory transition">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="hover:text-ivory transition">Proyectos</a></li>
+      <li><a href="formacion.html" class="hover:text-ivory transition">Formación</a></li>
+      <li><a href="ideas.html" class="hover:text-ivory transition">Ideas</a></li>
+      <li><a href="archivo.html" class="hover:text-ivory transition">Archivo</a></li>
+      <li><a href="calendario.html" class="hover:text-ivory transition">Calendario</a></li>
+      <li><a href="contacto.html" class="hover:text-ivory transition">Contacto</a></li>
     </ul>
   </nav>
-  <ul id="menu-mobile" class="hidden md:hidden flex-col gap-3 px-6 pb-5 text-muted text-sm">
-    <li><a href="sobre-mi.html">Sobre mí</a></li>
-    <li><a href="trayectoria.html">Trayectoria</a></li>
-    <li><a href="proyectos.html">Proyectos</a></li>
-    <li><a href="formacion.html">Formación</a></li>
-    <li><a href="ideas.html">Ideas</a></li>
-    <li><a href="archivo.html">Archivo</a></li>
-    <li><a href="calendario.html">Calendario</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
+  <ul id="menu-mobile" class="hidden md:hidden flex-col gap-3 px-5 pb-5 text-ivory/70 text-sm font-sans">
+    <li><a href="sobre-mi.html" class="hover:text-ivory">Sobre mí</a></li>
+    <li><a href="trayectoria.html" class="hover:text-ivory">Trayectoria</a></li>
+    <li><a href="proyectos.html" class="hover:text-ivory">Proyectos</a></li>
+    <li><a href="formacion.html" class="hover:text-ivory">Formación</a></li>
+    <li><a href="ideas.html" class="hover:text-ivory">Ideas</a></li>
+    <li><a href="archivo.html" class="hover:text-ivory">Archivo</a></li>
+    <li><a href="calendario.html" class="hover:text-ivory">Calendario</a></li>
+    <li><a href="contacto.html" class="hover:text-ivory">Contacto</a></li>
   </ul>
 </header>
 
-<main>
-  <section class="max-w-3xl mx-auto px-6 py-16">
-    <h1 class="font-serif text-5xl mb-12 fade-in">Sobre mí</h1>
+<main class="flex-1">
 
-    <div class="space-y-14">
-      <div class="fade-in">
-        <p class="text-xs uppercase tracking-widest text-muted mb-3">Quién soy</p>
-        <p class="text-lg leading-relaxed">
-          Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos,
-          Psicología, desarrollo organizacional y proyectos con impacto social.
-        </p>
+  <!-- HERO -->
+  <section class="relative max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-24">
+    <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-8 fade-in">El Salvador · MMXXVI</p>
+
+    <h1 class="font-display text-[5.5rem] leading-[0.9] md:text-[9rem] md:leading-[0.85] text-ivory mb-6 fade-in">
+      Alexander<br />Hernández
+    </h1>
+
+    <p class="font-display text-2xl md:text-3xl text-ivory/70 mb-14 fade-in">
+      somewhere between memory and movement
+    </p>
+
+    <div class="flex flex-wrap gap-3 fade-in">
+      <a href="sobre-mi.html" class="font-sans text-sm bg-ivory text-sky px-7 py-3 rounded-full hover:bg-vintage hover:text-ivory transition">
+        Conocerme
+      </a>
+      <a href="archivo.html" class="font-sans text-sm border border-ivory/30 text-ivory px-7 py-3 rounded-full hover:border-ivory transition">
+        Explore the archive →
+      </a>
+      <a href="https://linkedin.com/in/TUUSUARIO" target="_blank" class="font-sans text-sm border border-ivory/30 text-ivory px-7 py-3 rounded-full hover:border-ivory transition">
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- TRES TARJETAS -->
+  <section class="max-w-6xl mx-auto px-5 md:px-8 pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="grain-card fade-in rounded-2xl border border-ivory/15 bg-ivory/5 p-7 backdrop-blur-sm">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-4">Ahora</p>
+        <p class="font-display text-3xl text-ivory mb-2">Estudiante</p>
+        <p class="text-sm text-ivory/70 leading-relaxed">Bachillerato, Oportunidades y preparación para Psicología.</p>
       </div>
 
-      <div class="fade-in">
-        <p class="text-xs uppercase tracking-widest text-muted mb-3">Actualmente — 2026</p>
-        <ul class="space-y-2 text-lg">
-          <li>· Bachillerato Técnico Vocacional Administrativo Contable</li>
-          <li>· Programa Oportunidades — Fundación Gloria Kriete</li>
-          <li>· Interés académico principal: Psicología</li>
-          <li>· Área profesional de interés: Recursos Humanos</li>
-          <li>· Fundador de proyectos digitales y organizacionales</li>
-        </ul>
+      <div class="grain-card fade-in rounded-2xl border border-ivory/15 bg-ivory/5 p-7 backdrop-blur-sm">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-4">Construyendo</p>
+        <p class="font-display text-3xl text-ivory mb-2">Proyectos</p>
+        <p class="text-sm text-ivory/70 leading-relaxed">Heliot Media, Windsor One y Key.</p>
       </div>
 
-      <div class="fade-in">
-        <p class="text-xs uppercase tracking-widest text-muted mb-6">Mi enfoque</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="border border-line rounded-lg p-6">
-            <h3 class="font-serif text-xl mb-2">Personas</h3>
-            <p class="text-sm text-muted">Comprender cómo las personas se desarrollan, trabajan y toman decisiones.</p>
-          </div>
-          <div class="border border-line rounded-lg p-6">
-            <h3 class="font-serif text-xl mb-2">Organizaciones</h3>
-            <p class="text-sm text-muted">Cómo las estructuras, culturas y procesos afectan a las personas.</p>
-          </div>
-          <div class="border border-line rounded-lg p-6">
-            <h3 class="font-serif text-xl mb-2">Estrategia</h3>
-            <p class="text-sm text-muted">Convertir ideas en proyectos concretos y sostenibles.</p>
-          </div>
-          <div class="border border-line rounded-lg p-6">
-            <h3 class="font-serif text-xl mb-2">Aprendizaje</h3>
-            <p class="text-sm text-muted">Construir continuamente mi formación académica y profesional.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="fade-in">
-        <p class="text-xs uppercase tracking-widest text-muted mb-3">Ahora — Septiembre 2026</p>
-        <p class="text-lg leading-relaxed mb-6">
-          Actualmente estoy terminando mi bachillerato, participando en el Programa Oportunidades
-          y preparando mi transición hacia la universidad.
-        </p>
-        <dl class="grid md:grid-cols-2 gap-6 text-sm">
-          <div><dt class="text-muted mb-1">Estudiando</dt><dd>Psicología (preparación)</dd></div>
-          <div><dt class="text-muted mb-1">Construyendo</dt><dd>Proyectos personales</dd></div>
-          <div><dt class="text-muted mb-1">Aprendiendo</dt><dd>Inglés · Diseño web · Investigación</dd></div>
-          <div><dt class="text-muted mb-1">Próximo objetivo</dt><dd>Ingresar a la UGB — San Miguel</dd></div>
-        </dl>
+      <div class="grain-card fade-in rounded-2xl border border-ivory/15 bg-ivory/5 p-7 backdrop-blur-sm">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-4">Explorando</p>
+        <p class="font-display text-3xl text-ivory mb-2">Intereses</p>
+        <p class="text-sm text-ivory/70 leading-relaxed">Psicología, RR. HH. y desarrollo organizacional.</p>
       </div>
     </div>
   </section>
+
 </main>
 
-<footer class="border-t border-line mt-24">
-  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-muted flex flex-col md:flex-row justify-between gap-2">
-    <span>© <span id="year"></span> Alexander Hernández</span>
-    <span>El Salvador 🇸🇻</span>
+<footer class="border-t border-ivory/10">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-14">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+      <div class="col-span-2 md:col-span-1">
+        <p class="font-display text-2xl text-ivory mb-3">Alex Workspace</p>
+        <p class="text-xs text-ivory/50 leading-relaxed font-sans">Nostalgia convertida en libertad. Construyendo una trayectoria entre las personas, las organizaciones y las ideas.</p>
+      </div>
+      <div>
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Navegación</p>
+        <ul class="space-y-2 text-sm text-ivory/70 font-sans">
+          <li><a href="index.html" class="hover:text-ivory transition">Inicio</a></li>
+          <li><a href="sobre-mi.html" class="hover:text-ivory transition">Sobre mí</a></li>
+          <li><a href="trayectoria.html" class="hover:text-ivory transition">Trayectoria</a></li>
+          <li><a href="proyectos.html" class="hover:text-ivory transition">Proyectos</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Recursos</p>
+        <ul class="space-y-2 text-sm text-ivory/70 font-sans">
+          <li><a href="formacion.html" class="hover:text-ivory transition">Formación</a></li>
+          <li><a href="ideas.html" class="hover:text-ivory transition">Ideas</a></li>
+          <li><a href="archivo.html" class="hover:text-ivory transition">Archivo</a></li>
+          <li><a href="calendario.html" class="hover:text-ivory transition">Calendario</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Contacto</p>
+        <ul class="space-y-2 text-sm text-ivory/70 font-sans mb-5">
+          <li><a href="contacto.html" class="hover:text-ivory transition">Hablemos</a></li>
+          <li><a href="cv.pdf" class="hover:text-ivory transition">Currículum</a></li>
+        </ul>
+        <div class="flex gap-3">
+          <a href="https://linkedin.com/in/TUUSUARIO" target="_blank" aria-label="LinkedIn" class="text-ivory/60 hover:text-vintage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a href="https://instagram.com/TUUSUARIO" target="_blank" aria-label="Instagram" class="text-ivory/60 hover:text-vintage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91a5.9 5.9 0 0 0 1.38 2.13 5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 1 0 12.32 6.16 6.16 0 0 1 0-12.32zm0 10.16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm7.84-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+          </a>
+          <a href="mailto:tu@correo.com" aria-label="Email" class="text-ivory/60 hover:text-vintage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-ivory/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-ivory/40 font-sans">
+      <span>© <span id="year"></span> Alex Workspace</span>
+      <span>El Salvador · 2026</span>
+    </div>
   </div>
 </footer>
 
