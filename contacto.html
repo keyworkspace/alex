@@ -15,11 +15,16 @@
 </head>
 <body>
 
+  <div class="loader" id="loader">
+    <div class="loader-monogram">A</div>
+    <div class="loader-bar"></div>
+  </div>
+
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <header class="site-header sticky top-0 z-40 border-b border-ivory/10">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8 py-5">
-      <a href="index.html" class="font-display text-2xl md:text-3xl text-ivory tracking-wide">Alex Workspace</a>
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8">
+      <a href="index.html" class="font-display text-3xl text-ivory tracking-wide">Alex Workspace</a>
       <button id="menu-btn" class="md:hidden text-ivory text-2xl" aria-label="Menú">☰</button>
       <ul class="hidden md:flex gap-8 text-sm text-ivory/70 font-sans">
         <li><a href="index.html" class="nav-link hover:text-ivory">Inicio</a></li>
@@ -28,7 +33,7 @@
         <li><a href="contacto.html" class="nav-link active text-ivory">Contacto</a></li>
       </ul>
     </nav>
-    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 text-ivory/70 text-sm font-sans">
+    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 pt-3 text-ivory/70 text-sm font-sans">
       <li><a href="index.html" class="hover:text-ivory">Inicio</a></li>
       <li><a href="sobre-mi.html" class="hover:text-ivory">Sobre mí</a></li>
       <li><a href="calendario.html" class="hover:text-ivory">Calendario</a></li>
@@ -37,44 +42,54 @@
   </header>
 
   <main class="flex-1">
-    <section class="max-w-3xl mx-auto px-5 md:px-8 py-20">
-      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-6 fade-in">Contacto</p>
-      <h1 class="font-display text-6xl md:text-8xl text-ivory leading-[0.95] mb-4 fade-in">Hablemos</h1>
-      <p class="font-display text-2xl text-ivory/60 mb-16 fade-in">available for learning, collaboration & projects</p>
 
-      <div class="grid md:grid-cols-2 gap-5 mb-12">
-        <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">LinkedIn</p>
-          <p class="font-display text-3xl text-ivory">/in/alexanderhrnndz</p>
-        </a>
-        <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">Instagram</p>
-          <p class="font-display text-3xl text-ivory">@kanderth</p>
-        </a>
-        <a href="mailto:alexhrnndz32@gmail.com" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">Email</p>
-          <p class="font-display text-3xl text-ivory">alexhrnndz32@gmail.com</p>
-        </a>
-        <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">Currículum</p>
-          <p class="font-display text-3xl text-ivory">Ver CV en LinkedIn →</p>
-        </a>
-      </div>
-
-      <p class="font-sans text-xs text-ivory/40 fade-in">Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.</p>
+    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-10">
+      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-8 fade-in">Contacto</p>
+      <h1 class="font-display text-6xl md:text-[9rem] text-ivory leading-[0.9] mb-6 fade-in">Hablemos</h1>
+      <p class="font-display text-2xl md:text-3xl text-ivory/70 fade-in max-w-2xl">
+        available for learning, collaboration & projects
+      </p>
     </section>
+
+    <section class="max-w-6xl mx-auto px-5 md:px-8 py-10 grid md:grid-cols-2 gap-6">
+      <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="grain-card fade-in rounded-[40px] bg-cream text-ink p-10 md:p-14 block">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ink/50 mb-6">LinkedIn</p>
+        <p class="font-display text-4xl md:text-5xl text-ink leading-tight">/in/alexanderhrnndz</p>
+      </a>
+      <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="grain-card fade-in rounded-[40px] bg-vintage text-ivory p-10 md:p-14 block">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/70 mb-6">Instagram</p>
+        <p class="font-display text-4xl md:text-5xl text-ivory leading-tight">@kanderth</p>
+      </a>
+      <a href="mailto:alexhrnndz32@gmail.com" class="grain-card fade-in rounded-[40px] bg-ink text-ivory p-10 md:p-14 block">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-6">Email</p>
+        <p class="font-display text-3xl md:text-4xl text-ivory leading-tight break-all">alexhrnndz32@gmail.com</p>
+      </a>
+      <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="grain-card fade-in rounded-[40px] bg-cream text-ink p-10 md:p-14 block">
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ink/50 mb-6">Currículum</p>
+        <p class="font-display text-4xl md:text-5xl text-ink leading-tight">Ver CV en LinkedIn →</p>
+      </a>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-5 md:px-8 py-16 fade-in">
+      <div class="block-rounded bg-cream text-ink p-8 md:p-14 text-center">
+        <p class="font-display text-4xl md:text-6xl text-ink leading-tight max-w-3xl mx-auto">
+          Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.
+        </p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div class="max-w-6xl mx-auto px-5 md:px-8 py-14">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-10 mb-12">
+  <footer class="border-t border-ivory/10 mt-8">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-10 mb-14">
         <div class="col-span-2 md:col-span-1">
-          <p class="font-display text-2xl text-ivory mb-3">Alex Workspace</p>
-          <p class="text-xs text-ivory/50 leading-relaxed font-sans">Nostalgia convertida en libertad.</p>
+          <p class="font-display text-4xl text-ivory mb-4">Alex Workspace</p>
+          <p class="text-xs text-ivory/50 leading-relaxed font-sans max-w-xs">Nostalgia convertida en libertad.</p>
         </div>
         <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Navegación</p>
-          <ul class="space-y-2 text-sm text-ivory/70 font-sans">
+          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Navegación</p>
+          <ul class="space-y-3 text-sm text-ivory/70 font-sans">
             <li><a href="index.html" class="footer-link">Inicio</a></li>
             <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
             <li><a href="calendario.html" class="footer-link">Calendario</a></li>
@@ -82,24 +97,12 @@
           </ul>
         </div>
         <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-4">Contacto</p>
-          <ul class="space-y-2 text-sm text-ivory/70 font-sans mb-5">
+          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Contacto</p>
+          <ul class="space-y-3 text-sm text-ivory/70 font-sans mb-6">
             <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a></li>
             <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link">Instagram</a></li>
             <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">CV en LinkedIn</a></li>
           </ul>
-          <div class="flex gap-3">
-            <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon text-ivory/60">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon text-ivory/60">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="mailto:alexhrnndz32@gmail.com" aria-label="Email" class="social-icon text-ivory/60">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            </a>
-          </div>
         </div>
       </div>
       <div class="pt-6 border-t border-ivory/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-ivory/40 font-sans">
