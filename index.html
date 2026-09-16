@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sobre mí — Alexander Hernández</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { ink:'#0a0a0a', paper:'#fafafa', muted:'#6b7280', line:'#e5e5e5' },
+      fontFamily: { serif:['"Playfair Display"','Georgia','serif'], sans:['Inter','system-ui','sans-serif'] }
+    }}
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  ::selection { background:#0a0a0a; color:#fafafa; }
+  .fade-in { opacity:0; transform: translateY(12px); transition: all .7s ease; }
+  .fade-in.visible { opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased">
+
+<header class="border-b border-line sticky top-0 bg-paper/90 backdrop-blur z-40">
+  <nav class="max-w-5xl mx-auto flex items-center justify-between px-6 py-5 text-sm">
+    <a href="index.html" class="font-serif text-lg tracking-tight">Alexander</a>
+    <button id="menu-btn" class="md:hidden text-muted text-xl" aria-label="Menú">☰</button>
+    <ul class="hidden md:flex gap-6 text-muted">
+      <li><a href="sobre-mi.html" class="text-ink">Sobre mí</a></li>
+      <li><a href="trayectoria.html" class="hover:text-ink transition">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="hover:text-ink transition">Proyectos</a></li>
+      <li><a href="formacion.html" class="hover:text-ink transition">Formación</a></li>
+      <li><a href="ideas.html" class="hover:text-ink transition">Ideas</a></li>
+      <li><a href="archivo.html" class="hover:text-ink transition">Archivo</a></li>
+      <li><a href="calendario.html" class="hover:text-ink transition">Calendario</a></li>
+      <li><a href="contacto.html" class="hover:text-ink transition">Contacto</a></li>
+    </ul>
+  </nav>
+  <ul id="menu-mobile" class="hidden md:hidden flex-col gap-3 px-6 pb-5 text-muted text-sm">
+    <li><a href="sobre-mi.html">Sobre mí</a></li>
+    <li><a href="trayectoria.html">Trayectoria</a></li>
+    <li><a href="proyectos.html">Proyectos</a></li>
+    <li><a href="formacion.html">Formación</a></li>
+    <li><a href="ideas.html">Ideas</a></li>
+    <li><a href="archivo.html">Archivo</a></li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</header>
+
+<main>
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="font-serif text-5xl mb-12 fade-in">Sobre mí</h1>
+
+    <div class="space-y-14">
+      <div class="fade-in">
+        <p class="text-xs uppercase tracking-widest text-muted mb-3">Quién soy</p>
+        <p class="text-lg leading-relaxed">
+          Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos,
+          Psicología, desarrollo organizacional y proyectos con impacto social.
+        </p>
+      </div>
+
+      <div class="fade-in">
+        <p class="text-xs uppercase tracking-widest text-muted mb-3">Actualmente — 2026</p>
+        <ul class="space-y-2 text-lg">
+          <li>· Bachillerato Técnico Vocacional Administrativo Contable</li>
+          <li>· Programa Oportunidades — Fundación Gloria Kriete</li>
+          <li>· Interés académico principal: Psicología</li>
+          <li>· Área profesional de interés: Recursos Humanos</li>
+          <li>· Fundador de proyectos digitales y organizacionales</li>
+        </ul>
+      </div>
+
+      <div class="fade-in">
+        <p class="text-xs uppercase tracking-widest text-muted mb-6">Mi enfoque</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="border border-line rounded-lg p-6">
+            <h3 class="font-serif text-xl mb-2">Personas</h3>
+            <p class="text-sm text-muted">Comprender cómo las personas se desarrollan, trabajan y toman decisiones.</p>
+          </div>
+          <div class="border border-line rounded-lg p-6">
+            <h3 class="font-serif text-xl mb-2">Organizaciones</h3>
+            <p class="text-sm text-muted">Cómo las estructuras, culturas y procesos afectan a las personas.</p>
+          </div>
+          <div class="border border-line rounded-lg p-6">
+            <h3 class="font-serif text-xl mb-2">Estrategia</h3>
+            <p class="text-sm text-muted">Convertir ideas en proyectos concretos y sostenibles.</p>
+          </div>
+          <div class="border border-line rounded-lg p-6">
+            <h3 class="font-serif text-xl mb-2">Aprendizaje</h3>
+            <p class="text-sm text-muted">Construir continuamente mi formación académica y profesional.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <p class="text-xs uppercase tracking-widest text-muted mb-3">Ahora — Septiembre 2026</p>
+        <p class="text-lg leading-relaxed mb-6">
+          Actualmente estoy terminando mi bachillerato, participando en el Programa Oportunidades
+          y preparando mi transición hacia la universidad.
+        </p>
+        <dl class="grid md:grid-cols-2 gap-6 text-sm">
+          <div><dt class="text-muted mb-1">Estudiando</dt><dd>Psicología (preparación)</dd></div>
+          <div><dt class="text-muted mb-1">Construyendo</dt><dd>Proyectos personales</dd></div>
+          <div><dt class="text-muted mb-1">Aprendiendo</dt><dd>Inglés · Diseño web · Investigación</dd></div>
+          <div><dt class="text-muted mb-1">Próximo objetivo</dt><dd>Ingresar a la UGB — San Miguel</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-line mt-24">
+  <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-muted flex flex-col md:flex-row justify-between gap-2">
+    <span>© <span id="year"></span> Alexander Hernández</span>
+    <span>El Salvador 🇸🇻</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('menu-btn')?.addEventListener('click', () => document.getElementById('menu-mobile')?.classList.toggle('hidden'));
+  const obs = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
