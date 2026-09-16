@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formación · Alex Workspace</title>
+<meta name="description" content="Educación formal, certificaciones y formación continua." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="al-mark" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+  </symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="ic-cert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></symbol>
+  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></symbol>
+  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
+      <span class="brand__text">
+        <span class="brand__name">Alex Workspace</span>
+        <span class="brand__sub">El Salvador · MMXXVI</span>
+      </span>
+    </a>
+    <div class="nav__links">
+      <a class="nav__link" href="index.html">Inicio</a>
+      <a class="nav__link" href="sobre-mi.html">Sobre mí</a>
+      <a class="nav__link" href="formacion.html" aria-current="page">Formación</a>
+      <a class="nav__link" href="proyectos.html">Proyectos</a>
+      <a class="nav__link" href="calendario.html">Calendario</a>
+      <a class="nav__link" href="contacto.html">Contacto</a>
+    </div>
+    <div class="nav__actions">
+      <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+        <span class="nav__official__label">LinkedIn</span>
+        <span class="nav__official__arrow" aria-hidden="true">↗</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+        Menú
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" data-open="false"></div>
+<aside class="mobile-nav" id="mobileNav" data-open="false">
+  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
+  <a class="mobile-nav__item" href="index.html">Inicio</a>
+  <a class="mobile-nav__item" href="sobre-mi.html">Sobre mí</a>
+  <a class="mobile-nav__item" href="formacion.html">Formación</a>
+  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
+  <a class="mobile-nav__item" href="calendario.html">Calendario</a>
+  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
+  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
+</aside>
+
+<main>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="page-hero__inner page-hero__inner--deep reveal">
+        <div class="page-hero__content">
+          <span class="page-hero__tag">Formación</span>
+          <h1 class="page-hero__title">Lo que he <em>aprendido</em></h1>
+          <p class="page-hero__lead">
+            Educación formal, certificaciones verificables y aprendizaje continuo. Todo lo que aparece aquí tiene evidencia: credencial, certificado o institución.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCACIÓN FORMAL -->
+  <div class="rblock" style="margin-top:1.25rem;">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">01 · Educación formal</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Trayectoria <em>académica</em></h2>
+          <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:0.9rem;font-size:0.98rem;">
+            <li>
+              <p style="font-weight:700;font-size:1.05rem;">Instituto de Yamabal</p>
+              <p style="opacity:0.75;font-size:0.88rem;">Bachillerato Técnico Vocacional en Administración Contable · 2023 – 2026</p>
+            </li>
+            <li>
+              <p style="font-weight:700;font-size:1.05rem;">Programa Oportunidades · Fundación Gloria Kriete</p>
+              <p style="opacity:0.75;font-size:0.88rem;">Complemento académico profesional · 2025 – Actualidad</p>
+            </li>
+            <li>
+              <p style="font-weight:700;font-size:1.05rem;">Liceo Cristiano Reverendo Juan Bueno</p>
+              <p style="opacity:0.75;font-size:0.88rem;">Educación básica · 2013 – 2023</p>
+            </li>
+          </ul>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <rect x="40" y="30" width="120" height="150" rx="8"/>
+            <line x1="60" y1="60" x2="140" y2="60"/>
+            <line x1="60" y1="85" x2="140" y2="85"/>
+            <line x1="60" y1="110" x2="120" y2="110"/>
+            <line x1="60" y1="135" x2="130" y2="135"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICACIONES -->
+  <section class="dif-section">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Certificaciones <span class="circled">verificables</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.7;max-width:60ch;margin-left:auto;margin-right:auto;">
+        Cada una con institución, fecha y credencial cuando aplica.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Google · ago. 2025</span>
+            <h3 class="dif-card__title">Domina la IA con Gemini</h3>
+            <p class="dif-card__desc">Prompting, uso de IA generativa y herramientas de Google para trabajo profesional.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Platzi · mar. 2026</span>
+            <h3 class="dif-card__title">Curso de Emprendimiento para Jóvenes</h3>
+            <p class="dif-card__desc">Modelos de negocio, autonomía y gestión inicial de proyectos emprendedores.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Platzi · dic. 2025</span>
+            <h3 class="dif-card__title">Curso de Reclutamiento de Talento</h3>
+            <p class="dif-card__desc">Análisis competitivo, entrevistas por competencias y gestión del talento humano.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://platzi.com/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Ver credencial</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-cert"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--lightblue reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · Platzi · dic. 2025</span>
+            <h3 class="dif-card__title">Optimización de LinkedIn para Empresas y Startups</h3>
+            <p class="dif-card__desc">Presencia digital profesional, marca personal y comunicación en LinkedIn.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-cert"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--deep reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">05 · Canva · oct. 2025</span>
+            <h3 class="dif-card__title">Fundamentos para docentes</h3>
+            <p class="dif-card__desc">Diseño pedagógico, personalización de plantillas y uso de IA para la enseñanza.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--cream reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">06 · CREO El Salvador · abr. 2025</span>
+            <h3 class="dif-card__title">Liderazgo Ciudadano</h3>
+            <p class="dif-card__desc">Responsabilidad social, gestión de proyectos comunitarios y liderazgo juvenil.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">07 · Aflatoun International · abr. 2025</span>
+            <h3 class="dif-card__title">Gestión de Proyectos</h3>
+            <p class="dif-card__desc">Metodologías de gestión, planificación y herramientas de productividad.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">08 · Fundación Carlos Slim · feb. 2025</span>
+            <h3 class="dif-card__title">Grammatica por todas partes</h3>
+            <p class="dif-card__desc">Gramática y ortografía aplicada al español profesional.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <div class="rblock">
+    <div class="rblock__inner rblock--dark reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;color:var(--yellow);">02 · Idiomas</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Idiomas que <em>hablo</em></h2>
+          <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:1rem;">
+            <div>
+              <p style="font-weight:800;font-size:1.15rem;">Español</p>
+              <p style="opacity:0.7;font-size:0.88rem;">Competencia bilingüe o nativa</p>
+            </div>
+            <div>
+              <p style="font-weight:800;font-size:1.15rem;">Inglés</p>
+              <p style="opacity:0.7;font-size:0.88rem;">Competencia básica · Duolingo Score 60 · en formación continua</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="100" cy="100" r="80"/>
+            <ellipse cx="100" cy="100" rx="80" ry="35"/>
+            <ellipse cx="100" cy="100" rx="35" ry="80"/>
+            <line x1="20" y1="100" x2="180" y2="100"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIG HEADING -->
+  <div class="big-headings">
+    <h2 class="big-heading reveal">Aprender cada día, <em>aunque sea un poco</em></h2>
+    <h2 class="big-heading big-heading--outline reveal">No venimos a repetir, <em>venimos a innovar</em></h2>
+  </div>
+
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">¿Coincidimos en algo de <em>esto</em>?</h2>
+        <p class="final-cta__text">Disponible para conversar sobre formación, proyectos o colaboraciones.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>
+          <div class="footer__brand-text">
+            <span class="footer__brand-name">Alex Workspace</span>
+            <span class="footer__brand-sub">El Salvador · MMXXVI</span>
+          </div>
+        </div>
+        <p class="footer__desc">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+          <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
+          <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
+          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
+          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
+          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
+          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:alexhrnndz32@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Alex Workspace · El Salvador</span>
+      <span>© <span id="year"></span> · No venimos a repetir, venimos a innovar</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
