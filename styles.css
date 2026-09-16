@@ -160,7 +160,6 @@ a { color: inherit; text-decoration: none; }
   opacity: 0;
 }
 
-/* Aves del hero: atraviesan la pantalla de derecha a izquierda */
 .bird-1 {
   width: 60px;
   top: 15%;
@@ -227,51 +226,47 @@ a { color: inherit; text-decoration: none; }
 
 /* ============================================================
    CURSOR PERSONALIZADO (solo desktop)
+   Una sola pelotilla que se adapta al color del fondo
+   mediante mix-blend-mode: difference.
    ============================================================ */
 
-.cursor-dot,
-.cursor-ring {
+.cursor {
   position: fixed;
   top: 0;
   left: 0;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
+  background-color: #ffffff;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  border-radius: 50%;
   mix-blend-mode: difference;
-  will-change: transform;
-}
-
-.cursor-dot {
-  width: 5px;
-  height: 5px;
-  background-color: var(--ivory);
-  transform: translate(-50%, -50%);
-}
-
-.cursor-ring {
-  width: 34px;
-  height: 34px;
-  border: 1px solid var(--ivory);
-  opacity: 0.6;
-  transform: translate(-50%, -50%);
+  will-change: left, top, width, height, margin;
+  opacity: 0;
   transition:
-    width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
-    height 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
-    opacity 0.35s ease,
-    border-color 0.35s ease;
+    width 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+    height 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+    margin 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.3s ease;
 }
 
-/* Al pasar sobre elementos interactivos, el anillo crece */
-.cursor-ring.hovering {
-  width: 56px;
-  height: 56px;
-  opacity: 0.9;
-  border-color: var(--vintage);
+/* Cuando el mouse entra a la ventana, se muestra */
+.cursor.visible {
+  opacity: 1;
+}
+
+/* Estado hover sobre elementos interactivos */
+.cursor.hovering {
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
 }
 
 @media (hover: none), (max-width: 900px) {
-  .cursor-dot,
-  .cursor-ring { display: none !important; }
+  .cursor { display: none !important; }
 }
 
 /* Regla editorial */
