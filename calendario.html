@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calendario · Alex Workspace</title>
   <meta name="description" content="Fechas académicas, internacionales, nacionales y personales." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236789A2'/%3E%3Ctext x='50' y='52' font-family='Georgia, serif' font-size='72' font-style='italic' fill='%23F0EEDC' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234B2E83'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='64' font-weight='700' fill='%23FCD34D' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="tailwind-config.js"></script>
   <link rel="stylesheet" href="styles.css" />
@@ -19,56 +19,66 @@
 
   <div class="loader" id="loader">
     <div class="loader-monogram">A</div>
-    <div class="loader-bar"></div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   </div>
 
   <div class="scroll-progress" id="scroll-progress"></div>
 
-  <header class="site-header sticky top-0 z-40 border-b border-ivory/10">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 md:px-8">
-      <a href="index.html" class="font-display text-3xl text-ivory tracking-wide">Alex Workspace</a>
-      <button id="menu-btn" class="md:hidden text-ivory text-2xl" aria-label="Menú">☰</button>
-      <ul class="hidden md:flex gap-8 text-sm text-ivory/70 font-sans">
-        <li><a href="index.html" class="nav-link hover:text-ivory">Inicio</a></li>
-        <li><a href="sobre-mi.html" class="nav-link hover:text-ivory">Sobre mí</a></li>
-        <li><a href="calendario.html" class="nav-link active text-ivory">Calendario</a></li>
-        <li><a href="contacto.html" class="nav-link hover:text-ivory">Contacto</a></li>
+  <header class="site-header sticky top-0 z-40">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8">
+      <a href="index.html" class="font-bold text-2xl tracking-tight text-ink">Alex Workspace</a>
+      <button id="menu-btn" class="md:hidden text-ink text-2xl" aria-label="Menú">☰</button>
+      <ul class="hidden md:flex items-center gap-8 text-sm">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
+        <li><a href="calendario.html" class="nav-link active">Calendario</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="btn-nav">
+            <span>Sitio oficial</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </li>
       </ul>
     </nav>
-    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 pt-3 text-ivory/70 text-sm font-sans">
-      <li><a href="index.html" class="hover:text-ivory">Inicio</a></li>
-      <li><a href="sobre-mi.html" class="hover:text-ivory">Sobre mí</a></li>
-      <li><a href="calendario.html" class="text-ivory">Calendario</a></li>
-      <li><a href="contacto.html" class="hover:text-ivory">Contacto</a></li>
+    <ul id="menu-mobile" class="hidden flex flex-col gap-4 px-5 pb-6 pt-4 text-ink text-sm bg-white">
+      <li><a href="index.html" class="font-medium">Inicio</a></li>
+      <li><a href="sobre-mi.html" class="font-medium">Sobre mí</a></li>
+      <li><a href="calendario.html" class="font-medium">Calendario</a></li>
+      <li><a href="contacto.html" class="font-medium">Contacto</a></li>
     </ul>
   </header>
 
   <main class="flex-1">
 
-    <section class="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-10">
-      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-8 fade-in">Calendario</p>
-      <h1 class="font-display text-6xl md:text-[9rem] text-ivory leading-[0.9] mb-6 fade-in">Fechas</h1>
-      <p class="font-display text-2xl md:text-3xl text-ivory/70 fade-in max-w-2xl">
-        important dates, by category
-      </p>
+    <section class="hero-purple pt-16 md:pt-24 pb-24 md:pb-32 px-5 md:px-8">
+      <div class="max-w-7xl mx-auto">
+        <p class="mono text-yellow mb-8 fade-in">Calendario</p>
+        <h1 class="hero-title text-[3.5rem] md:text-[7rem] lg:text-[9rem] text-white mb-8 fade-in">
+          Mis <span class="accent">fechas</span>.
+        </h1>
+        <p class="text-white/70 text-lg md:text-xl max-w-xl fade-in">
+          Académicas, internacionales, nacionales y personales. Todo clasificado por categoría.
+        </p>
+      </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-5 md:px-8 py-10 fade-in">
-      <div class="block-rounded bg-cream text-ink p-6 md:p-10">
+    <section class="max-w-7xl mx-auto px-5 md:px-8 py-16 fade-in">
+      <div class="block-rounded bg-white p-6 md:p-10 shadow-sm">
         <div id="filtros" class="flex flex-wrap gap-2 mb-8"></div>
         <div id="calendario-mount"></div>
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-5 md:px-8 py-16 fade-in">
-      <div class="block-rounded bg-ink text-ivory p-8 md:p-14">
+    <section class="max-w-7xl mx-auto px-5 md:px-8 py-16 fade-in">
+      <div class="block-rounded bg-ink text-white p-8 md:p-14">
         <div class="grid md:grid-cols-3 gap-10">
           <div>
-            <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/40 mb-4">Agenda</p>
-            <h2 class="font-display text-4xl text-ivory leading-tight">Próximas fechas</h2>
+            <p class="mono text-yellow mb-4">Agenda</p>
+            <h2 class="font-bold text-3xl md:text-4xl tracking-tight leading-tight">Próximas fechas</h2>
           </div>
           <div class="md:col-span-2">
-            <ul id="proximos" class="divide-y divide-ivory/10"></ul>
+            <ul id="proximos" class="divide-y divide-white/10"></ul>
           </div>
         </div>
       </div>
@@ -76,32 +86,32 @@
 
   </main>
 
-  <footer class="border-t border-ivory/10 mt-8">
-    <div class="max-w-6xl mx-auto px-5 md:px-8 py-16">
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-10 mb-14">
-        <div class="col-span-2 md:col-span-1">
-          <p class="font-display text-4xl text-ivory mb-4">Alex Workspace</p>
-          <p class="text-xs text-ivory/50 leading-relaxed font-sans max-w-xs">Nostalgia convertida en libertad.</p>
+  <footer class="bg-ink text-white pt-20 pb-10 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-2">
+          <p class="text-3xl md:text-5xl font-bold tracking-tight mb-6">Alex Workspace</p>
+          <p class="text-white/60 max-w-md text-sm leading-relaxed">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
         </div>
         <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Navegación</p>
-          <ul class="space-y-3 text-sm text-ivory/70 font-sans">
-            <li><a href="index.html" class="footer-link">Inicio</a></li>
-            <li><a href="sobre-mi.html" class="footer-link">Sobre mí</a></li>
-            <li><a href="calendario.html" class="footer-link">Calendario</a></li>
-            <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+          <p class="mono text-yellow mb-5">Navegación</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="footer-link text-white/80">Inicio</a></li>
+            <li><a href="sobre-mi.html" class="footer-link text-white/80">Sobre mí</a></li>
+            <li><a href="calendario.html" class="footer-link text-white/80">Calendario</a></li>
+            <li><a href="contacto.html" class="footer-link text-white/80">Contacto</a></li>
           </ul>
         </div>
         <div>
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-5">Contacto</p>
-          <ul class="space-y-3 text-sm text-ivory/70 font-sans mb-6">
-            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a></li>
-            <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link">Instagram</a></li>
-            <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link">Email</a></li>
+          <p class="mono text-yellow mb-5">Contacto</p>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link text-white/80">LinkedIn</a></li>
+            <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link text-white/80">Instagram</a></li>
+            <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link text-white/80">Email</a></li>
           </ul>
         </div>
       </div>
-      <div class="pt-6 border-t border-ivory/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-ivory/40 font-sans">
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 mono text-white/40">
         <span>© <span id="year"></span> Alex Workspace</span>
         <span>El Salvador</span>
       </div>
