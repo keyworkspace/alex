@@ -594,12 +594,23 @@ main { display: block; }
   position: relative;
   overflow: hidden;
 }
-.rblock--lightblue .rblock__inner { background: var(--lightblue); color: var(--purple-deep); }
-.rblock--dark .rblock__inner { background: var(--purple-deep); color: white; }
-.rblock--papaya .rblock__inner { background: var(--papaya); color: var(--purple-deep); }
-.rblock--yellow .rblock__inner { background: var(--yellow); color: var(--ink); }
-.rblock--purple .rblock__inner { background: var(--purple); color: white; }
-.rblock--cream .rblock__inner { background: var(--paper-warm); color: var(--ink); }
+.rblock--lightblue .rblock__inner,
+.rblock__inner.rblock--lightblue { background: var(--lightblue); color: var(--purple-deep); }
+
+.rblock--dark .rblock__inner,
+.rblock__inner.rblock--dark { background: var(--purple-deep); color: white; }
+
+.rblock--papaya .rblock__inner,
+.rblock__inner.rblock--papaya { background: var(--papaya); color: var(--purple-deep); }
+
+.rblock--yellow .rblock__inner,
+.rblock__inner.rblock--yellow { background: var(--yellow); color: var(--ink); }
+
+.rblock--purple .rblock__inner,
+.rblock__inner.rblock--purple { background: var(--purple); color: white; }
+
+.rblock--cream .rblock__inner,
+.rblock__inner.rblock--cream { background: var(--paper-warm); color: var(--ink); }
 
 .rblock__grid {
   display: grid;
