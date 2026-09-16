@@ -23,10 +23,10 @@
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <header class="site-header sticky top-0 z-40">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8">
-      <a href="index.html" class="font-bold text-2xl tracking-tight text-ink">Alex Workspace</a>
+    <nav class="shell flex items-center justify-between">
+      <a href="index.html" class="brand">Alex Workspace</a>
       <button id="menu-btn" class="md:hidden text-ink text-2xl" aria-label="Menú">☰</button>
-      <ul class="hidden md:flex items-center gap-8 text-sm">
+      <ul class="hidden md:flex items-center gap-7 text-sm">
         <li><a href="index.html" class="nav-link">Inicio</a></li>
         <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
         <li><a href="calendario.html" class="nav-link">Calendario</a></li>
@@ -34,12 +34,12 @@
         <li>
           <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="btn-nav">
             <span>Sitio oficial</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </li>
       </ul>
     </nav>
-    <ul id="menu-mobile" class="hidden flex flex-col gap-4 px-5 pb-6 pt-4 text-ink text-sm bg-white">
+    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 pt-3 text-ink text-sm bg-white">
       <li><a href="index.html" class="font-medium">Inicio</a></li>
       <li><a href="sobre-mi.html" class="font-medium">Sobre mí</a></li>
       <li><a href="calendario.html" class="font-medium">Calendario</a></li>
@@ -49,69 +49,75 @@
 
   <main class="flex-1">
 
-    <section class="hero-purple pt-16 md:pt-24 pb-24 md:pb-32 px-5 md:px-8">
-      <div class="max-w-7xl mx-auto">
-        <p class="mono text-yellow mb-8 fade-in">Contacto</p>
-        <h1 class="hero-title text-[3.5rem] md:text-[7rem] lg:text-[9rem] text-white mb-8 fade-in">
+    <section class="hero-purple pt-12 md:pt-16 pb-16 md:pb-20">
+      <div class="shell">
+        <p class="mono text-yellow mb-6 fade-in">Contacto</p>
+        <h1 class="hero-title text-white mb-6 fade-in">
           Hable<span class="accent">mos</span>.
         </h1>
-        <p class="text-white/70 text-lg md:text-xl max-w-xl fade-in">
+        <p class="text-white/70 text-base md:text-lg max-w-xl fade-in">
           Disponible para aprendizaje, colaboración, prácticas y proyectos.
         </p>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-5 md:px-8 py-16 grid md:grid-cols-2 gap-6">
-      <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="card-uees purple fade-in">
-        <div>
-          <p class="card-tag">LinkedIn</p>
-          <h3 class="!text-3xl md:!text-4xl break-all">/in/alexanderhrnndz</h3>
-          <p>Abrir perfil →</p>
+    <section class="section-pad-sm">
+      <div class="shell">
+        <div class="grid md:grid-cols-2 gap-5">
+          <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="card-uees purple fade-in">
+            <div>
+              <p class="card-tag">LinkedIn</p>
+              <h3 class="!text-xl md:!text-2xl break-all">/in/alexanderhrnndz</h3>
+              <p>Abrir perfil →</p>
+            </div>
+          </a>
+          <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="card-uees papaya fade-in">
+            <div>
+              <p class="card-tag">Instagram</p>
+              <h3 class="!text-xl md:!text-2xl">@kanderth</h3>
+              <p>Abrir perfil →</p>
+            </div>
+          </a>
+          <a href="mailto:alexhrnndz32@gmail.com" class="card-uees sky fade-in">
+            <div>
+              <p class="card-tag">Email</p>
+              <h3 class="!text-base md:!text-xl break-all">alexhrnndz32@gmail.com</h3>
+              <p>Escribir correo →</p>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="card-uees gray fade-in">
+            <div>
+              <p class="card-tag">Currículum</p>
+              <h3 class="!text-xl md:!text-2xl">Ver CV en LinkedIn</h3>
+              <p>Abrir →</p>
+            </div>
+          </a>
         </div>
-      </a>
-      <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="card-uees papaya fade-in">
-        <div>
-          <p class="card-tag">Instagram</p>
-          <h3 class="!text-3xl md:!text-4xl">@kanderth</h3>
-          <p>Abrir perfil →</p>
-        </div>
-      </a>
-      <a href="mailto:alexhrnndz32@gmail.com" class="card-uees sky fade-in">
-        <div>
-          <p class="card-tag">Email</p>
-          <h3 class="!text-2xl md:!text-3xl break-all">alexhrnndz32@gmail.com</h3>
-          <p>Escribir correo →</p>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="card-uees gray fade-in">
-        <div>
-          <p class="card-tag">Currículum</p>
-          <h3 class="!text-3xl md:!text-4xl">Ver CV en LinkedIn</h3>
-          <p>Abrir →</p>
-        </div>
-      </a>
+      </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-5 md:px-8 py-16 fade-in">
-      <div class="block-rounded bg-ink text-white p-10 md:p-20 text-center">
-        <p class="font-bold text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] max-w-4xl mx-auto">
-          Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.
-        </p>
+    <section class="section-pad-sm fade-in">
+      <div class="shell">
+        <div class="block-rounded bg-ink text-white text-center">
+          <p class="font-bold text-xl md:text-3xl lg:text-4xl tracking-tight leading-[1.15] max-w-3xl mx-auto">
+            Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.
+          </p>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="bg-ink text-white pt-20 pb-10 px-5 md:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-4 gap-12 mb-16">
+  <footer class="bg-ink text-white pt-14 pb-8">
+    <div class="shell">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
         <div class="md:col-span-2">
-          <p class="text-3xl md:text-5xl font-bold tracking-tight mb-6">Alex Workspace</p>
-          <p class="text-white/60 max-w-md text-sm leading-relaxed">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
+          <p class="text-2xl md:text-3xl font-bold tracking-tight mb-4">Alex Workspace</p>
+          <p class="text-white/60 max-w-sm text-sm leading-relaxed">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
         </div>
         <div>
-          <p class="mono text-yellow mb-5">Navegación</p>
-          <ul class="space-y-3 text-sm">
+          <p class="mono text-yellow mb-4">Navegación</p>
+          <ul class="space-y-2 text-sm">
             <li><a href="index.html" class="footer-link text-white/80">Inicio</a></li>
             <li><a href="sobre-mi.html" class="footer-link text-white/80">Sobre mí</a></li>
             <li><a href="calendario.html" class="footer-link text-white/80">Calendario</a></li>
@@ -119,15 +125,15 @@
           </ul>
         </div>
         <div>
-          <p class="mono text-yellow mb-5">Contacto</p>
-          <ul class="space-y-3 text-sm">
+          <p class="mono text-yellow mb-4">Contacto</p>
+          <ul class="space-y-2 text-sm">
             <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link text-white/80">LinkedIn</a></li>
             <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link text-white/80">Instagram</a></li>
             <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link text-white/80">Email</a></li>
           </ul>
         </div>
       </div>
-      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 mono text-white/40">
+      <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-2 mono text-white/40">
         <span>© <span id="year"></span> Alex Workspace</span>
         <span>El Salvador</span>
       </div>
