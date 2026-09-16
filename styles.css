@@ -1,72 +1,133 @@
-/* ============================================================
-   ALEX WORKSPACE — Scripts compartidos
-   Menú móvil · Año del footer · Fade-in · Scroll progress
-   ============================================================ */
+:root {
+  --sky: #6789A2;
+  --sky-light: #7897AD;
+  --ivory: #F0EEDC;
+  --ink: #171717;
+  --vintage: #C94B43;
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
-(function () {
-  'use strict';
+*, *::before, *::after { box-sizing: border-box; }
 
-  /* ---------- Año del footer ---------- */
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+html { scroll-behavior: smooth; }
 
-  /* ---------- Menú móvil ---------- */
-  const menuBtn = document.getElementById('menu-btn');
-  const menuMobile = document.getElementById('menu-mobile');
-  if (menuBtn && menuMobile) {
-    menuBtn.addEventListener('click', function () {
-      menuMobile.classList.toggle('hidden');
-    });
-  }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sky);
+  color: var(--ivory);
+  font-family: 'Lora', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
 
-  /* ---------- Fade-in con IntersectionObserver ---------- */
-  const fadeElements = document.querySelectorAll('.fade-in');
-  if ('IntersectionObserver' in window && fadeElements.length) {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    fadeElements.forEach(function (el) {
-      observer.observe(el);
-    });
-  } else {
-    fadeElements.forEach(function (el) {
-      el.classList.add('visible');
-    });
-  }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.085;
+  mix-blend-mode: overlay;
+  background-image: var(--grain);
+}
 
-  /* ---------- Barra de progreso de scroll ---------- */
-  const progress = document.getElementById('scroll-progress');
-  if (progress) {
-    const updateProgress = function () {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
-      progress.style.width = pct + '%';
-    };
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    updateProgress();
-  }
+::selection { background-color: var(--vintage); color: var(--ivory); }
+a { color: inherit; text-decoration: none; }
 
-  /* ---------- Header con blur al hacer scroll ---------- */
-  const header = document.querySelector('.site-header');
-  if (header) {
-    const onScroll = function () {
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-})();
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--vintage);
+  z-index: 60;
+  transition: width 0.08s linear;
+}
+
+.site-header { transition: background-color 0.4s ease, backdrop-filter 0.4s ease; }
+
+.site-header.scrolled {
+  background-color: rgba(103, 137, 162, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.grain-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.grain-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: var(--grain);
+}
+
+.grain-card:hover { transform: translateY(-2px); }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.bird { opacity: 0; animation: bird-fade 2s ease forwards; }
+.bird:nth-child(1) { animation-delay: 0.6s; }
+.bird:nth-child(2) { animation-delay: 1.0s; }
+.bird:nth-child(3) { animation-delay: 1.4s; }
+
+@keyframes bird-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 0.55; transform: translateY(0); }
+}
+
+.editorial-rule { height: 1px; width: 48px; background-color: var(--vintage); opacity: 0.7; }
+
+.fc {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: var(--ivory);
+  --fc-border-color: rgba(240, 238, 220, 0.1);
+  --fc-today-bg-color: rgba(240, 238, 220, 0.05);
+}
+
+.fc-toolbar-title {
+  font-family: 'Caveat', cursive !important;
+  font-weight: 500 !important;
+  font-size: 1.9rem !important;
+  color: var(--ivory) !important;
+}
+
+.fc-button {
+  background: transparent !important;
+  border-color: rgba(240, 238, 220, 0.2) !important;
+  color: var(--ivory) !important;
+  box-shadow: none !important;
+  text-transform: capitalize !important;
+  border-radius: 9999px !important;
+  padding: 6px 14px !important;
+}
+
+.fc-button:hover { background: rgba(240, 238, 220, 0.08) !important; }
+.fc-button-active { background: var(--vintage) !important; color: var(--ivory) !important; border-color: var(--vintage) !important; }
+.fc-daygrid-event { border-radius: 6px !important; padding: 2px 6px !important; border: none !important; }
+.fc-theme-standard td, .fc-theme-standard th { border-color: rgba(240, 238, 220, 0.1) !important; }
+.fc-col-header-cell-cushion, .fc-daygrid-day-number { color: var(--ivory) !important; }
+.fc-list-event:hover td { background: rgba(240, 238, 220, 0.05) !important; }
+
+.filtro-btn.activo { border-color: var(--vintage) !important; background-color: rgba(201, 75, 67, 0.15); }
+
+.site-footer { border-top: 1px solid rgba(240, 238, 220, 0.1); }
+
+@media (min-width: 768px) { #menu-mobile { display: none !important; } }
