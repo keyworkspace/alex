@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto — Alex Workspace</title>
-  <meta name="description" content="Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos." />
+  <title>Calendario — Alex Workspace</title>
+  <meta name="description" content="Fechas importantes, divididas por categoría." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="tailwind-config.js"></script>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales-all.global.min.js"></script>
 </head>
 <body>
 
@@ -27,8 +29,8 @@
         <li><a href="formacion.html" class="hover:text-ivory transition">Formación</a></li>
         <li><a href="ideas.html" class="hover:text-ivory transition">Ideas</a></li>
         <li><a href="archivo.html" class="hover:text-ivory transition">Archivo</a></li>
-        <li><a href="calendario.html" class="hover:text-ivory transition">Calendario</a></li>
-        <li><a href="contacto.html" class="text-ivory">Contacto</a></li>
+        <li><a href="calendario.html" class="text-ivory">Calendario</a></li>
+        <li><a href="contacto.html" class="hover:text-ivory transition">Contacto</a></li>
       </ul>
     </nav>
     <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 text-ivory/70 text-sm font-sans">
@@ -38,37 +40,25 @@
       <li><a href="formacion.html" class="hover:text-ivory">Formación</a></li>
       <li><a href="ideas.html" class="hover:text-ivory">Ideas</a></li>
       <li><a href="archivo.html" class="hover:text-ivory">Archivo</a></li>
-      <li><a href="calendario.html" class="hover:text-ivory">Calendario</a></li>
-      <li><a href="contacto.html" class="text-ivory">Contacto</a></li>
+      <li><a href="calendario.html" class="text-ivory">Calendario</a></li>
+      <li><a href="contacto.html" class="hover:text-ivory">Contacto</a></li>
     </ul>
   </header>
 
   <main class="flex-1">
-    <section class="max-w-3xl mx-auto px-5 md:px-8 py-20">
-      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-6 fade-in">Contacto</p>
-      <h1 class="font-display text-6xl md:text-8xl text-ivory leading-[0.95] mb-4 fade-in">Hablemos</h1>
-      <p class="font-display text-2xl text-ivory/60 mb-16 fade-in">available for learning, collaboration & projects</p>
+    <section class="max-w-5xl mx-auto px-5 md:px-8 py-20">
+      <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-ivory/50 mb-6 fade-in">Calendario</p>
+      <h1 class="font-display text-6xl md:text-8xl text-ivory leading-[0.95] mb-4 fade-in">Fechas</h1>
+      <p class="font-display text-2xl text-ivory/60 mb-12 fade-in">important dates, by category</p>
 
-      <div class="grid md:grid-cols-2 gap-5 mb-12">
-        <a href="https://linkedin.com/in/TUUSUARIO" target="_blank" rel="noopener" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 hover:border-ivory/40 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">LinkedIn</p>
-          <p class="font-display text-3xl text-ivory">/in/TUUSUARIO</p>
-        </a>
-        <a href="https://instagram.com/TUUSUARIO" target="_blank" rel="noopener" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 hover:border-ivory/40 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">Instagram</p>
-          <p class="font-display text-3xl text-ivory">@TUUSUARIO</p>
-        </a>
-        <a href="mailto:tu@correo.com" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 hover:border-ivory/40 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">Email</p>
-          <p class="font-display text-3xl text-ivory">tu@correo.com</p>
-        </a>
-        <a href="cv.pdf" target="_blank" rel="noopener" class="grain-card rounded-2xl border border-ivory/15 bg-ivory/5 p-7 hover:border-ivory/40 fade-in">
-          <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/50 mb-3">Currículum</p>
-          <p class="font-display text-3xl text-ivory">Ver CV →</p>
-        </a>
+      <div id="filtros" class="flex flex-wrap gap-2 mb-8 fade-in"></div>
+      <div id="calendario-mount" class="rounded-2xl border border-ivory/15 bg-ivory/5 p-4 backdrop-blur-sm"></div>
+
+      <div class="mt-14 fade-in">
+        <div class="editorial-rule mb-6"></div>
+        <p class="font-sans text-[10px] uppercase tracking-[0.25em] text-ivory/40 mb-6">Próximos eventos</p>
+        <ul id="proximos" class="divide-y divide-ivory/10"></ul>
       </div>
-
-      <p class="font-sans text-xs text-ivory/40 fade-in">Última actualización: septiembre de 2026.</p>
     </section>
   </main>
 
