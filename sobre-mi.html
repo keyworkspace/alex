@@ -1,186 +1,271 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sobre mí · Alex Workspace</title>
-  <meta name="description" content="Quién soy, mi enfoque y en qué estoy ahora." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234B2E83'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='64' font-weight='700' fill='%23FCD34D' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="tailwind-config.js"></script>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sobre mí · Alex Workspace</title>
+<meta name="description" content="Quién soy, mi enfoque y en qué estoy ahora." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div class="loader" id="loader">
-    <div class="loader-monogram">A</div>
-    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
   </div>
+</div>
 
-  <div class="scroll-progress" id="scroll-progress"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="al-mark" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+  </symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"/><circle cx="17" cy="9" r="2"/><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></symbol>
+  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></symbol>
+  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
 
-  <header class="site-header sticky top-0 z-40">
-    <nav class="shell flex items-center justify-between">
-      <a href="index.html" class="brand">Alex Workspace</a>
-      <button id="menu-btn" class="md:hidden text-ink text-2xl" aria-label="Menú">☰</button>
-      <ul class="hidden md:flex items-center gap-7 text-sm">
-        <li><a href="index.html" class="nav-link">Inicio</a></li>
-        <li><a href="sobre-mi.html" class="nav-link active">Sobre mí</a></li>
-        <li><a href="calendario.html" class="nav-link">Calendario</a></li>
-        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-        <li>
-          <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="btn-nav">
-            <span>Sitio oficial</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 pt-3 text-ink text-sm bg-white">
-      <li><a href="index.html" class="font-medium">Inicio</a></li>
-      <li><a href="sobre-mi.html" class="font-medium">Sobre mí</a></li>
-      <li><a href="calendario.html" class="font-medium">Calendario</a></li>
-      <li><a href="contacto.html" class="font-medium">Contacto</a></li>
-    </ul>
-  </header>
+<nav class="nav" id="nav" aria-label="Principal">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
+      <span class="brand__text">
+        <span class="brand__name">Alex Workspace</span>
+        <span class="brand__sub">El Salvador · MMXXVI</span>
+      </span>
+    </a>
+    <div class="nav__links">
+      <a class="nav__link" href="index.html">Inicio</a>
+      <a class="nav__link" href="sobre-mi.html" aria-current="page">Sobre mí</a>
+      <a class="nav__link" href="calendario.html">Calendario</a>
+      <a class="nav__link" href="contacto.html">Contacto</a>
+    </div>
+    <div class="nav__actions">
+      <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+        <span class="nav__official__label">LinkedIn</span>
+        <span class="nav__official__arrow" aria-hidden="true">↗</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+        Menú
+      </button>
+    </div>
+  </div>
+</nav>
 
-  <main class="flex-1">
+<div class="nav-overlay" id="navOverlay" data-open="false"></div>
+<aside class="mobile-nav" id="mobileNav" data-open="false">
+  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
+  <a class="mobile-nav__item" href="index.html">Inicio</a>
+  <a class="mobile-nav__item" href="sobre-mi.html">Sobre mí</a>
+  <a class="mobile-nav__item" href="calendario.html">Calendario</a>
+  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
+  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
+</aside>
 
-    <section class="hero-purple pt-12 md:pt-16 pb-16 md:pb-20">
-      <div class="shell">
-        <p class="mono text-yellow mb-6 fade-in">Sobre mí</p>
-        <h1 class="hero-title text-white mb-6 fade-in">
-          Quién <span class="accent">soy</span>.
-        </h1>
-        <p class="text-white/70 text-base md:text-lg max-w-xl fade-in">
-          Una colección de momentos, ideas y proyectos en construcción.
-        </p>
-      </div>
-    </section>
+<main>
 
-    <section class="section-pad-sm fade-in">
-      <div class="shell">
-        <div class="block-rounded bg-white shadow-sm">
-          <div class="grid md:grid-cols-3 gap-8">
-            <div>
-              <p class="mono text-ink/50 mb-3">01</p>
-              <h2 class="font-bold text-2xl md:text-3xl tracking-tight text-ink leading-tight">Quién soy</h2>
-            </div>
-            <div class="md:col-span-2">
-              <p class="text-base md:text-lg text-ink/80 leading-relaxed">
-                Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos, Psicología, desarrollo organizacional y proyectos con impacto social.
-              </p>
-            </div>
-          </div>
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="page-hero__inner page-hero__inner--papaya reveal">
+        <div class="page-hero__content">
+          <span class="page-hero__tag">Sobre mí</span>
+          <h1 class="page-hero__title">Quién <em>soy</em></h1>
+          <p class="page-hero__lead">
+            Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos,
+            Psicología, desarrollo organizacional y proyectos con impacto social.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <section class="section-pad-sm fade-in">
-      <div class="shell">
-        <div class="block-rounded bg-purple text-white">
-          <div class="grid md:grid-cols-3 gap-8">
-            <div>
-              <p class="mono text-yellow mb-3">02</p>
-              <h2 class="font-bold text-2xl md:text-3xl tracking-tight leading-tight">Actualmente</h2>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="space-y-3 text-sm md:text-base">
-                <li class="pb-3 border-b border-white/15">· Bachillerato Técnico Vocacional Administrativo Contable</li>
-                <li class="pb-3 border-b border-white/15">· Instituto Nacional de Yamabal</li>
-                <li class="pb-3 border-b border-white/15">· Programa Oportunidades · Fundación Gloria Kriete</li>
-                <li>· Fundador de proyectos digitales y organizacionales</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-pad-sm fade-in">
-      <div class="shell">
-        <div class="block-rounded bg-ink text-white">
-          <div class="grid md:grid-cols-3 gap-8 mb-10">
-            <div>
-              <p class="mono text-yellow mb-3">03</p>
-              <h2 class="font-bold text-2xl md:text-3xl tracking-tight leading-tight">Mi enfoque</h2>
-            </div>
-            <div class="md:col-span-2">
-              <p class="text-sm md:text-base text-white/80 leading-relaxed">
-                Cuatro ideas que guían cómo pienso las cosas.
-              </p>
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div class="bg-white/5 border border-white/15 rounded-[20px] p-6">
-              <h3 class="font-bold text-lg mb-2 tracking-tight">Personas</h3>
-              <p class="text-xs md:text-sm text-white/70 leading-relaxed">Comprender cómo las personas se desarrollan, trabajan y toman decisiones.</p>
-            </div>
-            <div class="bg-white/5 border border-white/15 rounded-[20px] p-6">
-              <h3 class="font-bold text-lg mb-2 tracking-tight">Organizaciones</h3>
-              <p class="text-xs md:text-sm text-white/70 leading-relaxed">Cómo las estructuras, culturas y procesos afectan a las personas.</p>
-            </div>
-            <div class="bg-white/5 border border-white/15 rounded-[20px] p-6">
-              <h3 class="font-bold text-lg mb-2 tracking-tight">Estrategia</h3>
-              <p class="text-xs md:text-sm text-white/70 leading-relaxed">Convertir ideas en proyectos concretos y sostenibles.</p>
-            </div>
-            <div class="bg-white/5 border border-white/15 rounded-[20px] p-6">
-              <h3 class="font-bold text-lg mb-2 tracking-tight">Aprendizaje</h3>
-              <p class="text-xs md:text-sm text-white/70 leading-relaxed">Construir continuamente mi formación académica y personal.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-12 md:py-16 overflow-hidden bg-white fade-in">
-      <div class="big-scroll">
-        <div class="big-scroll-track">
-          <span class="big-scroll-text outline text-purple">Somewhere between memory and movement</span>
-          <span class="big-scroll-text text-papaya">◆</span>
-          <span class="big-scroll-text outline text-purple">Somewhere between memory and movement</span>
-          <span class="big-scroll-text text-papaya">◆</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="bg-ink text-white pt-14 pb-8">
-    <div class="shell">
-      <div class="grid md:grid-cols-4 gap-10 mb-12">
-        <div class="md:col-span-2">
-          <p class="text-2xl md:text-3xl font-bold tracking-tight mb-4">Alex Workspace</p>
-          <p class="text-white/60 max-w-sm text-sm leading-relaxed">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
-        </div>
-        <div>
-          <p class="mono text-yellow mb-4">Navegación</p>
-          <ul class="space-y-2 text-sm">
-            <li><a href="index.html" class="footer-link text-white/80">Inicio</a></li>
-            <li><a href="sobre-mi.html" class="footer-link text-white/80">Sobre mí</a></li>
-            <li><a href="calendario.html" class="footer-link text-white/80">Calendario</a></li>
-            <li><a href="contacto.html" class="footer-link text-white/80">Contacto</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="mono text-yellow mb-4">Contacto</p>
-          <ul class="space-y-2 text-sm">
-            <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link text-white/80">LinkedIn</a></li>
-            <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link text-white/80">Instagram</a></li>
-            <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link text-white/80">Email</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-2 mono text-white/40">
-        <span>© <span id="year"></span> Alex Workspace</span>
-        <span>El Salvador</span>
       </div>
     </div>
-  </footer>
+  </div>
 
-  <script src="app.js"></script>
+  <div class="rblock" style="margin-top:1.25rem;">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">01 · Actualmente</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Dónde estoy <em>hoy</em></h2>
+          <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:0.6rem;font-size:0.98rem;">
+            <li>· Bachillerato Técnico Vocacional Administrativo Contable</li>
+            <li>· Instituto Nacional de Yamabal</li>
+            <li>· Programa Oportunidades · Fundación Gloria Kriete</li>
+            <li>· Fundador de proyectos digitales y organizacionales</li>
+          </ul>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,220px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="100" cy="100" r="90" opacity="0.15"/>
+            <circle cx="100" cy="100" r="65" opacity="0.3"/>
+            <circle cx="100" cy="100" r="40" opacity="0.55"/>
+            <circle cx="100" cy="100" r="15"/>
+            <circle cx="100" cy="100" r="4" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--dark reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">02 · Enfoque</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Cómo pienso las <em>cosas</em></h2>
+          <p class="rblock__text">
+            Cuatro ideas que guían mi manera de acercarme a lo que hago.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M20 100 C 60 40, 140 40, 180 100 C 140 160, 60 160, 20 100 Z"/>
+            <circle cx="100" cy="100" r="28"/>
+            <circle cx="100" cy="100" r="8" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Cuatro <span class="circled">pilares</span></h2>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Personas</span>
+            <h3 class="dif-card__title">Cómo nos desarrollamos</h3>
+            <p class="dif-card__desc">Comprender cómo las personas se desarrollan, trabajan y toman decisiones.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-people"/></svg></div>
+          </div>
+        </article>
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Organizaciones</span>
+            <h3 class="dif-card__title">Estructuras y cultura</h3>
+            <p class="dif-card__desc">Cómo las estructuras, culturas y procesos afectan a las personas.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Estrategia</span>
+            <h3 class="dif-card__title">Ideas que se vuelven proyectos</h3>
+            <p class="dif-card__desc">Convertir pensamiento en acción concreta. Del concepto a la ejecución.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+        <article class="dif-card dif-card--lightblue reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · Aprendizaje</span>
+            <h3 class="dif-card__title">Construir cada día</h3>
+            <p class="dif-card__desc">Formación académica y personal continua. Curiosidad como hábito.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-heart"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="big-headings">
+    <h2 class="big-heading reveal">Una colección de <em>momentos</em></h2>
+    <h2 class="big-heading big-heading--outline reveal">En construcción, <em>siempre</em></h2>
+  </div>
+
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">Hablemos si algo <em>resuena</em></h2>
+        <p class="final-cta__text">Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>
+          <div class="footer__brand-text">
+            <span class="footer__brand-name">Alex Workspace</span>
+            <span class="footer__brand-sub">El Salvador · MMXXVI</span>
+          </div>
+        </div>
+        <p class="footer__desc">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+          <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
+          <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:alexhrnndz32@gmail.com">Email</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Ubicación</h4>
+        <ul>
+          <li><span style="color:rgba(250,247,240,0.75);font-size:0.88rem;">El Salvador</span></li>
+          <li><span style="color:rgba(250,247,240,0.75);font-size:0.88rem;">Centroamérica</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Alex Workspace · El Salvador</span>
+      <span>© <span id="year"></span> · Nostalgia convertida en libertad</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
