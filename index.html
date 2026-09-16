@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alex Workspace</title>
-  <meta name="description" content="Un espacio personal de Alexander Hernández. Fechas, ideas y proyectos." />
+  <meta name="description" content="Un espacio personal de Alexander Hernández." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234B2E83'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='64' font-weight='700' fill='%23FCD34D' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,10 +23,10 @@
   <div class="scroll-progress" id="scroll-progress"></div>
 
   <header class="site-header sticky top-0 z-40">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8">
-      <a href="index.html" class="font-bold text-2xl tracking-tight text-ink">Alex Workspace</a>
+    <nav class="shell flex items-center justify-between">
+      <a href="index.html" class="brand">Alex Workspace</a>
       <button id="menu-btn" class="md:hidden text-ink text-2xl" aria-label="Menú">☰</button>
-      <ul class="hidden md:flex items-center gap-8 text-sm">
+      <ul class="hidden md:flex items-center gap-7 text-sm">
         <li><a href="index.html" class="nav-link active">Inicio</a></li>
         <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
         <li><a href="calendario.html" class="nav-link">Calendario</a></li>
@@ -34,12 +34,12 @@
         <li>
           <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="btn-nav">
             <span>Sitio oficial</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </li>
       </ul>
     </nav>
-    <ul id="menu-mobile" class="hidden flex flex-col gap-4 px-5 pb-6 pt-4 text-ink text-sm bg-white">
+    <ul id="menu-mobile" class="hidden flex flex-col gap-3 px-5 pb-5 pt-3 text-ink text-sm bg-white">
       <li><a href="index.html" class="font-medium">Inicio</a></li>
       <li><a href="sobre-mi.html" class="font-medium">Sobre mí</a></li>
       <li><a href="calendario.html" class="font-medium">Calendario</a></li>
@@ -49,19 +49,19 @@
 
   <main class="flex-1">
 
-    <!-- HERO PURPLE -->
-    <section class="hero-purple pt-16 md:pt-24 pb-28 md:pb-40 px-5 md:px-8">
-      <div class="max-w-7xl mx-auto">
-        <p class="mono text-yellow mb-8 fade-in">El Salvador · MMXXVI</p>
-        <h1 class="hero-title text-[3.5rem] md:text-[7rem] lg:text-[9rem] text-white mb-8 fade-in">
+    <!-- HERO -->
+    <section class="hero-purple pt-12 md:pt-16 pb-16 md:pb-24">
+      <div class="shell">
+        <p class="mono text-yellow mb-6 fade-in">El Salvador · MMXXVI</p>
+        <h1 class="hero-title text-white mb-6 fade-in">
           Un espacio personal<br />
           entre <span class="accent">memoria</span><br />
           y movimiento.
         </h1>
-        <p class="text-white/70 text-lg md:text-xl max-w-xl mb-12 fade-in">
+        <p class="text-white/70 text-base md:text-lg max-w-xl mb-10 fade-in">
           Soy Alexander Hernández. Aquí reúno mis fechas, mis ideas y lo que estoy construyendo.
         </p>
-        <div class="flex flex-wrap items-center gap-6 fade-in">
+        <div class="flex flex-wrap items-center gap-5 fade-in">
           <a href="sobre-mi.html" class="btn-circle" aria-label="Conocerme">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
@@ -69,220 +69,226 @@
             </svg>
           </a>
           <div>
-            <p class="mono text-yellow mb-2">Explorar</p>
-            <p class="text-white text-lg">Conóceme, revisa mis fechas o escríbeme.</p>
+            <p class="mono text-yellow mb-1">Explorar</p>
+            <p class="text-white text-sm md:text-base">Conóceme, revisa mis fechas o escríbeme.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TICKER -->
-    <section class="py-8 bg-ink overflow-hidden fade-in">
+    <section class="py-6 bg-ink overflow-hidden fade-in">
       <div class="ticker-wrap">
         <div class="ticker-track">
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Personas</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Organizaciones</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Estrategia</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Aprendizaje</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Memoria</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Movimiento</span>
-          <span class="text-papaya text-3xl">◆</span>
+          <span class="ticker-item">Personas</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Organizaciones</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Estrategia</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Aprendizaje</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Memoria</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Movimiento</span>
+          <span class="ticker-dot">◆</span>
         </div>
         <div class="ticker-track" aria-hidden="true">
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Personas</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Organizaciones</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Estrategia</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Aprendizaje</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Memoria</span>
-          <span class="text-papaya text-3xl">◆</span>
-          <span class="text-white font-bold text-3xl md:text-4xl tracking-tight">Movimiento</span>
-          <span class="text-papaya text-3xl">◆</span>
+          <span class="ticker-item">Personas</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Organizaciones</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Estrategia</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Aprendizaje</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Memoria</span>
+          <span class="ticker-dot">◆</span>
+          <span class="ticker-item">Movimiento</span>
+          <span class="ticker-dot">◆</span>
         </div>
       </div>
     </section>
 
-    <!-- BLOQUE CAMPUS-LIFE (Sobre mí) -->
-    <section class="max-w-7xl mx-auto px-5 md:px-8 py-20 fade-in">
-      <div class="block-rounded bg-white p-8 md:p-16 shadow-sm">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p class="mono text-ink/50 mb-6">Sobre mí</p>
-            <h2 class="font-bold text-4xl md:text-6xl leading-[1.05] tracking-tight text-ink mb-6">
-              Estudiante,<br />aprendiz,<br />constructor.
-            </h2>
-            <p class="text-ink/70 leading-relaxed mb-8 max-w-md text-base md:text-lg">
-              Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos, Psicología, desarrollo organizacional y proyectos con impacto social.
-            </p>
-            <a href="sobre-mi.html" class="btn-primary">
-              <span>Conocer más</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-          <div class="relative">
-            <div class="aspect-[4/5] rounded-[40px] bg-purple relative overflow-hidden">
-              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#4B2E83" />
-                    <stop offset="1" stop-color="#2D1147" />
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="500" fill="url(#g1)" />
-                <circle cx="200" cy="180" r="70" fill="#FCD34D" opacity="0.9" />
-                <path d="M60 500 Q200 300 340 500 Z" fill="#FF9142" opacity="0.8" />
-              </svg>
-              <p class="absolute bottom-8 left-8 font-mono text-xs text-yellow tracking-widest">MMXXVI</p>
+    <!-- SOBRE MÍ PREVIEW -->
+    <section class="section-pad fade-in">
+      <div class="shell">
+        <div class="block-rounded bg-white shadow-sm">
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div>
+              <p class="mono text-ink/50 mb-4">Sobre mí</p>
+              <h2 class="font-bold text-2xl md:text-4xl leading-[1.1] tracking-tight text-ink mb-5">
+                Estudiante, aprendiz, constructor.
+              </h2>
+              <p class="text-ink/70 leading-relaxed mb-6 max-w-md text-sm md:text-base">
+                Soy Alexander Hernández, estudiante salvadoreño interesado en Recursos Humanos, Psicología, desarrollo organizacional y proyectos con impacto social.
+              </p>
+              <a href="sobre-mi.html" class="btn-primary">
+                <span>Conocer más</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="relative">
+              <div class="aspect-[4/5] rounded-[28px] bg-purple relative overflow-hidden max-w-[320px] mx-auto md:mx-0 md:ml-auto">
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#4B2E83" />
+                      <stop offset="1" stop-color="#2D1147" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="400" height="500" fill="url(#g1)" />
+                  <circle cx="200" cy="180" r="70" fill="#FCD34D" opacity="0.9" />
+                  <path d="M60 500 Q200 300 340 500 Z" fill="#FF9142" opacity="0.8" />
+                </svg>
+                <p class="absolute bottom-6 left-6 font-mono text-[10px] text-yellow tracking-widest">MMXXVI</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CARDS DIFERENCIALES -->
-    <section class="max-w-7xl mx-auto px-5 md:px-8 py-16">
-      <h2 class="font-bold text-4xl md:text-6xl tracking-tight text-ink mb-12 fade-in leading-[1.05]">
-        Lo que me mueve
-      </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="card-uees papaya fade-in">
-          <div>
-            <p class="card-tag">01 — Ahora</p>
-            <h3>Estudiante</h3>
-            <p>Bachillerato Técnico Vocacional Administrativo Contable y Programa Oportunidades.</p>
+    <!-- CARDS -->
+    <section class="section-pad-sm">
+      <div class="shell">
+        <h2 class="font-bold text-2xl md:text-4xl tracking-tight text-ink mb-8 fade-in leading-[1.1]">
+          Lo que me mueve
+        </h2>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="card-uees papaya fade-in">
+            <div>
+              <p class="card-tag">01 — Ahora</p>
+              <h3>Estudiante</h3>
+              <p>Bachillerato Técnico Vocacional Administrativo Contable y Programa Oportunidades.</p>
+            </div>
           </div>
-        </div>
-        <div class="card-uees purple fade-in">
-          <div>
-            <p class="card-tag">02 — Intereses</p>
-            <h3>Personas</h3>
-            <p>Psicología, Recursos Humanos y desarrollo organizacional.</p>
+          <div class="card-uees purple fade-in">
+            <div>
+              <p class="card-tag">02 — Intereses</p>
+              <h3>Personas</h3>
+              <p>Psicología, Recursos Humanos y desarrollo organizacional.</p>
+            </div>
           </div>
-        </div>
-        <div class="card-uees sky fade-in">
-          <div>
-            <p class="card-tag">03 — Construyendo</p>
-            <h3>Proyectos</h3>
-            <p>Iniciativas personales y colaborativas en marcha.</p>
+          <div class="card-uees sky fade-in">
+            <div>
+              <p class="card-tag">03 — Construyendo</p>
+              <h3>Proyectos</h3>
+              <p>Iniciativas personales y colaborativas en marcha.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BIG SCROLLING TEXT -->
-    <section class="py-16 md:py-24 overflow-hidden bg-white fade-in">
-      <div class="big-scroll mb-6">
+    <!-- BIG SCROLL -->
+    <section class="py-12 md:py-16 overflow-hidden bg-white fade-in">
+      <div class="big-scroll mb-4">
         <div class="big-scroll-track">
-          <span class="big-scroll-text text-[4rem] md:text-[8rem] text-ink">Una colección de momentos</span>
-          <span class="big-scroll-text text-[4rem] md:text-[8rem] text-papaya">◆</span>
-          <span class="big-scroll-text text-[4rem] md:text-[8rem] text-ink">Una colección de momentos</span>
-          <span class="big-scroll-text text-[4rem] md:text-[8rem] text-papaya">◆</span>
+          <span class="big-scroll-text text-ink">Una colección de momentos</span>
+          <span class="big-scroll-text text-papaya">◆</span>
+          <span class="big-scroll-text text-ink">Una colección de momentos</span>
+          <span class="big-scroll-text text-papaya">◆</span>
         </div>
       </div>
       <div class="big-scroll">
         <div class="big-scroll-track reverse">
-          <span class="big-scroll-text outline text-[4rem] md:text-[8rem] text-purple">Somewhere between memory and movement</span>
-          <span class="big-scroll-text text-[4rem] md:text-[8rem] text-red">◆</span>
-          <span class="big-scroll-text outline text-[4rem] md:text-[8rem] text-purple">Somewhere between memory and movement</span>
-          <span class="big-scroll-text text-[4rem] md:text-[8rem] text-red">◆</span>
+          <span class="big-scroll-text outline text-purple">Somewhere between memory and movement</span>
+          <span class="big-scroll-text text-red">◆</span>
+          <span class="big-scroll-text outline text-purple">Somewhere between memory and movement</span>
+          <span class="big-scroll-text text-red">◆</span>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="max-w-5xl mx-auto px-5 md:px-8 py-20 fade-in">
-      <p class="mono text-ink/50 mb-4">Detalles</p>
-      <h2 class="font-bold text-4xl md:text-6xl tracking-tight text-ink mb-12 leading-[1.05]">
-        Para saber más
-      </h2>
+    <section class="section-pad fade-in">
+      <div class="shell max-w-[820px]">
+        <p class="mono text-ink/50 mb-3">Detalles</p>
+        <h2 class="font-bold text-2xl md:text-4xl tracking-tight text-ink mb-10 leading-[1.1]">
+          Para saber más
+        </h2>
 
-      <div>
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span>¿Quién soy?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Estudiante salvadoreño con interés en las personas, las organizaciones y los proyectos con impacto. Puedes leer más en la sección Sobre mí.
+        <div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>¿Quién soy?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Estudiante salvadoreño con interés en las personas, las organizaciones y los proyectos con impacto. Puedes leer más en la sección Sobre mí.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span>¿Qué encontrarás en el calendario?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Fechas académicas, internacionales, nacionales y personales. Todo clasificado por categoría para que puedas filtrarlo.
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>¿Qué encontrarás en el calendario?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Fechas académicas, internacionales, nacionales y personales. Todo clasificado por categoría para que puedas filtrarlo.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span>¿Cómo nos ponemos en contacto?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              A través de LinkedIn, Instagram o correo. Encuentras todos los enlaces en la sección Contacto.
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>¿Cómo nos ponemos en contacto?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                A través de LinkedIn, Instagram o correo. Encuentras todos los enlaces en la sección Contacto.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" type="button">
-            <span>¿Este es tu CV?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              No. Esta página es un espacio personal, no un currículum. El CV completo vive en LinkedIn y puedes verlo desde la sección Contacto.
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>¿Este es tu CV?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. Esta página es un espacio personal, no un currículum. El CV completo vive en LinkedIn y puedes verlo desde la sección Contacto.
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- QUOTES MARQUEE -->
-    <section class="py-16 bg-purple overflow-hidden fade-in">
-      <p class="mono text-yellow text-center mb-10 px-5">Palabras que me acompañan</p>
-      <div class="overflow-hidden mb-5">
+    <!-- QUOTES -->
+    <section class="py-12 md:py-16 bg-purple overflow-hidden fade-in">
+      <p class="mono text-yellow text-center mb-8 px-5">Palabras que me acompañan</p>
+      <div class="overflow-hidden mb-4">
         <div class="ticker-wrap">
           <div class="ticker-track" style="animation-duration: 50s;">
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"En algún lugar entre la memoria y el movimiento."</p>
-              <p class="mono text-ink/50">Nota personal</p>
+              <p class="quote-text">"En algún lugar entre la memoria y el movimiento."</p>
+              <p class="quote-label">Nota personal</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Una colección de momentos."</p>
-              <p class="mono text-ink/50">Manifiesto</p>
+              <p class="quote-text">"Una colección de momentos."</p>
+              <p class="quote-label">Manifiesto</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Las personas primero, los proyectos después."</p>
-              <p class="mono text-ink/50">Principio</p>
+              <p class="quote-text">"Las personas primero, los proyectos después."</p>
+              <p class="quote-label">Principio</p>
             </div>
           </div>
           <div class="ticker-track" style="animation-duration: 50s;" aria-hidden="true">
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"En algún lugar entre la memoria y el movimiento."</p>
-              <p class="mono text-ink/50">Nota personal</p>
+              <p class="quote-text">"En algún lugar entre la memoria y el movimiento."</p>
+              <p class="quote-label">Nota personal</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Una colección de momentos."</p>
-              <p class="mono text-ink/50">Manifiesto</p>
+              <p class="quote-text">"Una colección de momentos."</p>
+              <p class="quote-label">Manifiesto</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Las personas primero, los proyectos después."</p>
-              <p class="mono text-ink/50">Principio</p>
+              <p class="quote-text">"Las personas primero, los proyectos después."</p>
+              <p class="quote-label">Principio</p>
             </div>
           </div>
         </div>
@@ -291,30 +297,30 @@
         <div class="ticker-wrap">
           <div class="ticker-track reverse" style="animation-duration: 55s;">
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Convertir ideas en proyectos concretos."</p>
-              <p class="mono text-ink/50">Enfoque</p>
+              <p class="quote-text">"Convertir ideas en proyectos concretos."</p>
+              <p class="quote-label">Enfoque</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Aprender cada día, aunque sea un poco."</p>
-              <p class="mono text-ink/50">Hábito</p>
+              <p class="quote-text">"Aprender cada día, aunque sea un poco."</p>
+              <p class="quote-label">Hábito</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Salvadoreño, curioso, en construcción."</p>
-              <p class="mono text-ink/50">Identidad</p>
+              <p class="quote-text">"Salvadoreño, curioso, en construcción."</p>
+              <p class="quote-label">Identidad</p>
             </div>
           </div>
           <div class="ticker-track reverse" style="animation-duration: 55s;" aria-hidden="true">
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Convertir ideas en proyectos concretos."</p>
-              <p class="mono text-ink/50">Enfoque</p>
+              <p class="quote-text">"Convertir ideas en proyectos concretos."</p>
+              <p class="quote-label">Enfoque</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Aprender cada día, aunque sea un poco."</p>
-              <p class="mono text-ink/50">Hábito</p>
+              <p class="quote-text">"Aprender cada día, aunque sea un poco."</p>
+              <p class="quote-label">Hábito</p>
             </div>
             <div class="quote-card">
-              <p class="text-ink text-base leading-relaxed mb-4">"Salvadoreño, curioso, en construcción."</p>
-              <p class="mono text-ink/50">Identidad</p>
+              <p class="quote-text">"Salvadoreño, curioso, en construcción."</p>
+              <p class="quote-label">Identidad</p>
             </div>
           </div>
         </div>
@@ -323,18 +329,18 @@
 
   </main>
 
-  <footer class="bg-ink text-white pt-20 pb-10 px-5 md:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-4 gap-12 mb-16">
+  <footer class="bg-ink text-white pt-14 pb-8">
+    <div class="shell">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
         <div class="md:col-span-2">
-          <p class="text-3xl md:text-5xl font-bold tracking-tight mb-6">Alex Workspace</p>
-          <p class="text-white/60 max-w-md text-sm leading-relaxed">
+          <p class="text-2xl md:text-3xl font-bold tracking-tight mb-4">Alex Workspace</p>
+          <p class="text-white/60 max-w-sm text-sm leading-relaxed">
             Un espacio personal entre las personas, las organizaciones y las ideas.
           </p>
         </div>
         <div>
-          <p class="mono text-yellow mb-5">Navegación</p>
-          <ul class="space-y-3 text-sm">
+          <p class="mono text-yellow mb-4">Navegación</p>
+          <ul class="space-y-2 text-sm">
             <li><a href="index.html" class="footer-link text-white/80">Inicio</a></li>
             <li><a href="sobre-mi.html" class="footer-link text-white/80">Sobre mí</a></li>
             <li><a href="calendario.html" class="footer-link text-white/80">Calendario</a></li>
@@ -342,27 +348,27 @@
           </ul>
         </div>
         <div>
-          <p class="mono text-yellow mb-5">Contacto</p>
-          <ul class="space-y-3 text-sm mb-6">
+          <p class="mono text-yellow mb-4">Contacto</p>
+          <ul class="space-y-2 text-sm mb-5">
             <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link text-white/80">LinkedIn</a></li>
             <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener" class="footer-link text-white/80">Instagram</a></li>
             <li><a href="mailto:alexhrnndz32@gmail.com" class="footer-link text-white/80">Email</a></li>
             <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" class="footer-link text-white/80">CV en LinkedIn</a></li>
           </ul>
-          <div class="flex gap-4">
+          <div class="flex gap-3">
             <a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon text-white/60">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
             <a href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon text-white/60">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
             <a href="mailto:alexhrnndz32@gmail.com" aria-label="Email" class="social-icon text-white/60">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </a>
           </div>
         </div>
       </div>
-      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 mono text-white/40">
+      <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-2 mono text-white/40">
         <span>© <span id="year"></span> Alex Workspace</span>
         <span>El Salvador</span>
       </div>
