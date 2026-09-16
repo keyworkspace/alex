@@ -16,10 +16,6 @@ tailwind.config = {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'monospace']
-      },
-      maxWidth: {
-        'container': '1200px',
-        'container-sm': '900px'
       }
     }
   }
