@@ -84,6 +84,11 @@ const EVENTOS = [
     cursor.className = 'cursor';
     document.body.appendChild(cursor);
 
+    // Offset desde el puntero (1cm ≈ 38px)
+    // Positivo X → derecha · Positivo Y → abajo
+    const OFFSET_X = 38;
+    const OFFSET_Y = 38;
+
     let mx = window.innerWidth / 2;
     let my = window.innerHeight / 2;
     let cx = mx, cy = my;
@@ -95,10 +100,13 @@ const EVENTOS = [
     });
 
     function loop() {
+      // Lerp: 0.22 suave · más alto = más pegado, más bajo = más lag
       cx += (mx - cx) * 0.22;
       cy += (my - cy) * 0.22;
-      cursor.style.left = cx + 'px';
-      cursor.style.top = cy + 'px';
+
+      cursor.style.left = (cx + OFFSET_X) + 'px';
+      cursor.style.top  = (cy + OFFSET_Y) + 'px';
+
       requestAnimationFrame(loop);
     }
     loop();
