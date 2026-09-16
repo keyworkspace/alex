@@ -1,0 +1,72 @@
+/* ============================================================
+   ALEX WORKSPACE — Scripts compartidos
+   Menú móvil · Año del footer · Fade-in · Scroll progress
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  /* ---------- Año del footer ---------- */
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  /* ---------- Menú móvil ---------- */
+  const menuBtn = document.getElementById('menu-btn');
+  const menuMobile = document.getElementById('menu-mobile');
+  if (menuBtn && menuMobile) {
+    menuBtn.addEventListener('click', function () {
+      menuMobile.classList.toggle('hidden');
+    });
+  }
+
+  /* ---------- Fade-in con IntersectionObserver ---------- */
+  const fadeElements = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window && fadeElements.length) {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    fadeElements.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    fadeElements.forEach(function (el) {
+      el.classList.add('visible');
+    });
+  }
+
+  /* ---------- Barra de progreso de scroll ---------- */
+  const progress = document.getElementById('scroll-progress');
+  if (progress) {
+    const updateProgress = function () {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+      progress.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* ---------- Header con blur al hacer scroll ---------- */
+  const header = document.querySelector('.site-header');
+  if (header) {
+    const onScroll = function () {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+})();
