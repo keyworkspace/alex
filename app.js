@@ -17,6 +17,7 @@ const CATEGORIAS = {
    Formato: { title, date (YYYY-MM-DD), category, description (opcional) }
 */
 const EVENTOS = [
+  { title: 'Dia de la Independencia', date: '2026-09-15', category: 'academico' },
 ];
 
 /* ---------- LÓGICA ---------- */
