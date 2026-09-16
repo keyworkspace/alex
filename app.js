@@ -17,8 +17,8 @@ const CATEGORIAS = {
    Formato: { title, date (YYYY-MM-DD), category, description (opcional) }
 */
 const EVENTOS = [
-  { title: 'Dia de la Independencia', date: '2026-09-15', category: 'academico' },
-   { title: 'Dia Mundial del Psicólogo', date: '2026-10-13', category: 'internacional' },
+  { title: 'Día de la Independencia', date: '2026-09-15', category: 'nacional' },
+  { title: 'Día Mundial del Psicólogo', date: '2026-10-13', category: 'internacional' }
 ];
 
 /* ---------- LÓGICA ---------- */
@@ -26,15 +26,18 @@ const EVENTOS = [
 (function () {
   'use strict';
 
+  /* ---------- Año del footer ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Menú móvil ---------- */
   const menuBtn = document.getElementById('menu-btn');
   const menuMobile = document.getElementById('menu-mobile');
   if (menuBtn && menuMobile) {
     menuBtn.addEventListener('click', () => menuMobile.classList.toggle('hidden'));
   }
 
+  /* ---------- Fade-in con IntersectionObserver ---------- */
   const fadeElements = document.querySelectorAll('.fade-in');
   if ('IntersectionObserver' in window && fadeElements.length) {
     const observer = new IntersectionObserver((entries) => {
@@ -50,6 +53,7 @@ const EVENTOS = [
     fadeElements.forEach((el) => el.classList.add('visible'));
   }
 
+  /* ---------- Barra de progreso de scroll ---------- */
   const progress = document.getElementById('scroll-progress');
   if (progress) {
     const update = () => {
@@ -60,6 +64,7 @@ const EVENTOS = [
     update();
   }
 
+  /* ---------- Header con blur al hacer scroll ---------- */
   const header = document.querySelector('.site-header');
   if (header) {
     const onScroll = () => {
@@ -70,7 +75,103 @@ const EVENTOS = [
     onScroll();
   }
 
-  /* --- Calendario --- */
+  /* ---------- Cursor personalizado (solo desktop) ---------- */
+  (function initCursor() {
+    const isDesktop = window.matchMedia('(hover: hover) and (min-width: 901px)').matches;
+    if (!isDesktop) return;
+
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    let mx = window.innerWidth / 2;
+    let my = window.innerHeight / 2;
+    let rx = mx;
+    let ry = my;
+
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
+    });
+
+    function loop() {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    const interactive = 'a, button, .grain-card, .btn-primary, .btn-secondary, .social-icon, input, textarea';
+    document.querySelectorAll(interactive).forEach((el) => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+    });
+
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity = '1';
+      ring.style.opacity = '0.6';
+    });
+  })();
+
+  /* ---------- Aves cruzando la pantalla ---------- */
+  (function initBirds() {
+    const hero = document.querySelector('[data-birds]');
+    if (!hero) return;
+
+    const track = document.createElement('div');
+    track.className = 'birds-track';
+    track.setAttribute('aria-hidden', 'true');
+
+    for (let i = 1; i <= 4; i++) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 200 60');
+      svg.setAttribute('stroke-width', '1.4');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.classList.add('bird', 'bird-' + i);
+      svg.innerHTML = '<path d="M10 30 Q25 15 40 30 Q55 15 70 30" />';
+      track.appendChild(svg);
+    }
+
+    hero.appendChild(track);
+  })();
+
+  /* ---------- Animación letra por letra del hero ---------- */
+  (function initHeroLetters() {
+    const titles = document.querySelectorAll('.hero-title');
+    if (!titles.length) return;
+
+    titles.forEach((title) => {
+      const lines = title.querySelectorAll('.line');
+      let index = 0;
+
+      lines.forEach((line) => {
+        const text = line.textContent;
+        line.textContent = '';
+
+        [...text].forEach((char) => {
+          const span = document.createElement('span');
+          span.className = 'hero-letter';
+          span.textContent = char === ' ' ? '\u00A0' : char;
+          span.style.animationDelay = (index * 0.055) + 's';
+          line.appendChild(span);
+          index++;
+        });
+      });
+    });
+  })();
+
+  /* ---------- Calendario ---------- */
   const calendarMount = document.getElementById('calendario-mount');
   const filtrosEl = document.getElementById('filtros');
   const proximosEl = document.getElementById('proximos');
