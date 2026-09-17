@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -31,7 +31,6 @@
   <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></symbol>
   <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></symbol>
   <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
 </svg>
 
 <nav class="nav" id="nav" aria-label="Principal">
@@ -46,7 +45,8 @@
     <div class="nav__links">
       <a class="nav__link" href="index.html">Inicio</a>
       <a class="nav__link" href="sobre-mi.html">Sobre mí</a>
-      <a class="nav__link" href="calendario.html">Calendario</a>
+      <a class="nav__link" href="formacion.html">Formación</a>
+      <a class="nav__link" href="proyectos.html">Proyectos</a>
       <a class="nav__link" href="contacto.html" aria-current="page">Contacto</a>
     </div>
     <div class="nav__actions">
@@ -67,7 +67,8 @@
   <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
   <a class="mobile-nav__item" href="index.html">Inicio</a>
   <a class="mobile-nav__item" href="sobre-mi.html">Sobre mí</a>
-  <a class="mobile-nav__item" href="calendario.html">Calendario</a>
+  <a class="mobile-nav__item" href="formacion.html">Formación</a>
+  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
   <a class="mobile-nav__item" href="contacto.html">Contacto</a>
   <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
 </aside>
@@ -111,11 +112,11 @@
           <p class="contact-card__sub">Escribir correo →</p>
         </div>
       </a>
-      <a class="contact-card contact-card--cream reveal" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+      <a class="contact-card contact-card--cream reveal" href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">
         <div>
-          <span class="contact-card__eyebrow">Currículum</span>
-          <h3 class="contact-card__title">Ver CV en LinkedIn</h3>
-          <p class="contact-card__sub">Abrir →</p>
+          <span class="contact-card__eyebrow">Blog</span>
+          <h3 class="contact-card__title">The New Key</h3>
+          <p class="contact-card__sub">Leer el blog →</p>
         </div>
       </a>
     </div>
@@ -149,7 +150,7 @@
             <span class="footer__brand-sub">El Salvador · MMXXVI</span>
           </div>
         </div>
-        <p class="footer__desc">Un espacio personal entre las personas, las organizaciones y las ideas.</p>
+        <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
         <div class="footer__socials">
           <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
           <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
@@ -161,29 +162,34 @@
         <ul>
           <li><a href="index.html">Inicio</a></li>
           <li><a href="sobre-mi.html">Sobre mí</a></li>
-          <li><a href="calendario.html">Calendario</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Recursos</h4>
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
+          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
+          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
+          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
+          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
         <ul>
           <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="mailto:alexhrnndz32@gmail.com">Email</a></li>
         </ul>
       </div>
-      <div class="footer__col">
-        <h4>Ubicación</h4>
-        <ul>
-          <li><span style="color:rgba(250,247,240,0.75);font-size:0.88rem;">El Salvador</span></li>
-          <li><span style="color:rgba(250,247,240,0.75);font-size:0.88rem;">Centroamérica</span></li>
-        </ul>
-      </div>
     </div>
     <div class="footer__bottom">
       <span>Alex Workspace · El Salvador</span>
-      <span>© <span id="year"></span> · Nostalgia convertida en libertad</span>
+      <span class="footer__signature">No venimos a repetir, venimos a innovar.</span>
+      <span>© <span id="year"></span></span>
     </div>
   </div>
 </footer>
