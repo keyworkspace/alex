@@ -1,0 +1,1875 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Manual de Marca · Alex Workspace</title>
+<meta name="description" content="Manual de marca de Alex Workspace: identidad, color, tipografía, voz y componentes." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ==========================================================================
+   MANUAL DE MARCA · ALEX WORKSPACE
+   ========================================================================== */
+:root{
+  --purple:#6B2D8E;
+  --purple-deep:#2B1461;
+  --purple-mid:#8B3DAE;
+  --purple-soft:#C9A3DB;
+  --papaya:#FFA752;
+  --papaya-soft:#FFD4A8;
+  --yellow:#FFD23F;
+  --yellow-soft:#FFE38A;
+  --lightblue:#A5CAD8;
+  --lightblue-2:#C8DEE8;
+  --green:#00A86B;
+  --green-soft:#B8E5CE;
+  --red:#E63946;
+  --orange:#FF6B35;
+
+  --ink:#0E0A1A;
+  --ink-soft:#221A38;
+  --paper:#FAF7F0;
+  --paper-warm:#F5EFE2;
+  --gray:#F2F0EB;
+  --line:#E0DCD0;
+
+  --ui:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --script:'Poppins',system-ui,sans-serif;
+
+  --gutter:clamp(1.25rem,4vw,3.5rem);
+  --max:1240px;
+
+  --ease:cubic-bezier(0.65,0,0.2,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--ui);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  letter-spacing:-0.005em;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul,ol{list-style:none;}
+button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
+:focus-visible{outline:3px solid var(--papaya);outline-offset:3px;}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+
+/* ---------- BARRA SUPERIOR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,247,240,0.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar__inner{
+  max-width:var(--max);margin:0 auto;padding:0.7rem var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+}
+.topbar__brand{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
+.topbar__mark{width:34px;height:34px;color:var(--purple);}
+.topbar__text{display:flex;flex-direction:column;line-height:1.05;}
+.topbar__name{font-weight:800;font-size:0.95rem;letter-spacing:-0.02em;}
+.topbar__sub{
+  font-family:var(--mono);font-size:0.52rem;letter-spacing:0.18em;
+  text-transform:uppercase;opacity:0.55;margin-top:0.15rem;
+}
+.topbar__nav{display:flex;gap:0.1rem;flex-wrap:wrap;}
+.topbar__link{
+  padding:0.42rem 0.7rem;border-radius:999px;
+  font-size:0.74rem;font-weight:500;color:var(--ink-soft);
+  transition:background 200ms ease,color 200ms ease;
+}
+.topbar__link:hover{background:rgba(107,45,142,0.08);color:var(--purple);}
+.topbar__tag{
+  font-family:var(--mono);font-size:0.55rem;letter-spacing:0.18em;
+  text-transform:uppercase;padding:0.4rem 0.8rem;border-radius:999px;
+  background:var(--ink);color:var(--paper);white-space:nowrap;
+}
+@media (max-width:1080px){.topbar__nav{display:none;}}
+
+/* ---------- PORTADA ---------- */
+.cover{
+  background:var(--purple);color:#fff;
+  border-radius:0 0 40px 40px;
+  padding:clamp(3rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
+  position:relative;overflow:hidden;
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(45% 45% at 12% 18%,rgba(255,210,63,0.20),transparent 70%),
+    radial-gradient(45% 45% at 88% 82%,rgba(255,167,82,0.20),transparent 70%);
+  pointer-events:none;
+}
+.cover__inner{position:relative;max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+.cover__tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.42rem 0.9rem;border-radius:999px;
+  background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);
+  font-family:var(--mono);font-size:0.6rem;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:1.75rem;
+}
+.cover__tag::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--yellow);
+}
+.cover__title{
+  font-weight:900;font-size:clamp(2.4rem,7vw,5.5rem);
+  line-height:0.92;letter-spacing:-0.045em;max-width:16ch;
+}
+.cover__title em{font-style:normal;color:var(--yellow);}
+.cover__lead{
+  margin-top:1.5rem;font-size:clamp(1rem,1.6vw,1.15rem);
+  line-height:1.6;color:rgba(255,255,255,0.85);max-width:58ch;
+}
+.cover__meta{
+  margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:2.5rem;
+  padding-top:1.75rem;border-top:1px solid rgba(255,255,255,0.16);
+}
+.cover__meta-item{display:flex;flex-direction:column;gap:0.3rem;}
+.cover__meta-label{
+  font-family:var(--mono);font-size:0.55rem;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--yellow);
+}
+.cover__meta-value{font-size:0.92rem;font-weight:600;color:#fff;}
+
+/* ---------- SECCIONES ---------- */
+.section{padding:clamp(3rem,6vw,5.5rem) 0;}
+.section--tight{padding:clamp(2rem,4vw,3rem) 0;}
+.section--gray{background:var(--gray);}
+.section--warm{background:var(--paper-warm);}
+.section--dark{background:var(--ink);color:var(--paper);}
+
+.head{max-width:var(--max);margin:0 auto clamp(2rem,4vw,3.25rem);padding:0 var(--gutter);}
+.head--center{text-align:center;}
+.head__num{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.26em;
+  text-transform:uppercase;opacity:0.55;display:block;margin-bottom:0.9rem;
+}
+.head__title{
+  font-weight:800;font-size:clamp(1.7rem,4vw,3rem);
+  line-height:1;letter-spacing:-0.035em;
+}
+.head__title em{font-style:normal;color:var(--purple);}
+.section--dark .head__title em{color:var(--yellow);}
+.head__lead{
+  margin-top:1rem;font-size:1rem;line-height:1.6;opacity:0.72;
+  max-width:62ch;
+}
+.head--center .head__lead{margin-left:auto;margin-right:auto;}
+
+/* ---------- REJILLAS ---------- */
+.grid{display:grid;gap:1.1rem;}
+.grid--2{grid-template-columns:repeat(2,1fr);}
+.grid--3{grid-template-columns:repeat(3,1fr);}
+.grid--4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:980px){.grid--3,.grid--4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.grid--2,.grid--3,.grid--4{grid-template-columns:1fr;}}
+
+/* ---------- TARJETAS BASE ---------- */
+.card{
+  border-radius:28px;
+  padding:clamp(1.4rem,2.4vw,2rem);
+  background:#fff;
+  border:1px solid var(--line);
+  display:flex;flex-direction:column;gap:1rem;
+}
+.card__eyebrow{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.22em;
+  text-transform:uppercase;opacity:0.6;
+}
+.card__title{
+  font-weight:800;font-size:clamp(1.05rem,1.8vw,1.4rem);
+  line-height:1.1;letter-spacing:-0.025em;
+}
+.card__text{font-size:0.92rem;line-height:1.6;opacity:0.78;}
+
+/* ---------- 01 · LA MARCA ---------- */
+.essence{
+  border-radius:36px;background:var(--lightblue);color:var(--purple-deep);
+  padding:clamp(2rem,4vw,3.25rem);
+}
+.essence__quote{
+  font-family:var(--ui);font-weight:800;
+  font-size:clamp(1.4rem,3.2vw,2.5rem);
+  line-height:1.08;letter-spacing:-0.035em;max-width:22ch;
+}
+.essence__quote em{font-style:normal;color:var(--purple);}
+.essence__text{
+  margin-top:1.25rem;font-size:1rem;line-height:1.65;
+  max-width:60ch;opacity:0.85;
+}
+
+.value-card{
+  border-radius:28px;padding:clamp(1.4rem,2.4vw,2rem);
+  display:flex;flex-direction:column;gap:0.85rem;min-height:200px;
+}
+.value-card--purple{background:var(--purple);color:#fff;}
+.value-card--papaya{background:var(--papaya);color:var(--ink);}
+.value-card--yellow{background:var(--yellow);color:var(--ink);}
+.value-card--deep{background:var(--purple-deep);color:#fff;}
+.value-card__num{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.24em;opacity:0.65;
+}
+.value-card__title{
+  font-weight:800;font-size:1.15rem;line-height:1.1;letter-spacing:-0.025em;
+}
+.value-card__text{font-size:0.9rem;line-height:1.55;opacity:0.82;}
+
+.attr-list{display:flex;flex-wrap:wrap;gap:0.55rem;}
+.attr{
+  padding:0.55rem 1rem;border-radius:999px;
+  border:1.5px solid var(--ink);font-size:0.78rem;font-weight:600;
+}
+.attr--fill{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.attr--purple{background:var(--purple);color:#fff;border-color:var(--purple);}
+
+/* ---------- 02 · LOGOTIPO ---------- */
+.logo-demo{
+  border-radius:28px;background:#fff;border:1px solid var(--line);
+  padding:clamp(1.5rem,3vw,2.5rem);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.25rem;min-height:230px;position:relative;overflow:hidden;
+}
+.logo-demo--purple{background:var(--purple);border-color:var(--purple);}
+.logo-demo--deep{background:var(--purple-deep);border-color:var(--purple-deep);}
+.logo-demo--papaya{background:var(--papaya);border-color:var(--papaya);}
+.logo-demo--yellow{background:var(--yellow);border-color:var(--yellow);}
+.logo-demo--lightblue{background:var(--lightblue);border-color:var(--lightblue);}
+.logo-demo--ink{background:var(--ink);border-color:var(--ink);}
+.logo-demo__caption{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;
+  text-transform:uppercase;opacity:0.55;
+}
+.logo-demo--purple .logo-demo__caption,
+.logo-demo--deep .logo-demo__caption,
+.logo-demo--ink .logo-demo__caption{color:rgba(255,255,255,0.7);opacity:1;}
+
+/* símbolo */
+.mark{width:88px;height:88px;}
+.mark--sm{width:44px;height:44px;}
+.mark--lg{width:132px;height:132px;}
+
+/* lockup horizontal */
+.lockup{display:flex;align-items:center;gap:0.85rem;}
+.lockup__text{display:flex;flex-direction:column;line-height:1.05;}
+.lockup__name{font-weight:800;font-size:1.35rem;letter-spacing:-0.03em;}
+.lockup__sub{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;
+  text-transform:uppercase;opacity:0.6;margin-top:0.2rem;
+}
+
+/* área de respeto */
+.clearspace{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  padding:56px;border:1.5px dashed var(--purple-soft);border-radius:14px;
+}
+.clearspace::before{
+  content:'x';position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--purple);text-transform:uppercase;
+}
+.clearspace::after{
+  content:'x';position:absolute;left:8px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:0.6rem;color:var(--purple);
+}
+.clearspace__box{
+  border:1.5px solid var(--purple);border-radius:8px;padding:10px 14px;
+}
+
+/* tamaños mínimos */
+.minsize{
+  display:flex;align-items:flex-end;gap:2rem;flex-wrap:wrap;
+}
+.minsize__item{display:flex;flex-direction:column;align-items:center;gap:0.75rem;}
+.minsize__label{
+  font-family:var(--mono);font-size:0.56rem;letter-spacing:0.18em;
+  text-transform:uppercase;opacity:0.6;text-align:center;
+}
+
+/* usos incorrectos */
+.misuse{
+  position:relative;border-radius:20px;background:var(--gray);
+  padding:1.75rem;display:flex;align-items:center;justify-content:center;
+  min-height:150px;overflow:hidden;
+}
+.misuse::after{
+  content:'✕';position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;font-size:4.5rem;font-weight:300;color:var(--red);
+  opacity:0.75;pointer-events:none;
+}
+.misuse__label{
+  margin-top:0.85rem;font-size:0.82rem;font-weight:600;line-height:1.4;
+}
+.misuse__label span{
+  display:block;font-family:var(--mono);font-size:0.56rem;
+  letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;margin-bottom:0.3rem;
+}
+.misuse-1 .mark{transform:rotate(22deg) scale(1.1);}
+.misuse-2 .mark{transform:scaleX(1.7) scaleY(0.75);}
+.misuse-3 .mark{filter:drop-shadow(3px 3px 0 var(--red));}
+.misuse-4 .mark{opacity:0.25;}
+.misuse-5 .mark{filter:hue-rotate(140deg) saturate(2.4);}
+.misuse-6 .mark{filter:blur(2.5px);}
+
+/* ---------- 03 · COLOR ---------- */
+.swatch{
+  border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff;
+  display:flex;flex-direction:column;
+}
+.swatch__chip{height:118px;position:relative;}
+.swatch__chip-label{
+  position:absolute;bottom:0.7rem;left:0.85rem;
+  font-family:var(--mono);font-size:0.55rem;letter-spacing:0.18em;
+  text-transform:uppercase;opacity:0.7;
+}
+.swatch__body{padding:1rem 1.05rem 1.15rem;display:flex;flex-direction:column;gap:0.35rem;}
+.swatch__name{font-weight:800;font-size:0.95rem;letter-spacing:-0.015em;}
+.swatch__hex{
+  font-family:var(--mono);font-size:0.7rem;letter-spacing:0.06em;
+  color:var(--purple);font-weight:600;
+}
+.swatch__use{font-size:0.78rem;line-height:1.5;opacity:0.65;margin-top:0.2rem;}
+
+.proportion{
+  display:flex;height:72px;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+}
+.proportion__seg{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:0.6rem;font-weight:600;
+  letter-spacing:0.1em;color:#fff;
+}
+.proportion__legend{
+  margin-top:1rem;display:flex;flex-wrap:wrap;gap:1.25rem;
+  font-size:0.82rem;opacity:0.75;
+}
+.proportion__legend span{display:inline-flex;align-items:center;gap:0.45rem;}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+.contrast-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;
+}
+@media (max-width:640px){.contrast-row{grid-template-columns:1fr;}}
+.contrast{
+  border-radius:22px;padding:1.6rem;display:flex;
+  flex-direction:column;gap:0.6rem;min-height:150px;justify-content:flex-end;
+}
+.contrast__ratio{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;
+  text-transform:uppercase;opacity:0.75;
+}
+.contrast__text{font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;}
+.contrast__ok{font-size:0.78rem;opacity:0.8;}
+.badge-ok{
+  display:inline-block;padding:0.2rem 0.55rem;border-radius:999px;
+  background:var(--green);color:#fff;font-family:var(--mono);
+  font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;
+  margin-left:0.4rem;vertical-align:middle;
+}
+
+/* ---------- 04 · TIPOGRAFÍA ---------- */
+.type-card{
+  border-radius:28px;background:#fff;border:1px solid var(--line);
+  padding:clamp(1.5rem,3vw,2.5rem);display:flex;flex-direction:column;gap:1.1rem;
+}
+.type-card__head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;flex-wrap:wrap;
+  padding-bottom:1rem;border-bottom:1px solid var(--line);
+}
+.type-card__family{font-weight:800;font-size:1.3rem;letter-spacing:-0.025em;}
+.type-card__role{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--purple);
+}
+.type-card__specimen{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.15;letter-spacing:-0.02em;}
+.type-card__meta{font-size:0.85rem;line-height:1.6;opacity:0.72;}
+
+.scale-row{
+  display:grid;grid-template-columns:150px 1fr 210px;
+  gap:1.25rem;align-items:baseline;
+  padding:1.35rem 0;border-bottom:1px solid var(--line);
+}
+.scale-row:last-child{border-bottom:none;}
+@media (max-width:820px){
+  .scale-row{grid-template-columns:1fr;gap:0.6rem;}
+}
+.scale-row__label{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;
+  text-transform:uppercase;opacity:0.6;
+}
+.scale-row__spec{overflow:hidden;text-overflow:ellipsis;}
+.scale-row__spec em{font-style:normal;color:var(--purple);}
+.scale-row__data{
+  font-family:var(--mono);font-size:0.66rem;line-height:1.7;
+  opacity:0.6;text-align:right;
+}
+@media (max-width:820px){.scale-row__data{text-align:left;}}
+
+.s-display{font-weight:900;font-size:clamp(2rem,5vw,3.5rem);line-height:0.95;letter-spacing:-0.045em;}
+.s-hero{font-weight:800;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1;letter-spacing:-0.035em;}
+.s-section{font-weight:800;font-size:clamp(1.4rem,3vw,2rem);line-height:1.05;letter-spacing:-0.03em;}
+.s-card{font-weight:800;font-size:1.3rem;line-height:1.1;letter-spacing:-0.025em;}
+.s-body{font-weight:400;font-size:1rem;line-height:1.55;}
+.s-small{font-weight:400;font-size:0.92rem;line-height:1.55;opacity:0.8;}
+.s-mono{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;}
+.s-script{font-family:var(--script);font-weight:500;font-size:1.6rem;color:var(--purple);line-height:1.25;}
+
+/* ---------- 05 · VOZ Y TONO ---------- */
+.voice-card{
+  border-radius:28px;padding:clamp(1.5rem,2.6vw,2rem);
+  display:flex;flex-direction:column;gap:1rem;min-height:100%;
+}
+.voice-card--do{background:var(--green-soft);color:var(--purple-deep);}
+.voice-card--dont{background:#FBE0E2;color:#5C1219;}
+.voice-card__label{
+  font-family:var(--mono);font-size:0.58rem;letter-spacing:0.22em;
+  text-transform:uppercase;font-weight:600;
+}
+.voice-list{display:flex;flex-direction:column;gap:0.85rem;margin-top:0.25rem;}
+.voice-list li{
+  font-size:0.92rem;line-height:1.5;padding-left:1.4rem;position:relative;
+}
+.voice-list li::before{
+  position:absolute;left:0;top:0;font-weight:700;
+}
+.voice-card--do .voice-list li::before{content:'✓';color:var(--green);}
+.voice-card--dont .voice-list li::before{content:'✕';color:var(--red);}
+
+.phrase{
+  border-left:3px solid var(--purple);padding:0.35rem 0 0.35rem 1.1rem;
+  font-size:1rem;line-height:1.55;font-style:italic;opacity:0.9;
+}
+.phrase--bad{border-color:var(--red);}
+
+.tone-tags{display:flex;flex-wrap:wrap;gap:0.55rem;}
+.tone-tag{
+  padding:0.5rem 0.95rem;border-radius:999px;
+  background:var(--purple);color:#fff;font-size:0.76rem;font-weight:600;
+}
+.tone-tag--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+
+/* ---------- 06 · ELEMENTOS GRÁFICOS ---------- */
+.shape-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;}
+@media (max-width:820px){.shape-grid{grid-template-columns:repeat(2,1fr);}}
+.shape{
+  aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.shape__num{
+  position:absolute;top:0.9rem;left:1rem;
+  font-family:var(--mono);font-size:0.55rem;letter-spacing:0.22em;opacity:0.55;
+}
+.shape__label{
+  margin-top:0.75rem;font-family:var(--mono);font-size:0.56rem;
+  letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;text-align:center;
+}
+.shape--circle{border-radius:50%;}
+.shape--square{border-radius:24px;}
+.shape--pill{border-radius:100px;}
+.shape svg{width:38px;height:38px;opacity:0.85;}
+
+.radius-row{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;
+}
+@media (max-width:820px){.radius-row{grid-template-columns:repeat(2,1fr);}}
+.radius-item{display:flex;flex-direction:column;align-items:center;gap:0.7rem;}
+.radius-box{
+  width:100%;aspect-ratio:1/1;background:var(--purple-soft);
+  border:1px solid var(--purple);
+}
+.radius-item:nth-child(1) .radius-box{border-radius:0;}
+.radius-item:nth-child(2) .radius-box{border-radius:14px;}
+.radius-item:nth-child(3) .radius-box{border-radius:28px;}
+.radius-item:nth-child(4) .radius-box{border-radius:36px;}
+.radius-item:nth-child(5) .radius-box{border-radius:999px;}
+.radius-item__label{
+  font-family:var(--mono);font-size:0.56rem;letter-spacing:0.16em;
+  text-transform:uppercase;opacity:0.6;text-align:center;
+}
+
+.icon-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;
+}
+@media (max-width:820px){.icon-grid{grid-template-columns:repeat(3,1fr);}}
+.icon-item{
+  aspect-ratio:1/1;border-radius:20px;background:#fff;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;color:var(--purple);
+  transition:transform 300ms var(--ease),border-color 300ms ease;
+}
+.icon-item:hover{transform:translateY(-4px);border-color:var(--purple);}
+.icon-item svg{width:26px;height:26px;}
+
+.tile-demo{display:flex;gap:0.9rem;flex-wrap:wrap;}
+.tile{
+  width:132px;height:172px;display:flex;align-items:center;justify-content:center;
+  position:relative;color:var(--ink);
+}
+.tile__num{
+  position:absolute;top:0.75rem;left:0.85rem;
+  font-family:var(--mono);font-size:0.52rem;letter-spacing:0.2em;opacity:0.55;
+}
+.tile svg{width:34px;height:34px;opacity:0.85;}
+
+/* ---------- 07 · COMPONENTES ---------- */
+.comp-stage{
+  border-radius:28px;background:#fff;border:1px solid var(--line);
+  padding:clamp(1.5rem,3vw,2.5rem);
+  display:flex;flex-direction:column;gap:1.5rem;
+}
+.comp-stage--purple{background:var(--purple);border-color:var(--purple);}
+.comp-stage--deep{background:var(--purple-deep);border-color:var(--purple-deep);}
+.comp-label{
+  font-family:var(--mono);font-size:0.56rem;letter-spacing:0.22em;
+  text-transform:uppercase;opacity:0.55;
+}
+.comp-stage--purple .comp-label,
+.comp-stage--deep .comp-label{color:rgba(255,255,255,0.7);opacity:1;}
+.comp-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
+
+/* botón grande */
+.btn-big{
+  position:relative;display:inline-flex;align-items:center;gap:0.75rem;
+  padding:1.05rem 1.6rem;background:var(--ink);color:#fff;border-radius:999px;
+  font-size:0.82rem;font-weight:700;letter-spacing:0.01em;
+  overflow:hidden;isolation:isolate;cursor:pointer;
+  transition:color 800ms var(--ease);
+}
+.btn-big::before{
+  content:'';position:absolute;left:50%;bottom:0;width:100%;aspect-ratio:1/1;
+  background:var(--papaya);border-radius:50%;
+  transform:translate(-50%,60%) scale(0);transform-origin:center bottom;
+  transition:transform 1000ms var(--ease);z-index:-1;
+}
+.btn-big:hover::before{transform:translate(-50%,60%) scale(2.6);}
+.btn-big:hover{color:var(--ink);}
+.btn-big__arrow{transition:transform 700ms var(--ease);}
+.btn-big:hover .btn-big__arrow{transform:translateX(5px);}
+.btn-big--light{background:#fff;color:var(--ink);}
+.btn-big--light::before{background:var(--yellow);}
+.btn-big--purple{background:var(--purple);color:#fff;}
+.btn-big--purple::before{background:var(--yellow);}
+.btn-big--purple:hover{color:var(--ink);}
+
+/* botón circular */
+.cta-circle{
+  position:relative;width:76px;height:76px;border-radius:50%;
+  background:var(--yellow);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;isolation:isolate;font-size:1.35rem;
+  transition:transform 1000ms var(--ease);
+}
+.cta-circle::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:var(--purple);transform:scale(0);
+  transition:transform 1000ms var(--ease);z-index:-1;
+}
+.cta-circle:hover::before{transform:scale(1);}
+.cta-circle:hover{transform:scale(1.06);}
+.cta-circle__arrow{
+  position:relative;z-index:1;
+  transition:transform 700ms var(--ease),color 800ms var(--ease);
+}
+.cta-circle:hover .cta-circle__arrow{transform:rotate(-45deg);color:var(--yellow);}
+
+/* botón pill outline */
+.nav-official{
+  position:relative;display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.6rem 1.05rem;border-radius:999px;
+  border:1.5px solid var(--ink);color:var(--ink);
+  font-size:0.75rem;font-weight:600;
+  overflow:hidden;isolation:isolate;
+  transition:color 800ms var(--ease);
+}
+.nav-official::before{
+  content:'';position:absolute;left:50%;bottom:0;width:100%;aspect-ratio:1/1;
+  background:var(--ink);border-radius:50%;
+  transform:translate(-50%,60%) scale(0);transform-origin:center bottom;
+  transition:transform 1000ms var(--ease);z-index:-1;
+}
+.nav-official:hover::before{transform:translate(-50%,60%) scale(2.6);}
+.nav-official:hover{color:var(--paper);}
+.nav-official--inverse{border-color:#fff;color:#fff;}
+.nav-official--inverse::before{background:#fff;}
+.nav-official--inverse:hover{color:var(--ink);}
+
+/* chips */
+.chip{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.42rem 0.9rem;border-radius:999px;
+  font-family:var(--mono);font-size:0.6rem;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;
+}
+.chip--dark{background:var(--ink);color:var(--paper);}
+.chip--purple{background:var(--purple);color:#fff;}
+.chip--yellow{background:var(--yellow);color:var(--ink);}
+.chip--outline{border:1.5px solid var(--line);color:var(--ink-soft);}
+.chip--glass{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;}
+.chip__dot{width:6px;height:6px;border-radius:50%;background:var(--yellow);}
+
+/* tarjeta de contenido */
+.dif-card{
+  border-radius:28px;padding:clamp(1.5rem,2.6vw,2.25rem);
+  display:flex;flex-direction:column;justify-content:space-between;
+  gap:1.75rem;min-height:300px;
+}
+.dif-card--papaya{background:var(--papaya);color:var(--ink);}
+.dif-card--purple{background:var(--purple);color:#fff;}
+.dif-card--lightblue{background:var(--lightblue);color:var(--purple-deep);}
+.dif-card--deep{background:var(--purple-deep);color:#fff;}
+.dif-card__eyebrow{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;}
+.dif-card__title{font-weight:800;font-size:1.5rem;line-height:1.05;letter-spacing:-0.025em;margin-top:0.9rem;}
+.dif-card__desc{font-size:0.92rem;line-height:1.55;opacity:0.82;margin-top:0.85rem;max-width:42ch;}
+.dif-card__bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;}
+.dif-card__icon{
+  width:78px;height:78px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.08);color:inherit;
+}
+.dif-card--purple .dif-card__icon,
+.dif-card--deep .dif-card__icon{background:rgba(255,255,255,0.14);}
+.dif-card__icon svg{width:36px;height:36px;}
+
+/* bloque redondeado grande */
+.rblock-demo{
+  border-radius:36px;padding:clamp(2rem,4vw,3rem);
+}
+.rblock-demo--lightblue{background:var(--lightblue);color:var(--purple-deep);}
+.rblock-demo--dark{background:var(--purple-deep);color:#fff;}
+.rblock-demo--cream{background:var(--paper-warm);color:var(--ink);}
+
+/* ---------- 08 · APLICACIONES ---------- */
+.app-card{
+  border-radius:28px;overflow:hidden;border:1px solid var(--line);background:#fff;
+  display:flex;flex-direction:column;
+}
+.app-card__stage{
+  aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;position:relative;overflow:hidden;
+}
+.app-card__body{padding:1.25rem 1.35rem 1.5rem;display:flex;flex-direction:column;gap:0.4rem;}
+.app-card__title{font-weight:800;font-size:1rem;letter-spacing:-0.02em;}
+.app-card__text{font-size:0.82rem;line-height:1.5;opacity:0.68;}
+.app-card__stage--purple{background:var(--purple);}
+.app-card__stage--papaya{background:var(--papaya);}
+.app-card__stage--lightblue{background:var(--lightblue);}
+.app-card__stage--dark{background:var(--ink);}
+.app-card__stage--paper{background:var(--paper-warm);}
+.app-card__stage--yellow{background:var(--yellow);}
+
+.avatar-demo{
+  width:96px;height:96px;border-radius:50%;
+  background:var(--purple);display:flex;align-items:center;justify-content:center;
+  color:var(--yellow);
+}
+.avatar-demo svg{width:56px;height:56px;}
+
+/* ---------- 09 · CHECKLIST ---------- */
+.check-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;}
+@media (max-width:820px){.check-list{grid-template-columns:1fr;}}
+.check-item{
+  border-radius:24px;background:#fff;border:1px solid var(--line);
+  padding:1.35rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;
+}
+.check-item__box{
+  width:26px;height:26px;border-radius:9px;background:var(--purple);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:0.75rem;font-weight:800;margin-top:0.1rem;
+}
+.check-item__text{font-size:0.92rem;line-height:1.55;}
+.check-item__text strong{font-weight:700;}
+
+/* ---------- CIERRE ---------- */
+.closing{
+  border-radius:36px;background:var(--purple);color:#fff;
+  padding:clamp(2.5rem,5vw,4rem) clamp(1.5rem,3.5vw,3.5rem);
+  text-align:center;position:relative;overflow:hidden;
+}
+.closing::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(50% 50% at 15% 15%,rgba(255,210,63,0.22),transparent 70%),
+    radial-gradient(50% 50% at 85% 85%,rgba(255,167,82,0.22),transparent 70%);
+}
+.closing__title{
+  position:relative;font-weight:900;font-size:clamp(1.6rem,4vw,3rem);
+  line-height:1;letter-spacing:-0.04em;margin-bottom:1rem;
+}
+.closing__title em{font-style:normal;color:var(--yellow);}
+.closing__text{
+  position:relative;font-size:1rem;line-height:1.6;max-width:52ch;
+  margin:0 auto;opacity:0.85;
+}
+
+/* ---------- PIE ---------- */
+.foot{
+  background:var(--ink);color:var(--paper);
+  padding:clamp(2.5rem,5vw,3.5rem) 0 2rem;margin-top:3rem;
+}
+.foot__inner{
+  max-width:var(--max);margin:0 auto;padding:0 var(--gutter);
+  display:flex;justify-content:space-between;gap:1.5rem;
+  flex-wrap:wrap;align-items:baseline;
+}
+.foot__brand{display:flex;align-items:center;gap:0.7rem;}
+.foot__mark{width:36px;height:36px;color:var(--yellow);}
+.foot__name{font-weight:800;font-size:1rem;letter-spacing:-0.02em;}
+.foot__sub{
+  font-family:var(--mono);font-size:0.55rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:rgba(250,247,240,0.6);display:block;margin-top:0.15rem;
+}
+.foot__sig{
+  font-family:var(--script);font-weight:500;font-size:0.95rem;color:var(--yellow);
+}
+.foot__meta{
+  font-family:var(--mono);font-size:0.62rem;letter-spacing:0.06em;
+  color:rgba(250,247,240,0.4);
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.001ms !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     BARRA SUPERIOR
+     ========================================================================== -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="#portada" class="topbar__brand">
+      <svg class="topbar__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.8"/>
+        <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+      </svg>
+      <span class="topbar__text">
+        <span class="topbar__name">Alex Workspace</span>
+        <span class="topbar__sub">Manual de marca</span>
+      </span>
+    </a>
+    <nav class="topbar__nav" aria-label="Secciones del manual">
+      <a class="topbar__link" href="#marca">Marca</a>
+      <a class="topbar__link" href="#logotipo">Logotipo</a>
+      <a class="topbar__link" href="#color">Color</a>
+      <a class="topbar__link" href="#tipografia">Tipografía</a>
+      <a class="topbar__link" href="#voz">Voz</a>
+      <a class="topbar__link" href="#graficos">Gráficos</a>
+      <a class="topbar__link" href="#componentes">Componentes</a>
+      <a class="topbar__link" href="#aplicaciones">Aplicaciones</a>
+      <a class="topbar__link" href="#checklist">Checklist</a>
+    </nav>
+    <span class="topbar__tag">v1.0 · MMXXVI</span>
+  </div>
+</header>
+
+<!-- ==========================================================================
+     PORTADA
+     ========================================================================== -->
+<section class="cover" id="portada">
+  <div class="cover__inner">
+    <span class="cover__tag">Identidad visual y verbal</span>
+    <h1 class="cover__title">Manual de <em>marca</em></h1>
+    <p class="cover__lead">
+      Este documento reúne los criterios que sostienen la identidad de Alex Workspace: el símbolo, la paleta, la tipografía, la voz y los componentes con los que construimos cada página. Es la referencia única para diseñar, escribir y publicar.
+    </p>
+    <div class="cover__meta">
+      <div class="cover__meta-item">
+        <span class="cover__meta-label">Marca</span>
+        <span class="cover__meta-value">Alex Workspace</span>
+      </div>
+      <div class="cover__meta-item">
+        <span class="cover__meta-label">Origen</span>
+        <span class="cover__meta-value">El Salvador</span>
+      </div>
+      <div class="cover__meta-item">
+        <span class="cover__meta-label">Lema</span>
+        <span class="cover__meta-value">No venimos a repetir, venimos a innovar.</span>
+      </div>
+      <div class="cover__meta-item">
+        <span class="cover__meta-label">Versión</span>
+        <span class="cover__meta-value">1.0 · MMXXVI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     01 · LA MARCA
+     ========================================================================== -->
+<section class="section" id="marca">
+  <div class="head">
+    <span class="head__num">01 · La marca</span>
+    <h2 class="head__title">Qué es y qué <em>sostiene</em></h2>
+    <p class="head__lead">Alex Workspace es un espacio personal. No es una agencia ni una fundación: es el lugar donde convergen las personas, las organizaciones y las ideas.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="essence">
+      <p class="essence__quote">Espacio personal entre las personas, las organizaciones y las <em>ideas</em>.</p>
+      <p class="essence__text">
+        La marca existe para conectar la gestión organizacional con el desarrollo del talento humano. Todo lo que publicamos —un proyecto, una certificación, una página de contacto— responde a esa misma idea: construir con criterio, sin repetir fórmulas ajenas.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:1.1rem;">
+    <div class="grid grid--4">
+      <article class="value-card value-card--purple">
+        <span class="value-card__num">01</span>
+        <h3 class="value-card__title">Personas primero</h3>
+        <p class="value-card__text">Comprender cómo las personas se desarrollan, trabajan y deciden antes de proponer cualquier estructura.</p>
+      </article>
+      <article class="value-card value-card--papaya">
+        <span class="value-card__num">02</span>
+        <h3 class="value-card__title">Claridad</h3>
+        <p class="value-card__text">Nada decorativo que no comunique. Cada elemento tiene una razón y un lugar.</p>
+      </article>
+      <article class="value-card value-card--yellow">
+        <span class="value-card__num">03</span>
+        <h3 class="value-card__title">Evidencia</h3>
+        <p class="value-card__text">Si aparece una certificación, tiene credencial. Si aparece un proyecto, tiene enlace.</p>
+      </article>
+      <article class="value-card value-card--deep">
+        <span class="value-card__num">04</span>
+        <h3 class="value-card__title">Aprendizaje continuo</h3>
+        <p class="value-card__text">Construir cada día, aunque sea un poco. La curiosidad como hábito, no como discurso.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:2.5rem;">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Atributos de personalidad</span>
+    <div class="attr-list">
+      <span class="attr attr--fill">Directo</span>
+      <span class="attr">Cercano</span>
+      <span class="attr attr--purple">Ordenado</span>
+      <span class="attr">Curioso</span>
+      <span class="attr attr--fill">Profesional</span>
+      <span class="attr">Optimista</span>
+      <span class="attr attr--purple">Sin pose</span>
+      <span class="attr">Salvadoreño</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     02 · LOGOTIPO
+     ========================================================================== -->
+<section class="section section--gray" id="logotipo">
+  <div class="head">
+    <span class="head__num">02 · Logotipo</span>
+    <h2 class="head__title">El símbolo y su <em>construcción</em></h2>
+    <p class="head__lead">La marca gráfica es un círculo abierto con la letra A en su interior. El logotipo completo añade el nombre y el descriptor de origen. Ambos se usan juntos salvo en contextos donde el espacio es mínimo.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid grid--3">
+      <div class="logo-demo">
+        <svg class="mark" viewBox="0 0 48 48" fill="none" aria-label="Símbolo Alex Workspace">
+          <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+          <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+        </svg>
+        <span class="logo-demo__caption">Símbolo · tinta púrpura</span>
+      </div>
+      <div class="logo-demo">
+        <div class="lockup">
+          <svg class="mark--sm" viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:44px;height:44px;">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+          <span class="lockup__text">
+            <span class="lockup__name">Alex Workspace</span>
+            <span class="lockup__sub">El Salvador · MMXXVI</span>
+          </span>
+        </div>
+        <span class="logo-demo__caption">Logotipo horizontal</span>
+      </div>
+      <div class="logo-demo logo-demo--purple">
+        <div class="lockup">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:44px;height:44px;">
+            <circle cx="24" cy="24" r="20" stroke="#FFD23F" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#FFD23F" text-anchor="middle">A</text>
+          </svg>
+          <span class="lockup__text">
+            <span class="lockup__name" style="color:#fff;">Alex Workspace</span>
+            <span class="lockup__sub" style="color:rgba(255,255,255,0.7);">El Salvador · MMXXVI</span>
+          </span>
+        </div>
+        <span class="logo-demo__caption">Versión sobre púrpura</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÁREA DE RESPETO + TAMAÑOS MÍNIMOS -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <div class="grid grid--2">
+      <div class="card">
+        <span class="card__eyebrow">Área de respeto</span>
+        <h3 class="card__title">Espacio libre alrededor</h3>
+        <p class="card__text">El logotipo nunca debe compartir espacio con otros elementos dentro del área marcada. La unidad <strong>x</strong> equivale al radio del círculo del símbolo.</p>
+        <div style="display:flex;justify-content:center;padding:1.5rem 0;">
+          <div class="clearspace">
+            <div class="clearspace__box">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:56px;height:56px;">
+                <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+                <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="card__eyebrow">Tamaños mínimos</span>
+        <h3 class="card__title">Legibilidad garantizada</h3>
+        <p class="card__text">Por debajo de estos tamaños el símbolo pierde definición y el descriptor se vuelve ilegible. En esos casos se usa solo el símbolo.</p>
+        <div class="minsize" style="margin-top:1.25rem;">
+          <div class="minsize__item">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:64px;height:64px;">
+              <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+              <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+            </svg>
+            <span class="minsize__label">Digital<br>64 px</span>
+          </div>
+          <div class="minsize__item">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:40px;height:40px;">
+              <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+              <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+            </svg>
+            <span class="minsize__label">Símbolo solo<br>32 px</span>
+          </div>
+          <div class="minsize__item">
+            <span style="font-weight:800;font-size:1.5rem;letter-spacing:-0.03em;color:var(--purple);">A</span>
+            <span class="minsize__label">Favicon<br>16 px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USOS INCORRECTOS -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <div class="head" style="padding:0;margin-bottom:1.5rem;">
+      <span class="head__num">Usos incorrectos</span>
+      <h2 class="head__title" style="font-size:clamp(1.3rem,2.5vw,1.9rem);">Lo que nunca <em>hacemos</em></h2>
+    </div>
+    <div class="grid grid--3">
+      <div>
+        <div class="misuse misuse-1">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+        </div>
+        <p class="misuse__label"><span>01</span>No rotar el símbolo.</p>
+      </div>
+      <div>
+        <div class="misuse misuse-2">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+        </div>
+        <p class="misuse__label"><span>02</span>No deformar ni estirar.</p>
+      </div>
+      <div>
+        <div class="misuse misuse-3">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+        </div>
+        <p class="misuse__label"><span>03</span>Sin sombras ni efectos.</p>
+      </div>
+      <div>
+        <div class="misuse misuse-4">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+        </div>
+        <p class="misuse__label"><span>04</span>No aplicar transparencias.</p>
+      </div>
+      <div>
+        <div class="misuse misuse-5">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+        </div>
+        <p class="misuse__label"><span>05</span>No alterar los colores.</p>
+      </div>
+      <div>
+        <div class="misuse misuse-6">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="#6B2D8E" stroke-width="1.8"/>
+            <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#6B2D8E" text-anchor="middle">A</text>
+          </svg>
+        </div>
+        <p class="misuse__label"><span>06</span>No desenfocar ni pixelar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     03 · COLOR
+     ========================================================================== -->
+<section class="section" id="color">
+  <div class="head">
+    <span class="head__num">03 · Color</span>
+    <h2 class="head__title">La paleta y su <em>proporción</em></h2>
+    <p class="head__lead">El púrpura es la base. El amarillo y el papaya son los acentos que dan energía. El azul claro y el crema son fondos de descanso. El negro tinta nunca es negro puro.</p>
+  </div>
+
+  <div class="wrap">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Paleta principal</span>
+    <div class="grid grid--4">
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#6B2D8E;">
+          <span class="swatch__chip-label" style="color:rgba(255,255,255,0.85);">Primario</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Púrpura Alex</span>
+          <span class="swatch__hex">#6B2D8E · rgb(107,45,142)</span>
+          <span class="swatch__use">Color base de la marca. Fondos principales, titulares, enlaces activos.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#2B1461;">
+          <span class="swatch__chip-label" style="color:rgba(255,255,255,0.85);">Profundo</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Púrpura profundo</span>
+          <span class="swatch__hex">#2B1461 · rgb(43,20,97)</span>
+          <span class="swatch__use">Bloques oscuros, contraste sobre fondos claros, pie de página.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#FFD23F;">
+          <span class="swatch__chip-label" style="color:rgba(14,10,26,0.7);">Acento 01</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Amarillo Key</span>
+          <span class="swatch__hex">#FFD23F · rgb(255,210,63)</span>
+          <span class="swatch__use">Acento principal sobre púrpura. Enfatiza palabras clave en titulares.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#FFA752;">
+          <span class="swatch__chip-label" style="color:rgba(14,10,26,0.7);">Acento 02</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Papaya</span>
+          <span class="swatch__hex">#FFA752 · rgb(255,167,82)</span>
+          <span class="swatch__use">Acento cálido. Tarjetas, estados hover de botones, contrapunto al amarillo.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:2.5rem;">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Paleta secundaria</span>
+    <div class="grid grid--4">
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#A5CAD8;">
+          <span class="swatch__chip-label" style="color:rgba(43,20,97,0.75);">Fondo</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Azul claro</span>
+          <span class="swatch__hex">#A5CAD8 · rgb(165,202,216)</span>
+          <span class="swatch__use">Bloques de descanso. Fondo de secciones informativas.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#C9A3DB;">
+          <span class="swatch__chip-label" style="color:rgba(43,20,97,0.75);">Suave</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Púrpura suave</span>
+          <span class="swatch__hex">#C9A3DB · rgb(201,163,219)</span>
+          <span class="swatch__use">Detalles, líneas guía, elementos secundarios.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#F5EFE2;">
+          <span class="swatch__chip-label" style="color:rgba(14,10,26,0.6);">Fondo</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Crema</span>
+          <span class="swatch__hex">#F5EFE2 · rgb(245,239,226)</span>
+          <span class="swatch__use">Fondo alternativo cálido para bloques y tarjetas.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#00A86B;">
+          <span class="swatch__chip-label" style="color:rgba(255,255,255,0.85);">Estado</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Verde señal</span>
+          <span class="swatch__hex">#00A86B · rgb(0,168,107)</span>
+          <span class="swatch__use">Confirmaciones y estados positivos. Uso puntual.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:2.5rem;">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Neutros</span>
+    <div class="grid grid--4">
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#0E0A1A;">
+          <span class="swatch__chip-label" style="color:rgba(255,255,255,0.7);">Texto</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Tinta</span>
+          <span class="swatch__hex">#0E0A1A · rgb(14,10,26)</span>
+          <span class="swatch__use">Texto principal, botones oscuros, pie de página.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#221A38;">
+          <span class="swatch__chip-label" style="color:rgba(255,255,255,0.7);">Texto</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Tinta suave</span>
+          <span class="swatch__hex">#221A38 · rgb(34,26,56)</span>
+          <span class="swatch__use">Texto secundario, descripciones, subtítulos.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#FAF7F0;border-bottom:1px solid #E0DCD0;">
+          <span class="swatch__chip-label" style="color:rgba(14,10,26,0.6);">Fondo</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Papel</span>
+          <span class="swatch__hex">#FAF7F0 · rgb(250,247,240)</span>
+          <span class="swatch__use">Fondo general del sitio. Nunca blanco puro.</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#E0DCD0;">
+          <span class="swatch__chip-label" style="color:rgba(14,10,26,0.65);">Línea</span>
+        </div>
+        <div class="swatch__body">
+          <span class="swatch__name">Línea</span>
+          <span class="swatch__hex">#E0DCD0 · rgb(224,220,208)</span>
+          <span class="swatch__use">Bordes, separadores, retículas visibles.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPORCIÓN -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <div class="card" style="gap:1.5rem;">
+      <div>
+        <span class="card__eyebrow">Proporción de uso</span>
+        <h3 class="card__title" style="margin-top:0.6rem;">Cuánto de cada color</h3>
+        <p class="card__text">La regla es simple: el papel domina, el púrpura estructura, los acentos señalan. Si el amarillo ocupa más de un tercio de la pantalla, algo está mal.</p>
+      </div>
+      <div class="proportion">
+        <div class="proportion__seg" style="flex:52;background:#FAF7F0;color:#0E0A1A;border-right:1px solid #E0DCD0;">52%</div>
+        <div class="proportion__seg" style="flex:26;background:#6B2D8E;">26%</div>
+        <div class="proportion__seg" style="flex:12;background:#2B1461;">12%</div>
+        <div class="proportion__seg" style="flex:6;background:#FFD23F;color:#0E0A1A;">6%</div>
+        <div class="proportion__seg" style="flex:4;background:#FFA752;color:#0E0A1A;">4%</div>
+      </div>
+      <div class="proportion__legend">
+        <span><i class="dot" style="background:#FAF7F0;border:1px solid #E0DCD0;"></i>Papel · 52%</span>
+        <span><i class="dot" style="background:#6B2D8E;"></i>Púrpura · 26%</span>
+        <span><i class="dot" style="background:#2B1461;"></i>Profundo · 12%</span>
+        <span><i class="dot" style="background:#FFD23F;"></i>Amarillo · 6%</span>
+        <span><i class="dot" style="background:#FFA752;"></i>Papaya · 4%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTRASTE -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Combinaciones aprobadas</span>
+    <div class="contrast-row">
+      <div class="contrast" style="background:#6B2D8E;color:#fff;">
+        <span class="contrast__ratio">Contraste ≈ 7.4:1</span>
+        <span class="contrast__text">Blanco sobre púrpura <span class="badge-ok">AA</span></span>
+        <span class="contrast__ok">Combinación base para titulares y botones.</span>
+      </div>
+      <div class="contrast" style="background:#FFD23F;color:#0E0A1A;">
+        <span class="contrast__ratio">Contraste ≈ 12.6:1</span>
+        <span class="contrast__text">Tinta sobre amarillo <span class="badge-ok">AAA</span></span>
+        <span class="contrast__ok">Ideal para acentos con texto encima.</span>
+      </div>
+      <div class="contrast" style="background:#FFA752;color:#0E0A1A;">
+        <span class="contrast__ratio">Contraste ≈ 9.5:1</span>
+        <span class="contrast__text">Tinta sobre papaya <span class="badge-ok">AAA</span></span>
+        <span class="contrast__ok">Tarjetas y bloques cálidos.</span>
+      </div>
+      <div class="contrast" style="background:#A5CAD8;color:#2B1461;">
+        <span class="contrast__ratio">Contraste ≈ 6.8:1</span>
+        <span class="contrast__text">Profundo sobre azul <span class="badge-ok">AA</span></span>
+        <span class="contrast__ok">Bloques informativos de descanso.</span>
+      </div>
+    </div>
+    <div class="contrast-row" style="margin-top:1.1rem;">
+      <div class="contrast" style="background:#6B2D8E;color:#FFD23F;">
+        <span class="contrast__ratio">Contraste ≈ 3.2:1</span>
+        <span class="contrast__text">Amarillo sobre púrpura</span>
+        <span class="contrast__ok">Solo para palabras sueltas o elementos grandes, nunca párrafos.</span>
+      </div>
+      <div class="contrast" style="background:#FAF7F0;color:#0E0A1A;border:1px solid #E0DCD0;">
+        <span class="contrast__ratio">Contraste ≈ 17.2:1</span>
+        <span class="contrast__text">Tinta sobre papel <span class="badge-ok">AAA</span></span>
+        <span class="contrast__ok">Lectura cómoda para textos largos.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04 · TIPOGRAFÍA
+     ========================================================================== -->
+<section class="section section--gray" id="tipografia">
+  <div class="head">
+    <span class="head__num">04 · Tipografía</span>
+    <h2 class="head__title">Tres familias, una <em>jerarquía</em></h2>
+    <p class="head__lead">Inter sostiene la interfaz y los titulares. IBM Plex Mono marca los datos, las etiquetas y los números. Poppins aparece solo en la firma y en frases de acento.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid grid--3">
+      <div class="type-card">
+        <div class="type-card__head">
+          <span class="type-card__family">Inter</span>
+          <span class="type-card__role">Interfaz · Titulares</span>
+        </div>
+        <p class="type-card__specimen" style="font-family:var(--ui);font-weight:800;">Aa Bb Cc 0123</p>
+        <p class="type-card__meta">
+          Familia principal. Se usa en titulares, cuerpo de texto, navegación y botones. Pesos disponibles: 300, 400, 500, 600, 700, 800, 900.<br><br>
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--ui · 'Inter', sans-serif</span>
+        </p>
+      </div>
+      <div class="type-card">
+        <div class="type-card__head">
+          <span class="type-card__family" style="font-family:var(--mono);">IBM Plex Mono</span>
+          <span class="type-card__role">Datos · Etiquetas</span>
+        </div>
+        <p class="type-card__specimen" style="font-family:var(--mono);font-weight:600;font-size:2rem;">Aa 0123 /in</p>
+        <p class="type-card__meta">
+          Para etiquetas superiores, numeración de secciones, metadatos y datos técnicos. Siempre en mayúsculas con tracking amplio.<br><br>
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--mono · 'IBM Plex Mono'</span>
+        </p>
+      </div>
+      <div class="type-card">
+        <div class="type-card__head">
+          <span class="type-card__family" style="font-family:var(--script);font-weight:500;">Poppins</span>
+          <span class="type-card__role">Firma · Acento</span>
+        </div>
+        <p class="type-card__specimen" style="font-family:var(--script);font-weight:500;font-size:1.9rem;color:var(--purple);">No venimos a repetir</p>
+        <p class="type-card__meta">
+          Uso exclusivo para la firma de marca y frases destacadas. Nunca en párrafos ni en navegación. Peso 500 por defecto.<br><br>
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--script · 'Poppins'</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESCALA -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <div class="card" style="padding:clamp(1.5rem,3vw,2.5rem);">
+      <div style="margin-bottom:1rem;">
+        <span class="card__eyebrow">Escala tipográfica</span>
+        <h3 class="card__title" style="margin-top:0.6rem;">Niveles y medidas</h3>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Display</span>
+        <span class="scale-row__spec s-display">Construir cada día</span>
+        <span class="scale-row__data">clamp(2rem, 6vw, 5rem)<br>900 · -0.045em</span>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Hero</span>
+        <span class="scale-row__spec s-hero">Alexander <em>Hernández</em></span>
+        <span class="scale-row__data">clamp(2rem, 4.6vw, 3.5rem)<br>800 · -0.03em</span>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Sección</span>
+        <span class="scale-row__spec s-section">Formación y <em>certificaciones</em></span>
+        <span class="scale-row__data">clamp(1.75rem, 4.2vw, 3.2rem)<br>800 · -0.03em</span>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Tarjeta</span>
+        <span class="scale-row__spec s-card">Domina la IA con Gemini</span>
+        <span class="scale-row__data">clamp(1.2rem, 2vw, 1.65rem)<br>800 · -0.025em</span>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Cuerpo</span>
+        <span class="scale-row__spec s-body">Espacio personal entre las personas, las organizaciones y las ideas.</span>
+        <span class="scale-row__data">1rem / 1.55<br>400 · -0.005em</span>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Secundario</span>
+        <span class="scale-row__spec s-small">Disponible para oportunidades de aprendizaje, colaboración y proyectos.</span>
+        <span class="scale-row__data">0.92rem / 1.55<br>400 · opacidad 0.8</span>
+      </div>
+
+      <div class="scale-row">
+        <span class="scale-row__label">Etiqueta</span>
+        <span class="scale-row__spec s-mono">01 · Educación formal</span>
+        <span class="scale-row__data">0.6rem<br>500 · 0.22em · uppercase</span>
+      </div>
+
+      <div class="scale-row" style="border-bottom:none;">
+        <span class="scale-row__label">Firma</span>
+        <span class="scale-row__spec s-script">No venimos a repetir, venimos a innovar.</span>
+        <span class="scale-row__data">clamp(1.15rem, 2.2vw, 1.75rem)<br>500 · Poppins</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     05 · VOZ Y TONO
+     ========================================================================== -->
+<section class="section" id="voz">
+  <div class="head">
+    <span class="head__num">05 · Voz y tono</span>
+    <h2 class="head__title">Cómo <em>escribimos</em></h2>
+    <p class="head__lead">Escribimos en primera persona, en español, sin adornos. Preferimos la frase corta y el dato concreto. Nunca vendemos humo: si algo no se puede probar, no se escribe.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tone-tags" style="margin-bottom:2rem;">
+      <span class="tone-tag">Directo</span>
+      <span class="tone-tag">Cercano</span>
+      <span class="tone-tag">Concreto</span>
+      <span class="tone-tag">Sin pose</span>
+      <span class="tone-tag tone-tag--ghost">Sin jerga vacía</span>
+      <span class="tone-tag tone-tag--ghost">Sin exageraciones</span>
+      <span class="tone-tag tone-tag--ghost">Sin mayúsculas gritadas</span>
+    </div>
+
+    <div class="grid grid--2">
+      <div class="voice-card voice-card--do">
+        <span class="voice-card__label">Sí hacemos</span>
+        <ul class="voice-list">
+          <li>Frases cortas. Una idea por oración.</li>
+          <li>Primera persona cuando hablamos de nosotros: «administro», «construyo».</li>
+          <li>Datos verificables: fechas, instituciones, cifras.</li>
+          <li>Verbos en presente y en activa.</li>
+          <li>Un solo acento por titular, nunca dos seguidos.</li>
+          <li>Español de El Salvador, sin neutralizar de más.</li>
+        </ul>
+      </div>
+      <div class="voice-card voice-card--dont">
+        <span class="voice-card__label">No hacemos</span>
+        <ul class="voice-list">
+          <li>Párrafos de más de cuatro líneas sin respiro.</li>
+          <li>Adjetivos que no se pueden comprobar: «líder», «revolucionario».</li>
+          <li>Signos de exclamación en cadena.</li>
+          <li>Anglicismos innecesarios si existe la palabra en español.</li>
+          <li>Promesas sin respaldo: «garantizado», «el mejor».</li>
+          <li>Hablar de nosotros mismos en tercera persona.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid--2" style="margin-top:1.1rem;">
+      <div class="card">
+        <span class="card__eyebrow">Ejemplo correcto</span>
+        <p class="phrase">Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.</p>
+        <p class="card__text" style="margin-top:0.9rem;">Concreta, sin promesas, con un sujeto claro. El lector sabe exactamente qué ofrecemos.</p>
+      </div>
+      <div class="card">
+        <span class="card__eyebrow">Ejemplo incorrecto</span>
+        <p class="phrase phrase--bad">¡¡Soy el mejor candidato, garantizo resultados excepcionales en cualquier proyecto!!</p>
+        <p class="card__text" style="margin-top:0.9rem;">Tres exageraciones, dos signos de exclamación y ninguna evidencia. No se publica.</p>
+      </div>
+    </div>
+
+    <div class="wrap" style="padding:0;margin-top:2.5rem;">
+      <div class="rblock-demo rblock-demo--lightblue">
+        <span class="card__eyebrow" style="display:block;margin-bottom:0.9rem;">Lema de marca</span>
+        <p style="font-family:var(--script);font-weight:500;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.2;color:var(--purple);">
+          «No venimos a repetir, venimos a innovar.»
+        </p>
+        <p style="margin-top:1rem;font-size:0.95rem;line-height:1.6;max-width:60ch;opacity:0.8;">
+          El lema se usa una sola vez por página, siempre como cierre o como firma. Nunca en titulares principales ni en botones. Va en Poppins 500.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     06 · ELEMENTOS GRÁFICOS
+     ========================================================================== -->
+<section class="section section--gray" id="graficos">
+  <div class="head">
+    <span class="head__num">06 · Elementos gráficos</span>
+    <h2 class="head__title">Formas, radios e <em>iconos</em></h2>
+    <p class="head__lead">El sistema se apoya en tres formas básicas que se repiten en toda la interfaz: el círculo, el cuadrado redondeado y la píldora. Nada de esquinas rectas.</p>
+  </div>
+
+  <div class="wrap">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Formas contenedoras</span>
+    <div class="shape-grid">
+      <div>
+        <div class="shape shape--circle" style="background:#FFA752;color:#0E0A1A;">
+          <span class="shape__num">01</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+        </div>
+        <p class="shape__label">Círculo</p>
+      </div>
+      <div>
+        <div class="shape shape--square" style="background:#FFD23F;color:#0E0A1A;">
+          <span class="shape__num">02</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></svg>
+        </div>
+        <p class="shape__label">Cuadrado redondeado</p>
+      </div>
+      <div>
+        <div class="shape shape--pill" style="background:#A5CAD8;color:#0E0A1A;">
+          <span class="shape__num">03</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"/><circle cx="17" cy="9" r="2"/><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"/></svg>
+        </div>
+        <p class="shape__label">Píldora</p>
+      </div>
+      <div>
+        <div class="shape shape--circle" style="background:#6B2D8E;color:#FFD23F;">
+          <span class="shape__num">04</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+        </div>
+        <p class="shape__label">Círculo oscuro</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TILES -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <div class="card" style="padding:clamp(1.5rem,3vw,2.5rem);">
+      <div style="margin-bottom:1.25rem;">
+        <span class="card__eyebrow">Retícula de piezas</span>
+        <h3 class="card__title" style="margin-top:0.6rem;">Las columnas del hero</h3>
+        <p class="card__text" style="margin-top:0.7rem;">Las piezas del hero son contenedores verticales de 180 px de ancho con radios alternos y una numeración en mono. Se desplazan en bucle continuo y se pausan al pasar el cursor.</p>
+      </div>
+      <div class="tile-demo">
+        <div class="tile tile" style="background:#FFA752;border-radius:50%;height:190px;">
+          <span class="tile__num">01</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+        </div>
+        <div class="tile" style="background:#FFD23F;border-radius:24px;height:230px;">
+          <span class="tile__num">02</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-5 4-9 8-9-2 5-5 8-8 9z"/><path d="M12 21c0-5-4-9-8-9 2 5 5 8 8 9z"/><path d="M12 21V8"/><circle cx="12" cy="4" r="2"/></svg>
+        </div>
+        <div class="tile" style="background:#A5CAD8;border-radius:100px;height:205px;">
+          <span class="tile__num">03</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+        </div>
+        <div class="tile" style="background:#8B3DAE;border-radius:24px;height:250px;color:#fff;">
+          <span class="tile__num" style="opacity:0.7;">04</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RADIOS -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <span class="card__eyebrow" style="display:block;margin-bottom:1rem;">Escala de radios</span>
+    <div class="radius-row">
+      <div class="radius-item">
+        <div class="radius-box"></div>
+        <span class="radius-item__label">0 px<br>Nunca</span>
+      </div>
+      <div class="radius-item">
+        <div class="radius-box"></div>
+        <span class="radius-item__label">14 px<br>Detalles</span>
+      </div>
+      <div class="radius-item">
+        <div class="radius-box"></div>
+        <span class="radius-item__label">28 px<br>Tarjetas</span>
+      </div>
+      <div class="radius-item">
+        <div class="radius-box"></div>
+        <span class="radius-item__label">36 px<br>Bloques</span>
+      </div>
+      <div class="radius-item">
+        <div class="radius-box"></div>
+        <span class="radius-item__label">999 px<br>Píldoras</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ICONOS -->
+  <div class="wrap" style="margin-top:2.5rem;">
+    <div style="margin-bottom:1.25rem;">
+      <span class="card__eyebrow">Iconografía</span>
+      <h3 class="card__title" style="margin-top:0.6rem;">Trazo de 1.6 px</h3>
+      <p class="card__text" style="margin-top:0.7rem;">Los iconos son lineales, de trazo redondeado y sin relleno, salvo el de LinkedIn que es sólido por ser una marca registrada. Tamaño base 24 × 24 px, dentro de contenedores circulares de 78 px.</p>
+    </div>
+    <div class="icon-grid">
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-5 4-9 8-9-2 5-5 8-8 9z"/><path d="M12 21c0-5-4-9-8-9 2 5 5 8 8 9z"/><path d="M12 21V8"/><circle cx="12" cy="4" r="2"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"/><circle cx="17" cy="9" r="2"/><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></div>
+      <div class="icon-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07 · COMPONENTES
+     ========================================================================== -->
+<section class="section" id="componentes">
+  <div class="head">
+    <span class="head__num">07 · Componentes</span>
+    <h2 class="head__title">Las piezas del <em>sistema</em></h2>
+    <p class="head__lead">Cada componente tiene un comportamiento definido. Los botones rellenan con un círculo que crece desde abajo. Las tarjetas se elevan 5 px. Las etiquetas nunca cambian de forma.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid grid--2">
+      <div class="comp-stage">
+        <span class="comp-label">Botones</span>
+        <div class="comp-row">
+          <a class="btn-big" href="#componentes">
+            <span>Ver proyectos</span>
+            <span class="btn-big__arrow">→</span>
+          </a>
+          <a class="btn-big btn-big--light" href="#componentes">
+            <span>Volver al inicio</span>
+            <span class="btn-big__arrow">→</span>
+          </a>
+          <a class="btn-big btn-big--purple" href="#componentes">
+            <span>Conocer más</span>
+            <span class="btn-big__arrow">→</span>
+          </a>
+        </div>
+        <p class="card__text">Radio 999 px. Padding 1.05rem × 1.6rem. Texto 0.82rem / 700. Al pasar el cursor, un círculo de acento crece desde la base y el texto cambia a tinta.</p>
+      </div>
+
+      <div class="comp-stage">
+        <span class="comp-label">Botón circular y píldora outline</span>
+        <div class="comp-row">
+          <a class="cta-circle" href="#componentes" aria-label="Conocerme">
+            <span class="cta-circle__arrow">→</span>
+          </a>
+          <a class="nav-official" href="#componentes">
+            <span>LinkedIn</span>
+            <span>↗</span>
+          </a>
+          <a class="nav-official" href="#componentes">
+            <span>Ver perfil</span>
+            <span>↗</span>
+          </a>
+        </div>
+        <p class="card__text">El círculo mide 76 px y la flecha rota −45° al pasar el cursor. La píldora outline se rellena desde abajo con tinta sólida.</p>
+      </div>
+    </div>
+
+    <div class="grid grid--2" style="margin-top:1.1rem;">
+      <div class="comp-stage comp-stage--purple">
+        <span class="comp-label" style="color:rgba(255,255,255,0.75);">Etiquetas y chips</span>
+        <div class="comp-row">
+          <span class="chip chip--glass"><span class="chip__dot"></span>El Salvador · MMXXVI</span>
+          <span class="chip chip--yellow">Certificaciones</span>
+          <span class="chip chip--outline">Formación</span>
+          <span class="chip chip--dark">01 · Proyectos</span>
+        </div>
+        <p class="card__text" style="color:rgba(255,255,255,0.8);opacity:1;">Siempre en mono, mayúsculas y tracking 0.18em. El chip glass solo se usa sobre fondos púrpura o tinta.</p>
+      </div>
+
+      <div class="comp-stage">
+        <span class="comp-label">Etiqueta de sección</span>
+        <div class="comp-row" style="flex-direction:column;align-items:flex-start;gap:0.75rem;">
+          <span class="card__eyebrow">01 · Educación formal</span>
+          <span class="card__eyebrow">02 · Platzi · mar. 2026</span>
+          <span class="card__eyebrow">Google · ago. 2025</span>
+        </div>
+        <p class="card__text">Estructura: número de orden, separador de punto medio, institución y fecha abreviada. Nunca más de cuatro bloques de información.</p>
+      </div>
+    </div>
+
+    <!-- TARJETAS -->
+    <div style="margin-top:1.1rem;">
+      <div class="grid grid--2">
+        <article class="dif-card dif-card--papaya">
+          <div>
+            <span class="dif-card__eyebrow">01 · Google · ago. 2025</span>
+            <h3 class="dif-card__title">Domina la IA con Gemini</h3>
+            <p class="dif-card__desc">Prompting, uso de IA generativa y herramientas de Google para trabajo profesional.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="chip chip--dark">Ver más →</span>
+            <div class="dif-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--deep">
+          <div>
+            <span class="dif-card__eyebrow">02 · Instituto de Yamabal · 2025</span>
+            <h3 class="dif-card__title">Implementación de Zoho Books</h3>
+            <p class="dif-card__desc">Diseñé, implementé y configuré Zoho Books para la gestión financiera de grado, sustituyendo el uso de Excel.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="chip chip--yellow">Ver más →</span>
+            <div class="dif-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="card__text" style="margin-top:1rem;">Radio 28 px. Padding fluido entre 1.5rem y 2.25rem. Altura mínima 300 px. Al pasar el cursor, la tarjeta sube 5 px y el icono rota −8°.</p>
+    </div>
+
+    <!-- BLOQUE REDONDEADO -->
+    <div style="margin-top:2rem;">
+      <div class="rblock-demo rblock-demo--lightblue">
+        <div class="grid grid--2" style="align-items:center;">
+          <div>
+            <span class="card__eyebrow">Bloque redondeado</span>
+            <h3 class="card__title" style="margin-top:0.7rem;font-size:clamp(1.3rem,2.5vw,2rem);">Radio 36 px, contenido a 1.3fr / 1fr</h3>
+            <p class="card__text" style="margin-top:0.9rem;">Los bloques grandes siempre llevan un gráfico lineal a la derecha. El trazo es de 1.2 px y el color es el púrpura de la marca sobre fondos claros, o el amarillo sobre fondos oscuros.</p>
+          </div>
+          <div style="text-align:right;">
+            <svg viewBox="0 0 200 200" style="width:min(100%,190px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+              <circle cx="100" cy="100" r="90" opacity="0.15"/>
+              <circle cx="100" cy="100" r="65" opacity="0.3"/>
+              <circle cx="100" cy="100" r="40" opacity="0.55"/>
+              <circle cx="100" cy="100" r="15"/>
+              <circle cx="100" cy="100" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     08 · APLICACIONES
+     ========================================================================== -->
+<section class="section section--gray" id="aplicaciones">
+  <div class="head">
+    <span class="head__num">08 · Aplicaciones</span>
+    <h2 class="head__title">La marca en <em>contexto</em></h2>
+    <p class="head__lead">Estos son los soportes donde la identidad se aplica con más frecuencia. Cada uno respeta las mismas reglas de color, tipografía y forma.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid grid--3">
+      <div class="app-card">
+        <div class="app-card__stage app-card__stage--purple">
+          <div class="lockup">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:40px;height:40px;">
+              <circle cx="24" cy="24" r="20" stroke="#FFD23F" stroke-width="1.8"/>
+              <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#FFD23F" text-anchor="middle">A</text>
+            </svg>
+            <span class="lockup__text">
+              <span class="lockup__name" style="color:#fff;">Alex Workspace</span>
+              <span class="lockup__sub" style="color:rgba(255,255,255,0.7);">El Salvador · MMXXVI</span>
+            </span>
+          </div>
+        </div>
+        <div class="app-card__body">
+          <span class="app-card__title">Encabezado de sitio</span>
+          <span class="app-card__text">Logotipo horizontal sobre púrpura. El símbolo va en amarillo.</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__stage app-card__stage--yellow">
+          <div class="avatar-demo">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.8"/>
+              <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+            </svg>
+          </div>
+        </div>
+        <div class="app-card__body">
+          <span class="app-card__title">Avatar de perfil</span>
+          <span class="app-card__text">Símbolo en amarillo sobre púrpura. Formato circular.</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__stage app-card__stage--dark">
+          <span class="chip chip--glass"><span class="chip__dot"></span>El Salvador · MMXXVI</span>
+        </div>
+        <div class="app-card__body">
+          <span class="app-card__title">Etiqueta de origen</span>
+          <span class="app-card__text">Aparece en el hero de cada página. Punto amarillo pulsante.</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__stage app-card__stage--paper">
+          <div style="display:flex;gap:0.9rem;">
+            <div class="icon-item" style="width:52px;height:52px;border-radius:16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+            </div>
+            <div class="icon-item" style="width:52px;height:52px;border-radius:16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></svg>
+            </div>
+            <div class="icon-item" style="width:52px;height:52px;border-radius:16px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="app-card__body">
+          <span class="app-card__title">Iconografía de interfaz</span>
+          <span class="app-card__text">Contenedores cuadrados redondeados sobre fondo crema.</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__stage app-card__stage--papaya">
+          <a class="btn-big" href="#aplicaciones">
+            <span>Ir a contacto</span>
+            <span class="btn-big__arrow">→</span>
+          </a>
+        </div>
+        <div class="app-card__body">
+          <span class="app-card__title">Llamado a la acción</span>
+          <span class="app-card__text">Botón oscuro sobre bloque papaya. Contraste alto garantizado.</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__stage app-card__stage--lightblue">
+          <p style="font-family:var(--script);font-weight:500;font-size:1.15rem;color:var(--purple);text-align:center;line-height:1.3;">
+            No venimos a repetir,<br>venimos a innovar.
+          </p>
+        </div>
+        <div class="app-card__body">
+          <span class="app-card__title">Firma de marca</span>
+          <span class="app-card__text">Poppins 500 en púrpura. Una sola vez por página.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     09 · CHECKLIST
+     ========================================================================== -->
+<section class="section" id="checklist">
+  <div class="head head--center">
+    <span class="head__num">09 · Checklist</span>
+    <h2 class="head__title">Antes de <em>publicar</em></h2>
+    <p class="head__lead">Nueve verificaciones rápidas. Si alguna falla, la pieza no sale.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="check-list">
+      <div class="check-item">
+        <span class="check-item__box">01</span>
+        <span class="check-item__text"><strong>El logotipo respira.</strong> Tiene al menos una unidad <em>x</em> libre alrededor y no compite con otros elementos.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">02</span>
+        <span class="check-item__text"><strong>El púrpura domina.</strong> El acento amarillo no supera un tercio de la superficie visible.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">03</span>
+        <span class="check-item__text"><strong>El contraste pasa AA.</strong> Ningún texto por debajo de 4.5:1 en cuerpos, 3:1 en titulares grandes.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">04</span>
+        <span class="check-item__text"><strong>Solo hay un nivel Display.</strong> No se apilan dos titulares de 900 en la misma pantalla.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">05</span>
+        <span class="check-item__text"><strong>Las etiquetas están en mono.</strong> Mayúsculas, tracking 0.18em o superior, con punto medio como separador.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">06</span>
+        <span class="check-item__text"><strong>El lema aparece una vez.</strong> «No venimos a repetir, venimos a innovar» no se repite ni se usa como titular.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">07</span>
+        <span class="check-item__text"><strong>Nada de esquinas rectas.</strong> Todo contenedor usa 14, 28, 36 o 999 px de radio.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">08</span>
+        <span class="check-item__text"><strong>Los datos se pueden verificar.</strong> Cada certificación tiene institución y fecha; cada proyecto, enlace.</span>
+      </div>
+      <div class="check-item">
+        <span class="check-item__box">09</span>
+        <span class="check-item__text"><strong>El texto no exagera.</strong> Sin «el mejor», sin «garantizado», sin signos de exclamación encadenados.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:3rem;">
+    <div class="closing">
+      <h2 class="closing__title">Cada página es la marca <em>completa</em></h2>
+      <p class="closing__text">Este manual no es un catálogo cerrado. Es un punto de partida con criterio. Cuando dudes, vuelve a la idea original: espacio personal entre las personas, las organizaciones y las ideas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PIE
+     ========================================================================== -->
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__brand">
+      <svg class="foot__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.8"/>
+        <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+      </svg>
+      <div>
+        <span class="foot__name">Alex Workspace</span>
+        <span class="foot__sub">El Salvador · MMXXVI</span>
+      </div>
+    </div>
+    <span class="foot__sig">No venimos a repetir, venimos a innovar.</span>
+    <span class="foot__meta">Manual de marca · v1.0 · © <span id="year"></span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
