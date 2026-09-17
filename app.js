@@ -1,19 +1,6 @@
 (function () {
   'use strict';
 
-  /* ---------- DATOS ---------- */
-  const CATEGORIAS = {
-    academico:     { nombre: 'Académico',     color: '#6B2D8E' },
-    internacional: { nombre: 'Internacional', color: '#2B1461' },
-    nacional:      { nombre: 'Nacional',      color: '#FFA752' },
-    personal:      { nombre: 'Personal',      color: '#E63946' }
-  };
-
-  const EVENTOS = [
-    { title: 'Día de la Independencia', date: '2026-09-15', category: 'nacional' },
-    { title: 'Día Mundial del Psicólogo', date: '2026-10-13', category: 'internacional' }
-  ];
-
   /* ---------- LOADER ---------- */
   const loader = document.getElementById('loader');
   if (loader) {
@@ -91,7 +78,7 @@
     }
     loop();
 
-    const interactive = 'a, button, .cta-circle, .dif-card, .contact-card, .faq-trigger, .btn-big, .nav__official, .dif-cta, .footer__social, .filtro-btn, input, select, textarea';
+    const interactive = 'a, button, .cta-circle, .dif-card, .contact-card, .btn-big, .nav__official, .dif-cta, .footer__social, input, select, textarea';
     document.querySelectorAll(interactive).forEach((el) => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
@@ -100,15 +87,6 @@
     document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
     document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
   })();
-
-  /* ---------- FAQ ---------- */
-  document.querySelectorAll('.faq-trigger').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-  });
 
   /* ---------- REVEAL ---------- */
   if ('IntersectionObserver' in window) {
@@ -123,73 +101,5 @@
     document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
   } else {
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
-  }
-
-  /* ---------- CALENDARIO ---------- */
-  const calendarMount = document.getElementById('calendario-mount');
-  const filtrosEl = document.getElementById('filtros');
-  const proximosEl = document.getElementById('proximos');
-
-  if (calendarMount && typeof FullCalendar !== 'undefined') {
-    if (filtrosEl) {
-      filtrosEl.innerHTML = Object.keys(CATEGORIAS).map((key) => {
-        const cat = CATEGORIAS[key];
-        return `
-          <button data-cat="${key}" class="filtro-btn">
-            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${cat.color};margin-right:8px;"></span>${cat.nombre}
-          </button>`;
-      }).join('');
-    }
-
-    const esMovil = window.matchMedia('(max-width: 640px)').matches;
-    const calendar = new FullCalendar.Calendar(calendarMount, {
-      initialView: esMovil ? 'listMonth' : 'dayGridMonth',
-      locale: 'es',
-      firstDay: 1,
-      buttonText: { today: 'Hoy', month: 'Mes', list: 'Lista' },
-      events: EVENTOS.map((e) => ({
-        title: e.title,
-        start: e.date,
-        color: CATEGORIAS[e.category] ? CATEGORIAS[e.category].color : '#6B2D8E',
-        textColor: '#ffffff',
-        extendedProps: { category: e.category, description: e.description }
-      })),
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: esMovil ? 'listMonth,dayGridMonth' : 'dayGridMonth,listMonth'
-      },
-      eventClick: (info) => {
-        const d = info.event.extendedProps.description;
-        if (d) alert(info.event.title + '\n\n' + d);
-      }
-    });
-    calendar.render();
-
-    document.querySelectorAll('.filtro-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const cat = btn.dataset.cat;
-        const activo = btn.classList.toggle('activo');
-        calendar.getEvents().forEach((ev) => {
-          if (ev.extendedProps.category === cat) {
-            ev.setProp('display', activo ? 'auto' : 'none');
-          }
-        });
-      });
-    });
-
-    if (proximosEl) {
-      const hoy = new Date().toISOString().slice(0, 10);
-      const proximos = EVENTOS.filter((e) => e.date >= hoy).sort((a, b) => a.date.localeCompare(b.date)).slice(0, 5);
-      proximosEl.innerHTML = proximos.length
-        ? proximos.map((e) => `
-            <li style="padding:1rem 0;display:flex;justify-content:space-between;border-bottom:1px solid rgba(250,247,240,0.1);color:rgba(250,247,240,0.9);font-size:0.9rem;">
-              <span style="display:flex;align-items:center;gap:0.75rem;">
-                <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${CATEGORIAS[e.category].color};"></span>${e.title}
-              </span>
-              <span style="font-family:var(--mono);font-size:0.7rem;opacity:0.5;">${e.date}</span>
-            </li>`).join('')
-        : '<li style="padding:1rem 0;color:rgba(250,247,240,0.5);font-size:0.9rem;">Aún no hay fechas registradas.</li>';
-    }
   }
 })();
