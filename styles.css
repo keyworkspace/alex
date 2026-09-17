@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* ==========================================================================
    ALEX WORKSPACE · sistema Claudia Lars
    ========================================================================== */
@@ -26,7 +28,7 @@
 
   --ui:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:  'IBM Plex Mono', ui-monospace, monospace;
-  --script:'Poppins', sans-serif;
+  --script:'Poppins', system-ui, sans-serif;
 
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --max: 1280px;
@@ -544,12 +546,13 @@ main { display: block; }
 .hero__signature {
   display: block;
   font-family: var(--script);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1.1;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  line-height: 1.3;
   color: var(--yellow);
   margin-bottom: 1.35rem;
-  transform: rotate(-1.5deg);
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
 }
 
 .hero__lead {
@@ -1017,11 +1020,10 @@ main { display: block; }
 }
 .footer__signature {
   font-family: var(--script);
-  font-size: 1.05rem;
+  font-weight: 500;
+  font-size: 0.9rem;
   color: var(--yellow);
-  transform: rotate(-1deg);
-  display: inline-block;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 /* ==========================================================================
