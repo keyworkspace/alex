@@ -26,7 +26,7 @@
 
   --ui:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:  'IBM Plex Mono', ui-monospace, monospace;
-  --script:'Caveat', cursive;
+  --script:'Poppins', sans-serif;
 
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --max: 1280px;
