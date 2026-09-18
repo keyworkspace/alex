@@ -1,10 +1,33 @@
 /* ==========================================================================
-   ASSISTENTE · Alex Workspace
+   TALAPO · Asistente torogoz de Alex Workspace
    Sistema de preguntas y respuestas por coincidencia de palabras clave.
    No usa IA, no hace peticiones externas, no almacena nada.
    ========================================================================== */
 (function () {
   'use strict';
+
+  /* ======================================================================
+     SVG DEL TOROGOZ
+     Silueta estilizada con cresta, pico largo, ceja y cola de raqueta.
+     ====================================================================== */
+  var TOROGOZ_SVG =
+    '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      /* cuerpo */
+      '<path d="M12 22 Q12 12 22 10 Q30 8 34 14 Q38 20 34 26 L34 28 Q28 32 20 32 Q14 32 12 26 Z"/>' +
+      /* cresta */
+      '<path d="M20 11 Q23 6 27 8"/>' +
+      /* ojo */
+      '<circle cx="25" cy="18" r="1.3" fill="currentColor" stroke="none"/>' +
+      /* pico */
+      '<path d="M34 16 L44 18 L34 20"/>' +
+      /* ceja */
+      '<path d="M20 13 Q25 10 31 13"/>' +
+      /* cola de raqueta */
+      '<path d="M15 28 Q11 36 9 43"/>' +
+      '<circle cx="9" cy="43" r="1.6"/>' +
+      '<path d="M19 30 Q17 36 15 43"/>' +
+      '<circle cx="15" cy="43" r="1.6"/>' +
+    '</svg>';
 
   /* ======================================================================
      BASE DE CONOCIMIENTO
@@ -19,7 +42,7 @@
     {
       id: 'hola',
       keywords: ['hola', 'buenas', 'hey', 'saludos', 'buenos dias', 'buenas tardes', 'buenas noches', 'que tal', 'hi'],
-      answer: 'Hola. Soy el asistente de <strong>Alex Workspace</strong>. Puedo responder preguntas sobre Alexander, sus proyectos, su formación, su filosofía o cómo contactarlo. ¿Qué quieres saber?',
+      answer: '¡Hola! Soy <strong>Talapo</strong>, el torogoz de Alex Workspace. Puedo responderte sobre Alexander, sus proyectos, su formación, su filosofía o cómo contactarlo. ¿Qué quieres saber?',
       suggestions: ['¿Quién es Alexander?', '¿Qué proyectos tiene?', '¿Cómo contacto?']
     },
     {
@@ -197,15 +220,21 @@
       suggestions: ['¿Qué estudia?', '¿Qué idiomas habla?', '¿Qué proyectos tiene?']
     },
     {
+      id: 'talapo',
+      keywords: ['talapo', 'quien eres tu', 'que eres', 'que eres tu', 'torogoz', 'eres un pajaro', 'eres un ave', 'eres ia', 'eres un bot'],
+      answer: 'Soy <strong>Talapo</strong>, el torogoz de Alex Workspace. El torogoz es el ave nacional de El Salvador. No soy una inteligencia artificial: soy un pequeño sistema que reconoce palabras clave y responde con la información del sitio. Si no encuentro una respuesta, te lo digo y te sugiero por dónde seguir.',
+      suggestions: ['¿Quién es Alexander?', '¿Qué es Alex Workspace?', '¿Cómo contacto?']
+    },
+    {
       id: 'gracias',
       keywords: ['gracias', 'thanks', 'te lo agradezco', 'muy amable'],
-      answer: 'Con gusto. Si quieres saber algo más, aquí sigo. También puedes escribirle directamente a Alexander desde la página de <a href="contacto.html">Contacto</a>.',
+      answer: '¡Con gusto! Si quieres saber algo más, aquí sigo. También puedes escribirle directamente a Alexander desde la página de <a href="contacto.html">Contacto</a>.',
       suggestions: ['¿Quién es Alexander?', '¿Qué proyectos tiene?', '¿Cuál es su filosofía?']
     },
     {
       id: 'adios',
       keywords: ['adios', 'chao', 'hasta luego', 'bye', 'nos vemos'],
-      answer: 'Hasta luego. Si en algún momento quieres retomar la conversación, aquí estaré.',
+      answer: '¡Hasta luego! Si en algún momento quieres retomar la conversación, aquí estaré posado.',
       suggestions: ['¿Cómo contacto?', '¿Qué es Alex Workspace?', '¿Cuál es su filosofía?']
     }
   ];
@@ -240,7 +269,6 @@
       if (!kw) continue;
       var idx = nq.indexOf(kw);
       if (idx !== -1) {
-        // Peso por longitud del keyword (más específico = más puntos)
         var words = kw.split(' ').length;
         total += words * 2 + kw.length * 0.1;
       }
@@ -269,31 +297,25 @@
   root.className = 'assistant';
   root.setAttribute('data-open', 'false');
   root.setAttribute('role', 'complementary');
-  root.setAttribute('aria-label', 'Asistente de Alex Workspace');
+  root.setAttribute('aria-label', 'Talapo, asistente de Alex Workspace');
 
   root.innerHTML =
-    '<button class="assistant__toggle" type="button" aria-label="Abrir asistente" aria-expanded="false">' +
-      '<svg viewBox="0 0 48 48" fill="none" aria-hidden="true">' +
-        '<circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.8"/>' +
-        '<text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>' +
-      '</svg>' +
+    '<button class="assistant__toggle" type="button" aria-label="Abrir a Talapo" aria-expanded="false">' +
+      TOROGOZ_SVG +
     '</button>' +
-    '<div class="assistant__panel" role="dialog" aria-label="Asistente Alex Workspace" aria-modal="false">' +
+    '<div class="assistant__panel" role="dialog" aria-label="Talapo, asistente de Alex Workspace" aria-modal="false">' +
       '<div class="assistant__header">' +
-        '<svg class="assistant__mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">' +
-          '<circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.8"/>' +
-          '<text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>' +
-        '</svg>' +
+        '<span class="assistant__mark">' + TOROGOZ_SVG + '</span>' +
         '<div class="assistant__head-text">' +
-          '<span class="assistant__name">Asistente</span>' +
-          '<span class="assistant__sub">Alex Workspace</span>' +
+          '<span class="assistant__name">Talapo</span>' +
+          '<span class="assistant__sub">Torogoz · Alex Workspace</span>' +
         '</div>' +
-        '<button class="assistant__close" type="button" aria-label="Cerrar asistente">✕</button>' +
+        '<button class="assistant__close" type="button" aria-label="Cerrar a Talapo">✕</button>' +
       '</div>' +
       '<div class="assistant__body" id="assistantBody" aria-live="polite"></div>' +
       '<div class="assistant__chips" id="assistantChips"></div>' +
       '<form class="assistant__form" id="assistantForm" autocomplete="off">' +
-        '<input class="assistant__input" id="assistantInput" type="text" placeholder="Escribe tu pregunta…" aria-label="Escribe tu pregunta" />' +
+        '<input class="assistant__input" id="assistantInput" type="text" placeholder="Pregúntale a Talapo…" aria-label="Escribe tu pregunta" />' +
         '<button class="assistant__send" type="submit" aria-label="Enviar">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
             '<line x1="5" y1="12" x2="19" y2="12"/>' +
@@ -307,7 +329,6 @@
 
   var toggle   = root.querySelector('.assistant__toggle');
   var closeBtn = root.querySelector('.assistant__close');
-  var panel    = root.querySelector('.assistant__panel');
   var body     = root.querySelector('.assistant__body');
   var chipsBox = root.querySelector('.assistant__chips');
   var form     = root.querySelector('.assistant__form');
@@ -346,7 +367,7 @@
     setTimeout(function () { input.focus(); }, 100);
     if (!started) {
       started = true;
-      bubble('Hola. Soy el asistente de <strong>Alex Workspace</strong>. Puedo responder preguntas sobre Alexander, sus proyectos, su formación o su filosofía. ¿Qué quieres saber?', 'bot');
+      bubble('¡Hola! Soy <strong>Talapo</strong>, el torogoz de Alex Workspace. Puedo responderte sobre Alexander, sus proyectos, su formación o su filosofía. ¿Qué quieres saber?', 'bot');
       showChips(DEFAULT_SUGGESTIONS);
     }
   }
@@ -370,7 +391,7 @@
         showChips(match.suggestions || DEFAULT_SUGGESTIONS);
       } else {
         bubble(
-          'No tengo una respuesta exacta para eso. Puedo ayudarte con: <strong>Alexander</strong>, <strong>proyectos</strong>, <strong>formación</strong>, <strong>filosofía</strong>, <strong>contacto</strong>, <strong>transparencia</strong> o <strong>voluntariado</strong>. Prueba con una de estas:',
+          'No encontré una respuesta exacta. Puedo ayudarte con: <strong>Alexander</strong>, <strong>proyectos</strong>, <strong>formación</strong>, <strong>filosofía</strong>, <strong>contacto</strong>, <strong>transparencia</strong> o <strong>voluntariado</strong>. Prueba con una de estas:',
           'bot'
         );
         showChips(DEFAULT_SUGGESTIONS);
