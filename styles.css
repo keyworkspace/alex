@@ -753,6 +753,99 @@ main { display: block; }
 .dif-card__icon svg { width: 36px; height: 36px; }
 
 /* ==========================================================================
+   SECTION · HEAD
+   Estructura de bloques de contenido para páginas estáticas
+   (filosofía, transparencia, y cualquier página con encabezado centrado).
+   ========================================================================== */
+.section { padding: clamp(3rem, 6vw, 5.5rem) 0; }
+.section--tight { padding: clamp(2rem, 4vw, 3rem) 0; }
+.section--gray { background: var(--gray); }
+.section--warm { background: var(--paper-warm); }
+.section--dark { background: var(--ink); color: var(--paper); }
+
+.head {
+  max-width: var(--max);
+  margin: 0 auto clamp(2rem, 4vw, 3.25rem);
+  padding: 0 var(--gutter);
+}
+.head--center { text-align: center; }
+
+.head__num {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--ink-soft);
+}
+.section--dark .head__num { color: var(--yellow); opacity: 0.75; }
+
+.head__title {
+  font-family: var(--ui);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.head__title em { font-style: normal; color: var(--purple); }
+.section--dark .head__title { color: var(--paper); }
+.section--dark .head__title em { color: var(--yellow); }
+
+.head__lead {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.72;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+.head--center .head__lead { margin-left: auto; margin-right: auto; }
+.section--dark .head__lead { color: rgba(250,247,240,0.75); }
+
+/* Rejillas genéricas, por si se usan en estas páginas */
+.grid { display: grid; gap: 1.1rem; }
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 980px) { .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; } }
+
+/* Tarjetas genéricas usadas en secciones de contenido */
+.card {
+  border-radius: 28px;
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  background: #fff;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+.card__title {
+  font-family: var(--ui);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.card__text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.78;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================================
    BIG HEADINGS
    ========================================================================== */
 .big-headings {
