@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portal de Transparencia · Alex Workspace</title>
+<meta name="description" content="Qué es Alex Workspace, quién está detrás, cómo se sostiene y qué compromisos asume." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="al-mark" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+  </symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-5 4-9 8-9-2 5-5 8-8 9z"/><path d="M12 21c0-5-4-9-8-9 2 5 5 8 8 9z"/><path d="M12 21V8"/><circle cx="12" cy="4" r="2"/></symbol>
+  <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"/><circle cx="17" cy="9" r="2"/><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></symbol>
+  <symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="ic-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l2-9 5 4 2-8 2 8 5-4 2 9z"/><path d="M3 21h18"/></symbol>
+  <symbol id="ic-hammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l4 4-8 8-4-4z"/><path d="M17 3l4 4-3 3-4-4z"/><path d="M6 18l-2 2"/></symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></symbol>
+  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
+
+<nav class="nav" id="nav" aria-label="Principal">
+  <div class="nav__inner">
+    <a href="index.html" class="brand">
+      <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
+      <span class="brand__text">
+        <span class="brand__name">Alex Workspace</span>
+        <span class="brand__sub">El Salvador · MMXXVI</span>
+      </span>
+    </a>
+    <div class="nav__links">
+      <a class="nav__link" href="index.html">Inicio</a>
+      <a class="nav__link" href="sobre-mi.html">Sobre mí</a>
+      <a class="nav__link" href="formacion.html">Formación</a>
+      <a class="nav__link" href="proyectos.html">Proyectos</a>
+      <a class="nav__link" href="filosofia.html">Filosofía</a>
+      <a class="nav__link" href="contacto.html">Contacto</a>
+      <a class="nav__link" href="transparencia.html" aria-current="page">Transparencia</a>
+    </div>
+    <div class="nav__actions">
+      <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+        <span class="nav__official__label">LinkedIn</span>
+        <span class="nav__official__arrow" aria-hidden="true">↗</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+        Menú
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" data-open="false"></div>
+<aside class="mobile-nav" id="mobileNav" data-open="false">
+  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
+  <a class="mobile-nav__item" href="index.html">Inicio</a>
+  <a class="mobile-nav__item" href="sobre-mi.html">Sobre mí</a>
+  <a class="mobile-nav__item" href="formacion.html">Formación</a>
+  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
+  <a class="mobile-nav__item" href="filosofia.html">Filosofía</a>
+  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
+  <a class="mobile-nav__item" href="transparencia.html">Transparencia</a>
+  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
+</aside>
+
+<main>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="page-hero__inner page-hero__inner--deep reveal">
+        <div class="page-hero__content">
+          <span class="page-hero__tag">Portal de Transparencia</span>
+          <h1 class="page-hero__title">Claro desde el <em>principio</em></h1>
+          <p class="page-hero__lead">
+            Esta marca personal no oculta nada. Aquí está lo que es, lo que no es, quién está detrás, cómo se sostiene y qué compromisos asume con quien la visita.
+          </p>
+          <div class="page-hero__actions">
+            <a class="btn-big btn-big--light" href="#alcance">
+              <span class="btn-big__label">
+                Ver el alcance
+                <span class="btn-big__arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+            <a class="btn-big" href="#compromisos" style="background:rgba(255,255,255,0.14);color:white;">
+              <span class="btn-big__label">
+                Ver compromisos
+                <span class="btn-big__arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUÉ ES Y QUÉ NO ES -->
+  <div class="rblock" id="alcance" style="margin-top:1.25rem;">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">01 · Alcance</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Qué es y qué <em>no es</em></h2>
+          <p class="rblock__text">
+            <strong>Alex Workspace es una marca personal.</strong> Es el espacio digital desde el que organizo y presento mi trayectoria: formación, proyectos, ideas y filosofía.
+          </p>
+          <p class="rblock__text">
+            No es una empresa. No es una fundación. No es una ONG. No es una persona jurídica. No ofrece servicios como entidad legal ni factura en nombre de una sociedad. No recibe financiamiento externo, no vende productos y no comercializa la información de quienes la visitan.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            Todo lo que aparece aquí es responsabilidad exclusiva de la persona que está detrás.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="100" cy="100" r="85" opacity="0.15"/>
+            <circle cx="100" cy="100" r="60" opacity="0.35"/>
+            <circle cx="100" cy="100" r="32" opacity="0.65"/>
+            <circle cx="100" cy="100" r="12"/>
+            <circle cx="100" cy="100" r="4" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIÉN ESTÁ DETRÁS -->
+  <div class="rblock">
+    <div class="rblock__inner rblock--papaya reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">02 · Quién está detrás</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Una persona, no un <em>equipo</em></h2>
+          <p class="rblock__text" style="font-size:1.05rem;opacity:1;">
+            Alexander Hernández. Estudiante salvadoreño. El Salvador, Centroamérica.
+          </p>
+          <p class="rblock__text">
+            No hay equipo, no hay socios, no hay consejo, no hay representantes. Todo lo que se publica bajo el nombre Alex Workspace pasa por la misma persona.
+          </p>
+          <p class="rblock__text">
+            Cuando aparece "nosotros" en alguna página, se refiere a la marca como espacio —no a un colectivo de personas. Para cualquier aclaración sobre quién dice o hace algo, el punto de contacto es el que aparece más abajo.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple-deep);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="100" cy="80" r="30"/>
+            <path d="M40 180 Q100 120 160 180 Z"/>
+            <line x1="100" y1="110" x2="100" y2="150"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECTOS VINCULADOS -->
+  <section class="dif-section">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Proyectos <span class="circled">vinculados</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.7;max-width:62ch;margin-left:auto;margin-right:auto;">
+        Cinco proyectos independientes. Cada uno tiene su propia página, su propio alcance y su propio propósito. No son filiales, subsidiarias ni unidades de una misma empresa.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Producción audiovisual</span>
+            <h3 class="dif-card__title">Heliot Media</h3>
+            <p class="dif-card__desc">Proyecto de servicios audiovisuales con equipo real. Opera con clientes y presta servicios concretos.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Espacio digital</span>
+            <h3 class="dif-card__title">Key Workspace</h3>
+            <p class="dif-card__desc">Marca operativa que agrupa proyectos de educación, empleabilidad y cultura. No es una persona jurídica.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row" style="grid-template-columns:repeat(3,1fr);">
+        <article class="dif-card dif-card--cream reveal" style="min-height:280px;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Windsor</span>
+            <h3 class="dif-card__title" style="font-size:1.15rem;">Servicios digitales</h3>
+            <p class="dif-card__desc">Diseño, estrategia y tecnología para emprendedores.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--deep reveal" style="min-height:280px;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · The New Key</span>
+            <h3 class="dif-card__title" style="font-size:1.15rem;">Blog editorial</h3>
+            <p class="dif-card__desc">Espacio para pensar en voz alta sobre actualidad, sociedad, tecnología y cultura.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--lightblue reveal" style="min-height:280px;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">05 · Key Arts &amp; Culture</span>
+            <h3 class="dif-card__title" style="font-size:1.15rem;">Museo digital</h3>
+            <p class="dif-card__desc">Archivo cultural con piezas emblemáticas del arte universal, de acceso abierto.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">
+              <span class="dif-cta__label">Visitar</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-heart"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO SE SOSTIENE -->
+  <div class="rblock">
+    <div class="rblock__inner rblock--cream reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">03 · Sostenibilidad</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Cómo se <em>sostiene</em></h2>
+          <p class="rblock__text">
+            Alex Workspace no recibe financiamiento externo. No tiene patrocinadores, no tiene donaciones, no tiene inversores. Es un espacio autofinanciado.
+          </p>
+          <p class="rblock__text">
+            No hay publicidad de terceros ni enlaces pagados. Tampoco hay cookies de rastreo, ni píxeles de seguimiento, ni sistemas de perfilado. Los enlaces a sitios externos se marcan con <code style="font-family:var(--mono);font-size:0.85em;">rel="noopener"</code> para proteger a quien los abre.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            Si en algún momento aparece alguna forma de sostenimiento económico, se declarará aquí con claridad.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <rect x="30" y="30" width="60" height="60" rx="12"/>
+            <rect x="110" y="30" width="60" height="60" rx="12"/>
+            <rect x="30" y="110" width="60" height="60" rx="12"/>
+            <rect x="110" y="110" width="60" height="60" rx="12"/>
+            <circle cx="100" cy="100" r="5" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATOS Y PRIVACIDAD -->
+  <div class="rblock">
+    <div class="rblock__inner rblock--dark reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;color:var(--yellow);">04 · Datos y privacidad</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Qué se recoge y qué <em>no</em></h2>
+          <p class="rblock__text">
+            No se recogen datos de forma automática. No hay formularios que almacenen información. No hay analíticas de terceros instaladas, ni mapas de calor, ni seguimiento publicitario.
+          </p>
+          <p class="rblock__text">
+            Si alguien escribe a los correos o perfiles de contacto, la información que comparte se usa únicamente para responder esa conversación. No se reenvía, no se almacena en bases de datos y no se incorpora a listas de ningún tipo.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            El correo y las redes son del propio Alexander. Se pueden verificar en el pie de página.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M100 20 L160 40 V100 C160 145 130 170 100 180 C70 170 40 145 40 100 V40 Z" opacity="0.7"/>
+            <path d="M80 100 l15 15 l30 -30" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPROMISOS -->
+  <section class="dif-section" id="compromisos">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Compromisos <span class="circled">asumidos</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.7;max-width:60ch;margin-left:auto;margin-right:auto;">
+        Cuatro compromisos concretos con quien visita esta marca.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Verificabilidad</span>
+            <h3 class="dif-card__title">Lo que digo, se puede comprobar</h3>
+            <p class="dif-card__desc">Cada certificación tiene institución y fecha. Cada proyecto tiene enlace. Cada logro tiene respaldo. Si no se puede verificar, no se publica.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-shield"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Corrección</span>
+            <h3 class="dif-card__title">Si hay un error, se corrige</h3>
+            <p class="dif-card__desc">Cualquier persona puede señalar una imprecisión. Si es válida, se corrige y se deja constancia. Sin discusiones innecesarias.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-eye"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--lightblue reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Actualización</span>
+            <h3 class="dif-card__title">El estado cambia, esto también</h3>
+            <p class="dif-card__desc">Cuando cambie la situación de un proyecto, la naturaleza de la marca o aparezca alguna forma de sostenimiento, se actualizará esta página.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--cream reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · Separación clara</span>
+            <h3 class="dif-card__title">Marca personal ≠ proyecto</h3>
+            <p class="dif-card__desc">Alex Workspace no se presenta como si fuera Heliot Media, Key Workspace o cualquier otro proyecto. Son cosas distintas y aquí se distinguen.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-doc"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANAL DE CONSULTAS -->
+  <div class="rblock">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">05 · Canal para consultas</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Si algo no está claro, se <em>pregunta</em></h2>
+          <p class="rblock__text">
+            Cualquier duda sobre el alcance de esta marca, el uso de una imagen, un dato publicado o la naturaleza de un proyecto puede hacerse llegar directamente. No hay formularios internos ni departamentos intermedios.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            Correo directo: <a href="mailto:alexhrnndz32@gmail.com" style="text-decoration:underline;">alexhrnndz32@gmail.com</a>
+          </p>
+          <a class="btn-big" href="contacto.html">
+            <span class="btn-big__label">
+              Ir a contacto
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <rect x="40" y="55" width="120" height="90" rx="10"/>
+            <path d="M40 65 L100 110 L160 65"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERSIÓN DEL PORTAL -->
+  <section class="section section--tight">
+    <div class="head head--center">
+      <span class="head__num">Estado de este portal</span>
+      <h2 class="head__title">Versión y <em>actualizaciones</em></h2>
+      <p class="head__lead">Un portal de transparencia sin fecha no sirve. Aquí queda constancia de cuándo se revisó por última vez.</p>
+    </div>
+
+    <div style="max-width:var(--max);margin:0 auto;padding:0 var(--gutter);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;">
+
+        <div class="dif-card dif-card--purple" style="min-height:auto;padding:1.5rem 1.75rem;">
+          <span class="dif-card__eyebrow">Versión actual</span>
+          <p style="font-size:1.15rem;font-weight:800;letter-spacing:-0.025em;margin-top:0.4rem;">v1.0 · MMXXVI</p>
+        </div>
+
+        <div class="dif-card dif-card--yellow" style="min-height:auto;padding:1.5rem 1.75rem;">
+          <span class="dif-card__eyebrow" style="color:rgba(14,10,26,0.6);">Última revisión</span>
+          <p style="font-size:1.05rem;font-weight:700;line-height:1.3;margin-top:0.4rem;">2026 · El Salvador</p>
+        </div>
+
+        <div class="dif-card dif-card--lightblue" style="min-height:auto;padding:1.5rem 1.75rem;">
+          <span class="dif-card__eyebrow" style="color:rgba(43,20,97,0.65);">Estado</span>
+          <p style="font-size:1.05rem;font-weight:700;line-height:1.3;margin-top:0.4rem;">Vigente</p>
+        </div>
+
+        <div class="dif-card dif-card--deep" style="min-height:auto;padding:1.5rem 1.75rem;">
+          <span class="dif-card__eyebrow">Aplica a</span>
+          <p style="font-size:1.05rem;font-weight:700;line-height:1.3;margin-top:0.4rem;">Todas las páginas de Alex Workspace</p>
+        </div>
+
+      </div>
+
+      <p style="margin-top:2rem;font-size:0.95rem;line-height:1.65;opacity:0.75;max-width:70ch;">
+        Si en algún momento esta marca evoluciona —por ejemplo, si se convierte en un proyecto con estructura legal, si recibe financiamiento o si cambia su alcance— este portal se actualizará antes que cualquier otra página del sitio.
+      </p>
+    </div>
+  </section>
+
+  <!-- BIG HEADINGS -->
+  <div class="big-headings">
+    <h2 class="big-heading reveal">Lo que se puede verificar <em>no necesita exagerarse</em></h2>
+    <h2 class="big-heading big-heading--outline reveal">No venimos a repetir, <em>venimos a innovar</em></h2>
+  </div>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">¿Algo no está <em>claro</em>?</h2>
+        <p class="final-cta__text">Si algo de esta página no responde lo que buscabas, escríbeme directamente. Sin intermediarios.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>
+          <div class="footer__brand-text">
+            <span class="footer__brand-name">Alex Workspace</span>
+            <span class="footer__brand-sub">El Salvador · MMXXVI</span>
+          </div>
+        </div>
+        <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+          <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
+          <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="transparencia.html">Transparencia</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
+          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
+          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
+          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
+          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:alexhrnndz32@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Alex Workspace · El Salvador</span>
+      <span class="footer__signature">No venimos a repetir, venimos a innovar.</span>
+      <span>© <span id="year"></span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
