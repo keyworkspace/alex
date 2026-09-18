@@ -102,4 +102,29 @@
   } else {
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
   }
+
+  /* ---------- AUTO-INYECCIÓN DEL ASISTENTE ---------- */
+  (function loadAssistant() {
+    if (window.__AW_ASSISTANT_LOADED__) return;
+    window.__AW_ASSISTANT_LOADED__ = true;
+
+    var cssId = 'assistant-css';
+    if (!document.getElementById(cssId)) {
+      var link = document.createElement('link');
+      link.id = cssId;
+      link.rel = 'stylesheet';
+      link.href = 'assistant.css';
+      document.head.appendChild(link);
+    }
+
+    var jsId = 'assistant-js';
+    if (!document.getElementById(jsId)) {
+      var script = document.createElement('script');
+      script.id = jsId;
+      script.src = 'assistant.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  })();
+
 })();
