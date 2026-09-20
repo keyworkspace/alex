@@ -1,7 +1,5 @@
 /* ==========================================================================
    TALAPO · Asistente torogoz de Alex Workspace
-   Widget flotante de preguntas y respuestas por coincidencia de palabras.
-   No usa IA ni servicios externos.
    ========================================================================== */
 
 .assistant {
@@ -12,7 +10,6 @@
   font-family: var(--ui);
 }
 
-/* ---------- BOTÓN FLOTANTE ---------- */
 .assistant__toggle {
   position: relative;
   width: 64px;
@@ -48,7 +45,6 @@
 }
 .assistant[data-open="true"] .assistant__toggle::after { display: none; }
 
-/* ---------- PANEL ---------- */
 .assistant__panel {
   position: absolute;
   bottom: 80px;
@@ -77,7 +73,6 @@
   transform: none;
 }
 
-/* ---------- ENCABEZADO ---------- */
 .assistant__header {
   background: var(--green);
   color: #fff;
@@ -127,7 +122,6 @@
   transform: rotate(90deg);
 }
 
-/* ---------- CUERPO ---------- */
 .assistant__body {
   flex: 1;
   overflow-y: auto;
@@ -174,7 +168,6 @@
 }
 .assistant__bubble--user a { color: var(--yellow); }
 
-/* ---------- CHIPS ---------- */
 .assistant__chips {
   display: flex;
   flex-wrap: wrap;
@@ -202,7 +195,6 @@
   border-color: var(--green);
 }
 
-/* ---------- FORMULARIO ---------- */
 .assistant__form {
   display: flex;
   gap: 0.5rem;
@@ -246,7 +238,6 @@
 }
 .assistant__send svg { width: 18px; height: 18px; }
 
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 560px) {
   .assistant { right: 0.9rem; bottom: 0.9rem; }
   .assistant__toggle { width: 56px; height: 56px; }
@@ -262,8 +253,6 @@
   .assistant__panel,
   .assistant__toggle,
   .assistant__close,
-  .assistant__send {
-    transition-duration: 0.001ms !important;
-  }
+  .assistant__send { transition-duration: 0.001ms !important; }
   .assistant__toggle::after { animation: none; }
 }
