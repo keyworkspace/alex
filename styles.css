@@ -28,7 +28,6 @@
 
   --ui:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:  'IBM Plex Mono', ui-monospace, monospace;
-  --script:'Poppins', system-ui, sans-serif;
 
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --max: 1280px;
@@ -687,14 +686,14 @@ main { display: block; }
 
 .hero__signature {
   display: block;
-  font-family: var(--script);
-  font-weight: 500;
-  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
-  line-height: 1.3;
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  line-height: 1.5;
   color: var(--yellow);
-  margin-bottom: 1.35rem;
-  letter-spacing: -0.01em;
-  max-width: 22ch;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  max-width: 34ch;
 }
 
 .hero__lead {
@@ -1182,7 +1181,7 @@ main { display: block; }
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
   gap: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 2rem;
 }
 @media (max-width: 980px) {
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
@@ -1230,22 +1229,21 @@ main { display: block; }
 .footer__seal {
   padding: 2.5rem 0 2rem;
   text-align: center;
-  border-top: 1px solid rgba(250,247,240,0.12);
 }
 .footer__signature {
   display: inline-block;
-  font-family: var(--script);
-  font-weight: 500;
-  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
   color: var(--yellow);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
 }
 
 .footer__socials-wrap {
   padding: 1.75rem 0;
   display: flex;
   justify-content: center;
-  border-top: 1px solid rgba(250,247,240,0.12);
 }
 .footer__socials { display: flex; gap: 0.7rem; }
 .footer__social {
@@ -1264,7 +1262,6 @@ main { display: block; }
 
 .footer__bottom {
   padding-top: 1.75rem;
-  border-top: 1px solid rgba(250,247,240,0.12);
   text-align: center;
   font-family: var(--mono);
   font-size: 0.68rem;
