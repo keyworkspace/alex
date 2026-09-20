@@ -1,43 +1,23 @@
 /* ==========================================================================
    TALAPO · Asistente torogoz de Alex Workspace
    Sistema de preguntas y respuestas por coincidencia de palabras clave.
-   No usa IA, no hace peticiones externas, no almacena nada.
    ========================================================================== */
 (function () {
   'use strict';
 
-  /* ======================================================================
-     SVG DEL TOROGOZ
-     Silueta estilizada con cresta, pico largo, ceja y cola de raqueta.
-     ====================================================================== */
   var TOROGOZ_SVG =
     '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      /* cuerpo */
       '<path d="M12 22 Q12 12 22 10 Q30 8 34 14 Q38 20 34 26 L34 28 Q28 32 20 32 Q14 32 12 26 Z"/>' +
-      /* cresta */
       '<path d="M20 11 Q23 6 27 8"/>' +
-      /* ojo */
       '<circle cx="25" cy="18" r="1.3" fill="currentColor" stroke="none"/>' +
-      /* pico */
       '<path d="M34 16 L44 18 L34 20"/>' +
-      /* ceja */
       '<path d="M20 13 Q25 10 31 13"/>' +
-      /* cola de raqueta */
       '<path d="M15 28 Q11 36 9 43"/>' +
       '<circle cx="9" cy="43" r="1.6"/>' +
       '<path d="M19 30 Q17 36 15 43"/>' +
       '<circle cx="15" cy="43" r="1.6"/>' +
     '</svg>';
 
-  /* ======================================================================
-     BASE DE CONOCIMIENTO
-     ======================================================================
-     Cada entrada tiene:
-       id: identificador interno
-       keywords: lista de frases clave que activan esta respuesta
-       answer: HTML con la respuesta (puede contener enlaces)
-       suggestions: chips de seguimiento que aparecen debajo
-     ====================================================================== */
   var KB = [
     {
       id: 'hola',
@@ -66,43 +46,43 @@
     {
       id: 'formacion',
       keywords: ['formacion', 'estudios', 'educacion', 'certificaciones', 'certificados', 'cursos', 'aprendizaje', 'instituto', 'bachillerato'],
-      answer: 'Actualmente cursa el Bachillerato Técnico Vocacional en Administración Contable en el Instituto de Yamabal (2023 – actualidad) y participa en el Programa Oportunidades de la Fundación Gloria Kriete. Además tiene 8 certificaciones verificables: Google (Gemini), Platzi (Emprendimiento, Reclutamiento, LinkedIn), Canva, CREO El Salvador, Aflatoun International y Fundación Carlos Slim. <a href="formacion.html">Ver Formación completa →</a>',
+      answer: 'Actualmente cursa el Bachillerato Técnico Vocacional en Administración Contable en el Instituto de Yamabal (2023 – actualidad) y participa en el Programa Oportunidades de la Fundación Gloria Kriete. Además tiene 8 certificaciones verificables. <a href="formacion.html">Ver Formación completa →</a>',
       suggestions: ['¿Qué idiomas habla?', '¿Qué proyectos tiene?', '¿Cómo contacto?']
     },
     {
       id: 'proyectos',
       keywords: ['proyectos', 'proyecto', 'heliot', 'heliot media', 'key workspace', 'windsor', 'the new key', 'arts and culture', 'key arts', 'museo digital', 'emprendimiento', 'fundador'],
-      answer: 'Actualmente administra cinco proyectos:<br>· <strong>Heliot Media</strong> — producción audiovisual<br>· <strong>Key Workspace</strong> — espacio digital de educación, empleabilidad y cultura<br>· <strong>Windsor</strong> — servicios digitales<br>· <strong>The New Key</strong> — blog editorial<br>· <strong>Key Arts &amp; Culture</strong> — museo digital<br><br>También tiene dos proyectos académicos con resultados medibles. <a href="proyectos.html">Ver todos →</a>',
+      answer: 'Actualmente administra cinco proyectos:<br>· <strong>Heliot Media</strong> — producción audiovisual<br>· <strong>Key Workspace</strong> — espacio digital de educación, empleabilidad y cultura<br>· <strong>Windsor</strong> — servicios digitales<br>· <strong>The New Key</strong> — blog editorial<br>· <strong>Key Arts &amp; Culture</strong> — museo digital<br><br><a href="proyectos.html">Ver todos →</a>',
       suggestions: ['¿Qué es Heliot Media?', '¿Qué es Key Workspace?', '¿Cómo contacto?']
     },
     {
       id: 'heliot',
       keywords: ['heliot', 'heliot media', 'audiovisual', 'produccion audiovisual', 'video'],
-      answer: '<strong>Heliot Media</strong> es un proyecto de producción audiovisual con equipo activo, clientes reales e ingresos por servicios. Alexander es Director de Recursos Humanos ahí. <a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Visitar Heliot Media →</a>',
+      answer: '<strong>Heliot Media</strong> es un proyecto de producción audiovisual con equipo activo, clientes reales e ingresos por servicios. Alexander es Director de Recursos Humanos ahí. <a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Visitar →</a>',
       suggestions: ['¿Qué proyectos tiene?', '¿Cuál es su experiencia?', '¿Cómo contacto?']
     },
     {
       id: 'key',
       keywords: ['key workspace', 'que es key', 'espacio digital'],
-      answer: '<strong>Key Workspace</strong> es un espacio digital independiente que trabaja educación, empleabilidad y cultura en línea. No es una fundación ni una persona jurídica: es una marca operativa con tres proyectos: Windsor, The New Key y Key Arts &amp; Culture. <a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Visitar Key Workspace →</a>',
+      answer: '<strong>Key Workspace</strong> es un espacio digital independiente que trabaja educación, empleabilidad y cultura en línea. Es una marca operativa con tres proyectos: Windsor, The New Key y Key Arts &amp; Culture. <a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Visitar →</a>',
       suggestions: ['¿Qué es Windsor?', '¿Qué es The New Key?', '¿Qué es Key Arts & Culture?']
     },
     {
       id: 'windsor',
       keywords: ['windsor', 'servicios digitales', 'diseno', 'diseno digital', 'tecnologia'],
-      answer: '<strong>Windsor</strong> es un proyecto dentro de Key Workspace que ofrece servicios digitales: estrategia, diseño y tecnología para emprendedores que quieren construir con propósito. <a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Visitar Windsor →</a>',
+      answer: '<strong>Windsor</strong> es un proyecto dentro de Key Workspace que ofrece servicios digitales: estrategia, diseño y tecnología para emprendedores que quieren construir con propósito. <a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Visitar →</a>',
       suggestions: ['¿Qué es Key Workspace?', '¿Qué proyectos tiene?', '¿Cómo contacto?']
     },
     {
       id: 'newkey',
       keywords: ['the new key', 'new key', 'blog editorial', 'blog', 'articulos', 'reflexiones'],
-      answer: '<strong>The New Key</strong> es el blog editorial de Key Workspace. Es un espacio para pensar en voz alta sobre actualidad, sociedad, tecnología y cultura. <a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">Visitar The New Key →</a>',
+      answer: '<strong>The New Key</strong> es el blog editorial de Key Workspace. Es un espacio para pensar en voz alta sobre actualidad, sociedad, tecnología y cultura. <a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">Visitar →</a>',
       suggestions: ['¿Qué es Key Workspace?', '¿Qué es Key Arts & Culture?', '¿Cómo contacto?']
     },
     {
       id: 'arts',
       keywords: ['key arts', 'arts and culture', 'arts culture', 'museo digital', 'museo', 'arte', 'cultura'],
-      answer: '<strong>Key Arts &amp; Culture</strong> es un museo digital: un archivo cultural con 50 piezas emblemáticas del arte y la cultura universal, de acceso abierto. <a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Visitar Key Arts &amp; Culture →</a>',
+      answer: '<strong>Key Arts &amp; Culture</strong> es un museo digital: un archivo cultural con 50 piezas emblemáticas del arte y la cultura universal, de acceso abierto. <a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Visitar →</a>',
       suggestions: ['¿Qué es Key Workspace?', '¿Qué es The New Key?', '¿Cómo contacto?']
     },
     {
@@ -132,7 +112,7 @@
     {
       id: 'proposito',
       keywords: ['proposito', 'para que', 'por que importa', 'que sentido'],
-      answer: 'Su propósito es <strong>convertir potencial en posibilidad</strong>: usar lo que aprende y construye para abrir oportunidades —para él y para otras personas, especialmente para quienes están empezando, eligiendo un camino o buscando su lugar. <a href="filosofia.html">Ver propósito →</a>',
+      answer: 'Su propósito es <strong>convertir potencial en posibilidad</strong>: usar lo que aprende y construye para abrir oportunidades —para él y para otras personas. <a href="filosofia.html">Ver propósito →</a>',
       suggestions: ['¿Cuál es su misión?', '¿Cuál es su visión?', '¿Qué es Alex Workspace?']
     },
     {
@@ -144,7 +124,7 @@
     {
       id: 'resiliencia',
       keywords: ['resiliencia', 'resiliente', 'dificultades', 'caer', 'levantarse'],
-      answer: 'Para Alexander, la resiliencia no es una frase motivacional: es la capacidad de <strong>continuar, adaptarse y reconstruir</strong>. Atravesar dificultades, aprender de ellas y seguir avanzando sin permitir que un obstáculo puntual defina toda la trayectoria.',
+      answer: 'Para Alexander, la resiliencia es la capacidad de <strong>continuar, adaptarse y reconstruir</strong>. Atravesar dificultades, aprender de ellas y seguir avanzando sin permitir que un obstáculo puntual defina toda la trayectoria.',
       suggestions: ['¿Cuáles son sus valores?', '¿Qué es el manifiesto?', '¿Qué es Alex Workspace?']
     },
     {
@@ -156,19 +136,19 @@
     {
       id: 'voluntariado',
       keywords: ['voluntariado', 'voluntario', 'servicio', 'tutor', 'consejero', 'ambiental', 'reforestacion', 'limpieza', 'yamabal'],
-      answer: 'Alexander ha hecho voluntariado en tres frentes:<br>· <strong>Tutor de inglés A2</strong> en el Instituto de Yamabal (2025)<br>· <strong>Consejero vocacional</strong> para jóvenes en exploración académica (2025)<br>· <strong>Voluntariado ambiental</strong> con la Alcaldía de Yamabal: jornadas de limpieza y reforestación (2024–2026)<br><br><a href="sobre-mi.html">Ver voluntariado →</a>',
+      answer: 'Alexander ha hecho voluntariado en tres frentes:<br>· <strong>Tutor de inglés A2</strong> en el Instituto de Yamabal (2025)<br>· <strong>Consejero vocacional</strong> para jóvenes (2025)<br>· <strong>Voluntariado ambiental</strong> con la Alcaldía de Yamabal (2024–2026)<br><br><a href="sobre-mi.html">Ver voluntariado →</a>',
       suggestions: ['¿Qué es Key Arts & Culture?', '¿Qué estudia?', '¿Cómo contacto?']
     },
     {
       id: 'habilidades',
       keywords: ['habilidades', 'skills', 'que sabe hacer', 'competencias', 'herramientas', 'excel', 'zoho', 'canva', 'office'],
-      answer: 'Maneja herramientas como <strong>Zoho Books, Zoho Projects, Excel avanzado, Google Workspace, Microsoft Office, Canva y Adobe Illustrator</strong>. También tiene habilidades organizacionales (liderazgo, gestión de proyectos, planificación estratégica) y de comunicación (entrevistas por competencias, presentaciones, redacción). <a href="sobre-mi.html">Ver habilidades →</a>',
+      answer: 'Maneja herramientas como <strong>Zoho Books, Zoho Projects, Excel avanzado, Google Workspace, Microsoft Office, Canva y Adobe Illustrator</strong>. También tiene habilidades organizacionales y de comunicación. <a href="sobre-mi.html">Ver habilidades →</a>',
       suggestions: ['¿Qué idiomas habla?', '¿Cuál es su experiencia?', '¿Qué estudia?']
     },
     {
       id: 'idiomas',
       keywords: ['idiomas', 'habla ingles', 'ingles', 'espanol', 'bilingue', 'duolingo'],
-      answer: 'Habla <strong>español</strong> con competencia bilingüe o nativa, e <strong>inglés</strong> en formación continua (Duolingo Score 60, competencia básica). <a href="formacion.html">Ver idiomas →</a>',
+      answer: 'Habla <strong>español</strong> con competencia bilingüe o nativa, e <strong>inglés</strong> en formación continua (Duolingo Score 60). <a href="formacion.html">Ver idiomas →</a>',
       suggestions: ['¿Qué estudia?', '¿Qué certificaciones tiene?', '¿Cómo contacto?']
     },
     {
@@ -180,31 +160,31 @@
     {
       id: 'psicologia',
       keywords: ['psicologia', 'psicologo', 'carrera', 'universidad', 'va a estudiar'],
-      answer: 'La <strong>psicología</strong> es una de las áreas que Alexander explora por su relación con el comportamiento humano, las organizaciones y el desarrollo. No es todavía una decisión de carrera cerrada. Lo que sí tiene claro es el tipo de trabajo que quiere aprender a hacer: entender bien, organizar con criterio, crear cosas que funcionen y trabajar con personas. <a href="filosofia.html">Ver filosofía →</a>',
+      answer: 'La <strong>psicología</strong> es una de las áreas que Alexander explora por su relación con el comportamiento humano, las organizaciones y el desarrollo. No es todavía una decisión de carrera cerrada. <a href="filosofia.html">Ver filosofía →</a>',
       suggestions: ['¿Qué estudia?', '¿Qué le interesa?', '¿Cuál es su visión?']
     },
     {
       id: 'transparencia',
       keywords: ['transparencia', 'portal de transparencia', 'legalidad', 'legal', 'empresa', 'fundacion', 'ong', 'persona juridica', 'financiamiento'],
-      answer: '<strong>Alex Workspace es una marca personal, no una empresa.</strong> No es una fundación, no es una ONG, no es una persona jurídica. No recibe financiamiento externo, no vende productos y no comercializa la información de quienes la visitan. <a href="transparencia.html">Ver Portal de Transparencia →</a>',
+      answer: '<strong>Alex Workspace es una marca personal, no una empresa.</strong> No es una fundación, no es una ONG, no es una persona jurídica. No recibe financiamiento externo ni comercializa datos. <a href="transparencia.html">Ver Portal de Transparencia →</a>',
       suggestions: ['¿Quién está detrás?', '¿Cómo se sostiene?', '¿Qué datos recoge?']
     },
     {
       id: 'sostenimiento',
       keywords: ['como se sostiene', 'financia', 'financiamiento', 'ingresos', 'publicidad', 'cookies', 'patrocinio'],
-      answer: 'Alex Workspace es <strong>autofinanciado</strong>. No tiene patrocinadores, donaciones ni inversores. No hay publicidad de terceros ni enlaces pagados. Tampoco hay cookies de rastreo, píxeles de seguimiento ni sistemas de perfilado. <a href="transparencia.html">Ver más →</a>',
+      answer: 'Alex Workspace es <strong>autofinanciado</strong>. No tiene patrocinadores, donaciones ni inversores. No hay publicidad de terceros ni enlaces pagados. <a href="transparencia.html">Ver más →</a>',
       suggestions: ['¿Qué datos recoge?', '¿Qué es Alex Workspace?', '¿Quién está detrás?']
     },
     {
       id: 'privacidad',
       keywords: ['privacidad', 'datos', 'cookies', 'rastreo', 'informacion personal', 'gdpr'],
-      answer: 'No se recogen datos de forma automática. No hay formularios que almacenen información ni analíticas de terceros. Si escribes a los correos o perfiles de contacto, la información se usa únicamente para responder esa conversación. <a href="transparencia.html">Ver más →</a>',
+      answer: 'No se recogen datos de forma automática. No hay formularios que almacenen información ni analíticas de terceros. <a href="transparencia.html">Ver más →</a>',
       suggestions: ['¿Cómo se sostiene?', '¿Qué es Alex Workspace?', '¿Cómo contacto?']
     },
     {
       id: 'ubicacion',
       keywords: ['donde vive', 'pais', 'ubicacion', 'el salvador', 'yamabal', 'morazan', 'centroamerica'],
-      answer: 'Alexander es de <strong>El Salvador</strong>, Centroamérica. Estudia en el Instituto de Yamabal, en el departamento de Morazán. Su marca se firma como <em>El Salvador · MMXXVI</em>.',
+      answer: 'Alexander es de <strong>El Salvador</strong>, Centroamérica. Estudia en el Instituto de Yamabal, en el departamento de Morazán.',
       suggestions: ['¿Quién es Alexander?', '¿Qué proyectos tiene?', '¿Cómo contacto?']
     },
     {
@@ -216,13 +196,13 @@
     {
       id: 'certificaciones',
       keywords: ['certificaciones', 'certificados', 'certificacion', 'credenciales', 'google', 'platzi', 'canva', 'creo', 'aflatoun', 'carlos slim', 'gemini'],
-      answer: 'Tiene <strong>8 certificaciones verificables</strong>: Google (Domina la IA con Gemini), Platzi (Emprendimiento para Jóvenes, Reclutamiento de Talento, LinkedIn para Empresas), Canva (Fundamentos para docentes), CREO El Salvador (Liderazgo Ciudadano), Aflatoun International (Gestión de Proyectos) y Fundación Carlos Slim (Grammatica). <a href="formacion.html">Ver certificaciones →</a>',
+      answer: 'Tiene <strong>8 certificaciones verificables</strong>: Google (Gemini), Platzi (Emprendimiento, Reclutamiento, LinkedIn), Canva (Fundamentos para docentes), CREO El Salvador (Liderazgo Ciudadano), Aflatoun International (Gestión de Proyectos) y Fundación Carlos Slim (Grammatica). <a href="formacion.html">Ver certificaciones →</a>',
       suggestions: ['¿Qué estudia?', '¿Qué idiomas habla?', '¿Qué proyectos tiene?']
     },
     {
       id: 'talapo',
       keywords: ['talapo', 'quien eres tu', 'que eres', 'que eres tu', 'torogoz', 'eres un pajaro', 'eres un ave', 'eres ia', 'eres un bot'],
-      answer: 'Soy <strong>Talapo</strong>, el torogoz de Alex Workspace. El torogoz es el ave nacional de El Salvador. No soy una inteligencia artificial: soy un pequeño sistema que reconoce palabras clave y responde con la información del sitio. Si no encuentro una respuesta, te lo digo y te sugiero por dónde seguir.',
+      answer: 'Soy <strong>Talapo</strong>, el torogoz de Alex Workspace. El torogoz es el ave nacional de El Salvador. No soy una inteligencia artificial: soy un pequeño sistema que reconoce palabras clave y responde con la información del sitio.',
       suggestions: ['¿Quién es Alexander?', '¿Qué es Alex Workspace?', '¿Cómo contacto?']
     },
     {
@@ -245,10 +225,6 @@
     '¿Qué estudia?',
     '¿Cómo contacto?'
   ];
-
-  /* ======================================================================
-     NORMALIZACIÓN Y BÚSQUEDA
-     ====================================================================== */
 
   function normalize(str) {
     return String(str)
@@ -288,10 +264,6 @@
     }
     return bestScore > 0 ? best : null;
   }
-
-  /* ======================================================================
-     CONSTRUCCIÓN DEL WIDGET
-     ====================================================================== */
 
   var root = document.createElement('div');
   root.className = 'assistant';
@@ -336,7 +308,6 @@
 
   var started = false;
 
-  /* ---------- HELPERS ---------- */
   function bubble(html, who) {
     var el = document.createElement('div');
     el.className = 'assistant__bubble assistant__bubble--' + who;
@@ -399,7 +370,6 @@
     }, 220);
   }
 
-  /* ---------- EVENTOS ---------- */
   toggle.addEventListener('click', function () {
     if (root.getAttribute('data-open') === 'true') close();
     else open();
