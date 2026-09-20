@@ -171,6 +171,11 @@
     });
   })();
 
+  /* ---------- OCULTAR TRANSPARENCIA DEL HEADER ---------- */
+  document.querySelectorAll('.nav a[href="transparencia.html"], .mobile-nav a[href="transparencia.html"]').forEach((link) => {
+    link.remove();
+  });
+
   /* ---------- REVEAL ---------- */
   if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver((entries) => {
