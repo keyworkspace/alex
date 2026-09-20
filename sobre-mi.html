@@ -39,42 +39,69 @@
   <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
 </svg>
 
-<nav class="nav" id="nav" aria-label="Principal">
-  <div class="nav__inner">
-    <a href="index.html" class="brand">
-      <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
-      <span class="brand__text">
-        <span class="brand__name">Alex Workspace</span>
-        <span class="brand__sub">El Salvador · MMXXVI</span>
-      </span>
-    </a>
-    <div class="nav__links">
-      <a class="nav__link" href="index.html">Inicio</a>
-      <a class="nav__link" href="sobre-mi.html" aria-current="page">Sobre mí</a>
-      <a class="nav__link" href="formacion.html">Formación</a>
-      <a class="nav__link" href="proyectos.html">Proyectos</a>
-      <a class="nav__link" href="contacto.html">Contacto</a>
-    </div>
-    <div class="nav__actions">
-      <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
-        <span class="nav__official__label">LinkedIn</span>
-        <span class="nav__official__arrow" aria-hidden="true">↗</span>
+<header class="site-header" id="siteHeader">
+  <nav class="nav" id="nav" aria-label="Principal">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
+        <span class="brand__text">
+          <span class="brand__name">Alex Workspace</span>
+        </span>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
-        <span class="menu-toggle__icon" aria-hidden="true"></span>
-        Menú
-      </button>
+
+      <div class="nav__links">
+        <a class="nav__link" href="index.html">Inicio</a>
+
+        <div class="nav__item">
+          <a class="nav__link nav__link--has-sub" href="sobre-mi.html" aria-haspopup="true" aria-expanded="false">Sobre mí</a>
+          <div class="nav__submenu" role="menu">
+            <a class="nav__submenu-link" href="sobre-mi.html" role="menuitem" aria-current="page">Sobre mí</a>
+            <a class="nav__submenu-link" href="formacion.html" role="menuitem">Formación</a>
+            <a class="nav__submenu-link" href="filosofia.html" role="menuitem">Filosofía</a>
+          </div>
+        </div>
+
+        <a class="nav__link" href="proyectos.html">Proyectos</a>
+        <a class="nav__link" href="transparencia.html">Transparencia</a>
+        <a class="nav__link" href="contacto.html">Contacto</a>
+      </div>
+
+      <div class="nav__actions">
+        <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+          <span class="nav__official__label">LinkedIn</span>
+          <span class="nav__official__arrow" aria-hidden="true">↗</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+          Menú
+        </button>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
 
 <div class="nav-overlay" id="navOverlay" data-open="false"></div>
 <aside class="mobile-nav" id="mobileNav" data-open="false">
   <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
+
   <a class="mobile-nav__item" href="index.html">Inicio</a>
-  <a class="mobile-nav__item" href="sobre-mi.html">Sobre mí</a>
-  <a class="mobile-nav__item" href="formacion.html">Formación</a>
+
+  <div class="mobile-nav__group">
+    <button class="mobile-nav__item mobile-nav__item--has-sub" data-open="false" aria-expanded="false">
+      Sobre mí
+      <svg class="mobile-nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <polyline points="3 5 6 8 9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="mobile-nav__subnav">
+      <a class="mobile-nav__subitem" href="sobre-mi.html">Sobre mí</a>
+      <a class="mobile-nav__subitem" href="formacion.html">Formación</a>
+      <a class="mobile-nav__subitem" href="filosofia.html">Filosofía</a>
+    </div>
+  </div>
+
   <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
+  <a class="mobile-nav__item" href="transparencia.html">Transparencia</a>
   <a class="mobile-nav__item" href="contacto.html">Contacto</a>
   <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
 </aside>
@@ -95,7 +122,6 @@
     </div>
   </div>
 
-  <!-- QUIÉN SOY -->
   <div class="rblock" style="margin-top:1.25rem;">
     <div class="rblock__inner rblock--lightblue reveal">
       <div class="rblock__grid">
@@ -125,7 +151,6 @@
     </div>
   </div>
 
-  <!-- ACTUALMENTE -->
   <div class="rblock">
     <div class="rblock__inner rblock--dark reveal">
       <div class="rblock__grid">
@@ -151,7 +176,6 @@
     </div>
   </div>
 
-  <!-- ENFOQUE -->
   <section class="dif-section">
     <header class="dif-head reveal">
       <h2 class="dif-title">Mi <span class="circled">enfoque</span></h2>
@@ -206,7 +230,6 @@
     </div>
   </section>
 
-  <!-- EXPERIENCIA -->
   <div class="rblock">
     <div class="rblock__inner rblock--cream reveal">
       <div class="rblock__grid">
@@ -239,7 +262,6 @@
     </div>
   </div>
 
-  <!-- HABILIDADES -->
   <section class="dif-section">
     <header class="dif-head reveal">
       <h2 class="dif-title">Habilidades <span class="circled">reales</span></h2>
@@ -299,7 +321,6 @@
     </div>
   </section>
 
-  <!-- VOLUNTARIADO -->
   <section class="dif-section" style="padding-top:1rem;">
     <header class="dif-head reveal">
       <h2 class="dif-title">Voluntariado <span class="circled">y servicio</span></h2>
@@ -346,10 +367,8 @@
     </div>
   </section>
 
-  <!-- BIG HEADINGS -->
   <div class="big-headings">
-    <h2 class="big-heading reveal">Construir cada día, <em>aunque sea un poco</em></h2>
-    <h2 class="big-heading big-heading--outline reveal">No venimos a repetir, <em>venimos a innovar</em></h2>
+    <h2 class="big-heading reveal">Comprender <em>antes de decidir</em></h2>
   </div>
 
   <section class="final-cta">
@@ -371,22 +390,16 @@
 
 <footer class="footer">
   <div class="footer__inner">
+
     <div class="footer__grid">
-      <div>
+      <div class="footer__col footer__col--brand">
         <div class="footer__brand">
           <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>
-          <div class="footer__brand-text">
-            <span class="footer__brand-name">Alex Workspace</span>
-            <span class="footer__brand-sub">El Salvador · MMXXVI</span>
-          </div>
+          <span class="footer__brand-name">Alex Workspace</span>
         </div>
         <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
-        <div class="footer__socials">
-          <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
-          <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
-          <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
-        </div>
       </div>
+
       <div class="footer__col">
         <h4>Navegación</h4>
         <ul>
@@ -394,9 +407,18 @@
           <li><a href="sobre-mi.html">Sobre mí</a></li>
           <li><a href="formacion.html">Formación</a></li>
           <li><a href="proyectos.html">Proyectos</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
+
+      <div class="footer__col">
+        <h4>Más</h4>
+        <ul>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="transparencia.html">Transparencia</a></li>
+        </ul>
+      </div>
+
       <div class="footer__col">
         <h4>Proyectos</h4>
         <ul>
@@ -407,20 +429,24 @@
           <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
         </ul>
       </div>
-      <div class="footer__col">
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://instagram.com/kanderth" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="mailto:alexhrnndz32@gmail.com">Email</a></li>
-        </ul>
+    </div>
+
+    <div class="footer__seal">
+      <span class="footer__signature">No venimos a repetir, venimos a innovar.</span>
+    </div>
+
+    <div class="footer__socials-wrap">
+      <div class="footer__socials">
+        <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+        <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
+        <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <span>Alex Workspace · El Salvador</span>
-      <span class="footer__signature">No venimos a repetir, venimos a innovar.</span>
-      <span>© <span id="year"></span></span>
+      <span>© <span id="year"></span> · Alex Workspace</span>
     </div>
+
   </div>
 </footer>
 
