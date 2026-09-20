@@ -14,13 +14,36 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- NAV SCROLL ---------- */
-  const nav = document.getElementById('nav');
-  if (nav) {
-    const onScroll = () => nav.setAttribute('data-scrolled', window.scrollY > 30 ? 'true' : 'false');
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+  /* ---------- HEADER · ocultar al bajar, mostrar al subir ---------- */
+  (function initHeaderScroll() {
+    var header = document.getElementById('siteHeader');
+    if (!header) return;
+
+    var lastY = window.scrollY;
+    var ticking = false;
+    var THRESHOLD = 80;
+    var DELTA = 6;
+
+    function update() {
+      var y = window.scrollY;
+      var diff = y - lastY;
+
+      if (diff > DELTA && y > THRESHOLD) {
+        header.setAttribute('data-hidden', 'true');
+      } else if (diff < -DELTA) {
+        header.setAttribute('data-hidden', 'false');
+      }
+      lastY = y;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
 
   /* ---------- MOBILE MENU ---------- */
   const menuToggle = document.getElementById('menuToggle');
@@ -88,6 +111,66 @@
     document.addEventListener('mouseenter', () => cursor.classList.add('visible'));
   })();
 
+  /* ---------- NAV SUBMENÚ (táctil) ---------- */
+  (function initNavSubmenus() {
+    var items = document.querySelectorAll('.nav__item');
+    if (!items.length) return;
+
+    function closeAll(except) {
+      items.forEach(function (item) {
+        if (item !== except) {
+          item.setAttribute('data-open', 'false');
+          var t = item.querySelector('.nav__link--has-sub');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector('.nav__link--has-sub');
+      if (!trigger) return;
+      trigger.addEventListener('click', function (e) {
+        var isTouch = window.matchMedia('(hover: none)').matches;
+        if (!isTouch) return;
+        e.preventDefault();
+        var isOpen = item.getAttribute('data-open') === 'true';
+        closeAll(item);
+        item.setAttribute('data-open', isOpen ? 'false' : 'true');
+        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.nav__item')) closeAll();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAll();
+    });
+  })();
+
+  /* ---------- MOBILE NAV SUBMENÚ (acordeón) ---------- */
+  (function initMobileSubmenus() {
+    var toggles = document.querySelectorAll('.mobile-nav__item--has-sub');
+    if (!toggles.length) return;
+
+    toggles.forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isOpen = toggle.getAttribute('data-open') === 'true';
+
+        toggles.forEach(function (t) {
+          if (t !== toggle) {
+            t.setAttribute('data-open', 'false');
+            t.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        toggle.setAttribute('data-open', isOpen ? 'false' : 'true');
+        toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+  })();
+
   /* ---------- REVEAL ---------- */
   if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver((entries) => {
@@ -103,7 +186,7 @@
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* ---------- AUTO-INYECCIÓN DEL ASISTENTE ---------- */
+  /* ---------- AUTO-INYECCIÓN DE TALAPO ---------- */
   (function loadAssistant() {
     if (window.__AW_ASSISTANT_LOADED__) return;
     window.__AW_ASSISTANT_LOADED__ = true;
