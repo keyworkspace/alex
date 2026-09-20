@@ -361,6 +361,7 @@ ul, ol { list-style: none; }
   background: var(--purple);
 }
 
+/* ---------- Submenú ---------- */
 .nav__item { position: relative; }
 .nav__submenu {
   position: absolute;
@@ -434,6 +435,16 @@ ul, ol { list-style: none; }
 }
 .nav__submenu-link[aria-current="page"]::after {
   transform: scaleX(1);
+  background: var(--purple);
+}
+
+/* ---------- Submenú con hijo activo · marca al padre ---------- */
+.nav__item:has(.nav__submenu-link[aria-current="page"]) .nav__link--has-sub {
+  color: var(--purple);
+  font-weight: 600;
+}
+.nav__item:has(.nav__submenu-link[aria-current="page"]) .nav__link--has-sub::after {
+  transform: translateX(-50%) scaleX(1);
   background: var(--purple);
 }
 
@@ -546,6 +557,12 @@ ul, ol { list-style: none; }
   color: var(--purple);
   padding-left: 1.85rem;
 }
+
+/* ---------- Mobile · grupo con hijo activo ---------- */
+.mobile-nav__group:has(.mobile-nav__subitem[aria-current="page"]) .mobile-nav__item--has-sub {
+  color: var(--purple);
+}
+
 .mobile-nav__cta {
   display: block;
   margin-top: 1.75rem;
