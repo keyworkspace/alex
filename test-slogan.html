@@ -3,17 +3,35 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Test · Fuentes del slogan</title>
+<title>Test · Fuentes del slogan · vol. 2</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,800;1,500&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+<!-- Serifs -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;1,7..72,300;1,7..72,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -121,82 +139,229 @@
   }
 
   .sample__slogan {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
     line-height: 1.4;
     color: var(--purple);
   }
 
-  /* ---------- Opciones ---------- */
-
-  /* 1 · Inter italic */
-  .opt-1 {
-    font-family: var(--ui);
-    font-weight: 500;
-    font-style: italic;
-    letter-spacing: -0.01em;
-  }
-
-  /* 2 · Inter light + tracking */
-  .opt-2 {
-    font-family: var(--ui);
-    font-weight: 300;
-    font-style: normal;
-    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
-    letter-spacing: 0.04em;
-  }
-
-  /* 3 · Inter 800 uppercase */
-  .opt-3 {
-    font-family: var(--ui);
-    font-weight: 800;
-    font-style: normal;
-    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  /* 4 · IBM Plex Mono 600 */
-  .opt-4 {
-    font-family: var(--mono);
-    font-weight: 600;
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-    letter-spacing: 0.08em;
-  }
-
-  /* 5 · Fraunces italic */
-  .opt-5 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-style: italic;
-    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
-    letter-spacing: -0.01em;
-  }
-
-  /* 6 · Instrument Serif italic */
-  .opt-6 {
-    font-family: 'Instrument Serif', serif;
+  /* ============================================================
+     01 · Libre Baskerville italic
+     ============================================================ */
+  .opt-01 {
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 400;
     font-style: italic;
-    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
-    letter-spacing: -0.01em;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    letter-spacing: -0.005em;
   }
 
-  /* 7 · DM Serif Display */
-  .opt-7 {
-    font-family: 'DM Serif Display', serif;
-    font-weight: 400;
-    font-style: normal;
+  /* ============================================================
+     02 · Playfair Display italic
+     ============================================================ */
+  .opt-02 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-style: italic;
     font-size: clamp(1.2rem, 2.3vw, 1.6rem);
     letter-spacing: -0.005em;
   }
 
-  /* 8 · Newsreader italic */
-  .opt-8 {
-    font-family: 'Newsreader', serif;
+  /* ============================================================
+     03 · Cormorant Garamond italic
+     ============================================================ */
+  .opt-03 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* ============================================================
+     04 · EB Garamond italic
+     ============================================================ */
+  .opt-04 {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     05 · Crimson Pro italic
+     ============================================================ */
+  .opt-05 {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     06 · Source Serif 4 italic
+     ============================================================ */
+  .opt-06 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* ============================================================
+     07 · Lora italic
+     ============================================================ */
+  .opt-07 {
+    font-family: 'Lora', Georgia, serif;
     font-weight: 400;
     font-style: italic;
     font-size: clamp(1.15rem, 2.1vw, 1.5rem);
     letter-spacing: -0.01em;
+  }
+
+  /* ============================================================
+     08 · Spectral italic
+     ============================================================ */
+  .opt-08 {
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     09 · Literata italic
+     ============================================================ */
+  .opt-09 {
+    font-family: 'Literata', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     10 · Bodoni Moda italic
+     ============================================================ */
+  .opt-10 {
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     11 · Italiana
+     ============================================================ */
+  .opt-11 {
+    font-family: 'Italiana', Georgia, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    letter-spacing: 0.01em;
+  }
+
+  /* ============================================================
+     12 · Marcellus
+     ============================================================ */
+  .opt-12 {
+    font-family: 'Marcellus', Georgia, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: 0.005em;
+  }
+
+  /* ============================================================
+     13 · Cormorant SC
+     ============================================================ */
+  .opt-13 {
+    font-family: 'Cormorant SC', Georgia, serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============================================================
+     14 · Jost light
+     ============================================================ */
+  .opt-14 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    letter-spacing: 0.05em;
+  }
+
+  /* ============================================================
+     15 · Outfit light
+     ============================================================ */
+  .opt-15 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============================================================
+     16 · Space Grotesk medium
+     ============================================================ */
+  .opt-16 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     17 · Sora light
+     ============================================================ */
+  .opt-17 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* ============================================================
+     18 · Manrope light
+     ============================================================ */
+  .opt-18 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    letter-spacing: 0.01em;
+  }
+
+  /* ============================================================
+     19 · Archivo Narrow
+     ============================================================ */
+  .opt-19 {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: 0.01em;
+  }
+
+  /* ============================================================
+     20 · Onest light
+     ============================================================ */
+  .opt-20 {
+    font-family: 'Onest', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    letter-spacing: 0.02em;
   }
 
   /* ---------- Nota final ---------- */
@@ -211,16 +376,15 @@
     line-height: 1.6;
   }
   .note strong { color: var(--yellow); }
-
 </style>
 </head>
 <body>
 
 <div class="page-head">
-  <span class="page-head__eyebrow">Test · Fuentes</span>
-  <h1 class="page-head__title">Slogan en distintas familias</h1>
+  <span class="page-head__eyebrow">Test · Fuentes · vol. 2</span>
+  <h1 class="page-head__title">20 estilos nuevos para el slogan</h1>
   <p class="page-head__lead">
-    El mismo texto, ocho fuentes. Cada tarjeta muestra el nombre de la fuente y su configuración. Abre el archivo en el navegador y compara lado a lado.
+    Serifs clásicas, serifs modernas, sans humanistas, sans geométricas. Cada tarjeta muestra el nombre y su configuración. Abre el archivo y compara lado a lado.
   </p>
 </div>
 
@@ -229,73 +393,181 @@
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">01</span>
-      <span class="sample__name">Inter</span>
-      <span class="sample__spec">500 · italic</span>
+      <span class="sample__name">Libre Baskerville</span>
+      <span class="sample__spec">400 · italic</span>
     </div>
-    <p class="sample__slogan opt-1">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-01">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">02</span>
-      <span class="sample__name">Inter Light</span>
-      <span class="sample__spec">300 · tracking 0.04em</span>
+      <span class="sample__name">Playfair Display</span>
+      <span class="sample__spec">500 · italic</span>
     </div>
-    <p class="sample__slogan opt-2">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-02">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">03</span>
-      <span class="sample__name">Inter ExtraBold</span>
-      <span class="sample__spec">800 · uppercase · tracking 0.14em</span>
+      <span class="sample__name">Cormorant Garamond</span>
+      <span class="sample__spec">400 · italic</span>
     </div>
-    <p class="sample__slogan opt-3">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-03">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">04</span>
-      <span class="sample__name">IBM Plex Mono</span>
-      <span class="sample__spec">600 · tracking 0.08em</span>
+      <span class="sample__name">EB Garamond</span>
+      <span class="sample__spec">400 · italic</span>
     </div>
-    <p class="sample__slogan opt-4">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-04">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">05</span>
-      <span class="sample__name">Fraunces</span>
-      <span class="sample__spec">500 · italic</span>
+      <span class="sample__name">Crimson Pro</span>
+      <span class="sample__spec">300 · italic</span>
     </div>
-    <p class="sample__slogan opt-5">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-05">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">06</span>
-      <span class="sample__name">Instrument Serif</span>
-      <span class="sample__spec">400 · italic</span>
+      <span class="sample__name">Source Serif 4</span>
+      <span class="sample__spec">300 · italic</span>
     </div>
-    <p class="sample__slogan opt-6">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-06">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">07</span>
-      <span class="sample__name">DM Serif Display</span>
-      <span class="sample__spec">400 · normal</span>
+      <span class="sample__name">Lora</span>
+      <span class="sample__spec">400 · italic</span>
     </div>
-    <p class="sample__slogan opt-7">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-07">No venimos a repetir, venimos a innovar.</p>
   </div>
 
   <div class="sample">
     <div class="sample__meta">
       <span class="sample__num">08</span>
-      <span class="sample__name">Newsreader</span>
+      <span class="sample__name">Spectral</span>
+      <span class="sample__spec">300 · italic</span>
+    </div>
+    <p class="sample__slogan opt-08">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">09</span>
+      <span class="sample__name">Literata</span>
+      <span class="sample__spec">300 · italic</span>
+    </div>
+    <p class="sample__slogan opt-09">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">10</span>
+      <span class="sample__name">Bodoni Moda</span>
       <span class="sample__spec">400 · italic</span>
     </div>
-    <p class="sample__slogan opt-8">No venimos a repetir, venimos a innovar.</p>
+    <p class="sample__slogan opt-10">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">11</span>
+      <span class="sample__name">Italiana</span>
+      <span class="sample__spec">400 · normal</span>
+    </div>
+    <p class="sample__slogan opt-11">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">12</span>
+      <span class="sample__name">Marcellus</span>
+      <span class="sample__spec">400 · normal</span>
+    </div>
+    <p class="sample__slogan opt-12">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">13</span>
+      <span class="sample__name">Cormorant SC</span>
+      <span class="sample__spec">500 · small caps</span>
+    </div>
+    <p class="sample__slogan opt-13">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">14</span>
+      <span class="sample__name">Jost Light</span>
+      <span class="sample__spec">300 · tracking 0.05em</span>
+    </div>
+    <p class="sample__slogan opt-14">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">15</span>
+      <span class="sample__name">Outfit Light</span>
+      <span class="sample__spec">300 · tracking 0.02em</span>
+    </div>
+    <p class="sample__slogan opt-15">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">16</span>
+      <span class="sample__name">Space Grotesk</span>
+      <span class="sample__spec">500 · normal</span>
+    </div>
+    <p class="sample__slogan opt-16">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">17</span>
+      <span class="sample__name">Sora Light</span>
+      <span class="sample__spec">300 · normal</span>
+    </div>
+    <p class="sample__slogan opt-17">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">18</span>
+      <span class="sample__name">Manrope Light</span>
+      <span class="sample__spec">300 · tracking 0.01em</span>
+    </div>
+    <p class="sample__slogan opt-18">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">19</span>
+      <span class="sample__name">Archivo Narrow</span>
+      <span class="sample__spec">400 · italic</span>
+    </div>
+    <p class="sample__slogan opt-19">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">20</span>
+      <span class="sample__name">Onest Light</span>
+      <span class="sample__spec">300 · tracking 0.02em</span>
+    </div>
+    <p class="sample__slogan opt-20">No venimos a repetir, venimos a innovar.</p>
   </div>
 
 </div>
