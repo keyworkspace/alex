@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test · Fuentes del slogan</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,800;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --paper: #FAF7F0;
+    --ink: #0E0A1A;
+    --ink-soft: #221A38;
+    --purple: #6B2D8E;
+    --purple-deep: #2B1461;
+    --yellow: #FFD23F;
+    --line: #E0DCD0;
+    --ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--ui);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .page-head {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+  .page-head__eyebrow {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+  .page-head__title {
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .page-head__lead {
+    margin-top: 0.9rem;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    opacity: 0.8;
+    max-width: 60ch;
+  }
+
+  .stack {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sample {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: #fff;
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 250ms ease, transform 300ms cubic-bezier(.65,0,.2,1);
+  }
+  .sample:hover {
+    border-color: var(--purple);
+    transform: translateY(-2px);
+  }
+
+  .sample__meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--line);
+  }
+  .sample__num {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .sample__name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: -0.02em;
+  }
+  .sample__spec {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-left: auto;
+  }
+
+  .sample__slogan {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.4;
+    color: var(--purple);
+  }
+
+  /* ---------- Opciones ---------- */
+
+  /* 1 · Inter italic */
+  .opt-1 {
+    font-family: var(--ui);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+
+  /* 2 · Inter light + tracking */
+  .opt-2 {
+    font-family: var(--ui);
+    font-weight: 300;
+    font-style: normal;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: 0.04em;
+  }
+
+  /* 3 · Inter 800 uppercase */
+  .opt-3 {
+    font-family: var(--ui);
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* 4 · IBM Plex Mono 600 */
+  .opt-4 {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    letter-spacing: 0.08em;
+  }
+
+  /* 5 · Fraunces italic */
+  .opt-5 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* 6 · Instrument Serif italic */
+  .opt-6 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* 7 · DM Serif Display */
+  .opt-7 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1.2rem, 2.3vw, 1.6rem);
+    letter-spacing: -0.005em;
+  }
+
+  /* 8 · Newsreader italic */
+  .opt-8 {
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Nota final ---------- */
+  .note {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 1.5rem 1.75rem;
+    background: var(--purple-deep);
+    color: rgba(250,247,240,0.85);
+    border-radius: 20px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .note strong { color: var(--yellow); }
+
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <span class="page-head__eyebrow">Test · Fuentes</span>
+  <h1 class="page-head__title">Slogan en distintas familias</h1>
+  <p class="page-head__lead">
+    El mismo texto, ocho fuentes. Cada tarjeta muestra el nombre de la fuente y su configuración. Abre el archivo en el navegador y compara lado a lado.
+  </p>
+</div>
+
+<div class="stack">
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">01</span>
+      <span class="sample__name">Inter</span>
+      <span class="sample__spec">500 · italic</span>
+    </div>
+    <p class="sample__slogan opt-1">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">02</span>
+      <span class="sample__name">Inter Light</span>
+      <span class="sample__spec">300 · tracking 0.04em</span>
+    </div>
+    <p class="sample__slogan opt-2">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">03</span>
+      <span class="sample__name">Inter ExtraBold</span>
+      <span class="sample__spec">800 · uppercase · tracking 0.14em</span>
+    </div>
+    <p class="sample__slogan opt-3">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">04</span>
+      <span class="sample__name">IBM Plex Mono</span>
+      <span class="sample__spec">600 · tracking 0.08em</span>
+    </div>
+    <p class="sample__slogan opt-4">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">05</span>
+      <span class="sample__name">Fraunces</span>
+      <span class="sample__spec">500 · italic</span>
+    </div>
+    <p class="sample__slogan opt-5">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">06</span>
+      <span class="sample__name">Instrument Serif</span>
+      <span class="sample__spec">400 · italic</span>
+    </div>
+    <p class="sample__slogan opt-6">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">07</span>
+      <span class="sample__name">DM Serif Display</span>
+      <span class="sample__spec">400 · normal</span>
+    </div>
+    <p class="sample__slogan opt-7">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+  <div class="sample">
+    <div class="sample__meta">
+      <span class="sample__num">08</span>
+      <span class="sample__name">Newsreader</span>
+      <span class="sample__spec">400 · italic</span>
+    </div>
+    <p class="sample__slogan opt-8">No venimos a repetir, venimos a innovar.</p>
+  </div>
+
+</div>
+
+<div class="note">
+  <strong>Cómo funciona:</strong> abre este archivo directamente en el navegador. Cuando decidas cuál te gusta, dime el número y te paso los tres fragmentos para pegarlos en <code>styles.css</code> y <code>filosofia.html</code>.
+</div>
+
+</body>
+</html>
