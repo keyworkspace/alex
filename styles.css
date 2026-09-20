@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap');
 
 /* ==========================================================================
    ALEX WORKSPACE · sistema base
@@ -28,6 +28,7 @@
 
   --ui:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:  'IBM Plex Mono', ui-monospace, monospace;
+  --script:'Outfit', system-ui, sans-serif;
 
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --max: 1280px;
@@ -684,15 +685,19 @@ main { display: block; }
 }
 .hero__title em { font-style: normal; color: var(--yellow); }
 
-.hero__signature {
+/* ---------- FIRMA DEL SLOGAN ---------- */
+.signature {
   display: block;
-  font-family: var(--mono);
-  font-weight: 400;
-  font-size: clamp(1rem, 1.7vw, 1.25rem);
-  line-height: 1.5;
-  color: var(--yellow);
-  margin-bottom: 1.5rem;
+  font-family: var(--script);
+  font-weight: 300;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.4;
   letter-spacing: 0.02em;
+  color: var(--yellow);
+}
+
+.hero__signature {
+  margin-bottom: 1.5rem;
   max-width: 34ch;
 }
 
@@ -983,6 +988,19 @@ main { display: block; }
 }
 
 /* ==========================================================================
+   MANIFIESTO · cierre
+   ========================================================================== */
+.manifesto-closing {
+  font-family: var(--script);
+  font-weight: 300;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--yellow);
+  margin-top: 2.5rem;
+}
+
+/* ==========================================================================
    BIG HEADINGS
    ========================================================================== */
 .big-headings {
@@ -1172,7 +1190,7 @@ main { display: block; }
 .footer {
   background: var(--ink);
   color: var(--paper);
-  padding: clamp(3rem, 5vw, 4.5rem) 0 2rem;
+  padding: clamp(3rem, 5vw, 4.5rem) 0 1.5rem;
   margin-top: 3rem;
 }
 .footer__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
@@ -1181,7 +1199,7 @@ main { display: block; }
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
   gap: 2.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.25rem;
 }
 @media (max-width: 980px) {
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
@@ -1227,21 +1245,21 @@ main { display: block; }
 }
 
 .footer__seal {
-  padding: 2.5rem 0 2rem;
+  padding: 0.75rem 0 0.5rem;
   text-align: center;
 }
 .footer__signature {
   display: inline-block;
-  font-family: var(--mono);
-  font-weight: 400;
-  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+  font-family: var(--script);
+  font-weight: 300;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
   color: var(--yellow);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   opacity: 0.9;
 }
 
 .footer__socials-wrap {
-  padding: 1.75rem 0;
+  padding: 0.75rem 0;
   display: flex;
   justify-content: center;
 }
@@ -1261,7 +1279,7 @@ main { display: block; }
 .footer__social svg { width: 18px; height: 18px; }
 
 .footer__bottom {
-  padding-top: 1.75rem;
+  padding-top: 1rem;
   text-align: center;
   font-family: var(--mono);
   font-size: 0.68rem;
