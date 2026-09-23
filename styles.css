@@ -620,7 +620,8 @@ main { display: block; }
   position: relative;
   height: 460px;
   overflow: hidden;
-  margin-right: -50vw;
+  /* Extiende el rail hasta el borde izquierdo real de la pantalla */
+  margin-left: calc(min(0px, (var(--max) - 100vw) / 2) - var(--gutter));
   mask-image: linear-gradient(180deg, transparent 0%, black 8%, black 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -662,18 +663,6 @@ main { display: block; }
 /* ---------- Contenido ---------- */
 .hero__content {
   position: relative;
-  z-index: 2;
-}
-.hero__content::before {
-  content: '';
-  position: absolute;
-  top: -4rem;
-  bottom: -4rem;
-  left: -10rem;
-  right: -3rem;
-  background: linear-gradient(90deg, transparent 0%, var(--purple) 45%);
-  z-index: -1;
-  pointer-events: none;
 }
 
 .hero__tag {
@@ -739,8 +728,8 @@ main { display: block; }
   .hero__spread { grid-template-columns: 1fr; gap: 1.75rem; min-height: auto; }
   .hero__rail {
     height: 280px;
-    margin-right: calc(var(--gutter) * -1);
-    margin-left: calc(var(--gutter) * -1);
+    /* En móvil, que también llegue al borde izquierdo */
+    margin-left: calc(min(0px, (var(--max) - 100vw) / 2) - var(--gutter));
   }
   .hero__tile { width: 140px; }
   .hero__tile--h1 { height: 140px; }
@@ -751,7 +740,6 @@ main { display: block; }
   .hero__tile--h6 { height: 180px; }
   .hero__tile--h7 { height: 190px; }
   .hero__tile--h8 { height: 160px; }
-  .hero__content::before { display: none; }
 }
 
 /* ==========================================================================
