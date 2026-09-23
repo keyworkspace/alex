@@ -158,11 +158,11 @@
       suggestions: ['¿Qué proyectos tiene?', '¿Qué habilidades tiene?', '¿Qué estudia?']
     },
     {
-      id: 'psicologia',
-      keywords: ['psicologia', 'psicologo', 'carrera', 'universidad', 'va a estudiar'],
-      answer: 'La <strong>psicología</strong> es una de las áreas que Alexander explora por su relación con el comportamiento humano, las organizaciones y el desarrollo. No es todavía una decisión de carrera cerrada. <a href="filosofia.html">Ver filosofía →</a>',
-      suggestions: ['¿Qué estudia?', '¿Qué le interesa?', '¿Cuál es su visión?']
-    },
+  id: 'psicologia',
+  keywords: ['psicologia', 'psicologo', 'carrera', 'universidad', 'va a estudiar'],
+  answer: 'La <strong>psicología</strong> es la carrera que Alexander empieza el próximo ciclo. Estudiará el comportamiento humano desde una base formal, como primer tramo de una trayectoria que conecta personas, estrategia y proyectos. <a href="filosofia.html">Ver filosofía →</a>',
+  suggestions: ['¿Qué estudia?', '¿Qué le interesa?', '¿Cuál es su visión?']
+},
     {
       id: 'transparencia',
       keywords: ['transparencia', 'portal de transparencia', 'legalidad', 'legal', 'empresa', 'fundacion', 'ong', 'persona juridica', 'financiamiento'],
