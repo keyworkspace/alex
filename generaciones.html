@@ -13,7 +13,7 @@
 
 <style>
 /* ==========================================================================
-   GENERACIONES · bloques foto + descripción, banner dentro de la foto
+   GENERACIONES · bloques con roster de nombres estilo UNIVO
    ========================================================================== */
 .gen-stage {
   max-width: var(--max);
@@ -34,12 +34,12 @@
 
 .gen-stage__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 3.5vw, 3rem);
-  align-items: center;
+  align-items: start;
 }
 .gen-stage--reverse .gen-stage__grid {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
 }
 .gen-stage--reverse .gen-stage__media { order: 2; }
 .gen-stage--reverse .gen-stage__body  { order: 1; }
@@ -75,7 +75,6 @@
   pointer-events: none;
 }
 
-/* ---------- Banner dentro de la foto (estilo UNIVO) ---------- */
 .gen-stage__badge {
   position: absolute;
   bottom: 0;
@@ -99,65 +98,63 @@
 
 /* ---------- Cuerpo ---------- */
 .gen-stage__body { position: relative; }
+
 .gen-stage__eyebrow {
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-weight: 600;
-  opacity: 0.7;
+  font-weight: 700;
+  opacity: 0.85;
   display: block;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.75rem;
 }
 .gen-stage__title {
   font-family: var(--ui);
   font-weight: 800;
-  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
-  line-height: 1.05;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 .gen-stage__title em { font-style: normal; color: var(--purple); }
 .gen-stage__inner--papaya .gen-stage__title em { color: var(--purple-deep); }
 
-.gen-stage__text {
-  font-size: 0.98rem;
-  line-height: 1.65;
-  opacity: 0.9;
-  margin-bottom: 0.85rem;
-  max-width: 48ch;
-}
-.gen-stage__text:last-of-type { margin-bottom: 1.1rem; }
-
-/* ---------- Lista de datos (estilo UNIVO) ---------- */
-.gen-stage__list {
+/* ---------- Roster estilo UNIVO ---------- */
+.gen-stage__roster {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(14,10,26,0.12);
+  gap: 1.5rem;
 }
-.gen-stage__list li {
-  font-size: 0.9rem;
+.gen-stage__roster-group { display: block; }
+.gen-stage__roster-title {
+  font-family: var(--ui);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  color: inherit;
+}
+.gen-stage__roster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gen-stage__roster-list li {
+  font-size: 0.92rem;
   line-height: 1.5;
-  padding-left: 1.25rem;
-  position: relative;
+  color: inherit;
 }
-.gen-stage__list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.6rem;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--purple);
+.gen-stage__roster-list li strong {
+  font-weight: 700;
 }
-.gen-stage__inner--papaya .gen-stage__list li::before { background: var(--purple-deep); }
-.gen-stage__list strong { font-weight: 700; }
+.gen-stage__roster-list li span {
+  opacity: 0.75;
+}
 
-/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .gen-stage__grid,
   .gen-stage--reverse .gen-stage__grid {
@@ -167,7 +164,7 @@
   .gen-stage--reverse .gen-stage__media { order: 1; }
   .gen-stage--reverse .gen-stage__body  { order: 2; }
   .gen-stage__inner { border-radius: 28px; padding: 1.25rem; }
-  .gen-stage__photo { border-radius: 22px; aspect-ratio: 3 / 2; }
+  .gen-stage__photo { border-radius: 22px; }
   .gen-stage__photo::after { border-radius: 22px; }
   .gen-stage__badge {
     left: 1rem;
@@ -323,7 +320,9 @@
     </div>
   </div>
 
-  <!-- ============ 01 · COLEGIO ============ -->
+  <!-- ============================================================
+       01 · COLEGIO
+       ============================================================ -->
   <section class="gen-stage" style="margin-top:1.1rem;">
     <div class="gen-stage__inner gen-stage__inner--lightblue reveal">
       <div class="gen-stage__grid">
@@ -334,25 +333,53 @@
           </div>
         </div>
         <div class="gen-stage__body">
-          <span class="gen-stage__eyebrow">01 · Colegio</span>
-          <h2 class="gen-stage__title">Los años que me <em>formaron</em></h2>
-          <p class="gen-stage__text">
-            Nueve años en el Liceo Cristiano Reverendo Juan Bueno. Ahí aprendí casi todo lo que después me sirvió: a convivir, a escuchar, a sostener una amistad y a entender que el trabajo constante pesa más que el talento puntual.
-          </p>
-          <p class="gen-stage__text">
-            Cuando cerré esa etapa no lo entendía así. Lo entiendo ahora, mirando hacia atrás.
-          </p>
-          <ul class="gen-stage__list">
-            <li><strong>Institución:</strong> Liceo Cristiano Reverendo Juan Bueno</li>
-            <li><strong>Periodo:</strong> 2013 – 2023 · 9 años</li>
-            <li><strong>Nivel:</strong> Educación básica</li>
-          </ul>
+          <span class="gen-stage__eyebrow">Colegio · 2013 – 2023</span>
+          <h2 class="gen-stage__title">Liceo Cristiano <em>Reverendo Juan Bueno</em></h2>
+
+          <div class="gen-stage__roster">
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+              </ul>
+            </div>
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 02 · BACHILLERATO ============ -->
+  <!-- ============================================================
+       02 · BACHILLERATO
+       ============================================================ -->
   <section class="gen-stage gen-stage--reverse">
     <div class="gen-stage__inner gen-stage__inner--papaya reveal">
       <div class="gen-stage__grid">
@@ -363,48 +390,120 @@
           </div>
         </div>
         <div class="gen-stage__body">
-          <span class="gen-stage__eyebrow">02 · Bachillerato</span>
-          <h2 class="gen-stage__title">La etapa que me puso a <em>construir</em></h2>
-          <p class="gen-stage__text">
-            Tres años en el Instituto Nacional de Yamabal, en el Técnico Administrativo Contable. Fue el tramo donde dejé de estudiar solo para aprobar y empecé a estudiar para hacer cosas reales.
-          </p>
-          <p class="gen-stage__text">
-            Implementé Zoho Books para la gestión financiera de grado, lideré un sistema académico para el gobierno estudiantil, fundé Heliot Media y abrí Key Workspace. La mayoría de los proyectos que hoy administro nacieron mientras todavía estaba en esta etapa.
-          </p>
-          <ul class="gen-stage__list">
-            <li><strong>Institución:</strong> Instituto Nacional de Yamabal</li>
-            <li><strong>Carrera:</strong> Técnico Administrativo Contable</li>
-            <li><strong>Periodo:</strong> 2023 – 2026 · 3 años</li>
-          </ul>
+          <span class="gen-stage__eyebrow">Bachillerato · 2023 – 2026</span>
+          <h2 class="gen-stage__title">Instituto Nacional de <em>Yamabal</em></h2>
+
+          <div class="gen-stage__roster">
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+              </ul>
+            </div>
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Segunda fila (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+              </ul>
+            </div>
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 03 · OPORTUNIDADES FGK ============ -->
+  <!-- ============================================================
+       03 · OPORTUNIDADES FGK
+       ============================================================ -->
   <section class="gen-stage">
     <div class="gen-stage__inner gen-stage__inner--cream reveal">
       <div class="gen-stage__grid">
         <div class="gen-stage__media">
           <div class="gen-stage__photo">
-            <img src="fotos-generaciones/oportunidades.jpg" alt="Programa Oportunidades de la Fundación Gloria Kriete" loading="lazy" />
+            <img src="fotos-generaciones/oportunidades.jpg" alt="Class 2026 del Programa Oportunidades" loading="lazy" />
             <span class="gen-stage__badge">Class 2026</span>
           </div>
         </div>
         <div class="gen-stage__body">
-          <span class="gen-stage__eyebrow">03 · Programa Oportunidades FGK</span>
-          <h2 class="gen-stage__title">Un programa que abrió <em>puertas</em></h2>
-          <p class="gen-stage__text">
-            El Programa Oportunidades de la Fundación Gloria Kriete no es una graduación, pero es una de las etapas que más me marcó. No cierra nada: abre.
-          </p>
-          <p class="gen-stage__text">
-            Ahí conocí a personas que estaban en el mismo punto que yo, con las mismas dudas y las mismas ganas. Formación complementaria, acompañamiento real y una red que sigue activa.
-          </p>
-          <ul class="gen-stage__list">
-            <li><strong>Institución:</strong> Fundación Gloria Kriete</li>
-            <li><strong>Programa:</strong> Oportunidades</li>
-            <li><strong>Periodo:</strong> 2025 – 2026 · Becario</li>
-          </ul>
+          <span class="gen-stage__eyebrow">Oportunidades FGK · 2025 – 2026</span>
+          <h2 class="gen-stage__title">Fundación <em>Gloria Kriete</em></h2>
+
+          <div class="gen-stage__roster">
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong> <span>— Coordinadora</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Facilitadora</span></li>
+                <li><strong>Nombre Apellido</strong> <span>— Coordinadora</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Coordinadora</span></li>
+              </ul>
+            </div>
+
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+                <li><strong>Nombre Apellido</strong> <span>— Docente</span></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
