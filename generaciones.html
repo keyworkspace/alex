@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Generaciones · Alex Workspace</title>
+<meta name="description" content="Tres cierres de etapa: colegio, bachillerato y universidad. Una por venir." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+
+<style>
+/* ==========================================================================
+   GENERACIONES · bloques con foto + descripción alternados
+   ========================================================================== */
+.gen-stage {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.gen-stage + .gen-stage { margin-top: 1.1rem; }
+
+.gen-stage__inner {
+  border-radius: 36px;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  position: relative;
+  overflow: hidden;
+}
+.gen-stage__inner--lightblue { background: var(--lightblue); color: var(--purple-deep); }
+.gen-stage__inner--papaya    { background: var(--papaya);    color: var(--ink); }
+.gen-stage__inner--deep      { background: var(--purple-deep); color: #fff; }
+
+.gen-stage__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.gen-stage--reverse .gen-stage__grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+.gen-stage--reverse .gen-stage__media { order: 2; }
+.gen-stage--reverse .gen-stage__body  { order: 1; }
+
+/* ---------- Foto ---------- */
+.gen-stage__media {
+  position: relative;
+}
+.gen-stage__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.08);
+  position: relative;
+  box-shadow: 0 20px 40px rgba(14,10,26,0.12);
+}
+.gen-stage__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 900ms var(--fill-ease);
+}
+.gen-stage__photo:hover img { transform: scale(1.04); }
+
+.gen-stage__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.14);
+  pointer-events: none;
+}
+.gen-stage__inner--deep .gen-stage__photo {
+  background: rgba(255,255,255,0.05);
+}
+
+/* placeholder (solo para la universidad) */
+.gen-stage__photo--reserved {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px dashed rgba(255,255,255,0.3);
+  box-shadow: none;
+}
+.gen-stage__photo--reserved svg {
+  width: 64px;
+  height: 64px;
+  color: var(--yellow);
+  opacity: 0.55;
+}
+.gen-stage__photo--reserved::after { display: none; }
+
+/* ---------- Cuerpo ---------- */
+.gen-stage__body { position: relative; }
+.gen-stage__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 0.9rem;
+}
+.gen-stage__title {
+  font-family: var(--ui);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.gen-stage__title em { font-style: normal; color: var(--purple); }
+.gen-stage__inner--papaya .gen-stage__title em { color: var(--purple-deep); }
+.gen-stage__inner--deep   .gen-stage__title em { color: var(--yellow); }
+
+.gen-stage__text {
+  font-size: 1rem;
+  line-height: 1.65;
+  opacity: 0.9;
+  margin-bottom: 0.9rem;
+  max-width: 52ch;
+}
+.gen-stage__text:last-of-type { margin-bottom: 1.25rem; }
+
+.gen-stage__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.gen-stage__fact {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(14,10,26,0.08);
+}
+.gen-stage__inner--deep .gen-stage__fact {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .gen-stage__grid,
+  .gen-stage--reverse .gen-stage__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .gen-stage--reverse .gen-stage__media { order: 1; }
+  .gen-stage--reverse .gen-stage__body  { order: 2; }
+  .gen-stage__inner { border-radius: 28px; }
+  .gen-stage__photo { aspect-ratio: 3 / 4; border-radius: 22px; }
+  .gen-stage__photo::after { border-radius: 22px; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="al-mark" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+  </symbol>
+  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"/><path d="M8 7h8M8 11h8M8 15h5"/></symbol>
+  <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"/><circle cx="17" cy="9" r="2"/><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"/></symbol>
+  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></symbol>
+  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></symbol>
+  <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-5 4-9 8-9-2 5-5 8-8 9z"/><path d="M12 21c0-5-4-9-8-9 2 5 5 8 8 9z"/><path d="M12 21V8"/><circle cx="12" cy="4" r="2"/></symbol>
+  <symbol id="ic-hourglass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 21h12"/><path d="M7 3v4a5 5 0 005 5 5 5 0 005-5V3"/><path d="M7 21v-4a5 5 0 015-5 5 5 0 015 5v4"/></symbol>
+  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></symbol>
+  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <nav class="nav" id="nav" aria-label="Principal">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>
+        <span class="brand__text">
+          <span class="brand__name">Alex Workspace</span>
+        </span>
+      </a>
+
+      <div class="nav__links">
+        <a class="nav__link" href="index.html">Inicio</a>
+
+        <div class="nav__item">
+          <a class="nav__link nav__link--has-sub" href="sobre-mi.html" aria-haspopup="true" aria-expanded="false">Sobre mí</a>
+          <div class="nav__submenu" role="menu">
+            <a class="nav__submenu-link" href="sobre-mi.html" role="menuitem">Sobre mí</a>
+            <a class="nav__submenu-link" href="formacion.html" role="menuitem">Formación</a>
+            <a class="nav__submenu-link" href="filosofia.html" role="menuitem">Filosofía</a>
+            <a class="nav__submenu-link" href="generaciones.html" role="menuitem" aria-current="page">Generaciones</a>
+          </div>
+        </div>
+
+        <a class="nav__link" href="proyectos.html">Proyectos</a>
+        <a class="nav__link" href="transparencia.html">Transparencia</a>
+        <a class="nav__link" href="contacto.html">Contacto</a>
+      </div>
+
+      <div class="nav__actions">
+        <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+          <span class="nav__official__label">LinkedIn</span>
+          <span class="nav__official__arrow" aria-hidden="true">↗</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+          Menú
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="nav-overlay" id="navOverlay" data-open="false"></div>
+<aside class="mobile-nav" id="mobileNav" data-open="false">
+  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
+
+  <a class="mobile-nav__item" href="index.html">Inicio</a>
+
+  <div class="mobile-nav__group">
+    <button class="mobile-nav__item mobile-nav__item--has-sub" data-open="false" aria-expanded="false">
+      Sobre mí
+      <svg class="mobile-nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <polyline points="3 5 6 8 9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="mobile-nav__subnav">
+      <a class="mobile-nav__subitem" href="sobre-mi.html">Sobre mí</a>
+      <a class="mobile-nav__subitem" href="formacion.html">Formación</a>
+      <a class="mobile-nav__subitem" href="filosofia.html">Filosofía</a>
+      <a class="mobile-nav__subitem" href="generaciones.html">Generaciones</a>
+    </div>
+  </div>
+
+  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
+  <a class="mobile-nav__item" href="transparencia.html">Transparencia</a>
+  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
+  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
+</aside>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="page-hero__inner page-hero__inner--purple reveal">
+        <div class="page-hero__content">
+          <span class="page-hero__tag">Generaciones</span>
+          <h1 class="page-hero__title">Tres cierres, un mismo <em>camino</em></h1>
+          <p class="page-hero__lead">
+            Cada generación marca un punto donde algo termina y otra cosa empieza. Aquí están las mías: dos ya cerradas, una por venir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INTRO ============ -->
+  <div class="rblock" style="margin-top:1.25rem;">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">Intro</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Por qué guardo <em>esto</em></h2>
+          <p class="rblock__text">
+            Un diploma no es un final. Es el punto exacto donde una etapa se cierra para que la siguiente pueda empezar. Guardar la foto de cada una es una forma de no olvidar de dónde vengo mientras construyo hacia dónde voy.
+          </p>
+          <p class="rblock__text">
+            Por ahora hay dos. La tercera ya tiene su lugar reservado.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 220 220" style="width:min(100%,220px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="110" cy="70" r="34" opacity="0.7"/>
+            <circle cx="70" cy="140" r="34" opacity="0.55"/>
+            <circle cx="150" cy="140" r="34" opacity="0.35"/>
+            <line x1="110" y1="104" x2="80" y2="120" opacity="0.5"/>
+            <line x1="110" y1="104" x2="140" y2="120" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 01 · COLEGIO ============ -->
+  <section class="gen-stage" style="margin-top:1.1rem;">
+    <div class="gen-stage__inner gen-stage__inner--lightblue reveal">
+      <div class="gen-stage__grid">
+        <div class="gen-stage__media">
+          <div class="gen-stage__photo">
+            <img src="fotos-generaciones/colegio.jpg" alt="Graduación de colegio" loading="lazy" />
+          </div>
+        </div>
+        <div class="gen-stage__body">
+          <span class="gen-stage__eyebrow">01 · Colegio · 2013 – 2023</span>
+          <h2 class="gen-stage__title">Los años que me <em>formaron</em></h2>
+          <p class="gen-stage__text">
+            Nueve años en el Liceo Cristiano Reverendo Juan Bueno. Ahí aprendí casi todo lo que después me sirvió: a convivir, a escuchar, a sostener una amistad y a entender que el trabajo constante pesa más que el talento puntual.
+          </p>
+          <p class="gen-stage__text">
+            Cuando cerré esa etapa no lo entendía así. Lo entiendo ahora, mirando hacia atrás.
+          </p>
+          <div class="gen-stage__facts">
+            <span class="gen-stage__fact">Generación 2023</span>
+            <span class="gen-stage__fact">Educación básica</span>
+            <span class="gen-stage__fact">9 años</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · BACHILLERATO ============ -->
+  <section class="gen-stage gen-stage--reverse">
+    <div class="gen-stage__inner gen-stage__inner--papaya reveal">
+      <div class="gen-stage__grid">
+        <div class="gen-stage__media">
+          <div class="gen-stage__photo">
+            <img src="fotos-generaciones/bachillerato.jpg" alt="Graduación de bachillerato" loading="lazy" />
+          </div>
+        </div>
+        <div class="gen-stage__body">
+          <span class="gen-stage__eyebrow">02 · Bachillerato · 2023 – 2026</span>
+          <h2 class="gen-stage__title">La etapa que me puso a <em>construir</em></h2>
+          <p class="gen-stage__text">
+            Tres años en el Instituto de Yamabal, Bachillerato Técnico Vocacional en Administración Contable. Fue el tramo donde dejé de estudiar solo para aprobar y empecé a estudiar para hacer cosas reales.
+          </p>
+          <p class="gen-stage__text">
+            Implementé Zoho Books para la gestión financiera de grado, lideré un sistema académico para el gobierno estudiantil, fundé Heliot Media, abrí Key Workspace. La mayoría de los proyectos que hoy administro nacieron mientras todavía estaba en esta etapa.
+          </p>
+          <div class="gen-stage__facts">
+            <span class="gen-stage__fact">Generación 2026</span>
+            <span class="gen-stage__fact">Administración Contable</span>
+            <span class="gen-stage__fact">Fundación Gloria Kriete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · UNIVERSIDAD ============ -->
+  <section class="gen-stage">
+    <div class="gen-stage__inner gen-stage__inner--deep reveal">
+      <div class="gen-stage__grid">
+        <div class="gen-stage__media">
+          <div class="gen-stage__photo gen-stage__photo--reserved">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <use href="#ic-hourglass"/>
+            </svg>
+          </div>
+        </div>
+        <div class="gen-stage__body">
+          <span class="gen-stage__eyebrow" style="color:var(--yellow);">03 · Universidad · Próximamente</span>
+          <h2 class="gen-stage__title">El tramo que <em>todavía no empieza</em></h2>
+          <p class="gen-stage__text">
+            Aquí va a ir una tercera foto. Todavía no existe. Cuando exista, ocupará este lugar — y entonces esta página contará tres cierres y no dos.
+          </p>
+          <p class="gen-stage__text">
+            La Psicología dejó de ser una posibilidad y se convirtió en el punto de partida. Pero mientras llega el día, el espacio queda reservado.
+          </p>
+          <div class="gen-stage__facts">
+            <span class="gen-stage__fact">Próximamente</span>
+            <span class="gen-stage__fact">Psicología</span>
+            <span class="gen-stage__fact">Por definir</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">Cada generación es un <em>punto de partida</em></h2>
+        <p class="final-cta__text">Cerrar una etapa no es llegar. Es tener dónde apoyarse para la siguiente.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+
+    <div class="footer__grid">
+      <div class="footer__col footer__col--brand">
+        <div class="footer__brand">
+          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>
+          <span class="footer__brand-name">Alex Workspace</span>
+        </div>
+        <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="generaciones.html">Generaciones</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Más</h4>
+        <ul>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="transparencia.html">Transparencia</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
+          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
+          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
+          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
+          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__seal">
+      <span class="footer__signature">No venimos a repetir, venimos a innovar.</span>
+    </div>
+
+    <div class="footer__socials-wrap">
+      <div class="footer__socials">
+        <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
+        <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"/></svg></a>
+        <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> · Alex Workspace</span>
+    </div>
+
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
