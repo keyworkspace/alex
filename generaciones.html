@@ -13,7 +13,7 @@
 
 <style>
 /* ==========================================================================
-   GENERACIONES · bloques con roster de nombres estilo UNIVO
+   GENERACIONES · layout estilo UNIVO (foto + roster en 2 columnas)
    ========================================================================== */
 .gen-stage {
   max-width: var(--max);
@@ -32,35 +32,36 @@
 .gen-stage__inner--papaya    { background: var(--papaya);    color: var(--ink); }
 .gen-stage__inner--cream     { background: var(--paper-warm); color: var(--ink); }
 
+/* Grid: foto más chica, texto más ancho */
 .gen-stage__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3.5vw, 3rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: start;
 }
 .gen-stage--reverse .gen-stage__grid {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
 }
 .gen-stage--reverse .gen-stage__media { order: 2; }
 .gen-stage--reverse .gen-stage__body  { order: 1; }
 
-/* ---------- Foto con banner ---------- */
+/* ---------- Foto ---------- */
 .gen-stage__media { position: relative; }
 
 .gen-stage__photo {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  border-radius: 28px;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
   overflow: hidden;
   background: rgba(0,0,0,0.08);
   position: relative;
-  box-shadow: 0 20px 40px rgba(14,10,26,0.16);
+  box-shadow: 0 16px 32px rgba(14,10,26,0.14);
 }
 .gen-stage__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 40%;
   display: block;
   transition: transform 900ms var(--fill-ease);
 }
@@ -70,30 +71,27 @@
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 28px;
-  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.14);
   pointer-events: none;
 }
 
+/* ---------- Banner centrado (como UNIVO) ---------- */
 .gen-stage__badge {
   position: absolute;
   bottom: 0;
-  left: 1.5rem;
-  padding: 0.85rem 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.4rem;
   background: var(--purple-deep);
   color: #fff;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  border-radius: 16px 16px 0 0;
-  z-index: 2;
   white-space: nowrap;
-}
-.gen-stage--reverse .gen-stage__badge {
-  left: auto;
-  right: 1.5rem;
+  z-index: 2;
 }
 
 /* ---------- Cuerpo ---------- */
@@ -102,69 +100,73 @@
 .gen-stage__title {
   font-family: var(--ui);
   font-weight: 800;
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 .gen-stage__title em { font-style: normal; color: var(--purple); }
 .gen-stage__inner--papaya .gen-stage__title em { color: var(--purple-deep); }
 
-/* ---------- Roster estilo UNIVO ---------- */
+/* ---------- Roster en 2 columnas ---------- */
 .gen-stage__roster {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.1rem;
 }
 .gen-stage__roster-group { display: block; }
 .gen-stage__roster-title {
   font-family: var(--ui);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: -0.01em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.55rem;
   color: inherit;
 }
 .gen-stage__roster-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.28rem 1.75rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .gen-stage__roster-list li {
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.45;
   color: inherit;
 }
 .gen-stage__roster-list li strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 .gen-stage__roster-list li span {
-  opacity: 0.75;
+  opacity: 0.7;
+  font-weight: 400;
 }
 
-@media (max-width: 900px) {
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
   .gen-stage__grid,
   .gen-stage--reverse .gen-stage__grid {
     grid-template-columns: 1fr;
-    gap: 1.35rem;
+    gap: 1.25rem;
   }
   .gen-stage--reverse .gen-stage__media { order: 1; }
   .gen-stage--reverse .gen-stage__body  { order: 2; }
-  .gen-stage__inner { border-radius: 28px; padding: 1.25rem; }
-  .gen-stage__photo { border-radius: 22px; }
-  .gen-stage__photo::after { border-radius: 22px; }
-  .gen-stage__badge {
-    left: 1rem;
-    right: 1rem;
-    text-align: center;
-    border-radius: 14px 14px 0 0;
-    font-size: 0.62rem;
-    padding: 0.7rem 1rem;
+}
+@media (max-width: 640px) {
+  .gen-stage__inner { border-radius: 26px; padding: 1.25rem; }
+  .gen-stage__photo { border-radius: 18px; aspect-ratio: 4 / 3; }
+  .gen-stage__photo::after { border-radius: 18px; }
+  .gen-stage__roster-list {
+    grid-template-columns: 1fr;
+    gap: 0.28rem;
   }
-  .gen-stage--reverse .gen-stage__badge { left: 1rem; right: 1rem; }
+  .gen-stage__badge {
+    font-size: 0.58rem;
+    padding: 0.65rem 1rem;
+    letter-spacing: 0.18em;
+  }
 }
 </style>
 </head>
@@ -383,7 +385,6 @@
           </div>
         </div>
         <div class="gen-stage__body">
-
           <h2 class="gen-stage__title">Instituto Nacional de <em>Yamabal</em></h2>
 
           <div class="gen-stage__roster">
@@ -451,7 +452,6 @@
           </div>
         </div>
         <div class="gen-stage__body">
-
           <h2 class="gen-stage__title">Fundación <em>Gloria Kriete</em></h2>
 
           <div class="gen-stage__roster">
