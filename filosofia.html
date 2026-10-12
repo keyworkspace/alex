@@ -1,76 +1,30 @@
-<!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Filosofía · Alex Workspace</title>
-<meta name="description" content="Esencia, filosofía, misión, visión, propósito, valores, arquetipos y manifiesto de Alexander.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Esencia, filosofía, misión, visión, propósito, valores, arquetipos y manifiesto de Alexander." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="layout.js"></script>
 </head>
 <body>
 
 <div class="loader" id="loader" data-hidden="false" aria-hidden="true">
   <div class="loader__inner">
     <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"></circle>
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
       <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
     </svg>
     <div class="loader__bar"><div class="loader__bar-fill"></div></div>
   </div>
 </div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="al-mark" viewBox="0 0 48 48">
-    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
-  </symbol>
-  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"></path><path d="M8 7h8M8 11h8M8 15h5"></path></symbol>
-  <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-5 4-9 8-9-2 5-5 8-8 9z"></path><path d="M12 21c0-5-4-9-8-9 2 5 5 8 8 9z"></path><path d="M12 21V8"></path><circle cx="12" cy="4" r="2"></circle></symbol>
-  <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"></path><circle cx="17" cy="9" r="2"></circle><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"></path></symbol>
-  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"></path><circle cx="12" cy="12" r="2.5"></circle></symbol>
-  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></symbol>
-  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"></path></symbol>
-  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"></path></symbol>
-  <symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
-  <symbol id="ic-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5" fill="currentColor"></circle></symbol>
-  <symbol id="ic-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l2-9 5 4 2-8 2 8 5-4 2 9z"></path><path d="M3 21h18"></path></symbol>
-  <symbol id="ic-hammer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l4 4-8 8-4-4z"></path><path d="M17 3l4 4-3 3-4-4z"></path><path d="M6 18l-2 2"></path></symbol>
-  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"></circle></symbol>
-  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"></path></symbol>
-  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></symbol>
-</svg>
-
-<header class="site-header" id="siteHeader">
-  <nav class="nav" id="nav" aria-label="Principal"><a href="https://keyworkspace.github.io/key/">Nuevo</a></nav>
-</header>
-
-<div class="nav-overlay" id="navOverlay" data-open="false"></div>
-<aside class="mobile-nav" id="mobileNav" data-open="false">
-  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
-
-  <a class="mobile-nav__item" href="index.html">Inicio</a>
-
-  <div class="mobile-nav__group">
-    <button class="mobile-nav__item mobile-nav__item--has-sub" data-open="false" aria-expanded="false">
-      Sobre mí
-      <svg class="mobile-nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-        <polyline points="3 5 6 8 9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-      </svg>
-    </button>
-    <div class="mobile-nav__subnav">
-      <a class="mobile-nav__subitem" href="sobre-mi.html">Sobre mí</a>
-      <a class="mobile-nav__subitem" href="formacion.html">Formación</a>
-      <a class="mobile-nav__subitem" href="filosofia.html">Filosofía</a>
-    </div>
-  </div>
-
-  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
-  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
-  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
-</aside>
+<aw-header></aw-header>
 
 <main>
 
@@ -120,11 +74,11 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 220 220" style="width:min(100%,230px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
-            <circle cx="110" cy="70" r="34" opacity="0.7"></circle>
-            <circle cx="70" cy="140" r="34" opacity="0.7"></circle>
-            <circle cx="150" cy="140" r="34" opacity="0.7"></circle>
-            <circle cx="110" cy="112" r="22"></circle>
-            <circle cx="110" cy="112" r="5" fill="currentColor"></circle>
+            <circle cx="110" cy="70" r="34" opacity="0.7"/>
+            <circle cx="70" cy="140" r="34" opacity="0.7"/>
+            <circle cx="150" cy="140" r="34" opacity="0.7"/>
+            <circle cx="110" cy="112" r="22"/>
+            <circle cx="110" cy="112" r="5" fill="currentColor"/>
             <text x="110" y="74" font-family="IBM Plex Mono, monospace" font-size="8" fill="currentColor" text-anchor="middle" stroke="none">PERSONA</text>
             <text x="68" y="144" font-family="IBM Plex Mono, monospace" font-size="8" fill="currentColor" text-anchor="middle" stroke="none">CONOC.</text>
             <text x="152" y="144" font-family="IBM Plex Mono, monospace" font-size="8" fill="currentColor" text-anchor="middle" stroke="none">ESTRAT.</text>
@@ -149,11 +103,11 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M20 160 Q 100 20 180 160" opacity="0.4"></path>
-            <path d="M40 160 Q 100 60 160 160" opacity="0.7"></path>
-            <path d="M60 160 Q 100 100 140 160"></path>
-            <circle cx="100" cy="42" r="5" fill="currentColor"></circle>
-            <line x1="100" y1="42" x2="100" y2="160" stroke-dasharray="4 5" opacity="0.6"></line>
+            <path d="M20 160 Q 100 20 180 160" opacity="0.4"/>
+            <path d="M40 160 Q 100 60 160 160" opacity="0.7"/>
+            <path d="M60 160 Q 100 100 140 160"/>
+            <circle cx="100" cy="42" r="5" fill="currentColor"/>
+            <line x1="100" y1="42" x2="100" y2="160" stroke-dasharray="4 5" opacity="0.6"/>
           </svg>
         </div>
       </div>
@@ -174,7 +128,7 @@
             <p class="dif-card__desc">Importa saber hacia dónde y por qué. Moverse sin dirección no es lo mismo que progresar.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-target"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-target"/></svg></div>
           </div>
         </article>
 
@@ -185,7 +139,7 @@
             <p class="dif-card__desc">El conocimiento no vale por acumularse. Vale cuando cambia la forma en que hago algo.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-book"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
           </div>
         </article>
       </div>
@@ -198,7 +152,7 @@
             <p class="dif-card__desc">No me interesa construir una fachada. Lo que proyecto tiene que corresponder con lo que soy y con lo que estoy dispuesto a sostener.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-eye"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-eye"/></svg></div>
           </div>
         </article>
 
@@ -209,7 +163,7 @@
             <p class="dif-card__desc">Atravesar dificultades, aprender de ellas y seguir avanzando. Un obstáculo puntual no define toda una trayectoria.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-spark"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
           </div>
         </article>
       </div>
@@ -222,7 +176,7 @@
             <p class="dif-card__desc">La organización y el cuidado se notan. Lo bien hecho empieza en cosas que casi nadie mira.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-compass"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
           </div>
         </article>
 
@@ -233,7 +187,7 @@
             <p class="dif-card__desc">No basta con querer hacer algo valioso. Hacen falta estructuras que funcionen y puedan sostenerse en el tiempo.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-heart"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-heart"/></svg></div>
           </div>
         </article>
       </div>
@@ -255,11 +209,11 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--purple-deep);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
-            <circle cx="100" cy="100" r="80" opacity="0.2"></circle>
-            <circle cx="100" cy="100" r="55" opacity="0.4"></circle>
-            <circle cx="100" cy="100" r="30" opacity="0.7"></circle>
-            <circle cx="100" cy="100" r="12"></circle>
-            <circle cx="100" cy="100" r="4" fill="currentColor"></circle>
+            <circle cx="100" cy="100" r="80" opacity="0.2"/>
+            <circle cx="100" cy="100" r="55" opacity="0.4"/>
+            <circle cx="100" cy="100" r="30" opacity="0.7"/>
+            <circle cx="100" cy="100" r="12"/>
+            <circle cx="100" cy="100" r="4" fill="currentColor"/>
           </svg>
         </div>
       </div>
@@ -281,11 +235,11 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 200 200" style="width:min(100%,210px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="100" cy="100" r="10" fill="currentColor" opacity="0.9"></circle>
-            <circle cx="100" cy="100" r="35" opacity="0.7"></circle>
-            <circle cx="100" cy="100" r="60" opacity="0.5"></circle>
-            <circle cx="100" cy="100" r="85" opacity="0.3"></circle>
-            <circle cx="100" cy="100" r="98" opacity="0.15"></circle>
+            <circle cx="100" cy="100" r="10" fill="currentColor" opacity="0.9"/>
+            <circle cx="100" cy="100" r="35" opacity="0.7"/>
+            <circle cx="100" cy="100" r="60" opacity="0.5"/>
+            <circle cx="100" cy="100" r="85" opacity="0.3"/>
+            <circle cx="100" cy="100" r="98" opacity="0.15"/>
           </svg>
         </div>
       </div>
@@ -307,8 +261,8 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M100 30 L120 90 L180 90 L130 125 L150 185 L100 150 L50 185 L70 125 L20 90 L80 90 Z" opacity="0.9"></path>
-            <circle cx="100" cy="110" r="6" fill="currentColor"></circle>
+            <path d="M100 30 L120 90 L180 90 L130 125 L150 185 L100 150 L50 185 L70 125 L20 90 L80 90 Z" opacity="0.9"/>
+            <circle cx="100" cy="110" r="6" fill="currentColor"/>
           </svg>
         </div>
       </div>
@@ -333,7 +287,7 @@
             <p class="dif-card__desc">Hacer las cosas bien, no solo hacerlas. Lo suficiente no es el estándar que me interesa.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-spark"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
           </div>
         </article>
 
@@ -344,7 +298,7 @@
             <p class="dif-card__desc">Construir algo propio. No copiar fórmulas ajenas solo porque funcionaron para otros.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-eye"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-eye"/></svg></div>
           </div>
         </article>
       </div>
@@ -357,7 +311,7 @@
             <p class="dif-card__desc">Mantener la curiosidad activa. Aprender como parte del trabajo, no como una etapa previa.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-book"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
           </div>
         </article>
 
@@ -368,7 +322,7 @@
             <p class="dif-card__desc">Pensar antes de actuar. Conectar cada decisión con algo más grande que ella misma.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-target"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-target"/></svg></div>
           </div>
         </article>
       </div>
@@ -381,7 +335,7 @@
             <p class="dif-card__desc">Tomarme en serio lo que asumo. Los proyectos, los compromisos, las personas.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-compass"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
           </div>
         </article>
 
@@ -392,7 +346,7 @@
             <p class="dif-card__desc">Buscar soluciones que todavía no existen. Usar diseño, tecnología y pensamiento distinto.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-spark"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
           </div>
         </article>
       </div>
@@ -405,7 +359,7 @@
             <p class="dif-card__desc">Continuar, adaptarme y reconstruir. Pasar por dificultades sin dejar que definan toda la trayectoria.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-globe"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-globe"/></svg></div>
           </div>
         </article>
 
@@ -416,7 +370,7 @@
             <p class="dif-card__desc">Procurar que lo que hago también abra algo para otros. Aunque sea pequeño.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon"><svg><use href="#ic-heart"></use></svg></div>
+            <div class="dif-card__icon"><svg><use href="#ic-heart"/></svg></div>
           </div>
         </article>
       </div>
@@ -431,22 +385,22 @@
           <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">06 · Posicionamiento</span>
           <h2 class="rblock__title" style="margin-top:0.6rem;">Explorar una <em>intersección</em></h2>
           <p class="rblock__text">
-  La Psicología dejó de ser una posibilidad y se convirtió en el punto de partida. El siguiente tramo de mi formación empieza ahí: estudiar el comportamiento humano desde una base formal, con el mismo criterio con el que hasta ahora he ido construyendo lo demás.
-</p>
-<p class="rblock__text" style="font-weight:600;opacity:1;">
-  Lo que ya estaba claro es el tipo de trabajo que quiero aprender a hacer: entender bien, organizar con criterio, crear cosas que funcionen y trabajar con personas. La Psicología no reemplaza eso, lo aterriza.
-</p>
+            La Psicología dejó de ser una posibilidad y se convirtió en el punto de partida. El siguiente tramo de mi formación empieza ahí: estudiar el comportamiento humano desde una base formal, con el mismo criterio con el que hasta ahora he ido construyendo lo demás.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            Lo que ya estaba claro es el tipo de trabajo que quiero aprender a hacer: entender bien, organizar con criterio, crear cosas que funcionen y trabajar con personas. La Psicología no reemplaza eso, lo aterriza.
+          </p>
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 220 220" style="width:min(100%,220px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
-            <circle cx="110" cy="60" r="38" opacity="0.5"></circle>
-            <circle cx="70" cy="150" r="38" opacity="0.5"></circle>
-            <circle cx="150" cy="150" r="38" opacity="0.5"></circle>
-            <circle cx="110" cy="120" r="24"></circle>
-            <circle cx="110" cy="120" r="5" fill="currentColor"></circle>
-            <line x1="110" y1="60" x2="110" y2="120" opacity="0.4"></line>
-            <line x1="70" y1="150" x2="110" y2="120" opacity="0.4"></line>
-            <line x1="150" y1="150" x2="110" y2="120" opacity="0.4"></line>
+            <circle cx="110" cy="60" r="38" opacity="0.5"/>
+            <circle cx="70" cy="150" r="38" opacity="0.5"/>
+            <circle cx="150" cy="150" r="38" opacity="0.5"/>
+            <circle cx="110" cy="120" r="24"/>
+            <circle cx="110" cy="120" r="5" fill="currentColor"/>
+            <line x1="110" y1="60" x2="110" y2="120" opacity="0.4"/>
+            <line x1="70" y1="150" x2="110" y2="120" opacity="0.4"/>
+            <line x1="150" y1="150" x2="110" y2="120" opacity="0.4"/>
             <text x="110" y="124" font-family="IBM Plex Mono, monospace" font-size="7" fill="currentColor" text-anchor="middle" stroke="none">ALEX</text>
           </svg>
         </div>
@@ -473,11 +427,11 @@
             <text x="100" y="90" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">DESARROLLO HUMANO</text>
             <text x="100" y="158" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">RR. HH. · ESTRATEGIA</text>
             <text x="100" y="220" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">PROYECTOS · IMPACTO</text>
-            <line x1="100" y1="34" x2="100" y2="80" opacity="0.5"></line>
-            <line x1="100" y1="100" x2="100" y2="146" opacity="0.5"></line>
-            <line x1="100" y1="168" x2="100" y2="208" opacity="0.5"></line>
-            <circle cx="100" cy="130" r="52" stroke-dasharray="4 5" opacity="0.4"></circle>
-            <circle cx="100" cy="130" r="6" fill="currentColor"></circle>
+            <line x1="100" y1="34" x2="100" y2="80" opacity="0.5"/>
+            <line x1="100" y1="100" x2="100" y2="146" opacity="0.5"/>
+            <line x1="100" y1="168" x2="100" y2="208" opacity="0.5"/>
+            <circle cx="100" cy="130" r="52" stroke-dasharray="4 5" opacity="0.4"/>
+            <circle cx="100" cy="130" r="6" fill="currentColor"/>
           </svg>
         </div>
       </div>
@@ -501,7 +455,7 @@
             <p class="dif-card__desc">Antes de intervenir en algo, quiero comprender cómo funciona. Personas, organizaciones, sistemas, ideas.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-book"></use></svg></div>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-book"/></svg></div>
           </div>
         </article>
 
@@ -512,7 +466,7 @@
             <p class="dif-card__desc">Convertir una idea en algo organizado y funcional. Coordinar, planear, sostener.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-crown"></use></svg></div>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-crown"/></svg></div>
           </div>
         </article>
 
@@ -523,7 +477,7 @@
             <p class="dif-card__desc">No solamente observar lo que hay, sino preguntarme qué podría existir. Heliot Media, Windsor y Key nacen de ahí.</p>
           </div>
           <div class="dif-card__bottom">
-            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-hammer"></use></svg></div>
+            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-hammer"/></svg></div>
           </div>
         </article>
       </div>
@@ -558,11 +512,11 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 200 200" style="width:min(100%,190px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="30" y="30" width="60" height="60" rx="12"></rect>
-            <rect x="110" y="30" width="60" height="60" rx="12"></rect>
-            <rect x="30" y="110" width="60" height="60" rx="12"></rect>
-            <rect x="110" y="110" width="60" height="60" rx="12"></rect>
-            <circle cx="100" cy="100" r="5" fill="currentColor"></circle>
+            <rect x="30" y="30" width="60" height="60" rx="12"/>
+            <rect x="110" y="30" width="60" height="60" rx="12"/>
+            <rect x="30" y="110" width="60" height="60" rx="12"/>
+            <rect x="110" y="110" width="60" height="60" rx="12"/>
+            <circle cx="100" cy="100" r="5" fill="currentColor"/>
           </svg>
         </div>
       </div>
@@ -725,63 +679,8 @@
 
 </main>
 
-<footer class="footer">
-  <div class="footer__inner">
-
-    <div class="footer__grid">
-      <div class="footer__col footer__col--brand">
-        <div class="footer__brand">
-          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"></use></svg>
-          <span class="footer__brand-name">Alex Workspace</span>
-        </div>
-        <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
-      </div>
-
-      <div class="footer__col">
-        <h4>Navegación</h4>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="sobre-mi.html">Sobre mí</a></li>
-          <li><a href="formacion.html">Formación</a></li>
-          <li><a href="proyectos.html">Proyectos</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Más</h4>
-        <ul>
-          <li><a href="filosofia.html">Filosofía</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="transparencia.html">Transparencia</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Proyectos</h4>
-        <ul><li><a href="https://keyworkspace.github.io/Heliot-Media/">Heliot Media</a></li><li><a href="https://keyworkspace.github.io/key/">Key Workspace</a></li><li><a href="https://keyworkspace.github.io/windsor/">Windsor</a></li><li><a href="https://the-newkey.blogspot.com/">The New Key</a></li><li><a href="https://keyworkspace.github.io/artsandculture/">Key Arts &amp; Culture</a></li></ul>
-      </div>
-    </div>
-
-    <div class="footer__seal">
-      <span class="signature footer__signature">No venimos a repetir, venimos a innovar.</span>
-    </div>
-
-    <div class="footer__socials-wrap">
-      <div class="footer__socials">
-        <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"></use></svg></a>
-        <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"></use></svg></a>
-        <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"></use></svg></a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© <span id="year"></span> · Alex Workspace</span>
-    </div>
-
-  </div>
-</footer>
+<aw-footer></aw-footer>
 
 <script src="app.js"></script>
-
-
-</body></html>
+</body>
+</html>
