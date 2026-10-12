@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina de Prueba</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <nav class="nav" id="nav" aria-label="Principal">
+    <div class="nav__inner">
+      <a href="index.html" class="brand">
+        <svg class="brand__mark" aria-hidden="true"><use href="#al-mark"></use></svg>
+        <span class="brand__text">
+          <span class="brand__name">Alex Workspace</span>
+        </span>
+      </a>
+
+      <div class="nav__links">
+        <a class="nav__link" href="index.html" aria-current="page">Inicio</a>
+
+        <div class="nav__item">
+          <a class="nav__link nav__link--has-sub" href="sobre-mi.html" aria-haspopup="true" aria-expanded="false">Sobre mí</a>
+          <div class="nav__submenu" role="menu">
+            <a class="nav__submenu-link" href="sobre-mi.html" role="menuitem">Sobre mí</a>
+            <a class="nav__submenu-link" href="formacion.html" role="menuitem">Formación</a>
+            <a class="nav__submenu-link" href="filosofia.html" role="menuitem">Filosofía</a>
+          </div>
+        </div>
+
+        <a class="nav__link" href="proyectos.html">Proyectos</a>
+        <a class="nav__link" href="contacto.html">Contacto</a>
+      </div>
+
+      <div class="nav__actions">
+        <a class="nav__official" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
+          <span class="nav__official__label">LinkedIn</span>
+          <span class="nav__official__arrow" aria-hidden="true">↗</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav">
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+          Menú
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+<h1>Pagina de Prueba</h1>
+<p>Escribe aquí el contenido de esta página.</p>
+</main>
+<footer class="footer">
+  <div class="footer__inner">
+
+    <div class="footer__grid">
+      <div class="footer__col footer__col--brand">
+        <div class="footer__brand">
+          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"></use></svg>
+          <span class="footer__brand-name">Alex Workspace</span>
+        </div>
+        <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="formacion.html">Formación</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Más</h4>
+        <ul>
+          <li><a href="filosofia.html">Filosofía</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="transparencia.html">Transparencia</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Proyectos</h4>
+        <ul>
+          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
+          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
+          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
+          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
+          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__seal">
+      <span class="signature footer__signature">No venimos a repetir, venimos a innovar.</span>
+    </div>
+
+    <div class="footer__socials-wrap">
+      <div class="footer__socials">
+        <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"></use></svg></a>
+        <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"></use></svg></a>
+        <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"></use></svg></a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> · Alex Workspace</span>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
