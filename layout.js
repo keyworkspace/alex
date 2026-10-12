@@ -1,17 +1,43 @@
 /* ==========================================================================
-   LAYOUT · Header + Footer + Symbols centralizados
-   Editar este archivo actualiza TODAS las páginas del sitio.
+   LAYOUT · Header + Footer centralizados para Alex Workspace
+   Editar ESTE archivo actualiza TODAS las páginas del sitio.
+   - Para añadir/quitar un link del menú: edita el array NAV
+   - Para cambiar el footer: edita renderFooter()
+   - Para añadir un símbolo SVG: añádelo a SYMBOLS
    ========================================================================== */
 (function () {
   'use strict';
 
-  /* ---------- Detección de página activa ---------- */
+  /* ---------- Página actual (detecta index.html o raíz) ---------- */
   function currentPage() {
-    var file = window.location.pathname.split('/').pop() || 'index.html';
-    return file.replace('.html', '') || 'index';
+    var path = window.location.pathname;
+    var file = path.split('/').pop() || 'index.html';
+    if (!file || file === '') file = 'index.html';
+    if (file.indexOf('.') === -1) file = 'index.html';
+    return file.replace('.html', '');
   }
 
-  /* ---------- Símbolos SVG (una sola definición) ---------- */
+  /* ---------- Definición única de la navegación ---------- */
+  var NAV = [
+    { label: 'Inicio',        href: 'index.html',        id: 'index' },
+    {
+      label: 'Sobre mí',
+      href: 'sobre-mi.html',
+      id: 'sobre-mi',
+      children: [
+        { label: 'Sobre mí',      href: 'sobre-mi.html',      id: 'sobre-mi' },
+        { label: 'Formación',     href: 'formacion.html',     id: 'formacion' },
+        { label: 'Filosofía',     href: 'filosofia.html',     id: 'filosofia' },
+        { label: 'Generaciones',  href: 'generaciones.html',  id: 'generaciones' }
+      ]
+    },
+    { label: 'Proyectos',     href: 'proyectos.html',     id: 'proyectos' },
+    { label: 'Unidades',      href: 'unidades.html',      id: 'unidades' },
+    { label: 'Transparencia', href: 'transparencia.html', id: 'transparencia' },
+    { label: 'Contacto',      href: 'contacto.html',      id: 'contacto' }
+  ];
+
+  /* ---------- Símbolos SVG ---------- */
   var SYMBOLS = `
     <symbol id="al-mark" viewBox="0 0 48 48">
       <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -37,32 +63,9 @@
     <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
   `;
 
-  /* ---------- Definición de navegación (única fuente de verdad) ---------- */
-  var NAV = [
-    { label: 'Inicio', href: 'index.html', id: 'index' },
-    {
-      label: 'Sobre mí',
-      href: 'sobre-mi.html',
-      id: 'sobre-mi',
-      children: [
-        { label: 'Sobre mí', href: 'sobre-mi.html', id: 'sobre-mi' },
-        { label: 'Formación', href: 'formacion.html', id: 'formacion' },
-        { label: 'Filosofía', href: 'filosofia.html', id: 'filosofia' },
-        { label: 'Generaciones', href: 'generaciones.html', id: 'generaciones' }
-      ]
-    },
-    { label: 'Proyectos', href: 'proyectos.html', id: 'proyectos' },
-    { label: 'Unidades', href: 'unidades.html', id: 'unidades' },
-    { label: 'Transparencia', href: 'transparencia.html', id: 'transparencia' },
-    { label: 'Contacto', href: 'contacto.html', id: 'contacto' }
-  ];
-
-  /* ---------- Render del header ---------- */
+  /* ---------- Render del header + mobile nav ---------- */
   function renderHeader() {
     var active = currentPage();
-    var isSubActive = function (item) {
-      return item.children && item.children.some(function (c) { return c.id === active; });
-    };
 
     var linksDesktop = NAV.map(function (item) {
       if (item.children) {
@@ -84,7 +87,8 @@
     var linksMobile = NAV.map(function (item) {
       if (item.children) {
         var sub = item.children.map(function (c) {
-          return '<a class="mobile-nav__subitem" href="' + c.href + '">' + c.label + '</a>';
+          var cur = c.id === active ? ' aria-current="page"' : '';
+          return '<a class="mobile-nav__subitem" href="' + c.href + '"' + cur + '>' + c.label + '</a>';
         }).join('');
         return (
           '<div class="mobile-nav__group">' +
@@ -206,7 +210,7 @@
   }
 
   /* ---------- Custom elements ---------- */
-  if (window.customElements) {
+  if (window.customElements && !window.customElements.get('aw-header')) {
     window.customElements.define('aw-header', class extends HTMLElement {
       connectedCallback() { this.innerHTML = renderHeader(); }
     });
