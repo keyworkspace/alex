@@ -28,7 +28,7 @@
     {
       id: 'quien',
       keywords: ['quien es alexander', 'quien es alex', 'quien eres', 'sobre alexander', 'sobre alex', 'sobre mi', 'biografia', 'presentate', 'presentacion'],
-      answer: 'Alexander Hernández es un estudiante salvadoreño que está construyendo deliberadamente su trayectoria. Le interesan las personas, las organizaciones, la estrategia y la creación de proyectos. Es director de Recursos Humanos en Heliot Media y fundador de Key Workspace y sus proyectos. <a href="sobre-mi.html">Ver más en Sobre mí →</a>',
+      answer: 'Alexander Hernández es un estudiante salvadoreño que está construyendo deliberadamente su trayectoria. Le interesan las personas, las organizaciones, la estrategia y la creación de proyectos. Es director de Recursos Humanos en Heliot Media y fundador de sus propios proyectos. <a href="sobre-mi.html">Ver más en Sobre mí →</a>',
       suggestions: ['¿Qué es Alex Workspace?', '¿Cuáles son sus valores?', '¿Cómo contacto?']
     },
     {
@@ -51,9 +51,9 @@
     },
     {
       id: 'proyectos',
-      keywords: ['proyectos', 'proyecto', 'heliot', 'heliot media', 'key workspace', 'windsor', 'the new key', 'arts and culture', 'key arts', 'museo digital', 'emprendimiento', 'fundador'],
-      answer: 'Actualmente administra cinco proyectos:<br>· <strong>Heliot Media</strong> — producción audiovisual<br>· <strong>Key Workspace</strong> — espacio digital de educación, empleabilidad y cultura<br>· <strong>Windsor</strong> — servicios digitales<br>· <strong>The New Key</strong> — blog editorial<br>· <strong>Key Arts &amp; Culture</strong> — museo digital<br><br><a href="proyectos.html">Ver todos →</a>',
-      suggestions: ['¿Qué es Heliot Media?', '¿Qué es Key Workspace?', '¿Cómo contacto?']
+      keywords: ['proyectos', 'proyecto', 'heliot', 'heliot media', 'windsor', 'the new key', 'emprendimiento', 'fundador', 'siges'],
+      answer: 'Actualmente administra tres proyectos activos:<br>· <strong>Heliot Media</strong> — producción audiovisual<br>· <strong>Windsor</strong> — servicios digitales<br>· <strong>The New Key</strong> — blog editorial<br><br>Más SIGES como plataforma interna.<br><br><a href="proyectos.html">Ver todos →</a>',
+      suggestions: ['¿Qué es Heliot Media?', '¿Qué es Windsor?', '¿Cómo contacto?']
     },
     {
       id: 'heliot',
@@ -62,28 +62,16 @@
       suggestions: ['¿Qué proyectos tiene?', '¿Cuál es su experiencia?', '¿Cómo contacto?']
     },
     {
-      id: 'key',
-      keywords: ['key workspace', 'que es key', 'espacio digital'],
-      answer: '<strong>Key Workspace</strong> es un espacio digital independiente que trabaja educación, empleabilidad y cultura en línea. Es una marca operativa con tres proyectos: Windsor, The New Key y Key Arts &amp; Culture. <a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Visitar →</a>',
-      suggestions: ['¿Qué es Windsor?', '¿Qué es The New Key?', '¿Qué es Key Arts & Culture?']
-    },
-    {
       id: 'windsor',
       keywords: ['windsor', 'servicios digitales', 'diseno', 'diseno digital', 'tecnologia'],
-      answer: '<strong>Windsor</strong> es un proyecto dentro de Key Workspace que ofrece servicios digitales: estrategia, diseño y tecnología para emprendedores que quieren construir con propósito. <a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Visitar →</a>',
-      suggestions: ['¿Qué es Key Workspace?', '¿Qué proyectos tiene?', '¿Cómo contacto?']
+      answer: '<strong>Windsor</strong> es un proyecto de servicios digitales: estrategia, diseño y tecnología para emprendedores que quieren construir con propósito. <a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Visitar →</a>',
+      suggestions: ['¿Qué proyectos tiene?', '¿Qué es Heliot Media?', '¿Cómo contacto?']
     },
     {
       id: 'newkey',
       keywords: ['the new key', 'new key', 'blog editorial', 'blog', 'articulos', 'reflexiones'],
-      answer: '<strong>The New Key</strong> es el blog editorial de Key Workspace. Es un espacio para pensar en voz alta sobre actualidad, sociedad, tecnología y cultura. <a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">Visitar →</a>',
-      suggestions: ['¿Qué es Key Workspace?', '¿Qué es Key Arts & Culture?', '¿Cómo contacto?']
-    },
-    {
-      id: 'arts',
-      keywords: ['key arts', 'arts and culture', 'arts culture', 'museo digital', 'museo', 'arte', 'cultura'],
-      answer: '<strong>Key Arts &amp; Culture</strong> es un museo digital: un archivo cultural con 50 piezas emblemáticas del arte y la cultura universal, de acceso abierto. <a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Visitar →</a>',
-      suggestions: ['¿Qué es Key Workspace?', '¿Qué es The New Key?', '¿Cómo contacto?']
+      answer: '<strong>The New Key</strong> es el blog editorial. Un espacio para pensar en voz alta sobre actualidad, sociedad, tecnología y cultura. <a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">Visitar →</a>',
+      suggestions: ['¿Qué proyectos tiene?', '¿Qué es Heliot Media?', '¿Cómo contacto?']
     },
     {
       id: 'siges',
@@ -137,7 +125,7 @@
       id: 'voluntariado',
       keywords: ['voluntariado', 'voluntario', 'servicio', 'tutor', 'consejero', 'ambiental', 'reforestacion', 'limpieza', 'yamabal'],
       answer: 'Alexander ha hecho voluntariado en tres frentes:<br>· <strong>Tutor de inglés A2</strong> en el Instituto de Yamabal (2025)<br>· <strong>Consejero vocacional</strong> para jóvenes (2025)<br>· <strong>Voluntariado ambiental</strong> con la Alcaldía de Yamabal (2024–2026)<br><br><a href="sobre-mi.html">Ver voluntariado →</a>',
-      suggestions: ['¿Qué es Key Arts & Culture?', '¿Qué estudia?', '¿Cómo contacto?']
+      suggestions: ['¿Qué estudia?', '¿Qué proyectos tiene?', '¿Cómo contacto?']
     },
     {
       id: 'habilidades',
@@ -158,11 +146,11 @@
       suggestions: ['¿Qué proyectos tiene?', '¿Qué habilidades tiene?', '¿Qué estudia?']
     },
     {
-  id: 'psicologia',
-  keywords: ['psicologia', 'psicologo', 'carrera', 'universidad', 'va a estudiar'],
-  answer: 'La <strong>psicología</strong> es la carrera que Alexander empieza el próximo ciclo. Estudiará el comportamiento humano desde una base formal, como primer tramo de una trayectoria que conecta personas, estrategia y proyectos. <a href="filosofia.html">Ver filosofía →</a>',
-  suggestions: ['¿Qué estudia?', '¿Qué le interesa?', '¿Cuál es su visión?']
-},
+      id: 'psicologia',
+      keywords: ['psicologia', 'psicologo', 'carrera', 'universidad', 'va a estudiar'],
+      answer: 'La <strong>psicología</strong> es la carrera que Alexander empieza el próximo ciclo. Estudiará el comportamiento humano desde una base formal, como primer tramo de una trayectoria que conecta personas, estrategia y proyectos. <a href="filosofia.html">Ver filosofía →</a>',
+      suggestions: ['¿Qué estudia?', '¿Qué le interesa?', '¿Cuál es su visión?']
+    },
     {
       id: 'transparencia',
       keywords: ['transparencia', 'portal de transparencia', 'legalidad', 'legal', 'empresa', 'fundacion', 'ong', 'persona juridica', 'financiamiento'],
