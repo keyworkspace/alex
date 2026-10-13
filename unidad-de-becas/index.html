@@ -6,8 +6,8 @@
 <title>Unidad de Becas · Alex Workspace</title>
 <meta name="description" content="Becas nacionales e internacionales, requisitos, calendario y errores comunes." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23143F59'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23F29A2E' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
-<link rel="stylesheet" href="styles.css" />
-<script src="layout.js"></script>
+<link rel="stylesheet" href="../styles.css" />
+<script src="../layout.js"></script>
 </head>
 <body>
 
@@ -36,15 +36,15 @@
             Un solo lugar para entender qué becas existen, cómo se aplican y en qué momento del año conviene postular. Curado desde la experiencia real de un estudiante que ya está becado.
           </p>
           <div class="page-hero__actions">
-            <a class="btn-big btn-big--light" href="#tipos">
+            <a class="btn-big btn-big--light" href="#convocatorias">
               <span class="btn-big__label">
-                Ver tipos de beca
+                Ver convocatorias
                 <span class="btn-big__arrow" aria-hidden="true">→</span>
               </span>
             </a>
-            <a class="btn-big" href="#calendario" style="background:rgba(255,255,255,0.14);color:white;">
+            <a class="btn-big" href="#tipos" style="background:rgba(255,255,255,0.14);color:white;">
               <span class="btn-big__label">
-                Ver calendario
+                Tipos de beca
                 <span class="btn-big__arrow" aria-hidden="true">→</span>
               </span>
             </a>
@@ -84,6 +84,55 @@
       </div>
     </div>
   </div>
+
+  <!-- ============ CONVOCATORIAS ACTIVAS ============ -->
+  <section class="dif-section" id="convocatorias">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Convocatorias <span class="circled">activas</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.75;max-width:62ch;margin-left:auto;margin-right:auto;">
+        Cada beca tiene su propia página con requisitos, fechas, enlaces oficiales y proceso de aplicación.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Nacional · El Salvador</span>
+            <h3 class="dif-card__title">Becas UNIVO</h3>
+            <p class="dif-card__desc">
+              Programa institucional de la Universidad de Oriente para estudiantes de la zona oriental. Becas parciales y completas según perfil económico, académico y actitudinal.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="univo.html">
+              <span class="dif-cta__label">Ver beca</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--cream reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Próximamente</span>
+            <h3 class="dif-card__title">Espacio disponible</h3>
+            <p class="dif-card__desc">
+              Aquí irá la siguiente beca activa. Cada convocatoria tiene su propio archivo dentro de esta unidad.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta" style="background:var(--navy);color:#fff;">
+              <span class="dif-cta__label">En preparación</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-target"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
 
   <!-- ============ METODOLOGÍA ============ -->
   <div class="rblock">
@@ -454,7 +503,7 @@
           <p class="rblock__text" style="font-weight:600;opacity:1;">
             Si algo aquí está desactualizado, se corrige. Sin discusiones.
           </p>
-          <a class="btn-big" href="contacto.html">
+          <a class="btn-big" href="../contacto.html">
             <span class="btn-big__label">
               Reportar o preguntar
               <span class="btn-big__arrow" aria-hidden="true">→</span>
@@ -481,7 +530,7 @@
       <div class="final-cta__block reveal">
         <h2 class="final-cta__title">¿Tienes una beca en la <em>mira</em>?</h2>
         <p class="final-cta__text">Si estás evaluando alguna convocatoria o quieres saber si tu perfil califica, escríbeme directamente.</p>
-        <a class="btn-big btn-big--light" href="contacto.html">
+        <a class="btn-big btn-big--light" href="../contacto.html">
           <span class="btn-big__label">
             Ir a contacto
             <span class="btn-big__arrow" aria-hidden="true">→</span>
@@ -495,6 +544,6 @@
 
 <aw-footer></aw-footer>
 
-<script src="app.js"></script>
+<script src="../app.js"></script>
 </body>
 </html>
