@@ -3,14 +3,626 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contacto · Alex Workspace</title>
-<meta name="description" content="Disponible para aprendizaje, colaboración, prácticas y proyectos." />
+<title>Unidad de Becas · Alex Workspace</title>
+<meta name="description" content="Becas nacionales e internacionales, requisitos, calendario y errores comunes. Curada desde la experiencia real de un estudiante salvadoreño." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <script src="layout.js"></script>
+
+<style>
+/* ==========================================================================
+   UNIDAD DE BECAS · diseño editorial
+   ========================================================================== */
+.bec-page {
+  --bec-line:      var(--line);
+  --bec-soft:      var(--paper-warm);
+  --bec-accent:    var(--purple);
+  --bec-accent-2:  var(--purple-deep);
+  --bec-gold:      var(--yellow);
+  --bec-serif:     'Fraunces', Georgia, serif;
+}
+
+/* ---------- Contenedor de sección ---------- */
+.bec-section {
+  padding: clamp(3.5rem, 8vw, 7rem) 0;
+}
+.bec-section--soft { background: var(--bec-soft); }
+.bec-section--dark { background: var(--purple-deep); color: #fff; }
+
+/* ---------- Encabezado editorial ---------- */
+.bec-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: 2.5rem;
+  align-items: end;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--bec-line);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.bec-section--dark .bec-head { border-bottom-color: rgba(255,255,255,0.14); }
+
+.bec-head__title {
+  font-family: var(--bec-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 24ch;
+}
+.bec-section--dark .bec-head__title { color: #fff; }
+
+.bec-head__sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  opacity: 0.75;
+  text-align: right;
+  max-width: 46ch;
+  justify-self: end;
+  margin: 0;
+}
+.bec-section--dark .bec-head__sub { color: rgba(255,255,255,0.75); opacity: 1; }
+
+@media (max-width: 720px) {
+  .bec-head { grid-template-columns: 1fr; gap: 1rem; }
+  .bec-head__sub { text-align: left; justify-self: start; }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.bec-hero {
+  padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(2rem, 5vw, 4rem);
+  position: relative;
+  overflow: hidden;
+}
+.bec-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.bec-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bec-accent);
+  margin-bottom: 1.75rem;
+}
+.bec-hero__eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--bec-gold);
+}
+
+.bec-hero__title {
+  font-family: var(--bec-serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  max-width: 16ch;
+}
+.bec-hero__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bec-accent);
+}
+
+.bec-hero__lead {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  opacity: 0.85;
+  max-width: 52ch;
+  margin: 0 0 2rem;
+}
+
+.bec-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+/* ---------- Media del hero ---------- */
+.bec-hero__media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--purple-deep);
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 32px 64px -28px rgba(43,20,97,0.35);
+}
+.bec-hero__media-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.bec-hero__media-tag {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.bec-hero__media-tag span:last-child { color: var(--bec-gold); }
+
+@media (max-width: 860px) {
+  .bec-hero__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .bec-hero__media { max-width: 400px; margin: 0 auto; aspect-ratio: 4/3; }
+}
+
+/* ==========================================================================
+   PROCESO
+   ========================================================================== */
+.bec-proceso {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.bec-proceso__figure {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--purple);
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 24px 48px -24px rgba(43,20,97,0.3);
+}
+.bec-proceso__figure-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bec-proceso__month {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.bec-proceso__month strong {
+  font-family: var(--bec-serif);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--bec-accent);
+}
+.bec-proceso__month span {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  max-width: 22ch;
+}
+
+.bec-proceso__copy p {
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+  max-width: 52ch;
+}
+
+.bec-steps {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--bec-line);
+  padding-top: 1.75rem;
+}
+.bec-steps li {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.bec-steps__num {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--bec-accent);
+}
+.bec-steps strong { font-weight: 700; }
+
+@media (max-width: 860px) {
+  .bec-proceso { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   REQUISITOS · grid con hover
+   ========================================================================== */
+.bec-req-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--bec-line);
+  border: 1px solid var(--bec-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bec-req-card {
+  background: #fff;
+  padding: clamp(1.5rem, 2.6vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 240px;
+  transition: background 350ms var(--fill-ease),
+              color 350ms var(--fill-ease);
+}
+.bec-req-card:hover {
+  background: var(--purple-deep);
+  color: #fff;
+}
+.bec-req-card:hover .bec-req-card__icon {
+  background: var(--yellow);
+  color: var(--purple-deep);
+}
+.bec-req-card:hover .bec-req-card__kicker { color: var(--yellow); }
+.bec-req-card:hover h3 { color: #fff; }
+.bec-req-card:hover p { color: rgba(255,255,255,0.8); }
+
+.bec-req-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 350ms var(--fill-ease),
+              color 350ms var(--fill-ease);
+}
+.bec-req-card__icon svg { width: 22px; height: 22px; }
+
+.bec-req-card__kicker {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bec-accent);
+  transition: color 350ms var(--fill-ease);
+}
+
+.bec-req-card h3 {
+  font-family: var(--ui);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--ink);
+  transition: color 350ms var(--fill-ease);
+}
+.bec-req-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  transition: color 350ms var(--fill-ease);
+}
+
+@media (max-width: 900px) { .bec-req-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .bec-req-grid { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   TIPOS · grid 4 columnas editorial
+   ========================================================================== */
+.bec-tipos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.bec-tipo {
+  padding: 1.75rem 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--bec-line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 220px;
+  transition: transform 350ms var(--fill-ease),
+              border-color 350ms ease;
+}
+.bec-tipo:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+}
+.bec-tipo__num {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  color: var(--bec-accent);
+}
+.bec-tipo h3 {
+  font-family: var(--bec-serif);
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+  color: var(--ink);
+}
+.bec-tipo p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 900px) { .bec-tipos { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .bec-tipos { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   PROGRAMAS · lista tipo índice editorial
+   ========================================================================== */
+.bec-list {
+  border-top: 1px solid var(--bec-line);
+}
+.bec-list__item {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--bec-line);
+  transition: padding-left 400ms var(--fill-ease);
+  text-decoration: none;
+  color: inherit;
+}
+.bec-list__item:hover { padding-left: 1rem; }
+.bec-list__num {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--bec-accent);
+}
+.bec-list__title {
+  font-family: var(--ui);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.bec-list__desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  opacity: 0.75;
+  max-width: 62ch;
+  margin: 0;
+}
+.bec-list__meta {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  white-space: nowrap;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .bec-list__item { grid-template-columns: 40px minmax(0, 1fr); }
+  .bec-list__meta { grid-column: 2; text-align: left; margin-top: 0.5rem; }
+}
+
+/* ==========================================================================
+   CALENDARIO · timeline 4 columnas
+   ========================================================================== */
+.bec-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.bec-timeline__item {
+  padding: 1.75rem 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--bec-line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-height: 260px;
+  position: relative;
+  transition: border-color 350ms ease;
+}
+.bec-timeline__item:hover { border-color: var(--purple); }
+.bec-timeline__item::before {
+  content: '';
+  position: absolute;
+  top: 1.75rem;
+  left: 1.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bec-gold);
+}
+.bec-timeline__q {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bec-accent);
+  padding-left: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+.bec-timeline__item h3 {
+  font-family: var(--bec-serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+.bec-timeline__item p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  margin: 0;
+  flex: 1;
+}
+.bec-timeline__status {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.55;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--bec-line);
+  margin-top: auto;
+}
+
+@media (max-width: 900px) { .bec-timeline { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .bec-timeline { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   ERRORES · lista simple con marcadores
+   ========================================================================== */
+.bec-errores {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2.5rem;
+  max-width: 900px;
+}
+.bec-errores li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bec-line);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.bec-errores li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.55rem;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+@media (max-width: 640px) { .bec-errores { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   NOTA · statement grande
+   ========================================================================== */
+.bec-nota {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.6fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.bec-nota__statement {
+  font-family: var(--bec-serif);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 1.5rem;
+  max-width: 22ch;
+}
+.bec-nota__statement em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bec-gold);
+}
+.bec-nota__text {
+  color: rgba(255,255,255,0.78);
+  line-height: 1.65;
+  max-width: 52ch;
+  margin: 0 0 1.75rem;
+}
+.bec-nota__figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bec-nota__figure svg {
+  width: min(100%, 220px);
+  height: auto;
+  color: var(--bec-gold);
+}
+
+@media (max-width: 860px) {
+  .bec-nota { grid-template-columns: 1fr; }
+  .bec-nota__figure { display: none; }
+}
+
+/* ==========================================================================
+   Reveal mínimo (no depende del observer global)
+   ========================================================================== */
+.bec-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms var(--fill-ease),
+              transform 700ms var(--fill-ease);
+}
+.bec-reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bec-reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
 </head>
 <body>
 
@@ -26,63 +638,405 @@
 
 <aw-header></aw-header>
 
-<main>
+<main class="bec-page">
 
-  <div class="page-hero">
-    <div class="wrap">
-      <div class="page-hero__inner page-hero__inner--deep reveal">
-        <div class="page-hero__content">
-          <span class="page-hero__tag">Contacto</span>
-          <h1 class="page-hero__title">Hable<em>mos</em></h1>
-          <p class="page-hero__lead">
-            Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.
-          </p>
+  <!-- ===================== HERO ===================== -->
+  <section class="bec-hero">
+    <div class="wrap bec-hero__grid">
+
+      <div class="bec-hero__content bec-reveal">
+        <span class="bec-hero__eyebrow">Unidad de Becas</span>
+        <h1 class="bec-hero__title">Una oportunidad real para llegar <em>más lejos</em>.</h1>
+        <p class="bec-hero__lead">
+          Reunimos en un solo lugar qué becas existen, cómo se aplican, qué se necesita y en qué momento del año conviene postular. Curado desde la experiencia real de un estudiante que ya está becado.
+        </p>
+        <div class="bec-hero__actions">
+          <a class="btn-big" href="#requisitos">
+            <span class="btn-big__label">
+              Ver requisitos
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+          <a class="btn-big btn-big--light" href="#programas">
+            <span class="btn-big__label">
+              Explorar programas
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <section style="margin-top:1.25rem;">
-    <div class="contact-cards">
-      <a class="contact-card contact-card--purple reveal" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">
-        <div>
-          <span class="contact-card__eyebrow">LinkedIn</span>
-          <h3 class="contact-card__title">/in/alexanderhrnndz</h3>
-          <p class="contact-card__sub">Abrir perfil →</p>
+      <div class="bec-hero__media bec-reveal" aria-hidden="true">
+        <div class="bec-hero__media-inner">
+          <svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.3" style="width:100%;height:auto;color:rgba(255,255,255,0.9);">
+            <!-- Composición editorial: camino de tres nodos -->
+            <circle cx="150" cy="150" r="110" opacity="0.12" stroke="rgba(255,255,255,0.6)"/>
+            <circle cx="150" cy="150" r="72" opacity="0.25" stroke="rgba(255,255,255,0.6)"/>
+            <circle cx="150" cy="150" r="34" opacity="0.55" stroke="#FFD23F"/>
+            <circle cx="150" cy="150" r="6" fill="#FFD23F" stroke="none"/>
+
+            <!-- Satélites -->
+            <circle cx="150" cy="52" r="14" stroke="#FFD23F"/>
+            <circle cx="248" cy="200" r="14" stroke="rgba(255,255,255,0.7)"/>
+            <circle cx="52" cy="200" r="14" stroke="rgba(255,255,255,0.7)"/>
+
+            <!-- Líneas conectoras -->
+            <line x1="150" y1="66" x2="150" y2="116" opacity="0.45" stroke="#FFD23F"/>
+            <line x1="236" y1="192" x2="176" y2="160" opacity="0.35" stroke="rgba(255,255,255,0.6)"/>
+            <line x1="64" y1="192" x2="124" y2="160" opacity="0.35" stroke="rgba(255,255,255,0.6)"/>
+
+            <!-- Etiquetas -->
+            <text x="150" y="34" font-family="IBM Plex Mono, monospace" font-size="8" fill="#FFD23F" text-anchor="middle" stroke="none" letter-spacing="1.5">ENCONTRAR</text>
+            <text x="248" y="234" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(255,255,255,0.75)" text-anchor="middle" stroke="none" letter-spacing="1.5">PREPARAR</text>
+            <text x="52" y="234" font-family="IBM Plex Mono, monospace" font-size="8" fill="rgba(255,255,255,0.75)" text-anchor="middle" stroke="none" letter-spacing="1.5">POSTULAR</text>
+
+            <!-- Marcas decorativas -->
+            <line x1="20" y1="20" x2="60" y2="20" stroke="#FFD23F" opacity="0.5"/>
+            <line x1="240" y1="280" x2="280" y2="280" stroke="#FFD23F" opacity="0.5"/>
+          </svg>
         </div>
-      </a>
-      <a class="contact-card contact-card--papaya reveal" href="https://instagram.com/kanderth" target="_blank" rel="noopener">
-        <div>
-          <span class="contact-card__eyebrow">Instagram</span>
-          <h3 class="contact-card__title">@kanderth</h3>
-          <p class="contact-card__sub">Abrir perfil →</p>
+        <div class="bec-hero__media-tag">
+          <span>Alex Workspace · Unidades</span>
+          <span>v1.0</span>
         </div>
-      </a>
-      <a class="contact-card contact-card--lightblue reveal" href="mailto:alexhrnndz32@gmail.com">
-        <div>
-          <span class="contact-card__eyebrow">Email</span>
-          <h3 class="contact-card__title" style="font-size:1rem;">alexhrnndz32@gmail.com</h3>
-          <p class="contact-card__sub">Escribir correo →</p>
-        </div>
-      </a>
-      <a class="contact-card contact-card--cream reveal" href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">
-        <div>
-          <span class="contact-card__eyebrow">Blog</span>
-          <h3 class="contact-card__title">The New Key</h3>
-          <p class="contact-card__sub">Leer el blog →</p>
-        </div>
-      </a>
+      </div>
+
     </div>
   </section>
 
+  <!-- ===================== PROCESO ===================== -->
+  <section class="bec-section bec-section--soft" id="proceso">
+    <div class="wrap">
+
+      <div class="bec-head bec-reveal">
+        <h2 class="bec-head__title">Proceso de solicitud</h2>
+        <p class="bec-head__sub">Aplicar a una beca tiene cuatro pasos. La mayoría de rechazos ocurren en el primero y en el tercero, no en el segundo.</p>
+      </div>
+
+      <div class="bec-proceso">
+
+        <div class="bec-proceso__figure bec-reveal" aria-hidden="true">
+          <div class="bec-proceso__figure-inner">
+            <svg viewBox="0 0 280 200" fill="none" stroke="currentColor" stroke-width="1.2" style="width:100%;height:auto;color:rgba(255,255,255,0.9);">
+              <circle cx="50" cy="50" r="16" stroke="#FFD23F"/>
+              <text x="50" y="54" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFD23F" text-anchor="middle" stroke="none">01</text>
+              <circle cx="230" cy="50" r="16" stroke="rgba(255,255,255,0.85)"/>
+              <text x="230" y="54" font-family="IBM Plex Mono, monospace" font-size="10" fill="rgba(255,255,255,0.85)" text-anchor="middle" stroke="none">02</text>
+              <circle cx="230" cy="150" r="16" stroke="rgba(255,255,255,0.85)"/>
+              <text x="230" y="154" font-family="IBM Plex Mono, monospace" font-size="10" fill="rgba(255,255,255,0.85)" text-anchor="middle" stroke="none">03</text>
+              <circle cx="50" cy="150" r="16" stroke="#FFD23F"/>
+              <text x="50" y="154" font-family="IBM Plex Mono, monospace" font-size="10" fill="#FFD23F" text-anchor="middle" stroke="none">04</text>
+
+              <line x1="66" y1="50" x2="214" y2="50" opacity="0.5"/>
+              <line x1="230" y1="66" x2="230" y2="134" opacity="0.5"/>
+              <line x1="214" y1="150" x2="66" y2="150" opacity="0.5"/>
+              <line x1="50" y1="134" x2="50" y2="66" opacity="0.5"/>
+
+              <text x="140" y="26" font-family="IBM Plex Mono, monospace" font-size="9" fill="rgba(255,255,255,0.75)" text-anchor="middle" stroke="none" letter-spacing="1.5">ENCONTRAR · FILTRAR</text>
+              <text x="140" y="192" font-family="IBM Plex Mono, monospace" font-size="9" fill="rgba(255,255,255,0.75)" text-anchor="middle" stroke="none" letter-spacing="1.5">PREPARAR · POSTULAR</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="bec-proceso__copy bec-reveal">
+          <div class="bec-proceso__month">
+            <strong>4</strong>
+            <span>pasos concretos, en orden</span>
+          </div>
+          <p>
+            La postulación no es un evento, es un proceso. Conocer la secuencia evita improvisar el último día y postular a programas que no calzan con el perfil.
+          </p>
+
+          <ul class="bec-steps">
+            <li>
+              <span class="bec-steps__num">01</span>
+              <span><strong>Encontrar.</strong> Saber qué existe antes de decidir qué perseguir. El mapa primero, la carrera después.</span>
+            </li>
+            <li>
+              <span class="bec-steps__num">02</span>
+              <span><strong>Filtrar.</strong> Descartar lo que no calza con el perfil. Postular a todo sin criterio desgasta y no mejora las probabilidades.</span>
+            </li>
+            <li>
+              <span class="bec-steps__num">03</span>
+              <span><strong>Preparar.</strong> Reunir documentos, escribir la carta, pedir recomendaciones. Es la etapa que más tiempo toma.</span>
+            </li>
+            <li>
+              <span class="bec-steps__num">04</span>
+              <span><strong>Postular.</strong> Enviar antes de la fecha límite, no el último día. Guardar copia de todo.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REQUISITOS ===================== -->
+  <section class="bec-section" id="requisitos">
+    <div class="wrap">
+
+      <div class="bec-head bec-reveal">
+        <h2 class="bec-head__title">Requisitos para aplicar</h2>
+        <p class="bec-head__sub">Lo que casi siempre se pide. Tenerlo listo por adelantado ahorra semanas de trámites.</p>
+      </div>
+
+      <div class="bec-req-grid bec-reveal">
+
+        <article class="bec-req-card">
+          <div class="bec-req-card__icon"><svg><use href="#ic-doc"/></svg></div>
+          <span class="bec-req-card__kicker">Identidad</span>
+          <h3>Documento único o pasaporte</h3>
+          <p>Vigente y en buen estado. Es el primer filtro en cualquier formulario en línea.</p>
+        </article>
+
+        <article class="bec-req-card">
+          <div class="bec-req-card__icon"><svg><use href="#ic-cert"/></svg></div>
+          <span class="bec-req-card__kicker">Académico</span>
+          <h3>Título o constancia de notas</h3>
+          <p>Bachillerato, CUM o promedio acumulado. Algunos programas piden traducción certificada.</p>
+        </article>
+
+        <article class="bec-req-card">
+          <div class="bec-req-card__icon"><svg><use href="#ic-book"/></svg></div>
+          <span class="bec-req-card__kicker">Escrito</span>
+          <h3>Carta de motivación</h3>
+          <p>Entre 500 y 1000 palabras. Cuenta una historia real, no repitas el currículum.</p>
+        </article>
+
+        <article class="bec-req-card">
+          <div class="bec-req-card__icon"><svg><use href="#ic-people"/></svg></div>
+          <span class="bec-req-card__kicker">Terceros</span>
+          <h3>Cartas de recomendación</h3>
+          <p>Dos o tres, de profesores o mentores. Pídelas con tiempo y da contexto del programa.</p>
+        </article>
+
+        <article class="bec-req-card">
+          <div class="bec-req-card__icon"><svg><use href="#ic-shield"/></svg></div>
+          <span class="bec-req-card__kicker">Financiero</span>
+          <h3>Comprobante de ingresos</h3>
+          <p>Declaración familiar o comprobante laboral. Muchos programas evalúan el perfil económico.</p>
+        </article>
+
+        <article class="bec-req-card">
+          <div class="bec-req-card__icon"><svg><use href="#ic-globe"/></svg></div>
+          <span class="bec-req-card__kicker">Idioma</span>
+          <h3>Certificado de idioma</h3>
+          <p>Cuando el programa lo exige: TOEFL, IELTS, Duolingo o equivalente según el destino.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TIPOS ===================== -->
+  <section class="bec-section bec-section--soft" id="tipos">
+    <div class="wrap">
+
+      <div class="bec-head bec-reveal">
+        <h2 class="bec-head__title">Cuatro tipos de beca</h2>
+        <p class="bec-head__sub">Cada tipo tiene requisitos, tiempos y formatos distintos. Mezclarlos sin entenderlos es el primer error.</p>
+      </div>
+
+      <div class="bec-tipos bec-reveal">
+
+        <article class="bec-tipo">
+          <span class="bec-tipo__num">01 · Grado</span>
+          <h3>Becas de pregrado</h3>
+          <p>Cubren total o parcialmente la carrera universitaria: matrícula, colegiatura y a veces manutención.</p>
+        </article>
+
+        <article class="bec-tipo">
+          <span class="bec-tipo__num">02 · Técnicas</span>
+          <h3>Becas vocacionales</h3>
+          <p>Programas de 6 a 24 meses en tecnología, oficios digitales, administración o diseño.</p>
+        </article>
+
+        <article class="bec-tipo">
+          <span class="bec-tipo__num">03 · Idiomas</span>
+          <h3>Becas de idiomas</h3>
+          <p>Cursos con certificación al final. Abren varias veces al año y aceptan perfiles sin experiencia.</p>
+        </article>
+
+        <article class="bec-tipo">
+          <span class="bec-tipo__num">04 · Posgrado</span>
+          <h3>Becas avanzadas</h3>
+          <p>Maestrías, doctorados e investigación, normalmente en el extranjero. Requieren título y plan sólido.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMAS ===================== -->
+  <section class="bec-section" id="programas">
+    <div class="wrap">
+
+      <div class="bec-head bec-reveal">
+        <h2 class="bec-head__title">Programas que vale la pena conocer</h2>
+        <p class="bec-head__sub">Seis programas reales que un estudiante salvadoreño puede considerar. Cada uno con su enfoque y requisitos típicos.</p>
+      </div>
+
+      <div class="bec-list bec-reveal">
+
+        <a class="bec-list__item" href="#" rel="noopener">
+          <span class="bec-list__num">01</span>
+          <div>
+            <div class="bec-list__title">Fulbright</div>
+            <p class="bec-list__desc">Maestrías y programas de investigación en universidades estadounidenses. Requiere título universitario, inglés avanzado y una propuesta de estudio clara.</p>
+          </div>
+          <span class="bec-list__meta">EE. UU.</span>
+        </a>
+
+        <a class="bec-list__item" href="#" rel="noopener">
+          <span class="bec-list__num">02</span>
+          <div>
+            <div class="bec-list__title">Chevening</div>
+            <p class="bec-list__desc">Maestrías de un año en universidades británicas. Valora liderazgo, trayectoria y plan de retorno al país.</p>
+          </div>
+          <span class="bec-list__meta">Reino Unido</span>
+        </a>
+
+        <a class="bec-list__item" href="#" rel="noopener">
+          <span class="bec-list__num">03</span>
+          <div>
+            <div class="bec-list__title">DAAD</div>
+            <p class="bec-list__desc">Posgrado, doctorado e investigación en Alemania. Es una de las pocas convocatorias que cubre también cursos de idioma previos.</p>
+          </div>
+          <span class="bec-list__meta">Alemania</span>
+        </a>
+
+        <a class="bec-list__item" href="#" rel="noopener">
+          <span class="bec-list__num">04</span>
+          <div>
+            <div class="bec-list__title">Erasmus Mundus</div>
+            <p class="bec-list__desc">Maestrías conjuntas entre varias universidades europeas. Cubre matrícula, viajes, seguro y manutención mensual.</p>
+          </div>
+          <span class="bec-list__meta">Unión Europea</span>
+        </a>
+
+        <a class="bec-list__item" href="#" rel="noopener">
+          <span class="bec-list__num">05</span>
+          <div>
+            <div class="bec-list__title">MINED y aliados locales</div>
+            <p class="bec-list__desc">Convocatorias nacionales para bachillerato, técnico y universitario. Abren por ciclos y priorizan rendimiento académico.</p>
+          </div>
+          <span class="bec-list__meta">El Salvador</span>
+        </a>
+
+        <a class="bec-list__item" href="#" rel="noopener">
+          <span class="bec-list__num">06</span>
+          <div>
+            <div class="bec-list__title">Google Career Certificates</div>
+            <p class="bec-list__desc">Programas autogestionados en datos, marketing, soporte TI, UX y ciberseguridad. No requieren título universitario.</p>
+          </div>
+          <span class="bec-list__meta">Certificación</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CALENDARIO ===================== -->
+  <section class="bec-section bec-section--soft" id="calendario">
+    <div class="wrap">
+
+      <div class="bec-head bec-reveal">
+        <h2 class="bec-head__title">Calendario del año</h2>
+        <p class="bec-head__sub">Las fechas exactas cambian cada año. Lo que se mantiene es el ritmo: qué tipo de convocatoria suele abrir en cada trimestre.</p>
+      </div>
+
+      <div class="bec-timeline bec-reveal">
+
+        <article class="bec-timeline__item">
+          <span class="bec-timeline__q">Ene – Mar</span>
+          <h3>Apertura del ciclo internacional</h3>
+          <p>El trimestre más activo. Abren Fulbright, DAAD, Chevening y varias becas europeas. También se preparan los exámenes de idioma.</p>
+          <span class="bec-timeline__status">Prioridad alta</span>
+        </article>
+
+        <article class="bec-timeline__item">
+          <span class="bec-timeline__q">Abr – Jun</span>
+          <h3>Cierres y resultados parciales</h3>
+          <p>Se cierran las convocatorias del primer trimestre. Llegan los primeros resultados y comienzan las entrevistas.</p>
+          <span class="bec-timeline__status">Seguimiento</span>
+        </article>
+
+        <article class="bec-timeline__item">
+          <span class="bec-timeline__q">Jul – Sep</span>
+          <h3>Segundo ciclo y convocatorias nacionales</h3>
+          <p>Abren las becas de idiomas, certificaciones cortas y las convocatorias nacionales del MINED y fundaciones locales.</p>
+          <span class="bec-timeline__status">Oportunidad media</span>
+        </article>
+
+        <article class="bec-timeline__item">
+          <span class="bec-timeline__q">Oct – Dic</span>
+          <h3>Cierre de año y preparación</h3>
+          <p>La temporada más tranquila para postular y la más útil para preparar: cartas, documentos, exámenes de idioma.</p>
+          <span class="bec-timeline__status">Preparación</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ERRORES ===================== -->
+  <section class="bec-section" id="errores">
+    <div class="wrap">
+
+      <div class="bec-head bec-reveal">
+        <h2 class="bec-head__title">Lo que suele descalificar</h2>
+        <p class="bec-head__sub">La mayoría de postulaciones rechazadas no fallan por falta de méritos. Fallan por detalles evitables.</p>
+      </div>
+
+      <ul class="bec-errores bec-reveal">
+        <li>Postular sin leer las bases completas del programa.</li>
+        <li>Enviar documentos sin firma o sin fecha.</li>
+        <li>Adjuntar traducciones sin certificación oficial.</li>
+        <li>Usar cartas de motivación genéricas o copiadas.</li>
+        <li>Aplicar el último día y dejar campos sin llenar.</li>
+        <li>No guardar copia de todo lo que se envió.</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ===================== NOTA ===================== -->
+  <section class="bec-section bec-section--dark" id="nota">
+    <div class="wrap bec-nota bec-reveal">
+
+      <div>
+        <span style="display:block;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:1.25rem;">Nota importante</span>
+        <p class="bec-nota__statement">Esta unidad <em>no es un intermediario</em>. Es una guía curada.</p>
+        <p class="bec-nota__text">
+          No gestiona postulaciones, no cobra por aplicar, no representa a ninguna institución. Las convocatorias cambian de año en año: fechas, montos, requisitos. Antes de aplicar, la fuente oficial siempre manda.
+        </p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Reportar o preguntar
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="bec-nota__figure" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M100 20 L160 40 V100 C160 145 130 170 100 180 C70 170 40 145 40 100 V40 Z" opacity="0.6"/>
+          <path d="M80 100 l15 15 l30 -30" stroke-width="2"/>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
   <section class="final-cta">
     <div class="final-cta__inner">
       <div class="final-cta__block reveal">
-        <h2 class="final-cta__title">Tu mensaje es <em>bienvenido</em></h2>
-        <p class="final-cta__text">Escríbeme por cualquiera de los canales. Suelo responder rápido.</p>
-        <a class="btn-big btn-big--light" href="mailto:alexhrnndz32@gmail.com">
+        <h2 class="final-cta__title">¿Tienes una beca en la <em>mira</em>?</h2>
+        <p class="final-cta__text">Si estás evaluando alguna convocatoria o quieres saber si tu perfil califica, escríbeme directamente. Sin formularios intermedios.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
           <span class="btn-big__label">
-            Enviar correo
+            Ir a contacto
             <span class="btn-big__arrow" aria-hidden="true">→</span>
           </span>
         </a>
@@ -95,5 +1049,24 @@
 <aw-footer></aw-footer>
 
 <script src="app.js"></script>
+<script>
+/* Reveal local para esta página (independiente del observer de app.js) */
+(function () {
+  'use strict';
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.bec-reveal').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.bec-reveal').forEach(el => obs.observe(el));
+})();
+</script>
 </body>
 </html>
