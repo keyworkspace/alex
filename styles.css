@@ -1434,3 +1434,12 @@ main { display: block; }
   .hero::before,
   .hero::after { animation: none; }
 }
+/* Trigger activo cuando la página actual es el padre, sin hijos activos */
+.nav__link--has-sub[aria-current="page"] {
+  color: var(--navy);
+  font-weight: 600;
+}
+.nav__link--has-sub[aria-current="page"]::after {
+  transform: translateX(-50%) scaleX(1);
+  background: var(--teal);
+}
