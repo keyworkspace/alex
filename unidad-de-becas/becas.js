@@ -1,11 +1,52 @@
 /* ==========================================================================
-   BECAS · lógica compartida para todas las fichas
+   BECAS · lógica compartida
    Detecta todos los .beca-countdown de la página y los activa.
+   Solo requiere data-beca-target. Todo lo demás se genera automáticamente.
    ========================================================================== */
 (function () {
   'use strict';
 
+  var MESES_CORTOS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
   function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function formatearFecha(date) {
+    var d = date.getDate();
+    var m = MESES_CORTOS[date.getMonth()];
+    var y = date.getFullYear();
+    return d + ' ' + m + ' ' + y;
+  }
+
+  function pluralizar(n, singular, plural) {
+    return n + ' ' + (n === 1 ? singular : plural);
+  }
+
+  function construirEstructura(el) {
+    // Si ya tiene la estructura interna, no la reconstruye
+    if (el.querySelector('[data-beca-unit="days"]')) return;
+
+    el.innerHTML =
+      '<span class="beca-countdown__label" data-beca-label></span>' +
+      '<div class="beca-countdown__grid">' +
+        '<div class="beca-countdown__cell">' +
+          '<span class="beca-countdown__num" data-beca-unit="days">—</span>' +
+          '<span class="beca-countdown__unit">Días</span>' +
+        '</div>' +
+        '<div class="beca-countdown__cell">' +
+          '<span class="beca-countdown__num" data-beca-unit="hours">—</span>' +
+          '<span class="beca-countdown__unit">Horas</span>' +
+        '</div>' +
+        '<div class="beca-countdown__cell">' +
+          '<span class="beca-countdown__num" data-beca-unit="minutes">—</span>' +
+          '<span class="beca-countdown__unit">Min</span>' +
+        '</div>' +
+        '<div class="beca-countdown__cell">' +
+          '<span class="beca-countdown__num" data-beca-unit="seconds">—</span>' +
+          '<span class="beca-countdown__unit">Seg</span>' +
+        '</div>' +
+      '</div>' +
+      '<p class="beca-countdown__foot" data-beca-foot></p>';
+  }
 
   function initCountdown(el) {
     var target = el.getAttribute('data-beca-target');
@@ -14,36 +55,51 @@
     var targetDate = new Date(target);
     if (isNaN(targetDate.getTime())) return;
 
+    // Construye la estructura la primera vez
+    construirEstructura(el);
+
+    // Referencias
+    var labelEl = el.querySelector('[data-beca-label]');
+    var footEl  = el.querySelector('[data-beca-foot]');
     var units = {
       days:    el.querySelector('[data-beca-unit="days"]'),
       hours:   el.querySelector('[data-beca-unit="hours"]'),
       minutes: el.querySelector('[data-beca-unit="minutes"]'),
       seconds: el.querySelector('[data-beca-unit="seconds"]')
     };
-    var labelEl = el.querySelector('[data-beca-label]');
-    var footEl  = el.querySelector('[data-beca-foot]');
 
-    var openLabel      = el.getAttribute('data-beca-open-label')    || 'Convocatoria abierta';
-    var waitingLabel   = el.getAttribute('data-beca-waiting-label') || 'Próxima convocatoria';
-    var openMessage    = el.getAttribute('data-beca-open-message')  || '';
-    var waitingMessage = el.getAttribute('data-beca-waiting-message') || '';
+    // Overrides opcionales
+    var waitingMessage = el.getAttribute('data-beca-waiting-message');
+    var openMessage    = el.getAttribute('data-beca-open-message');
+
+    var fechaLegible = formatearFecha(targetDate);
+    var isToday = targetDate.toDateString() === new Date().toDateString();
 
     function update() {
       var diff = targetDate.getTime() - Date.now();
 
       if (diff <= 0) {
+        // ---------- ESTADO ABIERTO ----------
         el.setAttribute('data-state', 'open');
-        if (labelEl) labelEl.textContent = openLabel;
-        if (footEl && openMessage) footEl.innerHTML = openMessage;
-        if (units.days)    units.days.textContent    = '00';
-        if (units.hours)   units.hours.textContent   = '00';
-        if (units.minutes) units.minutes.textContent = '00';
-        if (units.seconds) units.seconds.textContent = '00';
+        labelEl.textContent = 'Convocatoria abierta';
+
+        units.days.textContent    = '00';
+        units.hours.textContent   = '00';
+        units.minutes.textContent = '00';
+        units.seconds.textContent = '00';
+
+        if (isToday) {
+          footEl.innerHTML = '<strong>' + fechaLegible + '</strong> · Abre hoy';
+        } else {
+          footEl.innerHTML = 'Abierta desde el <strong>' + fechaLegible + '</strong>' +
+                             (openMessage ? ' · ' + openMessage : '');
+        }
         return;
       }
 
+      // ---------- ESTADO ESPERANDO ----------
       el.setAttribute('data-state', 'waiting');
-      if (labelEl) labelEl.textContent = waitingLabel;
+      labelEl.textContent = 'Próxima convocatoria';
 
       var sec  = Math.floor(diff / 1000);
       var days = Math.floor(sec / 86400);
@@ -51,12 +107,24 @@
       var mins = Math.floor((sec % 3600) / 60);
       var secs = sec % 60;
 
-      if (units.days)    units.days.textContent    = days < 100 ? pad(days) : days;
-      if (units.hours)   units.hours.textContent   = pad(hrs);
-      if (units.minutes) units.minutes.textContent = pad(mins);
-      if (units.seconds) units.seconds.textContent = pad(secs);
+      units.days.textContent    = days < 100 ? pad(days) : String(days);
+      units.hours.textContent   = pad(hrs);
+      units.minutes.textContent = pad(mins);
+      units.seconds.textContent = pad(secs);
 
-      if (footEl && waitingMessage) footEl.innerHTML = waitingMessage;
+      var autoMsg;
+      if (days === 0) {
+        autoMsg = '<strong>Abre hoy</strong> · ' + fechaLegible;
+      } else if (days === 1) {
+        autoMsg = '<strong>Abre mañana</strong> · ' + fechaLegible;
+      } else {
+        autoMsg = '<strong>' + fechaLegible + '</strong> · Faltan ' +
+                  pluralizar(days, 'día', 'días');
+      }
+
+      footEl.innerHTML = waitingMessage
+        ? autoMsg + ' · ' + waitingMessage
+        : autoMsg;
     }
 
     update();
