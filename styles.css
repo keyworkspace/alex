@@ -1,8 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700;800;900&display=swap');
+/* ==========================================================================
+   FUENTES · Sistema tipográfico UNIVO
+   - semplicitapro (Adobe Typekit) → Títulos y encabezados
+   - Kumbh Sans (Google Fonts)     → Cuerpo de texto
+   - Roboto (Google Fonts)          → Acentos, botones, navegación
+   - Roboto Slab (Google Fonts)     → Textos secundarios
+   - IBM Plex Mono (Google Fonts)   → Etiquetas y datos
+   - Caveat (Google Fonts)          → Firma de marca
+   ========================================================================== */
+
+@import url('https://use.typekit.net/yyi3lii.css');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&subset=latin,latin-ext&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
 
 /* ==========================================================================
    ALEX WORKSPACE · sistema base
-   Tipografía: Fraunces (display) · Source Sans 3 (UI) · IBM Plex Mono · Caveat
    ========================================================================== */
 :root {
   --purple:       #6B2D8E;
@@ -27,10 +41,13 @@
   --gray:         #F2F0EB;
   --line:         #E0DCD0;
 
-  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --ui:      'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:    'IBM Plex Mono', ui-monospace, monospace;
-  --script:  'Caveat', 'Outfit', system-ui, cursive;
+  /* Tipografía UNIVO */
+  --display:  'semplicitapro', 'Fraunces', Georgia, sans-serif;
+  --ui:       'Kumbh Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --accent:   'Roboto', 'Kumbh Sans', sans-serif;
+  --secondary:'Roboto Slab', 'Kumbh Sans', serif;
+  --mono:     'IBM Plex Mono', ui-monospace, monospace;
+  --script:   'Caveat', 'Outfit', system-ui, cursive;
 
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
   --max: 1280px;
@@ -50,11 +67,11 @@ body {
   color: var(--ink);
   font-family: var(--ui);
   font-size: 16px;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.003em;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -132,8 +149,8 @@ ul, ol { list-style: none; }
   padding: 1.05rem 1.6rem;
   background: var(--ink); color: white;
   border-radius: 999px;
-  font-family: var(--ui);
-  font-size: 0.86rem; font-weight: 600;
+  font-family: var(--accent);
+  font-size: 0.86rem; font-weight: 500;
   letter-spacing: 0.005em;
   cursor: pointer; border: none;
   overflow: hidden; isolation: isolate;
@@ -209,7 +226,8 @@ ul, ol { list-style: none; }
   border-radius: 999px;
   border: 1.5px solid var(--ink);
   background: transparent; color: var(--ink);
-  font-size: 0.78rem; font-weight: 600;
+  font-family: var(--accent);
+  font-size: 0.78rem; font-weight: 500;
   letter-spacing: 0.005em;
   cursor: pointer;
   overflow: hidden; isolation: isolate;
@@ -240,8 +258,8 @@ ul, ol { list-style: none; }
 .dif-cta {
   position: relative;
   display: inline-flex; align-items: center; gap: 0.5rem;
-  font-family: var(--ui);
-  font-size: 0.78rem; font-weight: 600;
+  font-family: var(--accent);
+  font-size: 0.78rem; font-weight: 500;
   letter-spacing: 0.01em;
   padding: 0.7rem 1.1rem;
   border-radius: 999px;
@@ -317,7 +335,7 @@ ul, ol { list-style: none; }
 .brand:hover .brand__mark { transform: rotate(-8deg) scale(1.08); }
 .brand__text { display: flex; flex-direction: column; line-height: 1.05; }
 .brand__name {
-  font-family: var(--ui);
+  font-family: var(--display);
   font-size: 1.02rem; font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--ink);
@@ -327,6 +345,7 @@ ul, ol { list-style: none; }
 .nav__link {
   position: relative;
   padding: 0.55rem 0.95rem;
+  font-family: var(--accent);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--ink-soft);
@@ -406,6 +425,7 @@ ul, ol { list-style: none; }
   display: block;
   padding: 0.6rem 0.9rem;
   border-radius: 12px;
+  font-family: var(--accent);
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--ink-soft);
@@ -456,7 +476,8 @@ ul, ol { list-style: none; }
   border: none;
   padding: 0.6rem 0.95rem;
   border-radius: 999px;
-  font-size: 0.72rem; font-weight: 600;
+  font-family: var(--accent);
+  font-size: 0.72rem; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
   cursor: pointer;
   align-items: center; gap: 0.5rem;
@@ -508,9 +529,9 @@ ul, ol { list-style: none; }
   border-bottom: 1px solid var(--line);
   padding: 1rem 0;
   text-align: left;
-  font-family: var(--ui);
+  font-family: var(--display);
   font-size: 1.35rem; font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   color: var(--ink);
   cursor: pointer;
   transition: color 200ms ease, padding 300ms var(--fill-ease);
@@ -546,6 +567,7 @@ ul, ol { list-style: none; }
 }
 .mobile-nav__subitem {
   padding: 0.85rem 0 0.85rem 1.5rem;
+  font-family: var(--accent);
   font-size: 1.05rem;
   font-weight: 500;
   color: var(--ink-soft);
@@ -569,7 +591,8 @@ ul, ol { list-style: none; }
   color: white;
   border-radius: 999px;
   text-align: center;
-  font-weight: 600; font-size: 0.9rem;
+  font-family: var(--accent);
+  font-weight: 500; font-size: 0.9rem;
   cursor: pointer; border: none;
 }
 
@@ -673,7 +696,8 @@ main { display: block; }
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.2);
   color: white;
-  font-size: 0.64rem; font-weight: 600;
+  font-family: var(--mono);
+  font-size: 0.64rem; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
@@ -690,16 +714,16 @@ main { display: block; }
 
 .hero__title {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 1.02;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   color: white;
   margin-bottom: 1.35rem;
 }
 .hero__title em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   color: var(--yellow);
 }
 
@@ -707,7 +731,7 @@ main { display: block; }
   display: block;
   font-family: var(--script);
   font-weight: 500;
-  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
   line-height: 1.35;
   letter-spacing: 0.005em;
   color: var(--yellow);
@@ -718,8 +742,9 @@ main { display: block; }
 }
 
 .hero__lead {
+  font-family: var(--ui);
   font-size: 1.02rem;
-  line-height: 1.6;
+  line-height: 1.62;
   color: rgba(255,255,255,0.85);
   max-width: 48ch;
   margin-bottom: 1.75rem;
@@ -779,20 +804,21 @@ main { display: block; }
 }
 .rblock__title {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(1.55rem, 3.2vw, 2.6rem);
   line-height: 1.05;
   letter-spacing: -0.025em;
   margin-bottom: 0.9rem;
 }
 .rblock__title em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   color: var(--purple);
 }
 .rblock--dark .rblock__title em,
 .rblock--purple .rblock__title em { color: var(--yellow); }
 .rblock__text {
+  font-family: var(--ui);
   font-size: 1.02rem;
   line-height: 1.62;
   max-width: 52ch;
@@ -817,7 +843,7 @@ main { display: block; }
 }
 .dif-title {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(1.75rem, 4.2vw, 3.1rem);
   line-height: 1.03;
   letter-spacing: -0.025em;
@@ -826,8 +852,6 @@ main { display: block; }
 .dif-title .circled {
   position: relative; display: inline-block;
   padding: 0 0.18em;
-  font-style: italic;
-  font-weight: 400;
 }
 .dif-title .circled::after {
   content: '';
@@ -887,14 +911,15 @@ main { display: block; }
   opacity: 0.7;
 }
 .dif-card__title {
-  font-family: var(--ui);
+  font-family: var(--display);
   font-weight: 700;
   font-size: clamp(1.25rem, 2vw, 1.7rem);
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   max-width: 22ch;
 }
 .dif-card__desc {
+  font-family: var(--ui);
   font-size: 0.95rem;
   line-height: 1.58;
   opacity: 0.82;
@@ -950,15 +975,15 @@ main { display: block; }
 
 .head__title {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 3rem);
   line-height: 1.03;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
 .head__title em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   color: var(--purple);
 }
 .section--dark .head__title { color: var(--paper); }
@@ -966,6 +991,7 @@ main { display: block; }
 
 .head__lead {
   margin-top: 1rem;
+  font-family: var(--ui);
   font-size: 1.02rem;
   line-height: 1.62;
   opacity: 0.72;
@@ -999,7 +1025,7 @@ main { display: block; }
   opacity: 0.6;
 }
 .card__title {
-  font-family: var(--ui);
+  font-family: var(--display);
   font-weight: 700;
   font-size: clamp(1.1rem, 1.8vw, 1.45rem);
   line-height: 1.12;
@@ -1007,6 +1033,7 @@ main { display: block; }
   color: var(--ink);
 }
 .card__text {
+  font-family: var(--ui);
   font-size: 0.95rem;
   line-height: 1.6;
   opacity: 0.78;
@@ -1039,15 +1066,15 @@ main { display: block; }
 }
 .big-heading {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(2rem, 6vw, 5rem);
   line-height: 0.98;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
 .big-heading em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   color: var(--purple);
 }
 
@@ -1075,19 +1102,20 @@ main { display: block; }
 .final-cta__title {
   position: relative;
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 3.2rem);
   line-height: 1.03;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   margin-bottom: 1.1rem;
 }
 .final-cta__title em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   color: var(--yellow);
 }
 .final-cta__text {
   position: relative;
+  font-family: var(--ui);
   font-size: 1.02rem;
   line-height: 1.62;
   max-width: 52ch;
@@ -1128,7 +1156,8 @@ main { display: block; }
   background: rgba(255,255,255,0.14);
   border: 1px solid rgba(255,255,255,0.22);
   color: white;
-  font-size: 0.64rem; font-weight: 600;
+  font-family: var(--mono);
+  font-size: 0.64rem; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
@@ -1149,15 +1178,15 @@ main { display: block; }
 .page-hero__inner--yellow .page-hero__tag::before { background: var(--purple); }
 .page-hero__title {
   font-family: var(--display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(2rem, 5vw, 4.2rem);
   line-height: 1.0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   margin-bottom: 1.25rem;
 }
 .page-hero__title em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 700;
   color: var(--yellow);
 }
 .page-hero__inner--papaya .page-hero__title em,
@@ -1165,6 +1194,7 @@ main { display: block; }
 .page-hero__inner--lightblue .page-hero__title em,
 .page-hero__inner--cream .page-hero__title em { color: var(--purple); }
 .page-hero__lead {
+  font-family: var(--ui);
   font-size: 1.04rem;
   line-height: 1.62;
   opacity: 0.88;
@@ -1209,7 +1239,7 @@ main { display: block; }
   opacity: 0.7;
 }
 .contact-card__title {
-  font-family: var(--ui);
+  font-family: var(--display);
   font-weight: 700;
   font-size: 1.35rem;
   letter-spacing: -0.02em;
@@ -1217,6 +1247,7 @@ main { display: block; }
   word-break: break-word;
 }
 .contact-card__sub {
+  font-family: var(--ui);
   font-size: 0.88rem;
   opacity: 0.8;
   margin-top: 0.5rem;
@@ -1250,12 +1281,13 @@ main { display: block; }
 .footer__brand { display: flex; align-items: center; gap: 0.75rem; }
 .footer__brand-mark { width: 42px; height: 42px; color: var(--yellow); flex-shrink: 0; }
 .footer__brand-name {
-  font-family: var(--ui);
+  font-family: var(--display);
   font-weight: 700;
   font-size: 1.08rem;
   letter-spacing: -0.02em;
 }
 .footer__desc {
+  font-family: var(--ui);
   font-size: 0.92rem;
   line-height: 1.65;
   color: rgba(250,247,240,0.7);
@@ -1273,7 +1305,9 @@ main { display: block; }
 }
 .footer__col ul { display: flex; flex-direction: column; gap: 0.7rem; }
 .footer__col a {
+  font-family: var(--accent);
   font-size: 0.9rem;
+  font-weight: 400;
   color: rgba(250,247,240,0.75);
   transition: color 200ms ease, padding 250ms var(--fill-ease);
 }
@@ -1290,7 +1324,7 @@ main { display: block; }
   display: inline-block;
   font-family: var(--script);
   font-weight: 500;
-  font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+  font-size: clamp(1.15rem, 1.7vw, 1.35rem);
   color: var(--yellow);
   letter-spacing: 0.005em;
   opacity: 0.9;
@@ -1344,51 +1378,4 @@ main { display: block; }
   }
   .hero__rail-track { animation: none; }
   .site-header { transition: none; }
-}
-
-/* ==========================================================================
-   AJUSTES FINOS DE LA NUEVA TIPOGRAFÍA
-   ========================================================================== */
-
-/* Cuerpo de texto ligeramente más aireado con Source Sans 3 */
-body { letter-spacing: -0.003em; }
-
-p, li, .rblock__text, .head__lead, .page-hero__lead,
-.dif-card__desc, .card__text, .contact-card__sub {
-  font-weight: 400;
-}
-
-/* Etiquetas mono más definidas */
-.card__eyebrow,
-.dif-card__eyebrow,
-.head__num,
-.contact-card__eyebrow,
-.footer__col h4,
-.page-hero__tag,
-.hero__tag {
-  font-weight: 500;
-}
-
-/* Botones y navegación con más presencia sin ser pesados */
-.nav__link,
-.nav__submenu-link,
-.btn-big__label,
-.dif-cta__label,
-.nav__official__label,
-.mobile-nav__item,
-.mobile-nav__subitem {
-  letter-spacing: 0.005em;
-}
-
-/* Fallback si Fraunces no carga */
-@supports not (font-variation-settings: normal) {
-  .hero__title,
-  .page-hero__title,
-  .head__title,
-  .rblock__title,
-  .final-cta__title,
-  .big-heading,
-  .dif-title {
-    font-family: Georgia, 'Times New Roman', serif;
-  }
 }
