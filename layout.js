@@ -1,14 +1,11 @@
 /* ==========================================================================
    LAYOUT · Header + Footer centralizados para Alex Workspace
    Editar ESTE archivo actualiza TODAS las páginas del sitio.
-   - Para añadir/quitar un link del menú: edita el array NAV
-   - Para cambiar el footer: edita renderFooter()
-   - Para añadir un símbolo SVG: añádelo a SYMBOLS
    ========================================================================== */
 (function () {
   'use strict';
 
-  /* ---------- Página actual (detecta index.html o raíz) ---------- */
+  /* ---------- Página actual ---------- */
   function currentPage() {
     var path = window.location.pathname;
     var file = path.split('/').pop() || 'index.html';
@@ -32,7 +29,15 @@
       ]
     },
     { label: 'Proyectos',     href: 'proyectos.html',     id: 'proyectos' },
-    { label: 'Unidades',      href: 'unidades.html',      id: 'unidades' },
+    {
+      label: 'Unidades',
+      href: 'unidades.html',
+      id: 'unidades',
+      children: [
+        { label: 'Todas las unidades', href: 'unidades.html',         id: 'unidades' },
+        { label: 'Becas',              href: 'unidad-de-becas.html',   id: 'unidad-de-becas' }
+      ]
+    },
     { label: 'Transparencia', href: 'transparencia.html', id: 'transparencia' },
     { label: 'Contacto',      href: 'contacto.html',      id: 'contacto' }
   ];
@@ -179,10 +184,8 @@
               '<h4>Proyectos</h4>' +
               '<ul>' +
                 '<li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>' +
-                '<li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>' +
                 '<li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>' +
                 '<li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>' +
-                '<li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>' +
               '</ul>' +
             '</div>' +
 
