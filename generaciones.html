@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Generaciones · Alex Workspace</title>
-<meta name="description" content="Tres etapas del mismo recorrido: colegio, bachillerato y Oportunidades FGK.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Tres etapas del mismo recorrido: colegio, bachillerato y Oportunidades FGK." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="layout.js"></script>
 
 <style>
 /* ==========================================================================
@@ -31,7 +33,6 @@
 .gen-stage__inner--papaya    { background: var(--papaya);    color: var(--ink); }
 .gen-stage__inner--cream     { background: var(--paper-warm); color: var(--ink); }
 
-/* Grid: foto más chica, texto más ancho */
 .gen-stage__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
@@ -44,7 +45,6 @@
 .gen-stage--reverse .gen-stage__media { order: 2; }
 .gen-stage--reverse .gen-stage__body  { order: 1; }
 
-/* ---------- Foto ---------- */
 .gen-stage__media { position: relative; }
 
 .gen-stage__photo {
@@ -75,7 +75,6 @@
   pointer-events: none;
 }
 
-/* ---------- Banner centrado (como UNIVO) ---------- */
 .gen-stage__badge {
   position: absolute;
   bottom: 0;
@@ -93,7 +92,6 @@
   z-index: 2;
 }
 
-/* ---------- Cuerpo ---------- */
 .gen-stage__body { position: relative; }
 
 .gen-stage__title {
@@ -107,7 +105,6 @@
 .gen-stage__title em { font-style: normal; color: var(--purple); }
 .gen-stage__inner--papaya .gen-stage__title em { color: var(--purple-deep); }
 
-/* ---------- Roster en 2 columnas ---------- */
 .gen-stage__roster {
   display: flex;
   flex-direction: column;
@@ -135,15 +132,9 @@
   line-height: 1.45;
   color: inherit;
 }
-.gen-stage__roster-list li strong {
-  font-weight: 600;
-}
-.gen-stage__roster-list li span {
-  opacity: 0.7;
-  font-weight: 400;
-}
+.gen-stage__roster-list li strong { font-weight: 600; }
+.gen-stage__roster-list li span { opacity: 0.7; font-weight: 400; }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
   .gen-stage__grid,
   .gen-stage--reverse .gen-stage__grid {
@@ -157,15 +148,8 @@
   .gen-stage__inner { border-radius: 26px; padding: 1.25rem; }
   .gen-stage__photo { border-radius: 18px; aspect-ratio: 4 / 3; }
   .gen-stage__photo::after { border-radius: 18px; }
-  .gen-stage__roster-list {
-    grid-template-columns: 1fr;
-    gap: 0.28rem;
-  }
-  .gen-stage__badge {
-    font-size: 0.58rem;
-    padding: 0.65rem 1rem;
-    letter-spacing: 0.18em;
-  }
+  .gen-stage__roster-list { grid-template-columns: 1fr; gap: 0.28rem; }
+  .gen-stage__badge { font-size: 0.58rem; padding: 0.65rem 1rem; letter-spacing: 0.18em; }
 }
 </style>
 </head>
@@ -174,64 +158,17 @@
 <div class="loader" id="loader" data-hidden="false" aria-hidden="true">
   <div class="loader__inner">
     <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"></circle>
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
       <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
     </svg>
     <div class="loader__bar"><div class="loader__bar-fill"></div></div>
   </div>
 </div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="al-mark" viewBox="0 0 48 48">
-    <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-    <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
-  </symbol>
-  <symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14"></path><path d="M8 7h8M8 11h8M8 15h5"></path></symbol>
-  <symbol id="ic-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3 21v-1a6 6 0 016-6h0a6 6 0 016 6v1"></path><circle cx="17" cy="9" r="2"></circle><path d="M15 21v-1a5 5 0 015-5h0a5 5 0 013 4"></path></symbol>
-  <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"></path><circle cx="12" cy="12" r="2.5"></circle></symbol>
-  <symbol id="ic-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></symbol>
-  <symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"></path></symbol>
-  <symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"></path></symbol>
-  <symbol id="ic-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-5 4-9 8-9-2 5-5 8-8 9z"></path><path d="M12 21c0-5-4-9-8-9 2 5 5 8 8 9z"></path><path d="M12 21V8"></path><circle cx="12" cy="4" r="2"></circle></symbol>
-  <symbol id="ic-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"></circle></symbol>
-  <symbol id="ic-li" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"></path></symbol>
-  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></symbol>
-</svg>
-
-<header class="site-header" id="siteHeader">
-  <nav class="nav" id="nav" aria-label="Principal"><a href="https://keyworkspace.github.io/key/">Nuevo</a></nav>
-</header>
-
-<div class="nav-overlay" id="navOverlay" data-open="false"></div>
-<aside class="mobile-nav" id="mobileNav" data-open="false">
-  <button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>
-
-  <a class="mobile-nav__item" href="index.html">Inicio</a>
-
-  <div class="mobile-nav__group">
-    <button class="mobile-nav__item mobile-nav__item--has-sub" data-open="false" aria-expanded="false">
-      Sobre mí
-      <svg class="mobile-nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-        <polyline points="3 5 6 8 9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-      </svg>
-    </button>
-    <div class="mobile-nav__subnav">
-      <a class="mobile-nav__subitem" href="sobre-mi.html">Sobre mí</a>
-      <a class="mobile-nav__subitem" href="formacion.html">Formación</a>
-      <a class="mobile-nav__subitem" href="filosofia.html">Filosofía</a>
-      <a class="mobile-nav__subitem" href="generaciones.html">Generaciones</a>
-    </div>
-  </div>
-
-  <a class="mobile-nav__item" href="proyectos.html">Proyectos</a>
-  <a class="mobile-nav__item" href="transparencia.html">Transparencia</a>
-  <a class="mobile-nav__item" href="contacto.html">Contacto</a>
-  <a class="mobile-nav__cta" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener">Ir a LinkedIn</a>
-</aside>
+<aw-header></aw-header>
 
 <main>
 
-  <!-- ============ HERO ============ -->
   <div class="page-hero">
     <div class="wrap">
       <div class="page-hero__inner page-hero__inner--purple reveal">
@@ -246,7 +183,6 @@
     </div>
   </div>
 
-  <!-- ============ INTRO ============ -->
   <div class="rblock" style="margin-top:1.25rem;">
     <div class="rblock__inner rblock--lightblue reveal">
       <div class="rblock__grid">
@@ -262,34 +198,29 @@
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 220 220" style="width:min(100%,220px);height:auto;color:var(--purple);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
-            <circle cx="110" cy="55" r="28" opacity="0.75"></circle>
-            <circle cx="60" cy="130" r="28" opacity="0.55"></circle>
-            <circle cx="160" cy="160" r="28" opacity="0.35"></circle>
-            <line x1="110" y1="83" x2="75" y2="112" opacity="0.45"></line>
-            <line x1="80" y1="148" x2="140" y2="155" opacity="0.35"></line>
+            <circle cx="110" cy="55" r="28" opacity="0.75"/>
+            <circle cx="60" cy="130" r="28" opacity="0.55"/>
+            <circle cx="160" cy="160" r="28" opacity="0.35"/>
+            <line x1="110" y1="83" x2="75" y2="112" opacity="0.45"/>
+            <line x1="80" y1="148" x2="140" y2="155" opacity="0.35"/>
           </svg>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================
-       01 · COLEGIO
-       ============================================================ -->
   <section class="gen-stage" style="margin-top:1.1rem;">
     <div class="gen-stage__inner gen-stage__inner--lightblue reveal">
       <div class="gen-stage__grid">
         <div class="gen-stage__media">
           <div class="gen-stage__photo">
-            <img src="fotos-generaciones/colegio.jpg" alt="Promoción 2023 del colegio" loading="lazy">
+            <img src="fotos-generaciones/colegio.jpg" alt="Promoción 2023 del colegio" loading="lazy" />
             <span class="gen-stage__badge">Promoción 2023</span>
           </div>
         </div>
         <div class="gen-stage__body">
           <h2 class="gen-stage__title">Liceo Cristiano <em>Reverendo Juan Bueno</em></h2>
-
           <div class="gen-stage__roster">
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -307,7 +238,6 @@
                 <li><strong>Melita Amaya</strong><span>— Docente</span></li>
               </ul>
             </div>
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -326,30 +256,24 @@
                 <li><strong>Wilber Andrade</strong><span>— Docente</span></li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       02 · BACHILLERATO
-       ============================================================ -->
   <section class="gen-stage gen-stage--reverse">
     <div class="gen-stage__inner gen-stage__inner--papaya reveal">
       <div class="gen-stage__grid">
         <div class="gen-stage__media">
           <div class="gen-stage__photo">
-            <img src="fotos-generaciones/bachillerato.jpg" alt="Promoción 2026 de bachillerato" loading="lazy">
+            <img src="fotos-generaciones/bachillerato.jpg" alt="Promoción 2026 de bachillerato" loading="lazy" />
             <span class="gen-stage__badge">Promoción 2026</span>
           </div>
         </div>
         <div class="gen-stage__body">
           <h2 class="gen-stage__title">Instituto Nacional de <em>Yamabal</em></h2>
-
           <div class="gen-stage__roster">
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -364,7 +288,6 @@
                 <li><strong>Stefani Delgado</strong></li>
               </ul>
             </div>
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">Segunda fila (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -378,7 +301,6 @@
                 <li><strong>Alicia Mejia</strong> <span>— Docente</span></li>
               </ul>
             </div>
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -393,30 +315,24 @@
                 <li><strong>Edenilson Vasquez</strong> <span>— Docente</span></li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       03 · OPORTUNIDADES FGK
-       ============================================================ -->
   <section class="gen-stage">
     <div class="gen-stage__inner gen-stage__inner--cream reveal">
       <div class="gen-stage__grid">
         <div class="gen-stage__media">
           <div class="gen-stage__photo">
-            <img src="fotos-generaciones/oportunidades.jpg" alt="Class 2026 del Programa Oportunidades" loading="lazy">
+            <img src="fotos-generaciones/oportunidades.jpg" alt="Class 2026 del Programa Oportunidades" loading="lazy" />
             <span class="gen-stage__badge">Class 2026</span>
           </div>
         </div>
         <div class="gen-stage__body">
           <h2 class="gen-stage__title">Fundación <em>Gloria Kriete</em></h2>
-
           <div class="gen-stage__roster">
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -428,7 +344,6 @@
                 <li><strong>Yulisa Hernández</strong></li>
               </ul>
             </div>
-
             <div class="gen-stage__roster-group">
               <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
               <ul class="gen-stage__roster-list">
@@ -449,14 +364,12 @@
                 <li><strong>Luis Herrera</strong></li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CIERRE ============ -->
   <section class="final-cta">
     <div class="final-cta__inner">
       <div class="final-cta__block reveal">
@@ -474,64 +387,8 @@
 
 </main>
 
-<footer class="footer">
-  <div class="footer__inner">
-
-    <div class="footer__grid">
-      <div class="footer__col footer__col--brand">
-        <div class="footer__brand">
-          <svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"></use></svg>
-          <span class="footer__brand-name">Alex Workspace</span>
-        </div>
-        <p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>
-      </div>
-
-      <div class="footer__col">
-        <h4>Navegación</h4>
-        <ul><li><a href="https://keyworkspace.github.io/Heliot-Media/">Heliot Media</a></li><li><a href="https://keyworkspace.github.io/key/">Key Workspace</a></li><li><a href="https://keyworkspace.github.io/windsor/">Windsor</a></li><li><a href="https://the-newkey.blogspot.com/">The New Key</a></li><li><a href="https://keyworkspace.github.io/artsandculture/">Key Arts &amp; Culture</a></li></ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Más</h4>
-        <ul>
-          <li><a href="filosofia.html">Filosofía</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="transparencia.html">Transparencia</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Proyectos</h4>
-        <ul>
-          <li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li>
-          <li><a href="https://keyworkspace.github.io/key/" target="_blank" rel="noopener">Key Workspace</a></li>
-          <li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li>
-          <li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>
-          <li><a href="https://keyworkspace.github.io/artsandculture/" target="_blank" rel="noopener">Key Arts &amp; Culture</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer__seal">
-      <span class="footer__signature">No venimos a repetir, venimos a innovar.</span>
-    </div>
-
-    <div class="footer__socials-wrap">
-      <div class="footer__socials">
-        <a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"></use></svg></a>
-        <a class="footer__social" href="https://www.linkedin.com/in/alexanderhrnndz/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#ic-li"></use></svg></a>
-        <a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"></use></svg></a>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© <span id="year"></span> · Alex Workspace</span>
-    </div>
-
-  </div>
-</footer>
+<aw-footer></aw-footer>
 
 <script src="app.js"></script>
-
-
-</body></html>
+</body>
+</html>
