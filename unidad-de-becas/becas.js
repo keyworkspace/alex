@@ -1,7 +1,7 @@
 /* ==========================================================================
    BECAS · lógica compartida
    Detecta todos los .beca-countdown de la página y los activa.
-   Solo requiere data-beca-target. Todo lo demás se genera automáticamente.
+   data-beca-target = fecha de CIERRE de la convocatoria.
    Formato de fecha: dd/mm/aaaa · Hora: 24h
    ========================================================================== */
 (function () {
@@ -30,7 +30,6 @@
   }
 
   function construirEstructura(el) {
-    // Si ya tiene la estructura interna, no la reconstruye
     if (el.querySelector('[data-beca-unit="days"]')) return;
 
     el.innerHTML =
@@ -63,10 +62,8 @@
     var targetDate = new Date(target);
     if (isNaN(targetDate.getTime())) return;
 
-    // Construye la estructura la primera vez
     construirEstructura(el);
 
-    // Referencias
     var labelEl = el.querySelector('[data-beca-label]');
     var footEl  = el.querySelector('[data-beca-foot]');
     var units = {
@@ -76,38 +73,42 @@
       seconds: el.querySelector('[data-beca-unit="seconds"]')
     };
 
-    // Overrides opcionales
-    var waitingMessage = el.getAttribute('data-beca-waiting-message');
-    var openMessage    = el.getAttribute('data-beca-open-message');
+    // Mensaje opcional que se añade al pie de texto
+    var extraMessage = el.getAttribute('data-beca-message') || '';
 
     var fechaLegible = formatearFecha(targetDate);
     var isToday = targetDate.toDateString() === new Date().toDateString();
+    var tomorrow = new Date(Date.now() + 86400000);
+    var isTomorrow = targetDate.toDateString() === tomorrow.toDateString();
 
     function update() {
       var diff = targetDate.getTime() - Date.now();
 
+      // ---------- YA CERRÓ ----------
       if (diff <= 0) {
-        // ---------- ESTADO ABIERTO ----------
         el.setAttribute('data-state', 'open');
-        labelEl.textContent = 'Convocatoria abierta';
+        labelEl.textContent = 'Convocatoria cerrada';
 
         units.days.textContent    = '00';
         units.hours.textContent   = '00';
         units.minutes.textContent = '00';
         units.seconds.textContent = '00';
 
-        if (isToday) {
-          footEl.innerHTML = '<strong>' + fechaLegible + '</strong> · Abre hoy';
-        } else {
-          footEl.innerHTML = 'Abierta desde el <strong>' + fechaLegible + '</strong>' +
-                             (openMessage ? ' · ' + openMessage : '');
-        }
+        footEl.innerHTML = 'Cerrada el <strong>' + fechaLegible + '</strong>' +
+                           (extraMessage ? ' · ' + extraMessage : '');
         return;
       }
 
-      // ---------- ESTADO ESPERANDO ----------
+      // ---------- AÚN ABIERTA ----------
       el.setAttribute('data-state', 'waiting');
-      labelEl.textContent = 'Próxima convocatoria';
+
+      if (isToday) {
+        labelEl.textContent = 'Cierra hoy';
+      } else if (isTomorrow) {
+        labelEl.textContent = 'Cierra mañana';
+      } else {
+        labelEl.textContent = 'Cierre de convocatoria';
+      }
 
       var sec  = Math.floor(diff / 1000);
       var days = Math.floor(sec / 86400);
@@ -121,17 +122,17 @@
       units.seconds.textContent = pad(secs);
 
       var autoMsg;
-      if (days === 0) {
-        autoMsg = '<strong>Abre hoy</strong> · ' + fechaLegible;
-      } else if (days === 1) {
-        autoMsg = '<strong>Abre mañana</strong> · ' + fechaLegible;
+      if (isToday) {
+        autoMsg = '<strong>Cierra hoy</strong> · ' + fechaLegible;
+      } else if (isTomorrow) {
+        autoMsg = '<strong>Cierra mañana</strong> · ' + fechaLegible;
       } else {
-        autoMsg = '<strong>' + fechaLegible + '</strong> · Faltan ' +
-                  pluralizar(days, 'día', 'días');
+        autoMsg = '<strong>' + fechaLegible + '</strong> · ' +
+                  pluralizar(days, 'día', 'días') + ' para el cierre';
       }
 
-      footEl.innerHTML = waitingMessage
-        ? autoMsg + ' · ' + waitingMessage
+      footEl.innerHTML = extraMessage
+        ? autoMsg + ' · ' + extraMessage
         : autoMsg;
     }
 
