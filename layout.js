@@ -1,13 +1,21 @@
 /* ==========================================================================
    LAYOUT · Header + Footer centralizados para Alex Workspace
-   Editar ESTE archivo actualiza TODAS las páginas del sitio.
+   Detecta automáticamente si estamos en subcarpeta y ajusta los enlaces.
    ========================================================================== */
 (function () {
   'use strict';
 
+  /* ---------- Base path ---------- */
+  function base() {
+    var path = window.location.pathname;
+    if (/\/unidad-de-becas\//.test(path)) return '../';
+    return '';
+  }
+
   /* ---------- Página actual ---------- */
   function currentPage() {
     var path = window.location.pathname;
+    if (/\/unidad-de-becas\//.test(path)) return 'unidad-de-becas';
     var file = path.split('/').pop() || 'index.html';
     if (!file || file === '') file = 'index.html';
     if (file.indexOf('.') === -1) file = 'index.html';
@@ -16,7 +24,7 @@
 
   /* ---------- Definición única de la navegación ---------- */
   var NAV = [
-    { label: 'Inicio',        href: 'index.html',        id: 'index' },
+    { label: 'Inicio',        href: 'index.html',             id: 'index' },
     {
       label: 'Sobre mí',
       href: 'sobre-mi.html',
@@ -28,18 +36,18 @@
         { label: 'Generaciones',  href: 'generaciones.html',  id: 'generaciones' }
       ]
     },
-    { label: 'Proyectos',     href: 'proyectos.html',     id: 'proyectos' },
+    { label: 'Proyectos',     href: 'proyectos.html',         id: 'proyectos' },
     {
       label: 'Unidades',
       href: 'unidades.html',
       id: 'unidades',
       children: [
         { label: 'Todas las unidades', href: 'unidades.html',         id: 'unidades' },
-        { label: 'Becas',              href: 'unidad-de-becas.html',   id: 'unidad-de-becas' }
+        { label: 'Becas',              href: 'unidad-de-becas/',       id: 'unidad-de-becas' }
       ]
     },
-    { label: 'Transparencia', href: 'transparencia.html', id: 'transparencia' },
-    { label: 'Contacto',      href: 'contacto.html',      id: 'contacto' }
+    { label: 'Transparencia', href: 'transparencia.html',     id: 'transparencia' },
+    { label: 'Contacto',      href: 'contacto.html',          id: 'contacto' }
   ];
 
   /* ---------- Símbolos SVG ---------- */
@@ -71,29 +79,30 @@
   /* ---------- Render del header + mobile nav ---------- */
   function renderHeader() {
     var active = currentPage();
+    var b = base();
 
     var linksDesktop = NAV.map(function (item) {
       if (item.children) {
         var sub = item.children.map(function (c) {
           var cur = c.id === active ? ' aria-current="page"' : '';
-          return '<a class="nav__submenu-link" href="' + c.href + '" role="menuitem"' + cur + '>' + c.label + '</a>';
+          return '<a class="nav__submenu-link" href="' + b + c.href + '" role="menuitem"' + cur + '>' + c.label + '</a>';
         }).join('');
         return (
           '<div class="nav__item">' +
-            '<a class="nav__link nav__link--has-sub" href="' + item.href + '" aria-haspopup="true" aria-expanded="false">' + item.label + '</a>' +
+            '<a class="nav__link nav__link--has-sub" href="' + b + item.href + '" aria-haspopup="true" aria-expanded="false">' + item.label + '</a>' +
             '<div class="nav__submenu" role="menu">' + sub + '</div>' +
           '</div>'
         );
       }
       var cur = item.id === active ? ' aria-current="page"' : '';
-      return '<a class="nav__link" href="' + item.href + '"' + cur + '>' + item.label + '</a>';
+      return '<a class="nav__link" href="' + b + item.href + '"' + cur + '>' + item.label + '</a>';
     }).join('');
 
     var linksMobile = NAV.map(function (item) {
       if (item.children) {
         var sub = item.children.map(function (c) {
           var cur = c.id === active ? ' aria-current="page"' : '';
-          return '<a class="mobile-nav__subitem" href="' + c.href + '"' + cur + '>' + c.label + '</a>';
+          return '<a class="mobile-nav__subitem" href="' + b + c.href + '"' + cur + '>' + c.label + '</a>';
         }).join('');
         return (
           '<div class="mobile-nav__group">' +
@@ -107,7 +116,7 @@
           '</div>'
         );
       }
-      return '<a class="mobile-nav__item" href="' + item.href + '">' + item.label + '</a>';
+      return '<a class="mobile-nav__item" href="' + b + item.href + '">' + item.label + '</a>';
     }).join('');
 
     return (
@@ -116,7 +125,7 @@
       '<header class="site-header" id="siteHeader">' +
         '<nav class="nav" id="nav" aria-label="Principal">' +
           '<div class="nav__inner">' +
-            '<a href="index.html" class="brand">' +
+            '<a href="' + b + 'index.html" class="brand">' +
               '<svg class="brand__mark" aria-hidden="true"><use href="#al-mark"/></svg>' +
               '<span class="brand__text"><span class="brand__name">Alex Workspace</span></span>' +
             '</a>' +
@@ -146,6 +155,7 @@
 
   /* ---------- Render del footer ---------- */
   function renderFooter() {
+    var b = base();
     return (
       '<footer class="footer">' +
         '<div class="footer__inner">' +
@@ -162,21 +172,21 @@
             '<div class="footer__col">' +
               '<h4>Navegación</h4>' +
               '<ul>' +
-                '<li><a href="index.html">Inicio</a></li>' +
-                '<li><a href="sobre-mi.html">Sobre mí</a></li>' +
-                '<li><a href="formacion.html">Formación</a></li>' +
-                '<li><a href="proyectos.html">Proyectos</a></li>' +
-                '<li><a href="unidades.html">Unidades</a></li>' +
+                '<li><a href="' + b + 'index.html">Inicio</a></li>' +
+                '<li><a href="' + b + 'sobre-mi.html">Sobre mí</a></li>' +
+                '<li><a href="' + b + 'formacion.html">Formación</a></li>' +
+                '<li><a href="' + b + 'proyectos.html">Proyectos</a></li>' +
+                '<li><a href="' + b + 'unidades.html">Unidades</a></li>' +
               '</ul>' +
             '</div>' +
 
             '<div class="footer__col">' +
               '<h4>Más</h4>' +
               '<ul>' +
-                '<li><a href="filosofia.html">Filosofía</a></li>' +
-                '<li><a href="generaciones.html">Generaciones</a></li>' +
-                '<li><a href="contacto.html">Contacto</a></li>' +
-                '<li><a href="transparencia.html">Transparencia</a></li>' +
+                '<li><a href="' + b + 'filosofia.html">Filosofía</a></li>' +
+                '<li><a href="' + b + 'generaciones.html">Generaciones</a></li>' +
+                '<li><a href="' + b + 'contacto.html">Contacto</a></li>' +
+                '<li><a href="' + b + 'transparencia.html">Transparencia</a></li>' +
               '</ul>' +
             '</div>' +
 
