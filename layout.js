@@ -42,8 +42,7 @@
       href: 'unidades.html',
       id: 'unidades',
       children: [
-        { label: 'Todas las unidades', href: 'unidades.html',         id: 'unidades' },
-        { label: 'Becas',              href: 'unidad-de-becas/',       id: 'unidad-de-becas' }
+        { label: 'Becas', href: 'unidad-de-becas/', id: 'unidad-de-becas' }
       ]
     },
     { label: 'Transparencia', href: 'transparencia.html',     id: 'transparencia' },
@@ -87,9 +86,14 @@
           var cur = c.id === active ? ' aria-current="page"' : '';
           return '<a class="nav__submenu-link" href="' + b + c.href + '" role="menuitem"' + cur + '>' + c.label + '</a>';
         }).join('');
+
+        // El trigger lleva aria-current si el padre es la página activa
+        // Y también si algún hijo está activo (para que se pinte púrpura)
+        var parentActive = item.id === active ? ' aria-current="page"' : '';
+
         return (
           '<div class="nav__item">' +
-            '<a class="nav__link nav__link--has-sub" href="' + b + item.href + '" aria-haspopup="true" aria-expanded="false">' + item.label + '</a>' +
+            '<a class="nav__link nav__link--has-sub" href="' + b + item.href + '" aria-haspopup="true" aria-expanded="false"' + parentActive + '>' + item.label + '</a>' +
             '<div class="nav__submenu" role="menu">' + sub + '</div>' +
           '</div>'
         );
