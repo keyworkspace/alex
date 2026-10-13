@@ -2,19 +2,27 @@
    BECAS · lógica compartida
    Detecta todos los .beca-countdown de la página y los activa.
    Solo requiere data-beca-target. Todo lo demás se genera automáticamente.
+   Formato de fecha: dd/mm/aaaa · Hora: 24h
    ========================================================================== */
 (function () {
   'use strict';
 
-  var MESES_CORTOS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   function formatearFecha(date) {
-    var d = date.getDate();
-    var m = MESES_CORTOS[date.getMonth()];
-    var y = date.getFullYear();
-    return d + ' ' + m + ' ' + y;
+    var d  = pad(date.getDate());
+    var m  = pad(date.getMonth() + 1);
+    var y  = date.getFullYear();
+    var hh = pad(date.getHours());
+    var mi = pad(date.getMinutes());
+
+    // Si la hora es medianoche, solo devolvemos la fecha
+    if (hh === '00' && mi === '00') {
+      return d + '/' + m + '/' + y;
+    }
+
+    // Si hay hora específica, la añadimos en formato 24h
+    return d + '/' + m + '/' + y + ' · ' + hh + ':' + mi + ' h';
   }
 
   function pluralizar(n, singular, plural) {
