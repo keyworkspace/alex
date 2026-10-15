@@ -31,7 +31,7 @@
       id: 'sobre-mi',
       children: [
         { label: 'Sobre mí',      href: 'sobre-mi.html',      id: 'sobre-mi' },
-        { label: 'Formación',     href: 'formacion.html',     id: 'formacion' },
+        { label: 'Formación Continua',     href: 'formacion.html',     id: 'formacion' },
         { label: 'Filosofía',     href: 'filosofia.html',     id: 'filosofia' },
         { label: 'Generaciones',  href: 'generaciones.html',  id: 'generaciones' }
       ]
