@@ -9,12 +9,14 @@
   function base() {
     var path = window.location.pathname;
     if (/\/unidad-de-becas\//.test(path)) return '../';
+    if (/\/unidad-de-orientacion-vocacional\//.test(path)) return '../';
     return '';
   }
 
   /* ---------- Página actual ---------- */
   function currentPage() {
     var path = window.location.pathname;
+    if (/\/unidad-de-orientacion-vocacional\//.test(path)) return 'unidad-de-orientacion';
     if (/\/unidad-de-becas\//.test(path)) return 'unidad-de-becas';
     var file = path.split('/').pop() || 'index.html';
     if (!file || file === '') file = 'index.html';
@@ -30,23 +32,23 @@
       href: 'sobre-mi.html',
       id: 'sobre-mi',
       children: [
-        { label: 'Sobre mí',      href: 'sobre-mi.html',      id: 'sobre-mi' },
-        { label: 'Formación Continua',     href: 'formacion.html',     id: 'formacion' },
-        { label: 'Filosofía',     href: 'filosofia.html',     id: 'filosofia' },
-        { label: 'Generaciones',  href: 'generaciones.html',  id: 'generaciones' }
+        { label: 'Sobre mí',             href: 'sobre-mi.html',      id: 'sobre-mi' },
+        { label: 'Formación Continua',   href: 'formacion.html',     id: 'formacion' },
+        { label: 'Filosofía',            href: 'filosofia.html',     id: 'filosofia' },
+        { label: 'Generaciones',         href: 'generaciones.html',  id: 'generaciones' }
       ]
     },
     { label: 'Proyectos',     href: 'proyectos.html',         id: 'proyectos' },
     {
-  label: 'Unidades',
-  href: 'unidades.html',
-  id: 'unidades',
-  children: [
-    { label: 'Todas las Unidades', href: 'unidades.html', id: 'unidades' },
-    { label: 'Becas',              href: 'unidad-de-becas/', id: 'unidad-de-becas' }
-     { label: 'Orientación Vocacional',              href: 'unidad-de-orientacion-vocacional/', id: 'unidad-de-orientacion' }
-  ]
-},
+      label: 'Unidades',
+      href: 'unidades.html',
+      id: 'unidades',
+      children: [
+        { label: 'Todas las Unidades',     href: 'unidades.html',                         id: 'unidades' },
+        { label: 'Becas',                  href: 'unidad-de-becas/',                      id: 'unidad-de-becas' },
+        { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/',     id: 'unidad-de-orientacion' }
+      ]
+    },
     { label: 'Transparencia', href: 'transparencia.html',     id: 'transparencia' },
     { label: 'Contacto',      href: 'contacto.html',          id: 'contacto' }
   ];
