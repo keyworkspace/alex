@@ -47,6 +47,7 @@
         { label: 'Todas las Unidades',     href: 'unidades.html',                         id: 'unidades' },
         { label: 'Becas',                  href: 'unidad-de-becas/',                      id: 'unidad-de-becas' },
         { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/',     id: 'unidad-de-orientacion' }
+          { label: 'Emprendimiento',         href: 'unidad-de-emprendimiento/',             id: 'unidad-de-emprendimiento' }
       ]
     },
     { label: 'Transparencia', href: 'transparencia.html',     id: 'transparencia' },
