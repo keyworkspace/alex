@@ -198,7 +198,7 @@
         var link = document.createElement('link');
         link.id = cssId;
         link.rel = 'stylesheet';
-        link.href = 'assistant.css';
+        link.href = (window.location.pathname.includes('/unidad-')) ? '../assistant.css' : 'assistant.css';
         document.head.appendChild(link);
       }
 
@@ -206,18 +206,19 @@
       if (!document.getElementById(jsId)) {
         var script = document.createElement('script');
         script.id = jsId;
-        script.src = 'assistant.js';
+        script.src = (window.location.pathname.includes('/unidad-')) ? '../assistant.js' : 'assistant.js';
         script.defer = true;
         document.body.appendChild(script);
       }
     })();
 
-    /* ---------- AUTO-INYECCIÓN DE TRACKER ---------- */
+    /* ---------- AUTO-INYECCIÓN DE TRACKER (Recomendaciones) ---------- */
     (function loadTracker() {
       if (window.__AW_TRACKER_LOADED__) return;
       window.__AW_TRACKER_LOADED__ = true;
 
       var script = document.createElement('script');
+      // Detecta si estamos en una subcarpeta para poner el ../
       script.src = (window.location.pathname.includes('/unidad-')) ? '../tracker.js' : 'tracker.js';
       document.body.appendChild(script);
     })();
