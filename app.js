@@ -212,6 +212,16 @@
       }
     })();
 
+    /* ---------- AUTO-INYECCIÓN DE TRACKER ---------- */
+    (function loadTracker() {
+      if (window.__AW_TRACKER_LOADED__) return;
+      window.__AW_TRACKER_LOADED__ = true;
+
+      var script = document.createElement('script');
+      script.src = (window.location.pathname.includes('/unidad-')) ? '../tracker.js' : 'tracker.js';
+      document.body.appendChild(script);
+    })();
+
   }
 
   /* ---------- Arranque ---------- */
