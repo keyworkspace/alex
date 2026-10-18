@@ -10,12 +10,14 @@
     var path = window.location.pathname;
     if (/\/unidad-de-becas\//.test(path)) return '../';
     if (/\/unidad-de-orientacion-vocacional\//.test(path)) return '../';
+    if (/\/unidad-de-emprendimiento\//.test(path)) return '../';
     return '';
   }
 
   /* ---------- Página actual ---------- */
   function currentPage() {
     var path = window.location.pathname;
+    if (/\/unidad-de-emprendimiento\//.test(path)) return 'unidad-de-emprendimiento';
     if (/\/unidad-de-orientacion-vocacional\//.test(path)) return 'unidad-de-orientacion';
     if (/\/unidad-de-becas\//.test(path)) return 'unidad-de-becas';
     var file = path.split('/').pop() || 'index.html';
@@ -46,8 +48,8 @@
       children: [
         { label: 'Todas las Unidades',     href: 'unidades.html',                         id: 'unidades' },
         { label: 'Becas',                  href: 'unidad-de-becas/',                      id: 'unidad-de-becas' },
-        { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/',     id: 'unidad-de-orientacion' }
-          { label: 'Emprendimiento',         href: 'unidad-de-emprendimiento/',             id: 'unidad-de-emprendimiento' }
+        { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/',     id: 'unidad-de-orientacion' },
+        { label: 'Emprendimiento',         href: 'unidad-de-emprendimiento/',             id: 'unidad-de-emprendimiento' }
       ]
     },
     { label: 'Transparencia', href: 'transparencia.html',     id: 'transparencia' },
