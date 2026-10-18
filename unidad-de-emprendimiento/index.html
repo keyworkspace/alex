@@ -178,7 +178,7 @@
     </div>
   </section>
 
-  <!-- CASOS DE ESTUDIO (CORREGIDO) -->
+    <!-- CASOS DE ESTUDIO (CORREGIDO) -->
   <section class="beca-section">
     <div class="beca-wrap">
       <div class="beca-section__head reveal">
@@ -202,7 +202,8 @@
                 <span class="dif-cta__label">Visitar</span>
                 <span class="dif-cta__arrow" aria-hidden="true">→</span>
               </a>
-              <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+              <!-- AQUI ESTABA EL ERROR: Faltaba el viewBox -->
+              <div class="dif-card__icon"><svg viewBox="0 0 24 24"><use href="#ic-spark"/></svg></div>
             </div>
           </article>
 
@@ -219,7 +220,8 @@
                 <span class="dif-cta__label">Visitar</span>
                 <span class="dif-cta__arrow" aria-hidden="true">→</span>
               </a>
-              <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+              <!-- AQUI ESTABA EL ERROR: Faltaba el viewBox -->
+              <div class="dif-card__icon"><svg viewBox="0 0 24 24"><use href="#ic-compass"/></svg></div>
             </div>
           </article>
 
