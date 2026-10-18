@@ -1,10 +1,10 @@
 /* ==========================================================================
-   TRACKER & RETENTION · Inyección automática
+   TRACKER & RETENTION · Lógica de recomendación aleatoria y dinámica
    ========================================================================== */
 (function () {
   'use strict';
 
-  // 1. Inyectar los estilos CSS (con barra de progreso y posicionamiento forzado)
+  // 1. Inyectar estilos CSS
   var style = document.createElement('style');
   style.innerHTML = `
     .aw-toast { 
@@ -13,8 +13,8 @@
       right: 24px !important; 
       left: auto !important;
       width: 320px; 
-      background: var(--paper, #fff); 
-      border: 1px solid var(--line, #ddd); 
+      background: var(--paper, #FAF7F0); 
+      border: 1px solid var(--line, #E0DCD0); 
       border-left: 4px solid var(--teal, #05A696); 
       border-radius: 12px; 
       padding: 1rem; 
@@ -38,7 +38,6 @@
     .aw-toast__close { position: absolute; top: 0.5rem; right: 0.5rem; background: none; border: none; cursor: pointer; opacity: 0.5; font-size: 0.8rem; }
     .aw-toast__close:hover { opacity: 1; }
     
-    /* Barra de progreso (7 segundos) */
     .aw-toast__progress {
       position: absolute;
       bottom: 0;
@@ -55,29 +54,21 @@
 
     .aw-exit-modal { position: fixed !important; inset: 0 !important; background: rgba(13, 47, 68, 0.85); backdrop-filter: blur(4px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 300ms ease, visibility 300ms ease; }
     .aw-exit-modal.is-visible { opacity: 1; visibility: visible; }
-    .aw-exit-modal__inner { background: var(--paper, #fff); border-radius: 24px; padding: clamp(2rem, 5vw, 3rem); max-width: 500px; text-align: center; transform: translateY(20px); transition: transform 400ms ease; position: relative; }
+    .aw-exit-modal__inner { background: var(--paper, #FAF7F0); border-radius: 24px; padding: clamp(2rem, 5vw, 3rem); max-width: 500px; text-align: center; transform: translateY(20px); transition: transform 400ms ease; position: relative; }
     .aw-exit-modal.is-visible .aw-exit-modal__inner { transform: translateY(0); }
     .aw-exit-modal__label { font-family: var(--mono, monospace); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal, #05A696); display: block; margin-bottom: 1rem; }
     .aw-exit-modal__title { font-family: var(--ui, sans-serif); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.1; color: var(--navy, #143F59); margin-bottom: 1rem; }
     .aw-exit-modal__text { font-size: 1rem; line-height: 1.6; color: var(--ink-soft, #4A6B82); margin-bottom: 2rem; }
     .aw-exit-modal__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     
-    /* Móviles: posición inferior y ancho completo */
     @media (max-width: 768px) {
-      .aw-toast { 
-        top: auto !important; 
-        bottom: 24px !important; 
-        right: 16px !important; 
-        left: 16px !important; 
-        width: auto; 
-        transform: translateY(40px); 
-      }
+      .aw-toast { top: auto !important; bottom: 24px !important; right: 16px !important; left: 16px !important; width: auto; transform: translateY(40px); }
       .aw-toast.is-visible { transform: translateY(0); }
     }
   `;
   document.head.appendChild(style);
 
-  // 2. Lógica del Algoritmo
+  // 2. Mapa de recomendaciones
   var RECOMMENDATION_MAP = {
     'univo': { title: '¿Buscas más opciones?', text: 'Explora la Unidad de Becas completa.', link: 'unidad-de-becas/', icon: 'ic-book' },
     'unidad-de-becas': { title: '¿Aún no sabes qué estudiar?', text: 'Revisa la Unidad de Orientación Vocacional.', link: 'unidad-de-orientacion-vocacional/', icon: 'ic-compass' },
@@ -93,7 +84,7 @@
   var isSub = /\/unidad-/.test(path);
   var base = isSub ? '../' : '';
   
-  // Obtener el nombre exacto de la página actual (ej. 'univo' o 'unidad-de-becas')
+  // Obtener nombre de la página actual (ej. 'univo', 'unidad-de-becas', 'index')
   var currentPath = path.split('/').filter(Boolean).pop() || 'index';
   if (currentPath.includes('.')) {
     currentPath = currentPath.split('.')[0];
@@ -103,7 +94,7 @@
 
   function saveProfile() { localStorage.setItem('aw_user_profile', JSON.stringify(profile)); }
 
-  // Rastreo de tiempo
+  // Rastreo
   setInterval(function() { timeOnPage++; }, 1000);
   window.addEventListener('beforeunload', function() {
     profile.history.push({ page: currentPath, time: timeOnPage });
@@ -111,7 +102,6 @@
     saveProfile();
   });
 
-  // Rastreo de clics
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a');
     if (link) {
@@ -124,7 +114,6 @@
     }
   });
 
-  // Rastreo de Palabras clave
   document.querySelectorAll('h1, h2').forEach(function(h) {
     var t = h.innerText.trim();
     if (t && t.length < 50 && !profile.keywords.includes(t)) {
@@ -134,30 +123,39 @@
   if (profile.keywords.length > 20) profile.keywords = profile.keywords.slice(-20);
   saveProfile();
 
-  // Mostrar Recomendación
+  // =========================================================================
+  // 3. ALGORITMO DE RECOMENDACIÓN CORREGIDO
+  // =========================================================================
   setTimeout(function() {
-    var bestRec = null;
-    // Buscar en el historial la página más reciente que NO sea la actual
-    for (var i = profile.history.length - 1; i >= 0; i--) {
-      var past = profile.history[i].page;
-      
-      // CONDICIÓN CLAVE: Evitar recomendar la misma página donde está el usuario
-      if (past !== currentPath && past !== currentPath + '.html') {
-        if (RECOMMENDATION_MAP[past]) {
-          var rec = RECOMMENDATION_MAP[past];
-          var recTarget = rec.link.replace('.html', '').replace('/', '');
-          
-          // Evitar recomendar un enlace que apunte a la página actual
-          if (recTarget !== currentPath) {
-            bestRec = rec;
-            break;
-          }
+    var validRecs = [];
+    var pagesVisited = profile.history.map(function(h) { return h.page; });
+
+    // Paso A: Recorrer todo el historial y recolectar las recomendaciones válidas
+    pagesVisited.forEach(function(pastPage) {
+      if (RECOMMENDATION_MAP[pastPage]) {
+        var rec = RECOMMENDATION_MAP[pastPage];
+        var recTarget = rec.link.replace('.html', '').replace('/', '');
+
+        // Regla 1: No recomendar la página actual
+        if (recTarget === currentPath || pastPage === currentPath) return;
+        
+        // Regla 2: No recomendar una página que el usuario YA visitó
+        if (pagesVisited.includes(recTarget)) return;
+
+        // Regla 3: Evitar duplicados en la lista
+        var isDuplicate = validRecs.find(function(r) { return r.link === rec.link; });
+        if (!isDuplicate) {
+          validRecs.push(rec);
         }
       }
-    }
+    });
 
-    if (!bestRec) return;
+    // Paso B: Si hay recomendaciones válidas, elegir una al azar
+    if (validRecs.length === 0) return;
 
+    var bestRec = validRecs[Math.floor(Math.random() * validRecs.length)];
+
+    // Crear la alerta
     var toast = document.createElement('div');
     toast.className = 'aw-toast';
     toast.innerHTML = 
@@ -169,20 +167,16 @@
         '<a href="' + base + bestRec.link + '" class="aw-toast__link">Ver ahora →</a>' +
       '</div>' +
       '<button class="aw-toast__close">✕</button>' +
-      '<div class="aw-toast__progress"></div>'; // <-- Aquí está la barra de progreso
+      '<div class="aw-toast__progress"></div>';
 
     document.body.appendChild(toast);
-    
-    // Animación de entrada
     setTimeout(function() { toast.classList.add('is-visible'); }, 100);
     
-    // Botón de cerrar manual
     toast.querySelector('.aw-toast__close').addEventListener('click', function() {
       toast.classList.remove('is-visible');
       setTimeout(function() { toast.remove(); }, 400);
     });
 
-    // Autocerrar a los 7 segundos (7000ms) igual que la animación CSS
     setTimeout(function() {
       if (document.body.contains(toast)) {
         toast.classList.remove('is-visible');
@@ -190,9 +184,9 @@
       }
     }, 7000);
 
-  }, 4000); // Aparece después de 4 segundos
+  }, 4000);
 
-  // Exit Intent (Sin cambios)
+  // Exit Intent (sin cambios)
   if (!sessionStorage.getItem('aw_exit_shown') && currentPath !== 'contacto' && currentPath !== 'unidades') {
     document.addEventListener('mouseleave', function(e) {
       if (e.clientY < 10) {
