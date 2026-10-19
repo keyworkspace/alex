@@ -1881,19 +1881,19 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 </style>
 
 <script>
-  // Esperar 3 segundos antes de mostrar la pantalla de redirección
+  // 1. Esperar 3 segundos antes de mostrar la pantalla de redirección
   setTimeout(function() {
     // Mostrar el overlay
     var overlay = document.getElementById('redirectOverlay');
     overlay.style.opacity = '1';
     overlay.style.visibility = 'visible';
 
-    // Esperar un segundo extra para que el usuario lea el mensaje y redirigir
+    // 2. Una vez mostrado el overlay, esperar 5 segundos antes de redirigir
     setTimeout(function() {
       window.location.href = "https://keyworkspace.github.io/alex/manual2.html";
-    }, 1000);
+    }, 5000); // 5 segundos de duración del mensaje
     
-  }, 3000);
+  }, 3000); // 3 segundos de espera inicial
 </script>
 
 </body></html>
