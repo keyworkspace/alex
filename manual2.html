@@ -30,7 +30,7 @@
   --orange:       #F29A2E;
   --orange-soft:  #FBD7A8;
 
-  /* Mapeo semántico (para mantener compatibilidad con clases antiguas) */
+  /* Mapeo semántico */
   --purple:       var(--navy);
   --purple-deep:  var(--navy-deep);
   --purple-mid:   var(--navy-mid);
@@ -55,8 +55,8 @@
   --gray:         #E5E5E5;
   --line:         #D5D5D5;
 
-  /* Tipografía */
-  --display:  'semplicitapro', 'Fraunces', Georgia, sans-serif;
+  /* Tipografía — CORREGIDO: Kumbh Sans para todo lo que sea título/display */
+  --display:  'Kumbh Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --ui:       'Kumbh Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --accent:   'Roboto', 'Kumbh Sans', sans-serif;
   --mono:     'IBM Plex Mono', ui-monospace, monospace;
@@ -104,7 +104,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 .topbar__brand{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
 .topbar__mark{width:34px;height:34px;color:var(--navy);}
 .topbar__text{display:flex;flex-direction:column;line-height:1.05;}
-.topbar__name{font-weight:800;font-size:0.95rem;letter-spacing:-0.02em;}
+.topbar__name{font-family:var(--display);font-weight:800;font-size:0.95rem;letter-spacing:-0.02em;}
 .topbar__sub{
   font-family:var(--mono);font-size:0.52rem;letter-spacing:0.18em;
   text-transform:uppercase;opacity:0.55;margin-top:0.15rem;
@@ -168,7 +168,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   font-family:var(--mono);font-size:0.55rem;letter-spacing:0.22em;
   text-transform:uppercase;color:var(--orange);
 }
-.cover__meta-value{font-size:0.92rem;font-weight:600;color:#fff;}
+.cover__meta-value{font-family:var(--ui);font-size:0.92rem;font-weight:600;color:#fff;}
 
 /* ---------- SECCIONES ---------- */
 .section{padding:clamp(3rem,6vw,5.5rem) 0;}
@@ -191,7 +191,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 .head__title em{font-style:normal;color:var(--teal);}
 .section--dark .head__title em{color:var(--orange);}
 .head__lead{
-  margin-top:1rem;font-size:1rem;line-height:1.6;opacity:0.72;
+  margin-top:1rem;font-family:var(--ui);font-size:1rem;line-height:1.6;opacity:0.72;
   max-width:62ch;
 }
 .head--center .head__lead{margin-left:auto;margin-right:auto;}
@@ -221,7 +221,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   font-weight:800;font-size:clamp(1.05rem,1.8vw,1.4rem);
   line-height:1.1;letter-spacing:-0.025em;
 }
-.card__text{font-size:0.92rem;line-height:1.6;opacity:0.78;}
+.card__text{font-family:var(--ui);font-size:0.92rem;line-height:1.6;opacity:0.78;}
 
 /* ---------- 01 · LA MARCA ---------- */
 .essence{
@@ -235,7 +235,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 }
 .essence__quote em{font-style:normal;color:var(--teal);}
 .essence__text{
-  margin-top:1.25rem;font-size:1rem;line-height:1.65;
+  margin-top:1.25rem;font-family:var(--ui);font-size:1rem;line-height:1.65;
   max-width:60ch;opacity:0.85;
 }
 
@@ -253,12 +253,12 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 .value-card__title{
   font-family:var(--display);font-weight:800;font-size:1.15rem;line-height:1.1;letter-spacing:-0.025em;
 }
-.value-card__text{font-size:0.9rem;line-height:1.55;opacity:0.82;}
+.value-card__text{font-family:var(--ui);font-size:0.9rem;line-height:1.55;opacity:0.82;}
 
 .attr-list{display:flex;flex-wrap:wrap;gap:0.55rem;}
 .attr{
   padding:0.55rem 1rem;border-radius:999px;
-  border:1.5px solid var(--ink);font-size:0.78rem;font-weight:600;
+  border:1.5px solid var(--ink);font-family:var(--ui);font-size:0.78rem;font-weight:600;
 }
 .attr--fill{background:var(--navy);color:var(--paper);border-color:var(--navy);}
 .attr--purple{background:var(--teal);color:#fff;border-color:var(--teal);}
@@ -335,7 +335,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   justify-content:center;font-size:4.5rem;font-weight:300;color:var(--red);
   opacity:0.75;pointer-events:none;
 }
-.misuse__label{margin-top:0.85rem;font-size:0.82rem;font-weight:600;line-height:1.4;}
+.misuse__label{margin-top:0.85rem;font-family:var(--ui);font-size:0.82rem;font-weight:600;line-height:1.4;}
 .misuse__label span{
   display:block;font-family:var(--mono);font-size:0.56rem;
   letter-spacing:0.18em;text-transform:uppercase;opacity:0.55;margin-bottom:0.3rem;
@@ -361,7 +361,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 .swatch__body{padding:1rem 1.05rem 1.15rem;display:flex;flex-direction:column;gap:0.35rem;}
 .swatch__name{font-family:var(--display);font-weight:800;font-size:0.95rem;letter-spacing:-0.015em;}
 .swatch__hex{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.06em;color:var(--navy);font-weight:600;}
-.swatch__use{font-size:0.78rem;line-height:1.5;opacity:0.65;margin-top:0.2rem;}
+.swatch__use{font-family:var(--ui);font-size:0.78rem;line-height:1.5;opacity:0.65;margin-top:0.2rem;}
 
 .proportion{display:flex;height:72px;border-radius:18px;overflow:hidden;border:1px solid var(--line);}
 .proportion__seg{
@@ -371,7 +371,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 }
 .proportion__legend{
   margin-top:1rem;display:flex;flex-wrap:wrap;gap:1.25rem;
-  font-size:0.82rem;opacity:0.75;
+  font-family:var(--ui);font-size:0.82rem;opacity:0.75;
 }
 .proportion__legend span{display:inline-flex;align-items:center;gap:0.45rem;}
 .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
@@ -387,7 +387,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   text-transform:uppercase;opacity:0.75;
 }
 .contrast__text{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;}
-.contrast__ok{font-size:0.78rem;opacity:0.8;}
+.contrast__ok{font-family:var(--ui);font-size:0.78rem;opacity:0.8;}
 .badge-ok{
   display:inline-block;padding:0.2rem 0.55rem;border-radius:999px;
   background:var(--teal);color:#fff;font-family:var(--mono);
@@ -410,8 +410,8 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;
   text-transform:uppercase;color:var(--teal);
 }
-.type-card__specimen{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.15;letter-spacing:-0.02em;}
-.type-card__meta{font-size:0.85rem;line-height:1.6;opacity:0.72;}
+.type-card__specimen{font-family:var(--display);font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.15;letter-spacing:-0.02em;}
+.type-card__meta{font-family:var(--ui);font-size:0.85rem;line-height:1.6;opacity:0.72;}
 
 .scale-row{
   display:grid;grid-template-columns:150px 1fr 210px;
@@ -424,7 +424,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;
   text-transform:uppercase;opacity:0.6;
 }
-.scale-row__spec{overflow:hidden;text-overflow:ellipsis;}
+.scale-row__spec{overflow:hidden;text-overflow:ellipsis;font-family:var(--ui);}
 .scale-row__spec em{font-style:normal;color:var(--teal);}
 .scale-row__data{font-family:var(--mono);font-size:0.66rem;line-height:1.7;opacity:0.6;text-align:right;}
 @media (max-width:820px){.scale-row__data{text-align:left;}}
@@ -450,21 +450,21 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   text-transform:uppercase;font-weight:600;
 }
 .voice-list{display:flex;flex-direction:column;gap:0.85rem;margin-top:0.25rem;}
-.voice-list li{font-size:0.92rem;line-height:1.5;padding-left:1.4rem;position:relative;}
+.voice-list li{font-family:var(--ui);font-size:0.92rem;line-height:1.5;padding-left:1.4rem;position:relative;}
 .voice-list li::before{position:absolute;left:0;top:0;font-weight:700;}
 .voice-card--do .voice-list li::before{content:'✓';color:var(--teal);}
 .voice-card--dont .voice-list li::before{content:'✕';color:var(--red);}
 
 .phrase{
   border-left:3px solid var(--navy);padding:0.35rem 0 0.35rem 1.1rem;
-  font-size:1rem;line-height:1.55;font-style:italic;opacity:0.9;
+  font-family:var(--ui);font-size:1rem;line-height:1.55;font-style:italic;opacity:0.9;
 }
 .phrase--bad{border-color:var(--red);}
 
 .tone-tags{display:flex;flex-wrap:wrap;gap:0.55rem;}
 .tone-tag{
   padding:0.5rem 0.95rem;border-radius:999px;
-  background:var(--navy);color:#fff;font-size:0.76rem;font-weight:600;
+  background:var(--navy);color:#fff;font-family:var(--ui);font-size:0.76rem;font-weight:600;
 }
 .tone-tag--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
 
@@ -632,7 +632,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 .dif-card--deep{background:var(--navy-deep);color:#fff;}
 .dif-card__eyebrow{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;}
 .dif-card__title{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.05;letter-spacing:-0.025em;margin-top:0.9rem;}
-.dif-card__desc{font-size:0.92rem;line-height:1.55;opacity:0.82;margin-top:0.85rem;max-width:42ch;}
+.dif-card__desc{font-family:var(--ui);font-size:0.92rem;line-height:1.55;opacity:0.82;margin-top:0.85rem;max-width:42ch;}
 .dif-card__bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;}
 .dif-card__icon{
   width:78px;height:78px;border-radius:50%;
@@ -660,7 +660,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 }
 .app-card__body{padding:1.25rem 1.35rem 1.5rem;display:flex;flex-direction:column;gap:0.4rem;}
 .app-card__title{font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:-0.02em;}
-.app-card__text{font-size:0.82rem;line-height:1.5;opacity:0.68;}
+.app-card__text{font-family:var(--ui);font-size:0.82rem;line-height:1.5;opacity:0.68;}
 .app-card__stage--purple{background:var(--navy);}
 .app-card__stage--papaya{background:var(--gold);}
 .app-card__stage--lightblue{background:var(--teal-soft);}
@@ -687,7 +687,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
   font-size:0.75rem;font-weight:800;margin-top:0.1rem;
 }
-.check-item__text{font-size:0.92rem;line-height:1.55;}
+.check-item__text{font-family:var(--ui);font-size:0.92rem;line-height:1.55;}
 .check-item__text strong{font-weight:700;}
 
 /* ---------- CIERRE ---------- */
@@ -708,7 +708,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
 }
 .closing__title em{font-style:normal;color:var(--orange);}
 .closing__text{
-  position:relative;font-size:1rem;line-height:1.6;max-width:52ch;
+  position:relative;font-family:var(--ui);font-size:1rem;line-height:1.6;max-width:52ch;
   margin:0 auto;opacity:0.85;
 }
 
@@ -1216,7 +1216,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
   <div class="head">
     <span class="head__num">04 · Tipografía</span>
     <h2 class="head__title">Tres familias, una <em>jerarquía</em></h2>
-    <p class="head__lead">Kumbh Sans sostiene la interfaz y los cuerpos de texto. Semplicitapro (o Fraunces) marca los titulares. IBM Plex Mono marca los datos. Caveat aparece solo en la firma.</p>
+    <p class="head__lead">Kumbh Sans es la única fuente para titulares y cuerpos de texto. IBM Plex Mono marca los datos. Caveat aparece solo en la firma.</p>
   </div>
 
   <div class="wrap">
@@ -1224,23 +1224,12 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
       <div class="type-card">
         <div class="type-card__head">
           <span class="type-card__family">Kumbh Sans</span>
-          <span class="type-card__role">Interfaz · Cuerpo</span>
+          <span class="type-card__role">Titulares · Interfaz</span>
         </div>
-        <p class="type-card__specimen" style="font-family:var(--ui);font-weight:700;">Aa Bb Cc 0123</p>
+        <p class="type-card__specimen" style="font-family:var(--display);font-weight:800;">Aa Bb Cc 0123</p>
         <p class="type-card__meta">
-          Familia principal para textos y UI. Se usa en párrafos, navegación y botones. Pesos disponibles: 300, 400, 500, 600, 700, 800, 900.<br><br>
-          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--ui · 'Kumbh Sans', sans-serif</span>
-        </p>
-      </div>
-      <div class="type-card">
-        <div class="type-card__head">
-          <span class="type-card__family" style="font-family:var(--display);">Semplicitapro</span>
-          <span class="type-card__role">Titulares</span>
-        </div>
-        <p class="type-card__specimen" style="font-family:var(--display);font-weight:700;font-size:2rem;">Titulares de marca</p>
-        <p class="type-card__meta">
-          Para H1, H2, H3 y títulos de tarjetas. Tiene un aire más editorial y estructurado. Fallback a Fraunces o Georgia.<br><br>
-          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--display · 'semplicitapro'</span>
+          Familia principal. Se usa en titulares, cuerpo de texto, navegación y botones. Pesos disponibles: 300, 400, 500, 600, 700, 800, 900.<br><br>
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--display / --ui · 'Kumbh Sans'</span>
         </p>
       </div>
       <div class="type-card">
@@ -1252,6 +1241,17 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
         <p class="type-card__meta">
           Para etiquetas superiores, numeración de secciones, metadatos y datos técnicos. Siempre en mayúsculas con tracking amplio.<br><br>
           <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--mono · 'IBM Plex Mono'</span>
+        </p>
+      </div>
+      <div class="type-card">
+        <div class="type-card__head">
+          <span class="type-card__family" style="font-family:var(--script);font-weight:500;">Caveat</span>
+          <span class="type-card__role">Firma · Acento</span>
+        </div>
+        <p class="type-card__specimen" style="font-family:var(--script);font-weight:500;font-size:1.9rem;color:var(--navy);">No venimos a repetir</p>
+        <p class="type-card__meta">
+          Uso exclusivo para la firma de marca y frases destacadas. Nunca en párrafos ni en navegación. Peso 500 por defecto.<br><br>
+          <span style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;">--script · 'Caveat'</span>
         </p>
       </div>
     </div>
@@ -1377,7 +1377,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:none;background:none;}
         <p style="font-family:var(--script);font-weight:500;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.2;color:var(--navy);">
           «No venimos a repetir, venimos a innovar.»
         </p>
-        <p style="margin-top:1rem;font-size:0.95rem;line-height:1.6;max-width:60ch;opacity:0.8;">
+        <p style="margin-top:1rem;font-family:var(--ui);font-size:0.95rem;line-height:1.6;max-width:60ch;opacity:0.8;">
           El lema se usa una sola vez por página, siempre como cierre o como firma. Nunca en titulares principales ni en botones. Va en Caveat 500.
         </p>
       </div>
