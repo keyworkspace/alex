@@ -1,44 +1,36 @@
 /* ==========================================================================
    LAYOUT · Header + Footer centralizados para Alex Workspace
-   v2 · 2026 · Detección robusta de subcarpeta + cache-busting
+   v3 · 2026 · Detección de subcarpeta por URL (sin currentScript)
    ========================================================================== */
 (function () {
   'use strict';
 
-  /* ---------- Detección robusta de subcarpeta ----------
-     Señal principal: el src del <script> (../ = subcarpeta).
-     Fallback: la URL contiene /unidad-de-*/ */
-  var _script = document.currentScript;
-  var _scriptSrc = _script ? (_script.getAttribute('src') || '') : '';
-  var _fromScript = /^\.\.\//.test(_scriptSrc);
+  /* ---------- Detección de subcarpeta ---------- */
   var SUBFOLDER_RE = /\/(?:unidad-de-becas|unidad-de-orientacion-vocacional|unidad-de-emprendimiento)(?:\/|$)/;
 
   function isSubfolder() {
-    if (_fromScript) return true;
     return SUBFOLDER_RE.test(window.location.pathname);
   }
 
   function base() {
     if (!isSubfolder()) return '';
     var path = window.location.pathname;
+    // Caso borde: URL = carpeta sin barra ni extensión (ej. /alex/unidad-de-becas)
+    // Los relativos ya resuelven contra el padre, así que '' es correcto.
     if (!/\/$/.test(path) && !/\.[a-z0-9]+$/i.test(path)) return '';
     return '../';
   }
 
   /* ---------- Página actual ---------- */
-  function isFolderIndex(path, folder) {
-    return new RegExp('/' + folder + '(?:/|/index\\.html)?$').test(path);
-  }
-
   function currentPage() {
     var path = window.location.pathname;
-    if (isFolderIndex(path, 'unidad-de-emprendimiento')) return 'unidad-de-emprendimiento';
-    if (isFolderIndex(path, 'unidad-de-orientacion-vocacional')) return 'unidad-de-orientacion';
-    if (isFolderIndex(path, 'unidad-de-becas')) return 'unidad-de-becas';
+    if (/\/unidad-de-emprendimiento(?:\/|$)/.test(path)) return 'unidad-de-emprendimiento';
+    if (/\/unidad-de-orientacion-vocacional(?:\/|$)/.test(path)) return 'unidad-de-orientacion';
+    if (/\/unidad-de-becas(?:\/|$)/.test(path)) return 'unidad-de-becas';
 
-    var file = path.split('/').pop() || '';
-    if (!file || file.indexOf('.') === -1) return 'index';
-    return file.replace(/\.html$/i, '');
+    var file = path.split('/').pop() || 'index.html';
+    if (!file || file === '' || file.indexOf('.') === -1) file = 'index.html';
+    return file.replace('.html', '');
   }
 
   /* ---------- Navegación ---------- */
