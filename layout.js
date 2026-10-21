@@ -1,59 +1,70 @@
 /* ==========================================================================
    LAYOUT · Header + Footer centralizados para Alex Workspace
-   Detecta automáticamente si estamos en subcarpeta y ajusta los enlaces.
+   v2 · 2026 · Detección robusta de subcarpeta + cache-busting
    ========================================================================== */
 (function () {
   'use strict';
 
-  /* ---------- Base path ---------- */
+  /* ---------- Detección robusta de subcarpeta ----------
+     Señal principal: el src del <script> (../ = subcarpeta).
+     Fallback: la URL contiene /unidad-de-*/ */
+  var _script = document.currentScript;
+  var _scriptSrc = _script ? (_script.getAttribute('src') || '') : '';
+  var _fromScript = /^\.\.\//.test(_scriptSrc);
+  var SUBFOLDER_RE = /\/(?:unidad-de-becas|unidad-de-orientacion-vocacional|unidad-de-emprendimiento)(?:\/|$)/;
+
+  function isSubfolder() {
+    if (_fromScript) return true;
+    return SUBFOLDER_RE.test(window.location.pathname);
+  }
+
   function base() {
+    if (!isSubfolder()) return '';
     var path = window.location.pathname;
-    if (/\/unidad-de-becas\//.test(path)) return '../';
-    if (/\/unidad-de-orientacion-vocacional\//.test(path)) return '../';
-    if (/\/unidad-de-emprendimiento\//.test(path)) return '../';
-    return '';
+    if (!/\/$/.test(path) && !/\.[a-z0-9]+$/i.test(path)) return '';
+    return '../';
   }
 
   /* ---------- Página actual ---------- */
-  function currentPage() {
-    var path = window.location.pathname;
-    if (/\/unidad-de-emprendimiento\//.test(path)) return 'unidad-de-emprendimiento';
-    if (/\/unidad-de-orientacion-vocacional\//.test(path)) return 'unidad-de-orientacion';
-    if (/\/unidad-de-becas\//.test(path)) return 'unidad-de-becas';
-    var file = path.split('/').pop() || 'index.html';
-    if (!file || file === '') file = 'index.html';
-    if (file.indexOf('.') === -1) file = 'index.html';
-    return file.replace('.html', '');
+  function isFolderIndex(path, folder) {
+    return new RegExp('/' + folder + '(?:/|/index\\.html)?$').test(path);
   }
 
-  /* ---------- Definición única de la navegación ---------- */
+  function currentPage() {
+    var path = window.location.pathname;
+    if (isFolderIndex(path, 'unidad-de-emprendimiento')) return 'unidad-de-emprendimiento';
+    if (isFolderIndex(path, 'unidad-de-orientacion-vocacional')) return 'unidad-de-orientacion';
+    if (isFolderIndex(path, 'unidad-de-becas')) return 'unidad-de-becas';
+
+    var file = path.split('/').pop() || '';
+    if (!file || file.indexOf('.') === -1) return 'index';
+    return file.replace(/\.html$/i, '');
+  }
+
+  /* ---------- Navegación ---------- */
   var NAV = [
-    { label: 'Inicio',        href: 'index.html',             id: 'index' },
+    { label: 'Inicio', href: 'index.html', id: 'index' },
     {
-      label: 'Sobre mí',
-      href: 'sobre-mi.html',
-      id: 'sobre-mi',
+      label: 'Sobre mí', href: 'sobre-mi.html', id: 'sobre-mi',
       children: [
-        { label: 'Sobre mí',             href: 'sobre-mi.html',      id: 'sobre-mi' },
-        { label: 'Formación Continua',   href: 'formacion.html',     id: 'formacion' },
-        { label: 'Filosofía',            href: 'filosofia.html',     id: 'filosofia' },
-        { label: 'Generaciones',         href: 'generaciones.html',  id: 'generaciones' }
+        { label: 'Sobre mí', href: 'sobre-mi.html', id: 'sobre-mi' },
+        { label: 'Formación Continua', href: 'formacion.html', id: 'formacion' },
+        { label: 'Filosofía', href: 'filosofia.html', id: 'filosofia' },
+        { label: 'Generaciones', href: 'generaciones.html', id: 'generaciones' }
       ]
     },
-    { label: 'Proyectos',     href: 'proyectos.html',         id: 'proyectos' },
+    { label: 'Proyectos', href: 'proyectos.html', id: 'proyectos' },
     {
-      label: 'Unidades',
-      href: 'unidades.html',
-      id: 'unidades',
+      label: 'Unidades', href: 'unidades.html', id: 'unidades',
       children: [
-        { label: 'Todas las Unidades',     href: 'unidades.html',                         id: 'unidades' },
-        { label: 'Becas',                  href: 'unidad-de-becas/',                      id: 'unidad-de-becas' },
-        { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/',     id: 'unidad-de-orientacion' },
-        { label: 'Emprendimiento',         href: 'unidad-de-emprendimiento/',             id: 'unidad-de-emprendimiento' }
+        { label: 'Todas las Unidades', href: 'unidades.html', id: 'unidades' },
+        { label: 'Becas', href: 'unidad-de-becas/', id: 'unidad-de-becas' },
+        { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/', id: 'unidad-de-orientacion' },
+        { label: 'Emprendimiento', href: 'unidad-de-emprendimiento/', id: 'unidad-de-emprendimiento' }
       ]
     },
-    { label: 'Transparencia', href: 'transparencia.html',     id: 'transparencia' },
-    { label: 'Contacto',      href: 'contacto.html',          id: 'contacto' }
+    { label: 'Transparencia', href: 'transparencia.html', id: 'transparencia' },
+    { label: 'Contacto', href: 'contacto.html', id: 'contacto' }
   ];
 
   /* ---------- Símbolos SVG ---------- */
@@ -82,7 +93,7 @@
     <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
   `;
 
-  /* ---------- Render del header + mobile nav ---------- */
+  /* ---------- Header ---------- */
   function renderHeader() {
     var active = currentPage();
     var b = base();
@@ -93,11 +104,7 @@
           var cur = c.id === active ? ' aria-current="page"' : '';
           return '<a class="nav__submenu-link" href="' + b + c.href + '" role="menuitem"' + cur + '>' + c.label + '</a>';
         }).join('');
-
-        // El trigger lleva aria-current si el padre es la página activa
-        // Y también si algún hijo está activo (para que se pinte púrpura)
         var parentActive = item.id === active ? ' aria-current="page"' : '';
-
         return (
           '<div class="nav__item">' +
             '<a class="nav__link nav__link--has-sub" href="' + b + item.href + '" aria-haspopup="true" aria-expanded="false"' + parentActive + '>' + item.label + '</a>' +
@@ -119,9 +126,7 @@
           '<div class="mobile-nav__group">' +
             '<button class="mobile-nav__item mobile-nav__item--has-sub" data-open="false" aria-expanded="false">' +
               item.label +
-              '<svg class="mobile-nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true">' +
-                '<polyline points="3 5 6 8 9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>' +
-              '</svg>' +
+              '<svg class="mobile-nav__caret" viewBox="0 0 12 12" fill="none" aria-hidden="true"><polyline points="3 5 6 8 9 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
             '</button>' +
             '<div class="mobile-nav__subnav">' + sub + '</div>' +
           '</div>'
@@ -132,7 +137,6 @@
 
     return (
       '<svg width="0" height="0" style="position:absolute" aria-hidden="true">' + SYMBOLS + '</svg>' +
-
       '<header class="site-header" id="siteHeader">' +
         '<nav class="nav" id="nav" aria-label="Principal">' +
           '<div class="nav__inner">' +
@@ -153,9 +157,7 @@
           '</div>' +
         '</nav>' +
       '</header>' +
-
       '<div class="nav-overlay" id="navOverlay" data-open="false"></div>' +
-
       '<aside class="mobile-nav" id="mobileNav" data-open="false">' +
         '<button class="mobile-nav__close" id="mobileClose" aria-label="Cerrar">✕</button>' +
         linksMobile +
@@ -164,14 +166,13 @@
     );
   }
 
-  /* ---------- Render del footer ---------- */
+  /* ---------- Footer ---------- */
   function renderFooter() {
     var b = base();
     return (
       '<footer class="footer">' +
         '<div class="footer__inner">' +
           '<div class="footer__grid">' +
-
             '<div class="footer__col footer__col--brand">' +
               '<div class="footer__brand">' +
                 '<svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg>' +
@@ -179,7 +180,6 @@
               '</div>' +
               '<p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p>' +
             '</div>' +
-
             '<div class="footer__col">' +
               '<h4>Navegación</h4>' +
               '<ul>' +
@@ -190,7 +190,6 @@
                 '<li><a href="' + b + 'unidades.html">Unidades</a></li>' +
               '</ul>' +
             '</div>' +
-
             '<div class="footer__col">' +
               '<h4>Más</h4>' +
               '<ul>' +
@@ -200,7 +199,6 @@
                 '<li><a href="' + b + 'transparencia.html">Transparencia</a></li>' +
               '</ul>' +
             '</div>' +
-
             '<div class="footer__col">' +
               '<h4>Proyectos</h4>' +
               '<ul>' +
@@ -209,13 +207,10 @@
                 '<li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li>' +
               '</ul>' +
             '</div>' +
-
           '</div>' +
-
           '<div class="footer__seal">' +
             '<span class="footer__signature">No venimos a repetir, venimos a innovar.</span>' +
           '</div>' +
-
           '<div class="footer__socials-wrap">' +
             '<div class="footer__socials">' +
               '<a class="footer__social" href="https://instagram.com/kanderth" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>' +
@@ -223,11 +218,9 @@
               '<a class="footer__social" href="mailto:alexhrnndz32@gmail.com" aria-label="Email"><svg><use href="#ic-mail"/></svg></a>' +
             '</div>' +
           '</div>' +
-
           '<div class="footer__bottom">' +
             '<span>© <span id="year"></span> · Alex Workspace</span>' +
           '</div>' +
-
         '</div>' +
       '</footer>'
     );
