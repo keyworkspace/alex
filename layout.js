@@ -1,6 +1,6 @@
 /* ==========================================================================
    LAYOUT · Header + Footer centralizados para Alex Workspace
-   v3 · 2026 · Detección de subcarpeta por URL (sin currentScript)
+   v3 · 2026 · Render directo sin customElements (100% confiable)
    ========================================================================== */
 (function () {
   'use strict';
@@ -15,8 +15,7 @@
   function base() {
     if (!isSubfolder()) return '';
     var path = window.location.pathname;
-    // Caso borde: URL = carpeta sin barra ni extensión (ej. /alex/unidad-de-becas)
-    // Los relativos ya resuelven contra el padre, así que '' es correcto.
+    // URL = carpeta sin barra ni extensión → relativos resuelven desde el padre
     if (!/\/$/.test(path) && !/\.[a-z0-9]+$/i.test(path)) return '';
     return '../';
   }
@@ -85,7 +84,7 @@
     <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
   `;
 
-  /* ---------- Header ---------- */
+  /* ---------- Render del header ---------- */
   function renderHeader() {
     var active = currentPage();
     var b = base();
@@ -158,7 +157,7 @@
     );
   }
 
-  /* ---------- Footer ---------- */
+  /* ---------- Render del footer ---------- */
   function renderFooter() {
     var b = base();
     return (
@@ -218,13 +217,50 @@
     );
   }
 
-  /* ---------- Custom elements ---------- */
-  if (window.customElements && !window.customElements.get('aw-header')) {
-    window.customElements.define('aw-header', class extends HTMLElement {
-      connectedCallback() { this.innerHTML = renderHeader(); }
-    });
-    window.customElements.define('aw-footer', class extends HTMLElement {
-      connectedCallback() { this.innerHTML = renderFooter(); }
-    });
+  /* ---------- Estilos mínimos (display: contents) ----------
+     display: contents hace que aw-header/aw-footer sean "transparentes"
+     para el layout, así el sticky del header y el fixed del overlay
+     funcionan como si fueran hijos directos de <body>. */
+  function ensureStyles() {
+    if (document.getElementById('aw-layout-css')) return;
+    var style = document.createElement('style');
+    style.id = 'aw-layout-css';
+    style.textContent = 'aw-header, aw-footer { display: contents; }';
+    document.head.appendChild(style);
   }
+
+  /* ---------- Render principal (con protección) ---------- */
+  function renderAll() {
+    ensureStyles();
+
+    var header = document.querySelector('aw-header');
+    if (header && !header.hasAttribute('data-aw-rendered')) {
+      try {
+        header.innerHTML = renderHeader();
+        header.setAttribute('data-aw-rendered', '');
+      } catch (e) {
+        console.error('[aw-layout] header render failed:', e);
+      }
+    }
+
+    var footer = document.querySelector('aw-footer');
+    if (footer && !footer.hasAttribute('data-aw-rendered')) {
+      try {
+        footer.innerHTML = renderFooter();
+        footer.setAttribute('data-aw-rendered', '');
+      } catch (e) {
+        console.error('[aw-layout] footer render failed:', e);
+      }
+    }
+  }
+
+  /* ---------- Disparadores (múltiples, para 100% cobertura) ---------- */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAll);
+  } else {
+    renderAll();
+  }
+  window.addEventListener('load', renderAll);
+
+  console.log('[aw-layout] v3 cargado');
 })();
