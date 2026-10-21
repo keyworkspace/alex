@@ -3,11 +3,53 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Unidades · Alex Workspace</title>
-<meta name="description" content="Unidades de servicio de Alex Workspace: becas, orientación vocacional y emprendimiento." />
+<title>Generaciones · Alex Workspace</title>
+<meta name="description" content="Tres etapas del mismo recorrido: colegio, bachillerato y Oportunidades FGK." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23143F59'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23F29A2E' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="styles.css" />
-<script src="layout.js?v=2"></script>
+<script src="layout.js"></script>
+
+<style>
+.gen-stage { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.gen-stage + .gen-stage { margin-top: 1.1rem; }
+.gen-stage__inner { border-radius: 36px; padding: clamp(1.5rem, 3vw, 2.5rem); position: relative; overflow: hidden; }
+.gen-stage__inner--lightblue { background: var(--teal-soft); color: var(--navy); }
+.gen-stage__inner--papaya    { background: var(--gold);    color: #fff; }
+.gen-stage__inner--cream     { background: var(--paper-warm); color: var(--navy); }
+.gen-stage__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
+.gen-stage--reverse .gen-stage__grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+.gen-stage--reverse .gen-stage__media { order: 2; }
+.gen-stage--reverse .gen-stage__body  { order: 1; }
+.gen-stage__media { position: relative; }
+.gen-stage__photo { width: 100%; aspect-ratio: 4 / 3; border-radius: 24px; overflow: hidden; background: rgba(0,0,0,0.08); position: relative; box-shadow: 0 16px 32px rgba(13,47,68,0.18); }
+.gen-stage__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; transition: transform 900ms var(--fill-ease); }
+.gen-stage__photo:hover img { transform: scale(1.03); }
+.gen-stage__photo::after { content: ''; position: absolute; inset: 0; border-radius: 24px; border: 1px solid rgba(255,255,255,0.14); pointer-events: none; }
+.gen-stage__badge { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); padding: 0.75rem 1.4rem; background: var(--navy-deep); color: #fff; font-family: var(--mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; white-space: nowrap; z-index: 2; }
+.gen-stage__body { position: relative; }
+.gen-stage__title { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.1vw, 1.7rem); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+.gen-stage__title em { font-style: normal; color: var(--teal); }
+.gen-stage__inner--papaya .gen-stage__title em { color: #fff; }
+.gen-stage__roster { display: flex; flex-direction: column; gap: 1.1rem; }
+.gen-stage__roster-group { display: block; }
+.gen-stage__roster-title { font-family: var(--ui); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em; margin-bottom: 0.55rem; color: inherit; }
+.gen-stage__roster-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.28rem 1.75rem; list-style: none; padding: 0; margin: 0; }
+.gen-stage__roster-list li { font-size: 0.85rem; line-height: 1.45; color: inherit; }
+.gen-stage__roster-list li strong { font-weight: 600; }
+.gen-stage__roster-list li span { opacity: 0.7; font-weight: 400; }
+@media (max-width: 1000px) {
+  .gen-stage__grid, .gen-stage--reverse .gen-stage__grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .gen-stage--reverse .gen-stage__media { order: 1; }
+  .gen-stage--reverse .gen-stage__body  { order: 2; }
+}
+@media (max-width: 640px) {
+  .gen-stage__inner { border-radius: 26px; padding: 1.25rem; }
+  .gen-stage__photo { border-radius: 18px; aspect-ratio: 4 / 3; }
+  .gen-stage__photo::after { border-radius: 18px; }
+  .gen-stage__roster-list { grid-template-columns: 1fr; gap: 0.28rem; }
+  .gen-stage__badge { font-size: 0.58rem; padding: 0.65rem 1rem; letter-spacing: 0.18em; }
+}
+</style>
 </head>
 <body>
 
@@ -39,10 +81,10 @@
     </svg>
     <div class="page-portada__overlay" aria-hidden="true"></div>
     <div class="page-portada__contenido">
-      <span class="page-portada__tag">Unidades</span>
-      <h1 class="page-portada__titulo">Tres frentes de <em>trabajo</em></h1>
+      <span class="page-portada__tag">Generaciones</span>
+      <h1 class="page-portada__titulo">Cada etapa deja <em>algo</em></h1>
       <p class="page-portada__lead">
-        Cada unidad reúne recursos, criterios y acompañamiento sobre un tema concreto. Ninguna promete lo que todavía no puede entregar.
+        Tres puntos marcados en el mismo recorrido: colegio, bachillerato y Oportunidades FGK.
       </p>
     </div>
   </div>
@@ -52,183 +94,193 @@
       <div class="rblock__grid">
         <div>
           <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;">Intro</span>
-          <h2 class="rblock__title" style="margin-top:0.6rem;">Por qué existen las <em>unidades</em></h2>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Por qué guardo <em>esto</em></h2>
           <p class="rblock__text">
-            Alex Workspace no es una empresa ni una fundación. Es una marca personal. Pero tiene una forma de organizar lo que hace: por unidades.
+            Una etapa no se cierra para terminar: se cierra para que la siguiente pueda empezar. Guardar la foto de cada una es una forma de no olvidar de dónde vengo mientras construyo hacia dónde voy.
           </p>
           <p class="rblock__text">
-            Cada unidad es un frente de trabajo con un tema, un propósito y un conjunto de recursos. Cada una lleva su estado declarado.
-          </p>
-          <p class="rblock__text" style="font-weight:600;opacity:1;">
-            Tres unidades activas hasta ahora. Ninguna reemplaza a otra.
+            Tres fotos hasta ahora. Una por cada tramo recorrido.
           </p>
         </div>
         <div style="text-align:right;">
           <svg viewBox="0 0 220 220" style="width:min(100%,220px);height:auto;color:var(--navy);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
-            <circle cx="110" cy="110" r="90" opacity="0.12"/>
-            <circle cx="110" cy="110" r="62" opacity="0.28"/>
-            <circle cx="110" cy="110" r="36" opacity="0.5"/>
-            <circle cx="110" cy="110" r="14"/>
-            <circle cx="110" cy="110" r="4" fill="currentColor"/>
-            <line x1="110" y1="20" x2="110" y2="50" opacity="0.5"/>
-            <line x1="200" y1="110" x2="170" y2="110" opacity="0.5"/>
-            <line x1="110" y1="200" x2="110" y2="170" opacity="0.5"/>
-            <line x1="20" y1="110" x2="50" y2="110" opacity="0.5"/>
+            <circle cx="110" cy="55" r="28" opacity="0.75"/>
+            <circle cx="60" cy="130" r="28" opacity="0.55"/>
+            <circle cx="160" cy="160" r="28" opacity="0.35"/>
+            <line x1="110" y1="83" x2="75" y2="112" opacity="0.45"/>
+            <line x1="80" y1="148" x2="140" y2="155" opacity="0.35"/>
           </svg>
         </div>
       </div>
     </div>
   </div>
 
-  <section class="dif-section" id="unidades">
-    <header class="dif-head reveal">
-      <h2 class="dif-title">Las <span class="circled">unidades</span></h2>
-      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.7;max-width:62ch;margin-left:auto;margin-right:auto;">
-        Cada una con su propio estado, alcance y propósito.
-      </p>
-    </header>
-
-    <div class="dif-grid">
-      <div class="dif-row" style="grid-template-columns:repeat(3,1fr);">
-
-        <article class="dif-card dif-card--purple reveal">
-          <div class="dif-card__head">
-            <span class="dif-card__eyebrow">01 · Primera versión</span>
-            <h3 class="dif-card__title">Unidad de Becas</h3>
-            <p class="dif-card__desc">
-              Convocatorias nacionales e internacionales, requisitos, calendario del año y errores comunes.
-            </p>
+  <section class="gen-stage" style="margin-top:1.1rem;">
+    <div class="gen-stage__inner gen-stage__inner--lightblue reveal">
+      <div class="gen-stage__grid">
+        <div class="gen-stage__media">
+          <div class="gen-stage__photo">
+            <img src="fotos-generaciones/colegio.jpg" alt="Promoción 2023 del colegio" loading="lazy" />
+            <span class="gen-stage__badge">Promoción 2023</span>
           </div>
-          <div class="dif-card__bottom">
-            <a class="dif-cta" href="unidad-de-becas/">
-              <span class="dif-cta__label">Ver unidad</span>
-              <span class="dif-cta__arrow" aria-hidden="true">→</span>
-            </a>
-            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+        </div>
+        <div class="gen-stage__body">
+          <h2 class="gen-stage__title">Liceo Cristiano <em>Reverendo Juan Bueno</em></h2>
+          <div class="gen-stage__roster">
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Rosmery Perez</strong> <span>— Docente</span></li>
+                <li><strong>Orfania Portillo</strong></li>
+                <li><strong>Sthepany Gutierres</strong></li>
+                <li><strong>Laura Perez</strong></li>
+                <li><strong>Tatiana Lara</strong></li>
+                <li><strong>Patricia Sanchez</strong><span>— Docente</span></li>
+                <li><strong>Ana Flores</strong><span>— Directora</span></li>
+                <li><strong>Irma Veliz</strong></li>
+                <li><strong>Liliana Delgado</strong></li>
+                <li><strong>Gabriela Portillo</strong></li>
+                <li><strong>Stefania Urbina</strong></li>
+                <li><strong>Melita Amaya</strong><span>— Docente</span></li>
+              </ul>
+            </div>
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Eliseo Martinez</strong> <span>— Docente</span></li>
+                <li><strong>Javier Perez</strong></li>
+                <li><strong>Jhonatan Ortiz</strong></li>
+                <li><strong>Carlos Martinez</strong></li>
+                <li><strong>Indy Martinez</strong></li>
+                <li><strong>Emerzon Perez</strong></li>
+                <li><strong>Enoc Martinez</strong></li>
+                <li><strong>Lazaro Chavez</strong></li>
+                <li><strong>Josue Sorto</strong></li>
+                <li><strong>Gerson Perez</strong></li>
+                <li><strong>Alexander Hernández</strong></li>
+                <li><strong>Enrique Martinez</strong><span>— Docente</span></li>
+                <li><strong>Wilber Andrade</strong><span>— Docente</span></li>
+              </ul>
+            </div>
           </div>
-        </article>
-
-        <article class="dif-card dif-card--lightblue reveal">
-          <div class="dif-card__head">
-            <span class="dif-card__eyebrow">02 · Primera versión</span>
-            <h3 class="dif-card__title">Unidad de Orientación Vocacional</h3>
-            <p class="dif-card__desc">
-              Acompañamiento para elegir carrera. Batería integrada de test, preguntas guía y sesiones puntuales.
-            </p>
-          </div>
-          <div class="dif-card__bottom">
-            <a class="dif-cta" href="unidad-de-orientacion-vocacional/">
-              <span class="dif-cta__label">Ver unidad</span>
-              <span class="dif-cta__arrow" aria-hidden="true">→</span>
-            </a>
-            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
-          </div>
-        </article>
-
-        <article class="dif-card dif-card--yellow reveal">
-          <div class="dif-card__head">
-            <span class="dif-card__eyebrow">03 · Primera versión</span>
-            <h3 class="dif-card__title">Unidad de Emprendimiento</h3>
-            <p class="dif-card__desc">
-              De la idea al primer cliente. Metodología, herramientas y casos reales para validar tu modelo de negocio.
-            </p>
-          </div>
-          <div class="dif-card__bottom">
-            <a class="dif-cta" href="unidad-de-emprendimiento/">
-              <span class="dif-cta__label">Ver unidad</span>
-              <span class="dif-cta__arrow" aria-hidden="true">→</span>
-            </a>
-            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
-          </div>
-        </article>
-
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="rblock" id="funcionamiento">
-    <div class="rblock__inner rblock--dark reveal">
-      <div class="rblock__grid">
-        <div>
-          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.65;color:var(--teal);">Funcionamiento</span>
-          <h2 class="rblock__title" style="margin-top:0.6rem;">Cómo funciona una <em>unidad</em></h2>
-          <p class="rblock__text">
-            Cada unidad tiene cuatro reglas. No son negociables, porque son lo que mantiene la coherencia entre lo que se publica y lo que se entrega.
-          </p>
-          <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:0.7rem;font-size:0.98rem;">
-            <li>· <strong>Estado declarado.</strong> Cada unidad dice si está activa, en desarrollo o pausada. Sin ambigüedad.</li>
-            <li>· <strong>Alcance limitado.</strong> Hace una cosa concreta, no cinco. Si quiere crecer, se convierte en otra unidad.</li>
-            <li>· <strong>Contacto directo.</strong> No hay formularios intermedios. Se escribe directo a Alexander.</li>
-            <li>· <strong>Sin promesas sin respaldo.</strong> Si algo no se puede entregar todavía, se dice.</li>
-          </ul>
+  <section class="gen-stage gen-stage--reverse">
+    <div class="gen-stage__inner gen-stage__inner--papaya reveal">
+      <div class="gen-stage__grid">
+        <div class="gen-stage__media">
+          <div class="gen-stage__photo">
+            <img src="fotos-generaciones/bachillerato.jpg" alt="Promoción 2026 de bachillerato" loading="lazy" />
+            <span class="gen-stage__badge">Promoción 2026</span>
+          </div>
         </div>
-        <div style="text-align:right;">
-          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--teal);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="30" y="30" width="60" height="60" rx="12"/>
-            <rect x="110" y="30" width="60" height="60" rx="12"/>
-            <rect x="30" y="110" width="60" height="60" rx="12"/>
-            <rect x="110" y="110" width="60" height="60" rx="12"/>
-            <circle cx="100" cy="100" r="6" fill="currentColor"/>
-          </svg>
+        <div class="gen-stage__body">
+          <h2 class="gen-stage__title">Instituto Nacional de <em>Yamabal</em></h2>
+          <div class="gen-stage__roster">
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Sheily Diaz</strong></li>
+                <li><strong>Damaris Vasquez</strong></li>
+                <li><strong>Sahir Hernández</strong></li>
+                <li><strong>Jenny Pineda</strong></li>
+                <li><strong>Jacqueline Del Cid</strong> <span>— Docente</span></li>
+                <li><strong>Keysi Guevara</strong></li>
+                <li><strong>Yaritza Portillo</strong></li>
+                <li><strong>Darlin Ortiz</strong></li>
+                <li><strong>Stefani Delgado</strong></li>
+              </ul>
+            </div>
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Segunda fila (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Olinda Perez</strong> <span>— Registro Académico</span></li>
+                <li><strong>Lucia de Vasquez</strong> <span>— Docente</span></li>
+                <li><strong>Orfania Portillo</strong></li>
+                <li><strong>Stefania Canales</strong></li>
+                <li><strong>Edwin Hernández</strong> <span>— Director</span></li>
+                <li><strong>Odalis Melendez</strong></li>
+                <li><strong>Liliana Delgado</strong></li>
+                <li><strong>Alicia Mejia</strong> <span>— Docente</span></li>
+              </ul>
+            </div>
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Fredy Claros</strong> <span>— Docente</span></li>
+                <li><strong>Cristian Fernandez</strong></li>
+                <li><strong>Alexander Hernández</strong></li>
+                <li><strong>Emerzon Vasquez</strong></li>
+                <li><strong>Francisco Benitez</strong> <span>— Docente</span></li>
+                <li><strong>Nelson Romero</strong></li>
+                <li><strong>José Pineda</strong></li>
+                <li><strong>Edwin Hernández</strong></li>
+                <li><strong>Edenilson Vasquez</strong> <span>— Docente</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="dif-section">
-    <header class="dif-head reveal">
-      <h2 class="dif-title">Tres principios que <span class="circled">sostienen</span> las unidades</h2>
-    </header>
-
-    <div class="dif-grid">
-      <div class="dif-row" style="grid-template-columns:repeat(3,1fr);">
-
-        <article class="dif-card dif-card--purple reveal" style="min-height:280px;">
-          <div class="dif-card__head">
-            <span class="dif-card__eyebrow">01 · Claridad</span>
-            <h3 class="dif-card__title" style="font-size:1.15rem;">Saber qué se ofrece</h3>
-            <p class="dif-card__desc">Cada unidad tiene un propósito que se puede explicar en una frase. Si no se puede, no está lista.</p>
-          </div>
-          <div class="dif-card__bottom">
-            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-target"/></svg></div>
-          </div>
-        </article>
-
-        <article class="dif-card dif-card--papaya reveal" style="min-height:280px;">
-          <div class="dif-card__head">
-            <span class="dif-card__eyebrow">02 · Cercanía</span>
-            <h3 class="dif-card__title" style="font-size:1.15rem;">Sin intermediarios</h3>
-            <p class="dif-card__desc">Todo pasa por la misma persona. No hay call center, ni bot, ni equipo de soporte.</p>
-          </div>
-          <div class="dif-card__bottom">
-            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-heart"/></svg></div>
-          </div>
-        </article>
-
-        <article class="dif-card dif-card--lightblue reveal" style="min-height:280px;">
-          <div class="dif-card__head">
-            <span class="dif-card__eyebrow">03 · Crecimiento</span>
-            <h3 class="dif-card__title" style="font-size:1.15rem;">Se construyen con el tiempo</h3>
-            <p class="dif-card__desc">Las unidades no nacen terminadas. Empiezan pequeñas, con lo que hay. Después crecen o se cierran.</p>
-          </div>
-          <div class="dif-card__bottom">
-            <div class="dif-card__icon" style="width:60px;height:60px;"><svg style="width:28px;height:28px;"><use href="#ic-leaf"/></svg></div>
-          </div>
-        </article>
-
       </div>
     </div>
   </section>
 
-  <div class="big-headings">
-    <h2 class="big-heading reveal">Tres frentes abiertos, <em>uno a la vez</em></h2>
-  </div>
+  <section class="gen-stage">
+    <div class="gen-stage__inner gen-stage__inner--cream reveal">
+      <div class="gen-stage__grid">
+        <div class="gen-stage__media">
+          <div class="gen-stage__photo">
+            <img src="fotos-generaciones/oportunidades.jpg" alt="Class 2026 del Programa Oportunidades" loading="lazy" />
+            <span class="gen-stage__badge">Class 2026</span>
+          </div>
+        </div>
+        <div class="gen-stage__body">
+          <h2 class="gen-stage__title">Fundación <em>Gloria Kriete</em></h2>
+          <div class="gen-stage__roster">
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">Sentados (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Fidelia Portillo</strong></li>
+                <li><strong>Vanesa Delgado</strong></li>
+                <li><strong>Lesly Amaya</strong></li>
+                <li><strong>Brenda Luna</strong></li>
+                <li><strong>Gema Garcia</strong></li>
+                <li><strong>Yulisa Hernández</strong></li>
+              </ul>
+            </div>
+            <div class="gen-stage__roster-group">
+              <h3 class="gen-stage__roster-title">De pie (de izquierda a derecha)</h3>
+              <ul class="gen-stage__roster-list">
+                <li><strong>Febe Herrera</strong></li>
+                <li><strong>Daniel Gomez</strong></li>
+                <li><strong>Exzzar Hernández</strong></li>
+                <li><strong>Eduardo Romero</strong></li>
+                <li><strong>Yesenia Lopez</strong></li>
+                <li><strong>Angel Torres</strong></li>
+                <li><strong>Kevin Sorto</strong></li>
+                <li><strong>Matias Araujo</strong></li>
+                <li><strong>Yuridia Claros</strong></li>
+                <li><strong>Diego Romero</strong></li>
+                <li><strong>Sandra Guevara</strong></li>
+                <li><strong>Dredy Gutierres</strong></li>
+                <li><strong>Efrain Galdamez</strong></li>
+                <li><strong>Alexander Hernández</strong></li>
+                <li><strong>Luis Herrera</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="final-cta">
     <div class="final-cta__inner">
       <div class="final-cta__block reveal">
-        <h2 class="final-cta__title">¿Te interesa alguna <em>unidad</em>?</h2>
-        <p class="final-cta__text">Si quieres colaborar, aportar recursos o simplemente conversar sobre alguna de estas unidades, escríbeme directamente.</p>
+        <h2 class="final-cta__title">Cada etapa abre la <em>siguiente</em></h2>
+        <p class="final-cta__text">Cerrar una etapa no es llegar. Es tener dónde apoyarse para la que viene.</p>
         <a class="btn-big btn-big--light" href="contacto.html">
           <span class="btn-big__label">
             Ir a contacto
