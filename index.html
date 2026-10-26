@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alex Workspace</title>
+<meta name="description" content="Alex Workspace. Espacio personal entre las personas, las organizaciones y las ideas." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23143F59'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23F29A2E' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+<script src="layout.js"></script>
+</head>
+<body>
+
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+  </div>
+</div>
+
+<aw-header></aw-header>
+
+<main>
+
+  <div class="hero">
+    <div class="hero__inner">
+      <div class="hero__spread">
+
+        <div class="hero__rail" aria-hidden="true">
+          <div class="hero__rail-track">
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h1 hero__tile--circle"><svg><use href="#ic-book"/></svg></div>
+              <div class="hero__tile hero__tile--h2 hero__tile--square"><svg><use href="#ic-leaf"/></svg></div>
+              <div class="hero__tile hero__tile--h3 hero__tile--pill"><svg><use href="#ic-people"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h4 hero__tile--square"><svg><use href="#ic-compass"/></svg></div>
+              <div class="hero__tile hero__tile--h5 hero__tile--circle"><svg><use href="#ic-spark"/></svg></div>
+              <div class="hero__tile hero__tile--h6 hero__tile--pill"><svg><use href="#ic-heart"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h7 hero__tile--circle"><svg><use href="#ic-globe"/></svg></div>
+              <div class="hero__tile hero__tile--h8 hero__tile--square"><svg><use href="#ic-book"/></svg></div>
+              <div class="hero__tile hero__tile--h1 hero__tile--pill"><svg><use href="#ic-mic"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h4 hero__tile--pill"><svg><use href="#ic-people"/></svg></div>
+              <div class="hero__tile hero__tile--h6 hero__tile--circle"><svg><use href="#ic-heart"/></svg></div>
+              <div class="hero__tile hero__tile--h2 hero__tile--square"><svg><use href="#ic-compass"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h3 hero__tile--circle"><svg><use href="#ic-spark"/></svg></div>
+              <div class="hero__tile hero__tile--h7 hero__tile--pill"><svg><use href="#ic-book"/></svg></div>
+              <div class="hero__tile hero__tile--h5 hero__tile--square"><svg><use href="#ic-leaf"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h8 hero__tile--pill"><svg><use href="#ic-globe"/></svg></div>
+              <div class="hero__tile hero__tile--h1 hero__tile--square"><svg><use href="#ic-mic"/></svg></div>
+              <div class="hero__tile hero__tile--h6 hero__tile--circle"><svg><use href="#ic-people"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h1 hero__tile--circle"><svg><use href="#ic-book"/></svg></div>
+              <div class="hero__tile hero__tile--h2 hero__tile--square"><svg><use href="#ic-leaf"/></svg></div>
+              <div class="hero__tile hero__tile--h3 hero__tile--pill"><svg><use href="#ic-people"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h4 hero__tile--square"><svg><use href="#ic-compass"/></svg></div>
+              <div class="hero__tile hero__tile--h5 hero__tile--circle"><svg><use href="#ic-spark"/></svg></div>
+              <div class="hero__tile hero__tile--h6 hero__tile--pill"><svg><use href="#ic-heart"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h7 hero__tile--circle"><svg><use href="#ic-globe"/></svg></div>
+              <div class="hero__tile hero__tile--h8 hero__tile--square"><svg><use href="#ic-book"/></svg></div>
+              <div class="hero__tile hero__tile--h1 hero__tile--pill"><svg><use href="#ic-mic"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h4 hero__tile--pill"><svg><use href="#ic-people"/></svg></div>
+              <div class="hero__tile hero__tile--h6 hero__tile--circle"><svg><use href="#ic-heart"/></svg></div>
+              <div class="hero__tile hero__tile--h2 hero__tile--square"><svg><use href="#ic-compass"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h3 hero__tile--circle"><svg><use href="#ic-spark"/></svg></div>
+              <div class="hero__tile hero__tile--h7 hero__tile--pill"><svg><use href="#ic-book"/></svg></div>
+              <div class="hero__tile hero__tile--h5 hero__tile--square"><svg><use href="#ic-leaf"/></svg></div>
+            </div>
+            <div class="hero__col">
+              <div class="hero__tile hero__tile--h8 hero__tile--pill"><svg><use href="#ic-globe"/></svg></div>
+              <div class="hero__tile hero__tile--h1 hero__tile--square"><svg><use href="#ic-mic"/></svg></div>
+              <div class="hero__tile hero__tile--h6 hero__tile--circle"><svg><use href="#ic-people"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__content">
+          <span class="hero__tag">Espacio personal</span>
+          <h1 class="hero__title">Alexander <em>Hernández</em></h1>
+          <p class="signature hero__signature">No venimos a repetir, venimos a innovar.</p>
+          <p class="hero__lead">
+            Fundador de Heliot Media. Director de Recursos Humanos. Estudiante de Administración Contable.
+          </p>
+          <div class="hero__actions">
+            <a class="cta-circle" href="sobre-mi.html" aria-label="Conocerme">
+              <span class="cta-circle__arrow">→</span>
+            </a>
+            <a class="btn-big btn-big--light" href="proyectos.html">
+              <span class="btn-big__label">
+                Ver proyectos
+                <span class="btn-big__arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="rblock" style="margin-top:1.25rem;">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <h2 class="rblock__title">Quién <em>soy</em></h2>
+          <p class="rblock__text">
+            Estudiante salvadoreño con interés en Recursos Humanos, Psicología y desarrollo organizacional. Con experiencia práctica en gestión financiera, proyectos académicos y liderazgo juvenil.
+          </p>
+          <p class="rblock__text">
+            Me apasiona conectar la gestión organizacional con el desarrollo del talento humano.
+          </p>
+          <a class="btn-big" href="sobre-mi.html">
+            <span class="btn-big__label">
+              Conocer más
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,220px);height:auto;color:var(--navy);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="100" cy="100" r="90" opacity="0.15"/>
+            <circle cx="100" cy="100" r="65" opacity="0.3"/>
+            <circle cx="100" cy="100" r="40" opacity="0.55"/>
+            <circle cx="100" cy="100" r="15"/>
+            <circle cx="100" cy="100" r="4" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--dark reveal">
+      <div class="rblock__grid">
+        <div>
+          <h2 class="rblock__title">Proyectos que <em>administro</em></h2>
+          <p class="rblock__text">
+            Tres proyectos activos: Heliot Media, Windsor y The New Key. Más SIGES y dos trabajos académicos con resultados medibles.
+          </p>
+          <a class="btn-big btn-big--light" href="proyectos.html">
+            <span class="btn-big__label">
+              Ver todos
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--orange);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="30" y="30" width="60" height="60" rx="12"/>
+            <rect x="110" y="30" width="60" height="60" rx="12"/>
+            <rect x="30" y="110" width="60" height="60" rx="12"/>
+            <rect x="110" y="110" width="60" height="60" rx="12"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Formación y <span class="circled">certificaciones</span></h2>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Educación formal</span>
+            <h3 class="dif-card__title">Instituto de Yamabal</h3>
+            <p class="dif-card__desc">Bachillerato Técnico Vocacional en Administración Contable · 2023 – Actualidad</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="formacion.html">
+              <span class="dif-cta__label">Ver formación</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">8 certificaciones</span>
+            <h3 class="dif-card__title">Verificables</h3>
+            <p class="dif-card__desc">Google · Platzi · Canva · CREO El Salvador · Aflatoun International · Fundación Carlos Slim</p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="formacion.html">
+              <span class="dif-cta__label">Ver certificados</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="big-headings">
+    <h2 class="big-heading reveal">Construir cada día, <em>aunque sea un poco</em></h2>
+  </div>
+
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">Si algo de aquí <em>resuena</em>, hablemos</h2>
+        <p class="final-cta__text">Disponible para oportunidades de aprendizaje, colaboración, prácticas y proyectos.</p>
+        <a class="btn-big btn-big--light" href="contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<aw-footer></aw-footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Alex Workspace</title>
+<meta name="description" content="Página no encontrada." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B2D8E'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23FFD23F' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+<script src="layout.js"></script>
+</head>
+<body>
+
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+  </div>
+</div>
+
+<aw-header></aw-header>
+
+<main>
+
+  <div class="page-hero" style="padding-top:1.25rem;">
+    <div class="wrap">
+      <div class="page-hero__inner page-hero__inner--deep reveal">
+        <div class="page-hero__content">
+          <span class="page-hero__tag">Error 404</span>
+          <h1 class="page-hero__title">Esta página no <em>existe</em></h1>
+          <p class="page-hero__lead">
+            Tal vez la moví, tal vez nunca estuvo aquí. Puedes volver al inicio o revisar alguna de las secciones.
+          </p>
+          <div class="page-hero__actions">
+            <a class="btn-big btn-big--light" href="index.html">
+              <span class="btn-big__label">
+                Volver al inicio
+                <span class="btn-big__arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+            <a class="btn-big" href="proyectos.html" style="background:rgba(255,255,255,0.14);color:white;">
+              <span class="btn-big__label">
+                Ver proyectos
+                <span class="btn-big__arrow" aria-hidden="true">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section" style="padding-top:2rem;">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Quizá <span class="circled">buscabas</span></h2>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <a class="dif-card dif-card--papaya reveal" href="index.html" style="text-decoration:none;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Inicio</span>
+            <h3 class="dif-card__title">Volver a la home</h3>
+            <p class="dif-card__desc">El punto de partida del espacio personal.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </a>
+        <a class="dif-card dif-card--purple reveal" href="sobre-mi.html" style="text-decoration:none;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Sobre mí</span>
+            <h3 class="dif-card__title">Quién soy</h3>
+            <p class="dif-card__desc">Enfoque, habilidades y experiencia.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </a>
+      </div>
+      <div class="dif-row dif-row--2">
+        <a class="dif-card dif-card--yellow reveal" href="formacion.html" style="text-decoration:none;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Formación</span>
+            <h3 class="dif-card__title">Certificaciones</h3>
+            <p class="dif-card__desc">Educación formal y credenciales verificables.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </a>
+        <a class="dif-card dif-card--lightblue reveal" href="contacto.html" style="text-decoration:none;">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · Contacto</span>
+            <h3 class="dif-card__title">Hablemos</h3>
+            <p class="dif-card__desc">LinkedIn, Instagram o correo.</p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<aw-footer></aw-footer>
+
+<script src="app.js"></script>
+</body>
+</html>

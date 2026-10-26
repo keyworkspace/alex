@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unidad de Becas · Alex Workspace</title>
+<meta name="description" content="Becas nacionales e internacionales, requisitos, calendario y errores comunes. Curada desde la experiencia real de un estudiante salvadoreño." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23143F59'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23F29A2E' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="../styles.css" />
+<script src="../layout.js?v=2"></script>
+</head>
+<body>
+
+<div class="loader" id="loader" data-hidden="false" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.6"/>
+      <text x="24" y="31" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="currentColor" text-anchor="middle">A</text>
+    </svg>
+    <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+  </div>
+</div>
+
+<aw-header></aw-header>
+
+<main>
+
+  <div class="page-portada">
+    <div class="page-portada__bg" aria-hidden="true"></div>
+    <svg class="page-portada__patron" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+      <circle cx="200" cy="300" r="180" opacity="0.4"/>
+      <circle cx="200" cy="300" r="120" opacity="0.6"/>
+      <circle cx="200" cy="300" r="60" opacity="0.8"/>
+      <circle cx="1000" cy="300" r="180" opacity="0.4"/>
+      <circle cx="1000" cy="300" r="120" opacity="0.6"/>
+      <circle cx="1000" cy="300" r="60" opacity="0.8"/>
+      <line x1="0" y1="300" x2="1200" y2="300" opacity="0.2"/>
+      <line x1="600" y1="0" x2="600" y2="600" opacity="0.2"/>
+    </svg>
+    <div class="page-portada__overlay" aria-hidden="true"></div>
+    <div class="page-portada__contenido">
+      <span class="page-portada__tag">Unidad de Becas</span>
+      <h1 class="page-portada__titulo">Encontrar la beca <em>correcta</em></h1>
+      <p class="page-portada__lead">
+        Un solo lugar para entender qué becas existen, cómo se aplican y en qué momento del año conviene postular. Curado desde la experiencia real de un estudiante que ya está becado.
+      </p>
+    </div>
+  </div>
+
+  <div class="rblock" style="margin-top:1.25rem;">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;">Intro</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Por qué existe esta <em>unidad</em></h2>
+          <p class="rblock__text">
+            Buscar becas es confuso. Cada institución tiene su propio sitio, su propio formulario, sus propias fechas. La información está dispersa y muchas veces se publica a última hora.
+          </p>
+          <p class="rblock__text">
+            Esta unidad no reemplaza ninguna convocatoria oficial. Organiza el mapa: qué tipos de beca existen, qué se necesita para cada una, cuándo abre cada ciclo y qué errores evitar.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            Cuatro becas activas hasta ahora. Irá creciendo con nuevas convocatorias.
+          </p>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 220 220" style="width:min(100%,220px);height:auto;color:var(--navy);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="110" cy="90" r="52" opacity="0.35"/>
+            <circle cx="110" cy="90" r="34" opacity="0.6"/>
+            <circle cx="110" cy="90" r="18"/>
+            <circle cx="110" cy="90" r="5" fill="currentColor"/>
+            <path d="M92 130 Q110 170 128 130" opacity="0.5"/>
+            <circle cx="110" cy="170" r="8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section" id="convocatorias">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Convocatorias <span class="circled">activas</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.75;max-width:62ch;margin-left:auto;margin-right:auto;">
+        Cada beca tiene su propia ficha con requisitos, fechas, documentos y canales oficiales.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+
+      <div class="dif-row dif-row--2">
+
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Nacional · El Salvador</span>
+            <h3 class="dif-card__title">Becas UNIVO</h3>
+            <p class="dif-card__desc">
+              Programa institucional de la Universidad de Oriente para estudiantes de la zona oriental. Becas parciales y completas según perfil económico, académico y actitudinal.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="univo.html">
+              <span class="dif-cta__label">Ver beca</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--cream reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Nacional · Fundación</span>
+            <h3 class="dif-card__title">Becas Oportunidades FGK</h3>
+            <p class="dif-card__desc">
+              Complemento académico durante el bachillerato y beca universitaria. Acompañamiento hasta el primer empleo. Opera en San Salvador, Santa Ana y San Miguel.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="oportunidades-fgk.html">
+              <span class="dif-cta__label">Ver beca</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-cert"/></svg></div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="dif-row dif-row--2">
+
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Internacional · EE. UU.</span>
+            <h3 class="dif-card__title">Becas Walton</h3>
+            <p class="dif-card__desc">
+              Cuatro años de universidad completa en Arkansas, Estados Unidos. Beca total: matrícula, hospedaje, alimentación, vuelos y seguro. Compromiso de retorno al país.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="walton.html">
+              <span class="dif-cta__label">Ver beca</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-globe"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--deep reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · Nacional · Universidad</span>
+            <h3 class="dif-card__title">Becas UEES</h3>
+            <p class="dif-card__desc">
+              Exoneración del 100% de aranceles para bachilleres con excelencia académica. Aplica con PAES ≥ 9.0 o Rendimiento Superior en AVANZO, más promedio ≥ 8.5.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <a class="dif-cta" href="uees.html">
+              <span class="dif-cta__label">Ver beca</span>
+              <span class="dif-cta__arrow" aria-hidden="true">→</span>
+            </a>
+            <div class="dif-card__icon"><svg><use href="#ic-cert"/></svg></div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--dark reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;color:var(--teal);">Metodología</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Cómo se usa esta <em>unidad</em></h2>
+          <p class="rblock__text">
+            La postulación a una beca tiene cuatro pasos. La mayoría de rechazos ocurren en el primero y en el tercero, no en el segundo.
+          </p>
+          <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:0.7rem;font-size:0.98rem;">
+            <li>· <strong>01 · Encontrar.</strong> Saber qué existe antes de decidir qué perseguir.</li>
+            <li>· <strong>02 · Filtrar.</strong> Descartar lo que no calza con el perfil. Postular a todo sin criterio desgasta.</li>
+            <li>· <strong>03 · Preparar.</strong> Reunir documentos, escribir la carta, pedir recomendaciones.</li>
+            <li>· <strong>04 · Postular.</strong> Enviar antes de la fecha límite, no el último día.</li>
+          </ul>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--teal);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="40" cy="40" r="14"/><text x="40" y="45" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">01</text>
+            <circle cx="160" cy="40" r="14"/><text x="160" y="45" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">02</text>
+            <circle cx="160" cy="160" r="14"/><text x="160" y="165" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">03</text>
+            <circle cx="40" cy="160" r="14"/><text x="40" y="165" font-family="IBM Plex Mono, monospace" font-size="9" fill="currentColor" text-anchor="middle" stroke="none">04</text>
+            <line x1="54" y1="40" x2="146" y2="40" opacity="0.5"/>
+            <line x1="160" y1="54" x2="160" y2="146" opacity="0.5"/>
+            <line x1="146" y1="160" x2="54" y2="160" opacity="0.5"/>
+            <line x1="40" y1="146" x2="40" y2="54" opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section" id="tipos">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Cuatro tipos de <span class="circled">beca</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.75;max-width:62ch;margin-left:auto;margin-right:auto;">
+        Cada tipo tiene requisitos, tiempos y formatos distintos. Mezclarlos sin entenderlos es el primer error.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">01 · Universidad formal</span>
+            <h3 class="dif-card__title">Becas de grado y pregrado</h3>
+            <p class="dif-card__desc">
+              Cubren total o parcialmente la carrera universitaria: matrícula, colegiatura, materiales y a veces manutención. Exigen buen rendimiento académico y comprobante de ingresos familiares.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">02 · Carreras cortas</span>
+            <h3 class="dif-card__title">Becas técnicas y vocacionales</h3>
+            <p class="dif-card__desc">
+              Programas de 6 a 24 meses en tecnología, oficios digitales, administración o diseño. Más rápidas de conseguir y menos competidas que las de grado.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-doc"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--lightblue reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">03 · Idiomas y certificaciones</span>
+            <h3 class="dif-card__title">Becas de idiomas</h3>
+            <p class="dif-card__desc">
+              Cursos de inglés, francés, alemán u otros idiomas, con certificación al final. Abren varias veces al año y aceptan perfiles sin experiencia previa.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-globe"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--deep reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">04 · Formación avanzada</span>
+            <h3 class="dif-card__title">Becas de posgrado e investigación</h3>
+            <p class="dif-card__desc">
+              Maestrías, doctorados y proyectos de investigación, normalmente en el extranjero. Requieren título universitario, idioma certificado y una propuesta sólida.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <div class="dif-card__icon"><svg><use href="#ic-target"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dif-section" style="padding-top:1rem;">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Programas que vale la pena <span class="circled">conocer</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.75;max-width:62ch;margin-left:auto;margin-right:auto;">
+        Seis programas reales que un estudiante salvadoreño puede considerar.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--papaya reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Internacional · EE. UU.</span>
+            <h3 class="dif-card__title">Fulbright</h3>
+            <p class="dif-card__desc">
+              Maestrías y programas de investigación en universidades estadounidenses. Requiere título universitario, inglés avanzado y una propuesta de estudio clara.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta">
+              <span class="dif-cta__label">Consultar bases</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-globe"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Internacional · Reino Unido</span>
+            <h3 class="dif-card__title">Chevening</h3>
+            <p class="dif-card__desc">
+              Maestrías de un año en universidades británicas. Valora liderazgo, trayectoria y plan de retorno al país. Requiere inglés certificado y experiencia profesional.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta">
+              <span class="dif-cta__label">Consultar bases</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-spark"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--lightblue reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Internacional · Alemania</span>
+            <h3 class="dif-card__title">DAAD</h3>
+            <p class="dif-card__desc">
+              Becas para posgrado, doctorado e investigación en Alemania. Es una de las pocas convocatorias que cubre también cursos de idioma previos.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta">
+              <span class="dif-cta__label">Consultar bases</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--cream reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Internacional · Unión Europea</span>
+            <h3 class="dif-card__title">Erasmus Mundus</h3>
+            <p class="dif-card__desc">
+              Maestrías conjuntas entre varias universidades europeas. Se estudia en dos o tres países. Cubre matrícula, viajes, seguro y manutención mensual.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta" style="background:var(--teal);color:#fff;">
+              <span class="dif-cta__label">Consultar bases</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-book"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Nacional · El Salvador</span>
+            <h3 class="dif-card__title">MINED y aliados locales</h3>
+            <p class="dif-card__desc">
+              El Ministerio de Educación, junto con fundaciones locales, publica convocatorias para bachillerato, técnico y universitario. Abren por ciclos.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta">
+              <span class="dif-cta__label">Consultar bases</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-people"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--deep reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Certificaciones cortas</span>
+            <h3 class="dif-card__title">Google Career Certificates</h3>
+            <p class="dif-card__desc">
+              Programas autogestionados en datos, marketing, soporte TI, UX y ciberseguridad. No requieren título universitario.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-cta" style="background:var(--orange);color:var(--navy);">
+              <span class="dif-cta__label">Consultar bases</span>
+            </span>
+            <div class="dif-card__icon"><svg><use href="#ic-cert"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--papaya reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.85;color:#fff;">Documentación</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;color:#fff;">Lo que casi siempre se <em style="color:#fff;">pide</em></h2>
+          <p class="rblock__text" style="color:rgba(255,255,255,0.92);">
+            No todas las becas piden lo mismo, pero la mayoría pide una combinación de estos documentos. Tenerlos listos por adelantado ahorra semanas.
+          </p>
+          <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:0.6rem;font-size:0.96rem;color:rgba(255,255,255,0.95);">
+            <li>· Documento único de identidad o pasaporte vigente</li>
+            <li>· Título de bachillerato o constancia de notas</li>
+            <li>· Carta de motivación (500 a 1000 palabras)</li>
+            <li>· Dos o tres cartas de recomendación</li>
+            <li>· Comprobante de ingresos familiares</li>
+            <li>· Certificado de idioma cuando lo exija</li>
+            <li>· Portafolio o proyecto propio cuando aplique</li>
+            <li>· Formulario en línea completamente lleno</li>
+          </ul>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,210px);height:auto;color:#fff;margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <rect x="50" y="30" width="100" height="140" rx="10"/>
+            <line x1="70" y1="60" x2="130" y2="60"/>
+            <line x1="70" y1="85" x2="130" y2="85"/>
+            <line x1="70" y1="110" x2="110" y2="110"/>
+            <line x1="70" y1="135" x2="120" y2="135"/>
+            <circle cx="140" cy="150" r="18" fill="none"/>
+            <path d="M132 150 l6 6 l12 -14" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="dif-section" id="calendario">
+    <header class="dif-head reveal">
+      <h2 class="dif-title">Calendario del <span class="circled">año</span></h2>
+      <p style="margin-top:0.9rem;font-size:1rem;opacity:0.75;max-width:62ch;margin-left:auto;margin-right:auto;">
+        Las fechas exactas cambian cada año. Lo que se mantiene es el ritmo: qué tipo de convocatoria suele abrir en cada trimestre.
+      </p>
+    </header>
+
+    <div class="dif-grid">
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--purple reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Enero – Marzo</span>
+            <h3 class="dif-card__title">Apertura del ciclo internacional</h3>
+            <p class="dif-card__desc">
+              El trimestre más activo. Abren las convocatorias grandes para posgrado en el extranjero: Fulbright, DAAD, Chevening y varias becas europeas.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-card__eyebrow" style="opacity:0.8;">Prioridad alta</span>
+            <div class="dif-card__icon"><svg><use href="#ic-target"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--lightblue reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Abril – Junio</span>
+            <h3 class="dif-card__title">Cierres y resultados parciales</h3>
+            <p class="dif-card__desc">
+              Se cierran muchas convocatorias del primer trimestre. Llegan los primeros resultados y comienzan las entrevistas.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-card__eyebrow" style="opacity:0.8;">Seguimiento</span>
+            <div class="dif-card__icon"><svg><use href="#ic-eye"/></svg></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dif-row dif-row--2">
+        <article class="dif-card dif-card--yellow reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Julio – Septiembre</span>
+            <h3 class="dif-card__title">Segundo ciclo y convocatorias nacionales</h3>
+            <p class="dif-card__desc">
+              Abren las becas de idiomas y certificaciones cortas. También se publican convocatorias nacionales del MINED y fundaciones locales.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-card__eyebrow" style="opacity:0.8;">Oportunidad media</span>
+            <div class="dif-card__icon"><svg><use href="#ic-doc"/></svg></div>
+          </div>
+        </article>
+
+        <article class="dif-card dif-card--cream reveal">
+          <div class="dif-card__head">
+            <span class="dif-card__eyebrow">Octubre – Diciembre</span>
+            <h3 class="dif-card__title">Cierre de año y preparación</h3>
+            <p class="dif-card__desc">
+              La temporada más tranquila para postular, pero la más útil para preparar: cartas, documentos, exámenes de idioma.
+            </p>
+          </div>
+          <div class="dif-card__bottom">
+            <span class="dif-card__eyebrow" style="opacity:0.8;">Preparación</span>
+            <div class="dif-card__icon"><svg><use href="#ic-compass"/></svg></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--dark reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;color:var(--orange);">Errores comunes</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Lo que suele <em style="color:var(--orange);">descalificar</em></h2>
+          <p class="rblock__text">
+            La mayoría de postulaciones rechazadas no fallan por falta de méritos. Fallan por detalles evitables.
+          </p>
+          <ul style="margin-top:1rem;display:flex;flex-direction:column;gap:0.7rem;font-size:0.96rem;">
+            <li>· Postular sin leer las bases completas del programa</li>
+            <li>· Enviar documentos sin firma o sin fecha</li>
+            <li>· Adjuntar traducciones sin certificación oficial</li>
+            <li>· Usar cartas de motivación genéricas o copiadas</li>
+            <li>· Aplicar el último día y dejar campos sin llenar</li>
+            <li>· No guardar copia de todo lo que se envió</li>
+          </ul>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--orange);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="100" cy="100" r="70" opacity="0.35"/>
+            <line x1="40" y1="40" x2="160" y2="160" stroke-width="2"/>
+            <line x1="160" y1="40" x2="40" y2="160" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rblock">
+    <div class="rblock__inner rblock--lightblue reveal">
+      <div class="rblock__grid">
+        <div>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;">Nota importante</span>
+          <h2 class="rblock__title" style="margin-top:0.6rem;">Qué es y qué no es esta <em>unidad</em></h2>
+          <p class="rblock__text">
+            Esta unidad no es un intermediario. No gestiona postulaciones, no cobra por aplicar, no representa a ninguna institución. Es una guía curada y actualizada a mano.
+          </p>
+          <p class="rblock__text">
+            Las convocatorias cambian de año en año: fechas, montos, requisitos. Antes de aplicar, la fuente oficial siempre manda.
+          </p>
+          <p class="rblock__text" style="font-weight:600;opacity:1;">
+            Si algo aquí está desactualizado, se corrige. Sin discusiones.
+          </p>
+          <a class="btn-big" href="../contacto.html">
+            <span class="btn-big__label">
+              Reportar o preguntar
+              <span class="btn-big__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+        <div style="text-align:right;">
+          <svg viewBox="0 0 200 200" style="width:min(100%,190px);height:auto;color:var(--navy);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M100 20 L160 40 V100 C160 145 130 170 100 180 C70 170 40 145 40 100 V40 Z" opacity="0.75"/>
+            <path d="M80 100 l15 15 l30 -30" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="big-headings">
+    <h2 class="big-heading reveal">Encontrar la beca <em>no es suerte</em>, es método</h2>
+  </div>
+
+  <section class="final-cta">
+    <div class="final-cta__inner">
+      <div class="final-cta__block reveal">
+        <h2 class="final-cta__title">¿Tienes una beca en la <em>mira</em>?</h2>
+        <p class="final-cta__text">Si estás evaluando alguna convocatoria o quieres saber si tu perfil califica, escríbeme directamente.</p>
+        <a class="btn-big btn-big--light" href="../contacto.html">
+          <span class="btn-big__label">
+            Ir a contacto
+            <span class="btn-big__arrow" aria-hidden="true">→</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<aw-footer></aw-footer>
+
+<script src="../app.js"></script>
+</body>
+</html>
