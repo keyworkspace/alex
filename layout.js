@@ -134,7 +134,7 @@
         '<div class="footer__col footer__col--brand"><div class="footer__brand"><svg class="footer__brand-mark" aria-hidden="true"><use href="#al-mark"/></svg><span class="footer__brand-name">Alex Workspace</span></div><p class="footer__desc">Espacio personal entre las personas, las organizaciones y las ideas.</p></div>' +
         '<div class="footer__col"><h4>Navegación</h4><ul><li><a href="' + b + 'index.html">Inicio</a></li><li><a href="' + b + 'sobre-mi.html">Sobre mí</a></li><li><a href="' + b + 'formacion.html">Formación</a></li><li><a href="' + b + 'proyectos.html">Proyectos</a></li><li><a href="' + b + 'unidades.html">Unidades</a></li></ul></div>' +
         '<div class="footer__col"><h4>Más</h4><ul><li><a href="' + b + 'filosofia.html">Filosofía</a></li><li><a href="' + b + 'contacto.html">Contacto</a></li><li><a href="' + b + 'transparencia.html">Transparencia</a></li></ul></div>' +
-        '<div class="footer__col"><h4>Proyectos</h4><ul><li><a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Heliot Media</a></li><li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li><li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li></ul></div>' +
+        '<div class="footer__col"><h4>Proyectos</h4><ul><li><a href="https://keyworkspace.github.io/windsor/" target="_blank" rel="noopener">Windsor</a></li><li><a href="https://the-newkey.blogspot.com/" target="_blank" rel="noopener">The New Key</a></li></ul></div>' +
       '</div>' +
       '<div class="footer__seal"><span class="footer__signature">No venimos a repetir, venimos a innovar.</span></div>' +
       '<div class="footer__socials-wrap"><div class="footer__socials">' +
