@@ -56,11 +56,11 @@
       suggestions: ['¿Qué es Heliot Media?', '¿Qué es Windsor?', '¿Cómo contacto?']
     },
     {
-      id: 'heliot',
-      keywords: ['heliot', 'heliot media', 'audiovisual', 'produccion audiovisual', 'video'],
-      answer: '<strong>Heliot Media</strong> es un proyecto de producción audiovisual con equipo activo, clientes reales e ingresos por servicios. Alexander es Director de Recursos Humanos ahí. <a href="https://keyworkspace.github.io/Heliot-Media/" target="_blank" rel="noopener">Visitar →</a>',
-      suggestions: ['¿Qué proyectos tiene?', '¿Cuál es su experiencia?', '¿Cómo contacto?']
-    },
+  id: 'heliot',
+  keywords: ['heliot', 'heliot media', 'audiovisual', 'produccion audiovisual', 'video'],
+  answer: '<strong>Heliot Media</strong> es un proyecto de producción audiovisual con equipo activo, clientes reales e ingresos por servicios. Alexander es Director de Recursos Humanos ahí.',
+  suggestions: ['¿Qué proyectos tiene?', '¿Cuál es su experiencia?', '¿Cómo contacto?']
+},
     {
       id: 'windsor',
       keywords: ['windsor', 'servicios digitales', 'diseno', 'diseno digital', 'tecnologia'],
