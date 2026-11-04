@@ -1,14 +1,15 @@
 /* ==========================================================================
    LAYOUT · Header + Footer · Alex Workspace
-   v6 · 2026
+   v7 · 2026
+   - Eliminada Unidad de Orientación Vocacional (menú, rutas)
+   - Eliminado enlace a Heliot Media (roto)
    - Eliminada la IIFE duplicada (v3)
-   - Eliminada la entrada "Generaciones" del NAV y del footer
    - Incluye Unidad de Talento Humano en el menú
    ========================================================================== */
 (function () {
   'use strict';
 
-  var SUBFOLDER_RE = /\/(?:unidad-de-becas|unidad-de-orientacion-vocacional|unidad-de-emprendimiento|unidad-de-talento-humano)(?:\/|$)/;
+  var SUBFOLDER_RE = /\/(?:unidad-de-becas|unidad-de-emprendimiento|unidad-de-talento-humano)(?:\/|$)/;
 
   function isSubfolder() { return SUBFOLDER_RE.test(window.location.pathname); }
 
@@ -22,7 +23,6 @@
   function currentPage() {
     var path = window.location.pathname;
     if (/\/unidad-de-emprendimiento(?:\/|$)/.test(path)) return 'unidad-de-emprendimiento';
-    if (/\/unidad-de-orientacion-vocacional(?:\/|$)/.test(path)) return 'unidad-de-orientacion';
     if (/\/unidad-de-becas(?:\/|$)/.test(path)) return 'unidad-de-becas';
     if (/\/unidad-de-talento-humano(?:\/|$)/.test(path)) return 'unidad-de-talento-humano';
     var file = path.split('/').pop() || 'index.html';
@@ -46,7 +46,6 @@
       children: [
         { label: 'Todas las Unidades', href: 'unidades.html', id: 'unidades' },
         { label: 'Becas', href: 'unidad-de-becas/', id: 'unidad-de-becas' },
-        { label: 'Orientación Vocacional', href: 'unidad-de-orientacion-vocacional/', id: 'unidad-de-orientacion' },
         { label: 'Emprendimiento', href: 'unidad-de-emprendimiento/', id: 'unidad-de-emprendimiento' },
         { label: 'Talento Humano', href: 'unidad-de-talento-humano/', id: 'unidad-de-talento-humano' }
       ]
@@ -174,5 +173,5 @@
     renderAll();
   }
   window.addEventListener('load', renderAll);
-  console.log('[aw-layout] v6 cargado');
+  console.log('[aw-layout] v7 cargado');
 })();
