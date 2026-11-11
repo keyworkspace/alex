@@ -9,6 +9,16 @@
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="cuenta-regresiva.css" />
 <script src="layout.js?v=7"></script>
+
+<!-- CSS crítico de la cuenta regresiva · se aplica antes que cuenta-regresiva.css.
+     Evita que el bloque revelado aparezca antes de tiempo si el CSS externo tarda. -->
+<style>
+  .cuenta__reveal { display: none; }
+  .cuenta[data-state="revealed"] .cuenta__reveal { display: block; }
+  .cuenta[data-state="revealed"] .cuenta__head,
+  .cuenta[data-state="revealed"] .cuenta__grid,
+  .cuenta[data-state="revealed"] .cuenta__foot { display: none; }
+</style>
 </head>
 <body>
 
@@ -63,7 +73,7 @@
             La siguiente etapa ya tiene dirección, nombre y fecha. Cuando la cuenta llegue a cero, todo se va a saber.
           </p>
 
-          <div class="cuenta" data-cuenta-target="2026-12-02T00:00:00">
+          <div class="cuenta" data-cuenta-target="2026-12-02T00:00:00" data-state="counting">
 
             <span class="cuenta__head" data-cuenta-head>Faltan</span>
 
