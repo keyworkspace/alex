@@ -7,7 +7,8 @@
 <meta name="description" content="Educación formal, certificaciones y formación continua." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23143F59'/%3E%3Ctext x='50' y='52' font-family='Inter, sans-serif' font-size='62' font-weight='800' fill='%23F29A2E' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="styles.css" />
-<script src="layout.js"></script>
+<link rel="stylesheet" href="cuenta-regresiva.css" />
+<script src="layout.js?v=7"></script>
 </head>
 <body>
 
@@ -47,24 +48,74 @@
     </div>
   </div>
 
+  <!-- ============================================================
+       PRÓXIMAMENTE · cuenta regresiva con reveal
+       Cambia data-cuenta-target por la fecha real en la que quieres
+       que se muestre el mensaje. Formato ISO: YYYY-MM-DDTHH:MM:SS
+       ============================================================ -->
   <div class="rblock" style="margin-top:1.25rem;">
     <div class="rblock__inner rblock--purple reveal">
       <div class="rblock__grid">
         <div>
-          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.7;color:var(--yellow);">Próximamente</span>
+          <span style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;opacity:0.75;color:var(--orange);">Próximamente · Ciclo 2027</span>
           <h2 class="rblock__title" style="margin-top:0.6rem;">Lo que se <em>viene</em></h2>
           <p class="rblock__text" style="font-size:1.05rem;opacity:1;">
-            Esta sección todavía no está completa. Falta la parte que aún no ha empezado.
+            La siguiente etapa ya tiene dirección, nombre y fecha. Cuando la cuenta llegue a cero, todo se va a saber.
           </p>
-          <p class="rblock__text">
-            Cuando la siguiente etapa arranque, aparecerá aquí con la misma evidencia que el resto: institución, fechas y credenciales.
-          </p>
-          <p class="rblock__text" style="font-weight:600;opacity:0.9;">
-            Por ahora, el espacio queda reservado.
-          </p>
+
+          <div class="cuenta" data-cuenta-target="2026-12-02T00:00:00">
+
+            <span class="cuenta__head" data-cuenta-head>Faltan</span>
+
+            <div class="cuenta__grid">
+              <div class="cuenta__cell">
+                <span class="cuenta__num" data-cuenta-unit="days">—</span>
+                <span class="cuenta__unit">Días</span>
+              </div>
+              <div class="cuenta__cell">
+                <span class="cuenta__num" data-cuenta-unit="hours">—</span>
+                <span class="cuenta__unit">Horas</span>
+              </div>
+              <div class="cuenta__cell">
+                <span class="cuenta__num" data-cuenta-unit="minutes">—</span>
+                <span class="cuenta__unit">Min</span>
+              </div>
+              <div class="cuenta__cell">
+                <span class="cuenta__num" data-cuenta-unit="seconds">—</span>
+                <span class="cuenta__unit">Seg</span>
+              </div>
+            </div>
+
+            <p class="cuenta__foot" data-cuenta-foot>Cuenta regresiva hasta la siguiente etapa.</p>
+
+            <!-- Bloque que se muestra cuando la cuenta llega a 0 -->
+            <div class="cuenta__reveal">
+              <span class="cuenta__reveal-label">Etapa revelada</span>
+              <h3 class="cuenta__reveal-title">Voy a estudiar <em>Psicología</em> en UNIVO</h3>
+              <p class="cuenta__reveal-text">
+                La siguiente etapa empieza en la <strong>Universidad de Oriente</strong>, en el ciclo 2027. Psicología desde la base formal, con el mismo criterio con el que he construido todo lo demás: comprender a las personas, ordenar con estructura, crear cosas que funcionen.
+              </p>
+              <div class="cuenta__reveal-actions">
+                <a class="btn-big btn-big--light" href="filosofia.html">
+                  <span class="btn-big__label">
+                    Ver filosofía
+                    <span class="btn-big__arrow" aria-hidden="true">→</span>
+                  </span>
+                </a>
+                <a class="btn-big" href="contacto.html" style="background:rgba(255,255,255,0.14);color:#fff;">
+                  <span class="btn-big__label">
+                    Ir a contacto
+                    <span class="btn-big__arrow" aria-hidden="true">→</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
         </div>
         <div style="text-align:right;">
-          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--yellow);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
+          <svg viewBox="0 0 200 200" style="width:min(100%,200px);height:auto;color:var(--orange);margin-left:auto;" fill="none" stroke="currentColor" stroke-width="1.2">
             <circle cx="100" cy="100" r="10" fill="currentColor"/>
             <circle cx="100" cy="100" r="35" opacity="0.55"/>
             <circle cx="100" cy="100" r="60" opacity="0.3"/>
@@ -270,5 +321,6 @@
 <aw-footer></aw-footer>
 
 <script src="app.js"></script>
+<script src="cuenta-regresiva.js"></script>
 </body>
 </html>
